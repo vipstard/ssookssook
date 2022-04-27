@@ -3,4 +3,11 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <!--login-->
+    <string name="login_id">로그인할 ID</string>
+    <string name="login_pw">로그인할 PW</string>
+    <string name="login">로그인</string>
+    <!--home-->
+    <string name="home_led_text">Led on/off</string>
 </resources>

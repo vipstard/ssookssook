@@ -11,10 +11,10 @@
         android:id="@+id/lock_lck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="536dp"
+        android:layout_marginTop="568dp"
         android:src="@drawable/ic_launcher_foreground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,7 +22,7 @@
         android:id="@+id/lock_o"
         android:layout_width="153dp"
         android:layout_height="102dp"
-        android:layout_marginTop="332dp"
+        android:layout_marginTop="344dp"
         android:src="@drawable/pngegg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
