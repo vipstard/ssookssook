@@ -53,7 +53,7 @@ public class SplashActivity extends Activity {
         lcklockImageView.startAnimation(anim_FadeIn);
         faceRecgnitionImageView.startAnimation(anim_FadeIn);
         oImageView.startAnimation(anim_ball);
-        //oImageView2.startAnimation(anim_ball);
+        oImageView2.startAnimation(anim_ball);
 
     }
 
