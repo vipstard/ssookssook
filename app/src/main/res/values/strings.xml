@@ -10,4 +10,12 @@
     <string name="login">로그인</string>
     <!--home-->
     <string name="home_led_text">Led on/off</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--fragment_3.xml-->
+    <string name="edtUrl_hint">https:// or http://</string>
+    <string name="btnSave">설정</string>
 </resources>

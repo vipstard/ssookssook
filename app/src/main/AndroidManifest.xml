@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ssukssuk">
-
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <!--usesCleartextTraffic:HTTP프로토콜 접근 허용-->
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

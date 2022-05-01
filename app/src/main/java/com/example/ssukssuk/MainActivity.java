@@ -1,61 +1,48 @@
 package com.example.ssukssuk;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
-
-import android.graphics.Color;
 import android.os.Bundle;
-import android.widget.CompoundButton;
-import android.widget.Switch;
-import android.widget.TextView;
-
+import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.ssukssuk.databinding.ActivityMainBinding;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
+    BottomNavigationView bottomNav;
+    Fragment1 frag_home;
+    Fragment2 frag_time;
+    Fragment3 frag_option;
 
-    private ActivityMainBinding binding;
-    TextView textView;
-    Switch sw;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        bottomNav = findViewById(R.id.bottomNav);
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
+        frag_home = new Fragment1();
+        frag_time = new Fragment2();
+        frag_option = new Fragment3();
 
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications,R.id.navigation_setting)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
-        textView = findViewById(R.id.textView);
-        sw = findViewById(R.id.switch1);
-        sw.setOnCheckedChangeListener(new colorSwitchListener());
-
-
-    }
-    class colorSwitchListener implements CompoundButton.OnCheckedChangeListener{
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-            if(isChecked) {
-                textView.setText("on");
-                textView.setTextColor(Color.RED);
-            }else {
-                textView.setText("off");
-                textView.setTextColor(Color.BLACK);
+        //실행 시 처음 보여줄 프래그먼트 화면 설정
+        //replace(프래그먼트를 보여주는 레이아웃 리소스 ID, 보여줄 프래그먼트객체)
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_home).commit();
+        //메뉴버튼 클릭 시 화면 전환
+        bottomNav.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                //선택한 메뉴버튼에 대한 리소스ID 저장
+                int itemId = item.getItemId();
+                if(itemId == R.id.home){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_home).commit();
+                }else if(itemId == R.id.timer){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_time).commit();
+                }else{
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_option).commit();
+                }
+                return false;
             }
-        }
+        });
     }
-
 }
