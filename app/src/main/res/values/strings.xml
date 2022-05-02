@@ -5,13 +5,15 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_login">LoginActivity</string>
     <!--login-->
-    <string name="login_id">로그인할 ID</string>
-    <string name="login_pw">로그인할 PW</string>
+    <string name="login_id">아이디</string>
+    <string name="login_pw">비밀번호</string>
     <string name="login">로그인</string>
+    <string name="login_basic">회원가입</string>
+    <string name="idfind">아이디 찾기</string>
+    <string name="pwfind">비밀번호 찾기</string>
     <!--home-->
     <string name="home_led_text">Led on/off</string>
     <!-- TODO: Remove or change this placeholder text -->
-
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>

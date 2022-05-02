@@ -11,49 +11,85 @@
         android:id="@+id/user_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
         android:ems="10"
         android:hint="@string/login_id"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/user_pw"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btn_basic"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="150dp"
+        android:text="@string/login_basic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_login"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/btn_login" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="17dp"
+        android:text="@string/login"
+        app:layout_constraintBottom_toTopOf="@+id/btn_basic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <EditText
         android:id="@+id/user_pw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:ems="10"
-        android:hint="@string/login_pw"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/btn_login"
+        android:hint="로그인할 PW"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/user_id"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/user_id"
         app:layout_constraintTop_toBottomOf="@+id/user_id" />
 
-    <Button
-        android:id="@+id/button2"
+    <CheckBox
+        android:id="@+id/cbauto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="Button"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="203dp"
+        android:text="자동로그인"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.807"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="@+id/user_pw"
+        app:layout_constraintTop_toBottomOf="@+id/user_pw" />
 
     <Button
-        android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginEnd="155dp"
-        android:layout_marginBottom="196dp"
-        android:text="@string/login"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/btn_idfind"
+        android:layout_width="70dp"
+        android:layout_height="17dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="10dp"
+        android:background="#00ff0000"
+        android:text="@string/idfind"
+        android:textColor="#72FFFFFF"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_basic" />
+
+    <Button
+        android:id="@+id/btn_pwfind"
+        android:layout_width="84dp"
+        android:layout_height="17dp"
+        android:background="#00ff0000"
+        android:text="@string/pwfind"
+        android:textColor="#72FFFFFF"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_idfind"
+        app:layout_constraintStart_toEndOf="@+id/btn_idfind"
+        app:layout_constraintTop_toTopOf="@+id/btn_idfind"
+        app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
