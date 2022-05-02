@@ -26,7 +26,7 @@ public class Fragment1 extends Fragment {
                 getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("url","https://www.smhrd.or.kr");
 
-
+        //test
         // 안드로이드에 설치되어 있는 기본 브라우저 실행
         // --> WebSettings 객체를 이용해서 Webview에 바로 띄워지도록 설정
         WebSettings settings = webView.getSettings();
