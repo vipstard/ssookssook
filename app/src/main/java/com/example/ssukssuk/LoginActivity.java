@@ -43,11 +43,10 @@ public class LoginActivity extends AppCompatActivity {
             }
         }
 
-        else if(id == null && pw == null){
+        else if(id == null && pw == null) {
             login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
 
 
                     if (id.equals("sc") && pw.equals("sc")) {
@@ -55,21 +54,21 @@ public class LoginActivity extends AppCompatActivity {
 
                         SharedPreferences.Editor autoLogin = auto.edit();
                         autoLogin.putString("user_id", id);
-                        autoLogin.putString("user_pw",pw);
+                        autoLogin.putString("user_pw", pw);
                         //꼭 commit()을 해줘야 값이 저장됩니다 ㅎㅎ
                         autoLogin.commit();
-                        Toast.makeText(LoginActivity.this, user_id.getText().toString()+"님 환영합니다.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, user_id.getText().toString() + "님 환영합니다.", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
-                    }else{
+                    } else {
                         Toast.makeText(LoginActivity.this,
                                 "로그인 실패",
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
             });
-
+        }
         basic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -83,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
-    }}
+    }
     void showDialog() {
         AlertDialog.Builder msgBuilder = new AlertDialog.Builder(LoginActivity.this)
                 .setTitle("회원가입페이지 이동")
