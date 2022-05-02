@@ -37,6 +37,7 @@
     
     </c:if>
     <button type="button" class="btn" onclick="location.href='/TEST/productList'">제품구매</button>
+    <button type="button" class="btn" onclick="location.href='/TEST/helpDesk'">고객센터</button>
     </div>
     <div class="panel-body">
     
