@@ -15,6 +15,10 @@
     <string name="home_led_text">Led on/off</string>
     <!-- TODO: Remove or change this placeholder text -->
 
+    <!-- findid -->
+    <string name="btnfindphone">휴대폰 번호</string>
+    <string name="btnfindemail">이메일</string>
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!--fragment_3.xml-->

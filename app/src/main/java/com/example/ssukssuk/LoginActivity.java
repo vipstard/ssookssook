@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         user_id = findViewById(R.id.user_id);
         user_pw = findViewById(R.id.user_pw);
         login = findViewById(R.id.btn_login);
-        basic = findViewById(R.id.btn_basic);
+        basic = findViewById(R.id.btn_sign);
         idfind = findViewById(R.id.btn_idfind);
         pwfind = findViewById(R.id.btn_pwfind);
         auto_check = findViewById(R.id.cbauto);
