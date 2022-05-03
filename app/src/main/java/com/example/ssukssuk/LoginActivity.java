@@ -36,7 +36,14 @@ public class LoginActivity extends AppCompatActivity {
         idfind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this,findActivity.class);
+                Intent intent = new Intent(LoginActivity.this, idfindActivity.class);
+                startActivity(intent);
+            }
+        });
+        pwfind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this,pwfindActivity.class);
                 startActivity(intent);
             }
         });

@@ -13,9 +13,6 @@
         android:theme="@style/Theme.Ssukssuk"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".findActivity"
-            android:exported="false" />
-        <activity
             android:name=".pwfindActivity"
             android:exported="false" />
         <activity
