@@ -55,7 +55,7 @@ display: none;
 				<h4 class="mb-3">회원가입</h4>
 				
 				<!-- 회원가입 폼 -->
-				<form class="validation-form" action="/TEST/Join" method="post">
+				<form class="validation-form" action="Join" method="post">
 				
 				<div class="mb-3">
 					<label for="address2">아이디<span class="text-muted">
@@ -165,7 +165,7 @@ display: none;
     function checkId(){
         var id = $('#id').val(); //email값이 "email"인 입력란의 값을 저장
         $.ajax({
-            url:'./idCheck', //Controller에서 요청 받을 주소
+            url:'idCheck', //Controller에서 요청 받을 주소
             type:'post', //POST 방식으로 전달
             data:{id:id},
             success:function(cnt){ //컨트롤러에서 넘어온 cnt값을 받는다 
@@ -218,7 +218,7 @@ function EmailCheck(str){
   			$('#checkId').html('');
   		
         $.ajax({
-            url:'./emailCheck', //Controller에서 요청 받을 주소
+            url:'emailCheck', //Controller에서 요청 받을 주소
             type:'post', //POST 방식으로 전달
             data:{email:email},
             success:function(cnt){ //컨트롤러에서 넘어온 cnt값을 받는다 

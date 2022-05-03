@@ -14,17 +14,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 
-//@Controller : Spring MVC 프로젝트에서 컨트롤러 역할
-// 주로 View를 반환하기 위해 사용
-
 @Controller
 public class BoardController {
 	
+	/* 메인 */
+	@GetMapping("main")
+	public String boardList() {
+		return "/TestWeb/main";
+	}
 	
-	//아이디 찾기
-	@GetMapping("/EditProfile")
+	/* 회원가입 폼으로 이동 */
+	@GetMapping("JoinForm")
+	public String JoinForm() {
+		return "/TestWeb/JoinForm";
+	}
+	
+	
+	
+	/* 회원수정 폼으로 이동 */
+	@GetMapping("EditProfile")
 	public String EditProfile() {
-		return "EditProfile";
+		return "/TestWeb/EditProfile";
 	}
 	
 	

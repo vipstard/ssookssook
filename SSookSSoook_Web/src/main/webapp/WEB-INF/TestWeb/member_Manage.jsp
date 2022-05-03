@@ -31,7 +31,6 @@
       <th>아이디</th>
       <th>이메일</th>
       <th>이름</th>
-      <th>닉네임</th>
       <th>주소</th>
       <th>핸드폰 번호</th>
       <th>가입날짜</th>
@@ -39,14 +38,13 @@
    
    <c:forEach var="m_vo" items="${Mem_list}">
    <tr>
-   	  <td>${m_vo.idx}</td>
+   	  <td>${m_vo.rn}</td>
       <td>${m_vo.id}</a></td>
       <td>${m_vo.email}</td>
       <td>${m_vo.name}</td>
-      <td>${m_vo.nick}</td>
-      <td>${m_vo.address}</td>
+      <td>${m_vo.addr}</td>
       <td>${m_vo.phone}</td>
-      <td>${m_vo.indate}</td>
+      <td>${m_vo.joindate}</td>
    </tr>
    </c:forEach>
   

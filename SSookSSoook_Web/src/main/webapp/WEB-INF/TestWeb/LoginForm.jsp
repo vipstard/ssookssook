@@ -286,7 +286,7 @@ input[type=text]:placeholder {
     </div>
 
     <!-- Login Form -->
-    <form accept-charset="UTF-8" role="form" method="post" action="/TEST/login_ok">
+    <form accept-charset="UTF-8" role="form" method="post" action="Login_Test">
       <input type="text" id="id" class="fadeIn second" name="id" placeholder="login">
       <input type="text" id="pw" class="fadeIn third" name="pw" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
@@ -298,8 +298,10 @@ input[type=text]:placeholder {
       <a class="underlineHover" href="/TEST/userSearch">Forgot ID?</a> / 
       <a class="underlineHover" href="#">Forgot Password?</a><br>
       <!-- 카카오 로그인 버튼 -->
-      <a href="https://kauth.kakao.com/oauth/authorize?client_id=e3eced6c366d05e611468e218fc8f42d&redirect_uri=http://localhost:8081/TEST/KakaoLogin&response_type=code">
-    <img src="//mud-kage.kakao.com/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" height="30" width="200"/></a><br>
+      <a href="https://kauth.kakao.com/oauth/authorize?client_id=e3eced6c366d05e611468e218fc8f42d&redirect_uri=http://211.227.224.199:8081/SS/KakaoLogin&response_type=code">
+    	<img src="//mud-kage.kakao.com/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" height="30" width="200"/></a><br>
+    
+      <!-- 네이버 로그인  -->
       <a href="${url}"><img height="30"  width="200" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a>
 
     </div>

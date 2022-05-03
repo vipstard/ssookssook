@@ -17,7 +17,7 @@
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="prefix" value="/WEB-INF/"/>
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
@@ -28,7 +28,7 @@
 	
 	
 	<!-- NaverLoginBO Class에 대한 Bean설정 추가 -->
-	<!--  <beans:bean id="naverLoginBO" class="kr.smhrd.service.NaverLoginBO"/>-->
+	<beans:bean id="naverLoginBO" class="kr.smhrd.service.NaverLoginBO"/>
 
 	
 	<!-- mapping : 가상 경로(상대경로), location : 리소스가 실제로 저장된 경로 -->

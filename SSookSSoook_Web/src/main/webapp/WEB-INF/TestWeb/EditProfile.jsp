@@ -55,12 +55,12 @@ display: none;
 				<h4 class="mb-3">회원정보 수정</h4>
 				
 				<!-- 회원가입 폼 -->
-				<form class="validation-form" action="/TEST/memberUpdate" method="post">
+				<form class="validation-form" action="/SS/memberUpdate" method="post">
 				
 				<div class="mb-3">
 					<label for="address2">아이디<span class="text-muted">
 							</span></label> 
-							<input type="hidden" class="form-control" id="idx" name="idx" value=${LoginVo.idx }>
+							<%-- <input type="hidden" class="form-control" id="idx" name="idx" value=${LoginVo.idx }> --%>
 							<input type="text" class="form-control" id="id" name="id" value=${LoginVo.id } oninput = "checkId()" readonly>
 							
 							<!-- id ajax 중복체크 -->
@@ -91,22 +91,17 @@ display: none;
 							value="${LoginVo.phone }" required>
 				</div>
 				
-					<div class="row">
-						<div class="col-md-6 mb-3">
-							<label for="name">이름</label> <input type="text"
-								class="form-control" id="name" name="name" placeholder="" value="${LoginVo.name }" readonly>
-							<div class="invalid-feedback">이름을 입력해주세요.</div>
-						</div>
-						<div class="col-md-6 mb-3">
-							<label for="nickname">별명</label> <input type="text"
-								class="form-control" id="nickname" name="nick" placeholder="" value="${LoginVo.nick }" readonly>
-							<div class="invalid-feedback">별명을 입력해주세요.</div>
-						</div>
-					</div>
+			
+				<div class="mb-3">
+						<label for="name">이름</label> <input type="text"
+						class="form-control" id="name" name="name" placeholder="" value="${LoginVo.name }" readonly>
+						<div class="invalid-feedback">이름을 입력해주세요.</div>
+				</div>
+				
 					
 					<div class="mb-3">
 						<label for="address">주소</label> 
-						<input type="text" class="form-control" id="address" name="address" value="${LoginVo.address }" required>
+						<input type="text" class="form-control" id="addr" name="addr" value="${LoginVo.addr }" required>
 						<div class="invalid-feedback">주소를 입력해주세요.</div>
 					</div>
 				

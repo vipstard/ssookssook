@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.smhrd.mapper.MemberMapper">
+
+<resultMap type="kr.smhrd.domain.MemberVO" id="member">
+	<result property="id" column="user_id"/>
+	<result property="pw" column="user_pw"/>
+	<result property="name" column="user_name"/>
+	<result property="phone" column="user_phone"/>
+	<result property="email" column="user_email"/>
+	<result property="address" column="user_address"/>
+	<result property="joindate" column="user_joindate"/>
+	
+</resultMap>
+
+	<!-- 로그인 -->
+	<select id="MemberLogin" resultType="kr.smhrd.domain.MemberVO" resultMap="member">
+		select * from user_info where user_id=#{id} and user_pw=#{pw}
+	</select>
+	
+	<select id="Social_memberLogin" parameterType="String" resultType="kr.smhrd.domain.MemberVO" resultMap="member">
+		select * from user_info where user_email=#{email}
+	</select>
+	
+	<!-- 아이디 중복 체크 -->
+	<select id="emailCheck" parameterType="String" resultType="int">
+		SELECT COUNT(user_email) FROM user_info WHERE user_email= #{email}
+	</select>
+	
+	<!-- 아이디 중복 체크 -->
+	<select id="idCheck" parameterType="String" resultType="int">
+		SELECT COUNT(user_id) FROM user_info WHERE user_id= #{id}
+	</select>
+	
+	<select id="memberList" resultType="kr.smhrd.domain.MemberVO" resultMap="member">
+		SELECT @ROWNUM:=@ROWNUM+1 AS rn, user_id , user_email, user_name, user_addr, user_phone, user_joindate 
+		FROM user_info ui , (SELECT @ROWNUM:=0) AS R limit #{skip}, #{amount}
+	</select>	
+
+	<!-- 회원정보 수정 -->
+	<update id="MemberUpdate" parameterType="kr.smhrd.domain.MemberVO">
+		update user_info set user_email=#{email}, user_pw=#{pw}, user_phone=#{phone}, user_addr=#{addr} where user_id=#{id}
+	</update>
+
+	
+</mapper>
