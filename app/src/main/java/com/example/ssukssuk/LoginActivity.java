@@ -33,7 +33,13 @@ public class LoginActivity extends AppCompatActivity {
 
         String id = user_id.getText().toString();
         String pw = user_pw.getText().toString();
-
+        idfind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this,findActivity.class);
+                startActivity(intent);
+            }
+        });
         if(id!=null && pw != null) {
             if(user_id.equals("sc") && user_pw.equals("sc")) {
                 Toast.makeText(LoginActivity.this, user_id +"님 자동로그인 입니다.", Toast.LENGTH_SHORT).show();
