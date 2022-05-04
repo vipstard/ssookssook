@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.smhrd.domain.Criteria;
 import kr.smhrd.domain.MemberVO;
+import kr.smhrd.domain.PageMakerDTO;
 import kr.smhrd.service.MemberServiceImple;
 
 @Controller
@@ -102,6 +103,12 @@ public class MemberController {
 				ArrayList<MemberVO> Mem_list = memberService.memberList(cri);
 				
 				model.addAttribute("Mem_list", Mem_list);
+				
+				int total = memberService.memTotal();
+				
+				PageMakerDTO page = new PageMakerDTO(cri, total);
+				
+				model.addAttribute("pageMaker", page);
 				
 				return "/TestWeb/member_Manage";
 			}

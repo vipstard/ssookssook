@@ -14,7 +14,7 @@ public class NaverServiceImple implements NaverService {
 	
 	//네이버 간편회원가입
 	@Override
-	public MemberVO N_join(String id, String email, String nickname, String name) {
+	public MemberVO N_join(String id, String email, String name) {
 		
 		// 네이버에서 받을 수 있는 정보로만 회원가입 시킴. 나머지는 null값
 		mapper.N_Join(id, email, name); 

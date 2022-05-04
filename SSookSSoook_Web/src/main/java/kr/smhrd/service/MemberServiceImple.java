@@ -94,6 +94,14 @@ public class MemberServiceImple implements MemberService {
 		return list;
 	}
 
+	/* 총 회원 수 */
+	@Override
+	public int memTotal() {
+		
+		return mapper.memTotal();
+	}
+
+	
 	/*
 	 * 회원리스트 (페이징 적용)
 	 * 

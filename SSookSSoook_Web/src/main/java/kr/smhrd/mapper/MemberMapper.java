@@ -55,6 +55,9 @@ public interface MemberMapper {
 	//회원 리스트(페이징)
 	public ArrayList<MemberVO> memberList(Criteria cri);
 	
+	/* 총 회원수 */ 
+	public int memTotal();
+	
 	
 	
 }

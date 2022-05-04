@@ -10,7 +10,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"/>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -23,6 +23,7 @@
 	<button class="btn btn-default btn-sm" onclick="history.go(-1)">뒤로가기</button>
 					
     </div>
+ 
     <div class="panel-body">
     
 	<table class = "table table-bordered table-hover">
@@ -47,14 +48,47 @@
       <td>${m_vo.joindate}</td>
    </tr>
    </c:forEach>
-  
+  </table>
    
-</table>
+   <form id="moveForm" method="get">
+   <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+   <input type="hidden" name="amount" value="${pageMaker.cri.amount }"> 
+  </form>
+   
 
+
+	
+    <div class="pageInfo_wrap" >
+        <div class="pageInfo_area">
+			<ul id="pageInfo" class="pageInfo">
+			
+               <!-- 각 번호 페이지 버튼 -->
+               <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+                   <li class="pageInfo_btn"><a href="${num}">${num}</a></li>
+               </c:forEach>
+               
+ 			</ul>
+        </div>
+    </div>
+    
 </div>
     <div class="panel-footer">SSook SSook</div>
   </div>
 </div>
+
+<script>
+
+/* 페이지 넘기기 js */
+$(".pageInfo a").on("click", function(e){
+
+    e.preventDefault();
+    moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+    moveForm.attr("action", "member_Manage");
+    moveForm.submit();
+    
+});
+
+</script>
 
 </body>
 </html>

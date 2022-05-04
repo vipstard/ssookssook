@@ -42,5 +42,9 @@
 		update user_info set user_email=#{email}, user_pw=#{pw}, user_phone=#{phone}, user_addr=#{addr} where user_id=#{id}
 	</update>
 
+	<!-- 회원목록 전체 개수 -->
+	<select id="memTotal" resultType="int">
+		select count(*) from user_info
+	</select>
 	
 </mapper>

@@ -25,21 +25,22 @@ public class BoardMapperTests {
      
      @Autowired
      private MemberMapper mapper;
-     
-     
+     private MemberService service;
      
 
+
      /* 게시판 목록(페이징 적용)테스트 */
+
   @Test
-  public void testGetListPaging() {
+  public void testGetListPaging2() {
       
       Criteria cri = new Criteria();
-                       
-      ArrayList<MemberVO>list = mapper.memberList(cri);
-      cri.setPageNum(1);
+      
+      ArrayList<MemberVO> list = service.memberList(cri);
       
       list.forEach(board -> log.info("" + board));
   }
+     
      
  
 }

@@ -97,7 +97,7 @@ public class NaverController {
 		}else {
 			
 			// 로그인조회시 없을때 간편가입
-			N_Join = naverService.N_join(id, email, nickname, name);
+			N_Join = naverService.N_join(id, email, name);
 			session.setAttribute("LoginVo", N_Join); // 세션 생성
 			
 			
