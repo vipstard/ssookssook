@@ -32,7 +32,7 @@ public class Fragment2 extends Fragment {
         //리스트 ID를 동적으로 접근하는 방법
 
         for(int i =0; i<11; i++){
-            //리소스객체접근.리소스ID반환메소드(리소스ID, 리소스타입, 패키지명)
+
             int imgId = getResources().getIdentifier("item"+(i+1), "drawable","com.example.ssukssuk");
             String strId = String.valueOf(getResources().getIdentifier("item"+(i+13), "string","com.example.ssukssuk"));
             String date = String.valueOf(getResources().getIdentifier("item"+(i+11), "string","com.example.ssukssuk"));
