@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Fragment1 extends Fragment {
@@ -28,26 +31,28 @@ public class Fragment1 extends Fragment {
     ArrayList<String> list;
     EditText edtData;
     Button btn_register;
+    private List<String> list2;          // 데이터를 넣은 리스트변수
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_1, container, false);
-        MainActivity activity = (MainActivity)getActivity();
+        MainActivity activity = (MainActivity) getActivity();
 
         edtData = view.findViewById(R.id.edt);
         btn_register = view.findViewById(R.id.btn_register);
+        list2 = new ArrayList<String>();
 
         lv = view.findViewById(R.id.lv);
         list = new ArrayList<String>();
-        list.add("벤치프레스");
+        list.add("abc");
         list.add("인클라인 벤치프레스");
         list.add("시티드 로우");
         list.add("데드리프트");
-        list.add("바벨로우");
+        list.add("adad");
         list.add("덤벨 프레스");
         list.add("레그 프레스");
-        list.add("스쿼트");
-        list.add("플라이");
+        list.add("fff");
+        list.add("ccchh");
         list.add("프로틴");
         list.add("단백질");
         list.add("스테로이드");
@@ -61,6 +66,28 @@ public class Fragment1 extends Fragment {
         );
 
         lv.setAdapter(adapter);
+        edtData.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                // input창에 문자를 입력할때마다 호출된다.
+                // search 메소드를 호출한다.
+                String text = edtData.getText().toString();
+                search(text);
+            }
+        });
+
+
+        // 검색을 수행하는 메소드
+
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             //adapterView 는 클릭이 일어난 AdapterView
@@ -69,19 +96,10 @@ public class Fragment1 extends Fragment {
 
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String data = list.get(i);
-                Toast.makeText(getActivity(),"선택한 항목 : "+data,Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "선택한 항목 : " + data, Toast.LENGTH_SHORT).show();
             }
         });
-        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getActivity(),"롱클릭",Toast.LENGTH_SHORT).show();
-                String dat = list.get(i);
-                adapter.remove(dat);
 
-                return false;
-            }
-        });
         //버튼 클릭 시 ListView에 저장
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +111,31 @@ public class Fragment1 extends Fragment {
                 edtData.setText("");
             }
         });
+
         return view;
+    }
+    public void search(String charText) {
+
+    // 문자 입력시마다 리스트를 지우고 새로 뿌려준다.
+    list2.clear();
+
+    // 문자 입력이 없을때는 모든 데이터를 보여준다.
+    if (charText.length() == 0) {
+        list2.addAll(list);
+    }
+    // 문자 입력을 할때..
+    else {
+        // 리스트의 모든 데이터를 검색한다.
+        for (int i = 0; i < list.size(); i++) {
+            // arraylist의 모든 데이터에 입력받은 단어(charText)가 포함되어 있으면 true를 반환한다.
+            if (list.get(i).toLowerCase().contains(charText)) {
+                // 검색된 데이터를 리스트에 추가한다.
+                list2.add(list.get(i));
+            }
+        }
+    }
+    // 리스트 데이터가 변경되었으므로 아답터를 갱신하여 검색된 데이터를 화면에 보여준다.
+    adapter.notifyDataSetChanged();
     }
 }
 
