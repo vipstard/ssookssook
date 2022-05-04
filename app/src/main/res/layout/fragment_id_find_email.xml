@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".idfindActivity">
+    tools:context=".idFindActivity">
 
     <Button
-        android:id="@+id/btnphone"
+        android:id="@+id/btnPhone"
         android:layout_width="120dp"
         android:layout_height="36dp"
         android:layout_marginBottom="450dp"
@@ -15,23 +15,23 @@
         android:text="@string/btnfindphone"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnemail"
+        app:layout_constraintEnd_toStartOf="@+id/btnEmail"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnemail"
+        android:id="@+id/btnEmail"
         android:layout_width="120dp"
         android:layout_height="36dp"
         android:background="@drawable/right_top_boder"
         android:text="@string/btnfindemail"
         android:textColor="#36FF06"
-        app:layout_constraintBottom_toBottomOf="@+id/btnphone"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPhone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnphone"
-        app:layout_constraintTop_toTopOf="@+id/btnphone"
+        app:layout_constraintStart_toEndOf="@+id/btnPhone"
+        app:layout_constraintTop_toTopOf="@+id/btnPhone"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
@@ -42,7 +42,7 @@
         android:hint="가입시 입력했던 이메일을 적어주세요"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnphone" />
+        app:layout_constraintTop_toBottomOf="@+id/btnPhone" />
 
     <TextView
         android:id="@+id/textView2"
@@ -76,7 +76,7 @@
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/edtEmail"
+        android:id="@+id/edtId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -88,14 +88,14 @@
         app:layout_constraintTop_toTopOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/btnfindid"
+        android:id="@+id/btnFindPw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="아이디 찾기"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/edtId" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

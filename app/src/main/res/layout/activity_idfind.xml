@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".idfindActivity">
+    tools:context=".idFindActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -38,29 +38,29 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnphone"
+        android:id="@+id/btnPhone"
         android:layout_width="120dp"
         android:layout_height="36dp"
         android:layout_marginBottom="450dp"
         android:background="#00000000"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnemail"
+        app:layout_constraintEnd_toStartOf="@+id/btnEmail"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnemail"
+        android:id="@+id/btnEmail"
         android:layout_width="120dp"
         android:layout_height="36dp"
         android:background="#00000000"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/btnphone"
+        app:layout_constraintBottom_toBottomOf="@+id/btnPhone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnphone"
-        app:layout_constraintTop_toTopOf="@+id/btnphone"
+        app:layout_constraintStart_toEndOf="@+id/btnPhone"
+        app:layout_constraintTop_toTopOf="@+id/btnPhone"
         app:layout_constraintVertical_bias="1.0" />
 
     <androidx.fragment.app.FragmentContainerView

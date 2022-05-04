@@ -13,10 +13,10 @@
         android:theme="@style/Theme.Ssukssuk"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".pwfindActivity"
+            android:name=".pwFindActivity"
             android:exported="false" />
         <activity
-            android:name=".idfindActivity"
+            android:name=".idFindActivity"
             android:exported="false" />
         <activity
             android:name=".new_Login_basic"

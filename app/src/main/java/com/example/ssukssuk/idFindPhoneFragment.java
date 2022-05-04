@@ -17,7 +17,7 @@ public class idFindPhoneFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
-        return inflater.inflate(R.layout.fragment_idfindphone, container, false);
+        return inflater.inflate(R.layout.fragment_id_find_phone, container, false);
     }
 
     @Override

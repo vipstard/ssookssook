@@ -5,34 +5,34 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 
-public class idfindActivity extends AppCompatActivity {
+public class idFindActivity extends AppCompatActivity {
 
-    private final int Fragment_2 = 1;
-    private final int Fragment_1 = 2;
+    private final int idFragment_2 = 1;
+    private final int idFragment_1 = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_idfind);
 
-    findViewById(R.id.btnphone).setOnClickListener(new View.OnClickListener() {
+    findViewById(R.id.btnPhone).setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
 
-            FragmentView(Fragment_1);
+            FragmentView(idFragment_1);
 
         }
     });
 
-    findViewById(R.id.btnemail).setOnClickListener(new View.OnClickListener() {
+    findViewById(R.id.btnEmail).setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            FragmentView(Fragment_2);
+            FragmentView(idFragment_2);
 
 
         }
     });
-    FragmentView(Fragment_1);
+    FragmentView(idFragment_1);
 }
 
     private void FragmentView(int fragment){
