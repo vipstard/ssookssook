@@ -2,6 +2,7 @@ package com.example.ssukssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,8 +18,8 @@ import java.util.ArrayList;
 public class new_Login_basic extends AppCompatActivity {
     EditText name,Id,Pw,rePw,email;
     Spinner year,month,day;
-    TextView back;
-    Button btn_Id_check,btn_Pw_check,btn_new_reg;
+
+    Button btn_Id_check,btn_Pw_check,btn_new_reg,back;
     String[] year1 = {"소녀시대", "소녀시대2", "소녀시대3", "소녀시대4"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,9 @@ public class new_Login_basic extends AppCompatActivity {
         year = (Spinner) findViewById(R.id.signBirth);
         month =(Spinner) findViewById(R.id.signBirth2);
         day = (Spinner) findViewById(R.id.signBirth3);
+
+
+
         final ArrayList<String> list = new ArrayList<>();
         final ArrayList<String> list2 = new ArrayList<>();
         final ArrayList<String> list3 = new ArrayList<>();
@@ -129,7 +133,9 @@ public class new_Login_basic extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(new_Login_basic.this,"클릭",Toast.LENGTH_SHORT).show();
+                onBackPressed();
             }
         });
     }
+
 }

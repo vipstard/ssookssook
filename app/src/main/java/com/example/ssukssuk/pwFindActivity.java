@@ -5,8 +5,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class pwFindActivity extends AppCompatActivity {
+
+    Button back;
 
     private final int pwEmailFragment = 1;
     private final int pwPhoneFragment = 2;
@@ -16,6 +19,14 @@ public class pwFindActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pwfind);
 
+        back = findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
 
             findViewById(R.id.btnPhone).setOnClickListener(new View.OnClickListener() {
