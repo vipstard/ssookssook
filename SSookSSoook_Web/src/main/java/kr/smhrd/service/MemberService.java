@@ -33,7 +33,7 @@ public interface MemberService{
 		public ArrayList<MemberVO> memberList(Criteria cri);
 		
 		/* 총 회원 수 */
-		public int memTotal();
+		public int memTotal(Criteria cri);
 		
 		//회원리스트 (페이징 적용)
 		//public List<MemberVO> getMemberListPaging(Criteria cri);

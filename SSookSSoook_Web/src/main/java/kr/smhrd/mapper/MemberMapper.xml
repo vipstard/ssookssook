@@ -32,11 +32,6 @@
 		SELECT COUNT(user_id) FROM user_info WHERE user_id= #{id}
 	</select>
 	
-	<select id="memberList" resultType="kr.smhrd.domain.MemberVO" resultMap="member">
-		SELECT @ROWNUM:=@ROWNUM+1 AS rn, user_id , user_email, user_name, user_addr, user_phone, user_joindate 
-		FROM user_info ui , (SELECT @ROWNUM:=0) AS R limit #{skip}, #{amount}
-	</select>	
-
 	<!-- 회원정보 수정 -->
 	<update id="MemberUpdate" parameterType="kr.smhrd.domain.MemberVO">
 		update user_info set user_email=#{email}, user_pw=#{pw}, user_phone=#{phone}, user_addr=#{addr} where user_id=#{id}
@@ -45,6 +40,23 @@
 	<!-- 회원목록 전체 개수 -->
 	<select id="memTotal" resultType="int">
 		select count(*) from user_info
+			
+			<if test="keyword != null">
+				where user_id like concat('%', #{keyword}, '%')
+			</if>
 	</select>
+	
+	<!-- 회원관리 목록 불러오기 (페이징)-->
+	<select id="memberList" resultType="kr.smhrd.domain.MemberVO" resultMap="member">
+		SELECT @ROWNUM:=@ROWNUM+1 AS rn, user_id , 
+		user_email, user_name, user_addr, user_phone, user_joindate 
+			FROM user_info ui , (SELECT @ROWNUM:=0) AS R 
+			<if test="keyword != null">
+				WHERE user_id like concat('%', #{keyword}, '%')
+			</if>
+			ORDER BY rn desc
+		LIMIT #{skip}, #{amount}
+	</select>	
+	
 	
 </mapper>

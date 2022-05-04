@@ -106,7 +106,7 @@ display: none;
 					
 					<div class="mb-3">
 						<label for="address">주소</label> 
-						<input type="text" class="form-control" id="address" name="address" placeholder="서울특별시 강남구" required>
+						<input type="text" class="form-control" id="addr" name="addr" placeholder="서울특별시 강남구" required>
 						<div class="invalid-feedback">주소를 입력해주세요.</div>
 					</div>
 					

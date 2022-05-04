@@ -12,6 +12,9 @@ public class Criteria {
 	/* 한 페이지 당 보여질 게시물 개수 */
 	private int amount;
 	
+	/* 검색 키워드 */
+	private String keyword;
+	
 	/*스킵 할 게시물 수 ((pageNum-1) * amount)*/
 	private int skip;
 	
