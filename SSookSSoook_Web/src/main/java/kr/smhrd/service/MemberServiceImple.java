@@ -96,9 +96,9 @@ public class MemberServiceImple implements MemberService {
 
 	/* 총 회원 수 */
 	@Override
-	public int memTotal() {
+	public int memTotal(Criteria cri) {
 		
-		return mapper.memTotal();
+		return mapper.memTotal(cri);
 	}
 
 	

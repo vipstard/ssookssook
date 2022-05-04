@@ -76,26 +76,25 @@
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/edtId"
+        android:id="@+id/edtPwPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="이메일"
-        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="@+id/edtName"
         app:layout_constraintStart_toStartOf="@+id/edtName"
         app:layout_constraintTop_toTopOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/btnFindPw"
-        android:layout_width="wrap_content"
+        android:id="@+id/btnFindId1"
+        android:layout_width="108dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="아이디 찾기"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtId" />
+        app:layout_constraintTop_toBottomOf="@+id/edtPwPhone" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

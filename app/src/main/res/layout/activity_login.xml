@@ -70,31 +70,50 @@
     <Button
 
         android:id="@+id/btn_idfind"
-        android:layout_width="79dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="36dp"
-        android:background="#F00000"
+        android:layout_width="53dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="12dp"
+        android:background="#00000000"
         android:includeFontPadding="false"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+
+        android:paddingBottom="0dp"
         android:text="@string/idfind"
         android:textColor="@color/black"
         android:textSize="8sp"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_sign"
         app:layout_constraintWidth_percent="1" />
 
     <Button
         android:id="@+id/btn_pwfind"
-        android:layout_width="84dp"
-        android:layout_height="17dp"
-        android:background="#00ff0000"
+        android:layout_width="58dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="15dp"
+        android:background="#00000000"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
         android:text="@string/pwfind"
-        android:textColor="#72FFFFFF"
-        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:textSize="8sp"
         app:layout_constraintBottom_toBottomOf="@+id/btn_idfind"
         app:layout_constraintStart_toEndOf="@+id/btn_idfind"
         app:layout_constraintTop_toTopOf="@+id/btn_idfind"
         app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:text="|"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_idfind"
+        app:layout_constraintEnd_toStartOf="@+id/btn_pwfind"
+        app:layout_constraintStart_toEndOf="@+id/btn_idfind"
+        app:layout_constraintTop_toTopOf="@+id/btn_idfind" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

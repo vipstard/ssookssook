@@ -85,9 +85,21 @@
         app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <EditText
-        android:id="@+id/edtId"
+        android:id="@+id/edtPwEmail"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
+        android:ems="10"
+        android:hint="이메일"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="@+id/edtPwEmailId"
+        app:layout_constraintStart_toStartOf="@+id/edtPwEmailId"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.461" />
+
+    <EditText
+        android:id="@+id/edtPwEmailId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:hint="아이디"
         android:inputType="textPersonName"
@@ -95,20 +107,6 @@
         app:layout_constraintEnd_toEndOf="@+id/edtName"
         app:layout_constraintStart_toStartOf="@+id/edtName"
         app:layout_constraintTop_toTopOf="@+id/textView3" />
-
-    <EditText
-        android:id="@+id/edtEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:hint="이메일"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="@+id/edtId"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/edtId"
-        app:layout_constraintTop_toTopOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.461" />
 
     <Button
         android:id="@+id/btnFindPw"
@@ -118,7 +116,7 @@
         android:text="비밀번호 찾기"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/edtPwEmail" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

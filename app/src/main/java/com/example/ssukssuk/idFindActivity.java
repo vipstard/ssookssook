@@ -4,9 +4,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 public class idFindActivity extends AppCompatActivity {
 
+    Button back;
     private final int idFragment_2 = 1;
     private final int idFragment_1 = 2;
 
@@ -14,6 +16,15 @@ public class idFindActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_idfind);
+
+        back = findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
     findViewById(R.id.btnPhone).setOnClickListener(new View.OnClickListener() {
         @Override

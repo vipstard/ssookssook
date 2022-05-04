@@ -17,7 +17,7 @@ public interface MemberMapper {
 	//회원 가입
 	@Insert("insert into user_info(user_id, user_pw, user_name, user_phone, user_email, "
 			+ "user_addr, admin_yn, user_joindate) values(#{id},"
-			+ " #{pw}, #{name}, #{phone}, #{email}, #{address}, 'N', now())")
+			+ " #{pw}, #{name}, #{phone}, #{email}, #{addr}, 'N', now())")
 	public void MemberJoin(MemberVO vo);
 	
 
@@ -56,7 +56,7 @@ public interface MemberMapper {
 	public ArrayList<MemberVO> memberList(Criteria cri);
 	
 	/* 총 회원수 */ 
-	public int memTotal();
+	public int memTotal(Criteria cri);
 	
 	
 	

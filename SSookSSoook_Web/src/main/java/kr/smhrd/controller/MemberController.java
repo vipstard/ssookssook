@@ -94,24 +94,25 @@ public class MemberController {
 			return "redirect:/main";
 		}
 		
-		//회원관리
-			@RequestMapping("member_Manage")
-			public String member_Manage(Model model, Criteria cri) {
-				
-				log.info("member_Manage");
-				
-				ArrayList<MemberVO> Mem_list = memberService.memberList(cri);
-				
-				model.addAttribute("Mem_list", Mem_list);
-				
-				int total = memberService.memTotal();
-				
-				PageMakerDTO page = new PageMakerDTO(cri, total);
-				
-				model.addAttribute("pageMaker", page);
-				
-				return "/TestWeb/member_Manage";
-			}
+		/*회원 관리*/
+		@GetMapping("member_Manage")
+		public String member_Manage(Model model, Criteria cri) {
+
+			log.info("member_Manage");
+
+			
+			model.addAttribute("Mem_list", memberService.memberList(cri));
+
+			int total = memberService.memTotal(cri);
+
+			PageMakerDTO page = new PageMakerDTO(cri, total);
+			System.out.println(page);
+			
+			model.addAttribute("pageMaker", page);
+			
+			 return "/TestWeb/member_Manage"; 
+			
+		}
 		
 		/*
 		 * @RequestMapping("/KakaoLogin") public String home(@RequestParam(value =
