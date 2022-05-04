@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Ssukssuk"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".DiaryActivity2"
+            android:exported="false" />
+        <activity
             android:name=".TestFail"
             android:exported="false" />
         <activity

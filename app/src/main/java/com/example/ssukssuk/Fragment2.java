@@ -1,5 +1,6 @@
 package com.example.ssukssuk;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -34,9 +35,9 @@ public class Fragment2 extends Fragment {
         for(int i =0; i<11; i++){
 
             int imgId = getResources().getIdentifier("item"+(i+1), "drawable","com.example.ssukssuk");
-            String strId = String.valueOf(getResources().getIdentifier("item"+(i+13), "string","com.example.ssukssuk"));
-            String date = String.valueOf(getResources().getIdentifier("item"+(i+11), "string","com.example.ssukssuk"));
-            list.add(new BoardVO(imgId,strId,date));
+            String title = String.valueOf(getResources().getIdentifier("item"+(i+1), "string","com.example.ssukssuk"));
+            String date = String.valueOf(getResources().getIdentifier("date"+(i+11), "string","com.example.ssukssuk"));
+            list.add(new BoardVO(imgId,title,date));
 
         }
 
@@ -45,6 +46,16 @@ public class Fragment2 extends Fragment {
                 R.layout.board_list,
                 list);
         lvProduct.setAdapter(adapter);
+        lvProduct.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getActivity(),DiaryActivity2.class);
+                intent.putExtra("img",list.get(i).getImg());
+                intent.putExtra("title",list.get(i).getTitle());
+                intent.putExtra("date",list.get(i).getDate());
+                startActivity(intent);
+            }
+        });
 return view;
     }
 }
