@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">ssukssuk</string>
+    <!--activity_main-->
+    <string name="btnRegister">등록</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>

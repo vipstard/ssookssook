@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     Fragment1 frag_grow;
     Fragment2 frag_board;
     Fragment3 frag_main;
-    Fragment4 frag_customer;
+
     Fragment5 frag_set;
 
     @Override
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         frag_grow = new Fragment1();
         frag_board = new Fragment2();
         frag_main = new Fragment3();
-        frag_customer = new Fragment4();
+
         frag_set = new Fragment5();
 
         //실행 시 처음 보여줄 프래그먼트 화면 설정
@@ -45,8 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_board).commit();
                 }else if(itemId == R.id.main){
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_main).commit();
-                }else if(itemId == R.id.customer){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_customer).commit();
+
                 }else if(itemId == R.id.set){
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_set).commit();
                 }
