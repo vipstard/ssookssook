@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_constraintWidth_percent="1"
     tools:context=".LoginActivity">
 
 
@@ -67,17 +68,21 @@
         app:layout_constraintTop_toBottomOf="@+id/user_pw" />
 
     <Button
+
         android:id="@+id/btn_idfind"
-        android:layout_width="70dp"
-        android:layout_height="17dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="10dp"
-        android:background="#00ff0000"
+        android:layout_width="79dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="36dp"
+        android:background="#F00000"
+        android:includeFontPadding="false"
         android:text="@string/idfind"
-        android:textColor="#72FFFFFF"
-        android:textSize="10sp"
+        android:textColor="@color/black"
+        android:textSize="8sp"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_sign" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_sign"
+        app:layout_constraintWidth_percent="1" />
 
     <Button
         android:id="@+id/btn_pwfind"

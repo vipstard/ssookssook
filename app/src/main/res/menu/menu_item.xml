@@ -3,15 +3,23 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/home"
-        android:icon="@android:drawable/ic_menu_myplaces"
+        android:id="@+id/grow"
+        android:icon="@android:drawable/ic_menu_my_calendar"
+        android:title="성장일기" />
+    <item
+        android:id="@+id/board"
+        android:icon="@android:drawable/ic_menu_agenda"
+        android:title="게시판" />
+    <item
+        android:id="@+id/main"
+        android:icon="@drawable/pngegg"
         android:title="홈" />
     <item
-        android:id="@+id/timer"
-        android:icon="@android:drawable/ic_menu_agenda"
-        android:title="타이머" />
+        android:id="@+id/customer"
+        android:icon="@android:drawable/stat_sys_headset"
+        android:title="고객센터" />
     <item
-        android:id="@+id/option"
-        android:icon="@android:drawable/ic_lock_silent_mode"
+        android:id="@+id/set"
+        android:icon="@android:drawable/ic_menu_manage"
         android:title="설정" />
 </menu>

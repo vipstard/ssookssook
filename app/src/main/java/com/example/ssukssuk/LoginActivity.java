@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                 .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(LoginActivity.this, newLogin_selecter.class);
+                        Intent intent = new Intent(LoginActivity.this, new_Login_basic.class);
 
                         Toast.makeText(LoginActivity.this, "회원가입 페이지로 이동", Toast.LENGTH_SHORT).show();
                         startActivity(intent);
