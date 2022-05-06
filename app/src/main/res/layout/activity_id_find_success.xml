@@ -49,7 +49,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
-        android:id="@+id/textView18"
+        android:id="@+id/tvName"
         android:layout_width="208dp"
         android:layout_height="31dp"
         android:layout_marginTop="30dp"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/tvId"
         android:layout_width="141dp"
         android:layout_height="wrap_content"
 
@@ -75,7 +75,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
     <TextView
         android:id="@+id/textView21"
@@ -86,30 +86,32 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        app:layout_constraintTop_toBottomOf="@+id/tvId" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
-        android:backgroundTint="#FF0000"
+        android:backgroundTint=" #00ff00"
         android:text="로그인하기"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toStartOf="@+id/btnPw"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnPw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#00C1FF"
+        android:backgroundTint="#00ff00"
         android:text="비밀번호 찾기"
-        app:layout_constraintBottom_toBottomOf="@+id/button3"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button3"
-        app:layout_constraintTop_toTopOf="@+id/button3" />
+        app:layout_constraintStart_toEndOf="@+id/btnLogin"
+        app:layout_constraintTop_toTopOf="@+id/btnLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
