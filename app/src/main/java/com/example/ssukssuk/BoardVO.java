@@ -1,31 +1,24 @@
 package com.example.ssukssuk;
 
 public class BoardVO {
-    private int img;
     private String title;
     private String date;
+    private String writer;
 
-    public BoardVO(){}
-
-    public BoardVO(int img, String title, String date) {
-        this.img = img;
-        this.title = title;
-        this.date = date;
-    }
-
-    public int getImg() {
-        return img;
-    }
-
-    public void setImg(int img) {
-        this.img = img;
+    @Override
+    public String toString() {
+        return "BoardVO{" +
+                "title='" + title + '\'' +
+                ", date='" + date + '\'' +
+                ", witer='" + writer + '\'' +
+                '}';
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void getTitle(String title) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
@@ -33,16 +26,21 @@ public class BoardVO {
         return date;
     }
 
-    public void getDate(String date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    @Override
-    public String toString() {
-        return "ProductVO{" +
-                "img=" + img +
-                ", title='" + title  +
-                ", date='" + date  +
-                '}';
+    public String getWriter() {
+        return writer;
+    }
+
+    public void setWiter(String witer) {
+        this.writer = witer;
+    }
+
+    public BoardVO(String title, String date, String writer) {
+        this.title = title;
+        this.date = date;
+        this.writer = writer;
     }
 }

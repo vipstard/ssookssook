@@ -1,6 +1,7 @@
 package com.example.ssukssuk;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -67,6 +68,13 @@ public class Fragment1 extends Fragment {
         );
 
         lv.setAdapter(adapter);
+
+
+
+
+
+
+
         edtData.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -96,8 +104,10 @@ public class Fragment1 extends Fragment {
             // i,j는 사용자가 클릭햇을 뷰 인덱스를 반환
 
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String data = list.get(i);
-                Toast.makeText(getActivity(), "선택한 항목 : " + data, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getActivity(),Board_write.class);
+                intent.putExtra("title",list.get(i));
+                startActivity(intent);
+
             }
         });
 

@@ -6,14 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+
 import java.util.ArrayList;
 
-public class BoardAdapter extends BaseAdapter {
+public class DiaryAdapter extends BaseAdapter {
     Context context;
     int item_layout;
     ArrayList<DiaryVO> list;
     LayoutInflater inflater;
-    public BoardAdapter(Context context, int item_layout, ArrayList<DiaryVO> list) {
+    public DiaryAdapter(Context context, int item_layout, ArrayList<DiaryVO> list) {
         this.context = context;
         this.item_layout = item_layout;
         this.list = list;
@@ -39,18 +40,18 @@ public class BoardAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        BoardHolder holder = null;
+        DiaryHolder holder = null;
 
         if(view ==null){
             view = inflater.inflate(item_layout, viewGroup, false);
-            holder = new BoardHolder(view);
+            holder = new DiaryHolder(view);
 
             view.setTag(holder);
         }else{
-            holder = (BoardHolder) view.getTag();
+            holder = (DiaryHolder) view.getTag();
         }
-        BoardVO vo = (BoardVO) getItem(i);
-        holder.getWriter().setText(vo.getWriter());
+        DiaryVO vo = (DiaryVO) getItem(i);
+        holder.getImg().setImageResource(vo.getImg());
         holder.getTitle().setText(vo.getTitle());
         holder.getDate().setText(vo.getDate());
 
