@@ -31,7 +31,7 @@ public class Fragment1 extends Fragment {
     ArrayList<String> list;
     EditText edtData;
     Button btn_register;
-    private List<String> list2;          // 데이터를 넣은 리스트변수
+    private ArrayList<String> list2;          // 데이터를 넣은 리스트변수
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,6 +56,7 @@ public class Fragment1 extends Fragment {
         list.add("프로틴");
         list.add("단백질");
         list.add("스테로이드");
+        list2.addAll(list);
         //new ArrayAdapter<String>(현재 액티비티명.this, 레이아웃, 데이터);
         //레이아웃 : 리스트 뷰에 보여질 아이템 뷰
         //데이터 : 마이템 뷰에 출력할 데이터
@@ -117,20 +118,20 @@ public class Fragment1 extends Fragment {
     public void search(String charText) {
 
     // 문자 입력시마다 리스트를 지우고 새로 뿌려준다.
-    list2.clear();
+    list.clear();
 
     // 문자 입력이 없을때는 모든 데이터를 보여준다.
     if (charText.length() == 0) {
-        list2.addAll(list);
+        list.addAll(list2);
     }
     // 문자 입력을 할때..
     else {
         // 리스트의 모든 데이터를 검색한다.
-        for (int i = 0; i < list.size(); i++) {
+        for (int i = 0; i < list2.size(); i++) {
             // arraylist의 모든 데이터에 입력받은 단어(charText)가 포함되어 있으면 true를 반환한다.
-            if (list.get(i).toLowerCase().contains(charText)) {
+            if (list2.get(i).toLowerCase().contains(charText)) {
                 // 검색된 데이터를 리스트에 추가한다.
-                list2.add(list.get(i));
+                list.add(list2.get(i));
             }
         }
     }
