@@ -26,6 +26,11 @@ public class IdFindSuccessActivity extends AppCompatActivity{
         tvName = findViewById(R.id.tvName);
         tvId = findViewById(R.id.tvId);
 
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("data")+" 님의 아이디는";
+        tvName.setText(name);
+        int num = intent.getIntExtra("num",0);
+        tvId.setText(String.valueOf(num));
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -33,6 +38,7 @@ public class IdFindSuccessActivity extends AppCompatActivity{
             public void onClick(View view) {
                 Intent intent = new Intent(IdFindSuccessActivity.this,LoginActivity.class);
                 startActivity(intent);
+
             }
         });
         btnPw.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +51,11 @@ public class IdFindSuccessActivity extends AppCompatActivity{
         });
 
 
+
+    }
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
     }
 
 }

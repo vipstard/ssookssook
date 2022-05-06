@@ -123,5 +123,10 @@ public class LoginActivity extends AppCompatActivity {
         msgDlg.show();
     }
 
+    //현재 페이지에서 뒤로가기 막는 기능
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+    }
 
 }

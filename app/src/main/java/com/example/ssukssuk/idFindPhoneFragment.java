@@ -45,12 +45,17 @@ public class idFindPhoneFragment extends Fragment {
             public void onClick(View view) {
                 if(edtName.getText().toString().equals("hh")&&edtIdPhone.getText().toString().equals("hh")){
 
+                    //
+                    String data = edtName.getText().toString();
+
 
                     Intent intent = new Intent(getActivity(),IdFindSuccessActivity.class);
-
+                    intent.putExtra("data",data);
+                    intent.putExtra("num","10");
                     startActivity(intent);
                 }else{
                     Intent intent = new Intent(getActivity(),TestFail.class);
+
                     startActivity(intent);
                 }
             }
