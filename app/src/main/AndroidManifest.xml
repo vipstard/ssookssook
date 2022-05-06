@@ -22,10 +22,10 @@
             android:name=".TestFail"
             android:exported="false" />
         <activity
-            android:name=".LoginFailActivity"
+            android:name=".IdFindFailActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginSuccessActivity"
+            android:name=".IdFindSuccessActivity"
             android:exported="false" />
         <activity
             android:name=".pwFindActivity"
