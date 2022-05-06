@@ -6,7 +6,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DiaryHolder {
-    private TextView pro_name;
     private TextView title,date;
     private ImageView img;
 

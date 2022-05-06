@@ -51,6 +51,7 @@ public class DiaryAdapter extends BaseAdapter {
             holder = (DiaryHolder) view.getTag();
         }
         DiaryVO vo = (DiaryVO) getItem(i);
+
         holder.getImg().setImageResource(vo.getImg());
         holder.getTitle().setText(vo.getTitle());
         holder.getDate().setText(vo.getDate());
