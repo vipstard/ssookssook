@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class idFindActivity extends AppCompatActivity {
+public class IdFindActivity extends AppCompatActivity {
 
     Button back;
     private final int idFragment_2 = 1;
@@ -54,14 +54,14 @@ public class idFindActivity extends AppCompatActivity {
         switch (fragment){
             case 1:
                 // 첫번 째 프래그먼트 호출
-                idFindEmailFragment fragment1 = new idFindEmailFragment();
+                IdFindEmailFragment fragment1 = new IdFindEmailFragment();
                 transaction.replace(R.id.fragment_container, fragment1);
                 transaction.commit();
                 break;
 
             case 2:
                 // 두번 째 프래그먼트 호출
-                idFindPhoneFragment fragment2 = new idFindPhoneFragment();
+                IdFindPhoneFragment fragment2 = new IdFindPhoneFragment();
                 transaction.replace(R.id.fragment_container, fragment2);
                 transaction.commit();
                 break;

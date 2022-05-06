@@ -2,7 +2,6 @@ package com.example.ssukssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,12 +9,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class new_Login_basic extends AppCompatActivity {
+public class JoinActivity extends AppCompatActivity {
     EditText name,Id,Pw,rePw,email;
     Spinner year,month,day;
 
@@ -69,7 +67,7 @@ public class new_Login_basic extends AppCompatActivity {
         year.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(new_Login_basic.this,""+year.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
+                Toast.makeText(JoinActivity.this,""+year.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -83,7 +81,7 @@ public class new_Login_basic extends AppCompatActivity {
         month.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(new_Login_basic.this,""+month.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
+                Toast.makeText(JoinActivity.this,""+month.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -97,7 +95,7 @@ public class new_Login_basic extends AppCompatActivity {
         day.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(new_Login_basic.this,""+day.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
+                Toast.makeText(JoinActivity.this,""+day.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -123,16 +121,16 @@ public class new_Login_basic extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(Pw.getText().toString().equals(rePw.getText().toString())){
-                    Toast.makeText(new_Login_basic.this,"비번이 맞습니다.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(JoinActivity.this,"비번이 맞습니다.",Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(new_Login_basic.this,"비번이 틀립니다.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(JoinActivity.this,"비번이 틀립니다.",Toast.LENGTH_SHORT).show();
                 }
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(new_Login_basic.this,"클릭",Toast.LENGTH_SHORT).show();
+                Toast.makeText(JoinActivity.this,"클릭",Toast.LENGTH_SHORT).show();
                 onBackPressed();
             }
         });

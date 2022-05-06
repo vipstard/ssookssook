@@ -74,14 +74,14 @@ public class LoginActivity extends AppCompatActivity {
         idfind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, idFindActivity.class);
+                Intent intent = new Intent(LoginActivity.this, IdFindActivity.class);
                 startActivity(intent);
             }
         });
         pwfind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, pwFindActivity.class);
+                Intent intent = new Intent(LoginActivity.this, PwFindActivity.class);
                 startActivity(intent);
             }
         });
@@ -108,7 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                 .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(LoginActivity.this, new_Login_basic.class);
+                        Intent intent = new Intent(LoginActivity.this, JoinActivity.class);
 
                         Toast.makeText(LoginActivity.this, "회원가입 페이지로 이동", Toast.LENGTH_SHORT).show();
                         startActivity(intent);

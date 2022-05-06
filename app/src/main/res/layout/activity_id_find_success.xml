@@ -21,7 +21,6 @@
 
         <TextView
 
-            android:id="@+id/findid"
             android:layout_width="wrap_content"
 
             android:layout_height="match_parent"
@@ -49,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
-        android:id="@+id/tvName"
+        android:id="@+id/tv_IFSA_Name"
         android:layout_width="208dp"
         android:layout_height="31dp"
         android:layout_marginTop="30dp"
@@ -62,7 +61,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
     <TextView
-        android:id="@+id/tvId"
+        android:id="@+id/tv_IFSA_Id"
         android:layout_width="141dp"
         android:layout_height="wrap_content"
 
@@ -75,7 +74,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_IFSA_Name" />
 
     <TextView
         android:id="@+id/textView21"
@@ -86,32 +85,38 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvId" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_IFSA_Id" />
 
     <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_ISFA_Login"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="65dp"
         android:layout_marginTop="80dp"
         android:backgroundTint=" #00ff00"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
         android:text="로그인하기"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@+id/btnPw"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <Button
-        android:id="@+id/btnPw"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_ISFA_Pw"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="65dp"
         android:backgroundTint="#00ff00"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
         android:text="비밀번호 찾기"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/btnLogin"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_ISFA_Login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnLogin"
-        app:layout_constraintTop_toTopOf="@+id/btnLogin" />
+        app:layout_constraintTop_toTopOf="@+id/btn_ISFA_Login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,15 +1,12 @@
 package com.example.ssukssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class IdFindSuccessActivity extends AppCompatActivity{
 
@@ -21,18 +18,22 @@ public class IdFindSuccessActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_id_find_success);
 
-        btnLogin = findViewById(R.id.btnLogin);
-        btnPw = findViewById(R.id.btnPw);
-        tvName = findViewById(R.id.tvName);
-        tvId = findViewById(R.id.tvId);
+        btnLogin = findViewById(R.id.btn_ISFA_Login);
+        btnPw = findViewById(R.id.btn_ISFA_Pw);
+        tvName = findViewById(R.id.tv_IFSA_Name);
+        tvId = findViewById(R.id.tv_IFSA_Id);
 
+        //getIntent로 값을 받아오는 intent 변수 생성??
         Intent intent = getIntent();
+        //불러온걸 받아온 값+??
         String name = intent.getStringExtra("data")+" 님의 아이디는";
+        //tvName에 name 변수의 내용으로 출력
         tvName.setText(name);
         int num = intent.getIntExtra("num",0);
         tvId.setText(String.valueOf(num));
 
 
+        //로그인버튼(로그인 페이지 이동 기능)
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,6 +42,9 @@ public class IdFindSuccessActivity extends AppCompatActivity{
 
             }
         });
+
+
+        //비밀번호찾기버튼(비밀번호 찾기 페이지 이동기능)
         btnPw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,6 +57,7 @@ public class IdFindSuccessActivity extends AppCompatActivity{
 
 
     }
+    //핸드폰 뒤로가기 버튼 막기
     @Override
     public void onBackPressed() {
         //super.onBackPressed();

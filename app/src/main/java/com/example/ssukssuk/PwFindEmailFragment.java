@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class pwFindEmailFragment extends Fragment {
+public class PwFindEmailFragment extends Fragment {
 
 
     @Override

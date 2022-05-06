@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class pwFindActivity extends AppCompatActivity {
+public class PwFindActivity extends AppCompatActivity {
 
     Button back;
 
@@ -57,14 +57,14 @@ public class pwFindActivity extends AppCompatActivity {
             switch (fragment){
                 case 1:
                     // 첫번 째 프래그먼트 호출
-                    pwFindEmailFragment fragment1 = new pwFindEmailFragment();
+                    PwFindEmailFragment fragment1 = new PwFindEmailFragment();
                     transaction.replace(R.id.fragment_container, fragment1);
                     transaction.commit();
                     break;
 
                 case 2:
                     // 두번 째 프래그먼트 호출
-                    pwFindPhoneFragment fragment2 = new pwFindPhoneFragment();
+                    PwFindPhoneFragment fragment2 = new PwFindPhoneFragment();
                     transaction.replace(R.id.fragment_container, fragment2);
                     transaction.commit();
                     break;

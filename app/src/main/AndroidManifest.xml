@@ -28,13 +28,13 @@
             android:name=".IdFindSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".pwFindActivity"
+            android:name=".PwFindActivity"
             android:exported="false" />
         <activity
-            android:name=".idFindActivity"
+            android:name=".IdFindActivity"
             android:exported="false" />
         <activity
-            android:name=".new_Login_basic"
+            android:name=".JoinActivity"
             android:exported="false" />
         <activity
             android:name=".TestSuccess"

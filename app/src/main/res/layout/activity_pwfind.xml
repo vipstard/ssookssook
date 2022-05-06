@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".idFindActivity">
+    tools:context=".IdFindActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -27,7 +27,6 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/findid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -65,7 +64,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
-        android:name="com.example.ssukssuk.idFindEmailFragment"
+        android:name="com.example.ssukssuk.IdFindEmailFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
