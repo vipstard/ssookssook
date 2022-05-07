@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -31,9 +32,16 @@ public class LoginActivity extends AppCompatActivity {
         idfind = findViewById(R.id.btn_idfind);
         pwfind = findViewById(R.id.btn_pwfind);
         auto_check = findViewById(R.id.cbauto);
-        SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
-        loginId = auto.getString("inputId", null);
-        loginPwd = auto.getString("inputPwd", null);
+        SharedPreferences spf = LoginActivity.this.
+                getSharedPreferences("mySPF", Context.MODE_PRIVATE);
+
+        //editor 실행시키는?
+        SharedPreferences.Editor editor = spf.edit();
+        String loginId = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("user_login_id",null);
+        String loginPwd = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("user_login_pw",null);
+
         if(loginId !=null && loginPwd != null) {
             if(loginId.equals("hh") && loginPwd.equals("hh")) {
                 Toast.makeText(LoginActivity.this, loginId +"님 자동로그인 입니다.", Toast.LENGTH_SHORT).show();
@@ -42,25 +50,37 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         }
-        else if(loginId == null && loginPwd == null) {
+
             login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (user_id.getText().toString().equals("hh") && user_pw.getText().toString().equals("hh")) {
+                        if(auto_check.isChecked()) {
 
                             SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
                             Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
-                            SharedPreferences.Editor autoLogin = auto.edit();
-                            autoLogin.putString("user_id", user_id.getText().toString());
-                            autoLogin.putString("user_pw", user_pw.getText().toString());
 
+                            editor.putString("user_login_id", user_id.getText().toString());
+                            editor.putString("user_login_pw", user_id.getText().toString());
+                            editor.commit();
                             //꼭 commit()을 해줘야 값이 저장됩니다 ㅎㅎ
-                            autoLogin.commit();
+
                             Toast.makeText(LoginActivity.this, user_id.getText().toString() + "님 환영합니다.", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
                             startActivity(intent);
                             finish();
+                        }else{
+                            SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+                            Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
 
+                            editor.putString("user_login_id", user_id.getText().toString());
+                            Toast.makeText(LoginActivity.this, user_id.getText().toString() + "님 환영합니다.", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
+                            startActivity(intent);
+                            finish();
+                        }
 
                     } else {
                         Toast.makeText(LoginActivity.this,
@@ -69,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
             });
-        }
+
 
         idfind.setOnClickListener(new View.OnClickListener() {
             @Override
