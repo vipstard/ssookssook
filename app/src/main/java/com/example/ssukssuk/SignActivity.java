@@ -2,6 +2,7 @@ package com.example.ssukssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,26 +14,31 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class JoinActivity extends AppCompatActivity {
+public class SignActivity extends AppCompatActivity {
     EditText name,Id,Pw,rePw,email;
     Spinner year,month,day;
 
-    Button btn_Id_check,btn_Pw_check,btn_new_reg,back;
+    Button btn_Id_check,btn_Pw_check,btn_new_reg,back,btn_signup;
     String[] year1 = {"소녀시대", "소녀시대2", "소녀시대3", "소녀시대4"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_join);
+        setContentView(R.layout.activity_sign);
         name = findViewById(R.id.sign_name);
         Id = findViewById(R.id.signID);
         Pw = findViewById(R.id.signPW);
         rePw = findViewById(R.id.signPW2);
         email = findViewById(R.id.signmail);
-        back = findViewById(R.id.btn_S_Back);
+        back = findViewById(R.id.btn_SA_Back);
+        btn_signup = findViewById(R.id.signup_button);
 
         year = (Spinner) findViewById(R.id.signBirth);
         month =(Spinner) findViewById(R.id.signBirth2);
         day = (Spinner) findViewById(R.id.signBirth3);
+
+
+
+
 
 
 
@@ -67,7 +73,7 @@ public class JoinActivity extends AppCompatActivity {
         year.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(JoinActivity.this,""+year.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignActivity.this,""+year.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -81,7 +87,7 @@ public class JoinActivity extends AppCompatActivity {
         month.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(JoinActivity.this,""+month.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignActivity.this,""+month.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -95,7 +101,7 @@ public class JoinActivity extends AppCompatActivity {
         day.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(JoinActivity.this,""+day.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignActivity.this,""+day.getItemAtPosition(i),Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -121,17 +127,24 @@ public class JoinActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(Pw.getText().toString().equals(rePw.getText().toString())){
-                    Toast.makeText(JoinActivity.this,"비번이 맞습니다.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignActivity.this,"비번이 맞습니다.",Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(JoinActivity.this,"비번이 틀립니다.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignActivity.this,"비번이 틀립니다.",Toast.LENGTH_SHORT).show();
                 }
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(JoinActivity.this,"클릭",Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignActivity.this,"클릭",Toast.LENGTH_SHORT).show();
                 onBackPressed();
+            }
+        });
+        btn_signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SignActivity.this,LoginActivity.class);
+                startActivity(intent);
             }
         });
     }

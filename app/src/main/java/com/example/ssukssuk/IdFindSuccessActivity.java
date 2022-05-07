@@ -3,7 +3,6 @@ package com.example.ssukssuk;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -51,7 +50,7 @@ public class IdFindSuccessActivity extends AppCompatActivity{
         btnPw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(IdFindSuccessActivity.this, JoinActivity.class);
+                Intent intent = new Intent(IdFindSuccessActivity.this, SignActivity.class);
                 startActivity(intent);
             }
 

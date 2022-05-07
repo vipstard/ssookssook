@@ -2,7 +2,9 @@ package com.example.ssukssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,7 +32,6 @@ public class IdFindFailActivity extends AppCompatActivity {
 //        tvhead.setText(head);
 
 
-
         //로그인버튼(로그인 페이지 이동 기능)
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +48,7 @@ public class IdFindFailActivity extends AppCompatActivity {
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(IdFindFailActivity.this, JoinActivity.class);
+                Intent intent = new Intent(IdFindFailActivity.this, SignActivity.class);
                 startActivity(intent);
             }
         });

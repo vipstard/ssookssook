@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Ssukssuk"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InformationActivity"
+            android:exported="false" />
+        <activity
             android:name=".PwFindSuccessActivity"
             android:exported="false" />
         <activity
@@ -40,7 +46,7 @@
             android:name=".IdFindActivity"
             android:exported="false" />
         <activity
-            android:name=".JoinActivity"
+            android:name=".SignActivity"
             android:exported="false" />
         <activity
             android:name=".TestSuccess"

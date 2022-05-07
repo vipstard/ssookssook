@@ -38,9 +38,9 @@ public class IdFindPhoneFragment extends Fragment {
 
                     //edtName에 적은 값 가져오기
                     String data = edtName.getText().toString();
-                    //지금 페이지에서 IdFindSuccessActivity 로 이동
+                    //지금 페이지에서 IdFindSuccessActivity 로 이동하는 intent생성
                     Intent intent = new Intent(getActivity(),IdFindSuccessActivity.class);
-                    //"data"라는 변수에 data의 정보를 저장
+                    //"data"라는 파일에 String data의 정보를 저장
                     intent.putExtra("data",data);
                     //"num"라는 변수에 10의 정보를 저장
 //                    intent.putExtra("num","10");

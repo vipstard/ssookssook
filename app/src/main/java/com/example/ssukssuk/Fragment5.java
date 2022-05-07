@@ -15,7 +15,7 @@ import android.widget.Button;
 public class Fragment5 extends Fragment {
 
 
-    Button btnLogout,btnEdit,btnRegister,btnMainSet,btnback;
+    Button btnLogout,btnInformation,btnRegister,btnMainSet,btnback;
 
 
     @Override
@@ -24,38 +24,22 @@ public class Fragment5 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_5, container, false);
         // Inflate the layout for this fragment
 
-        btnEdit = view.findViewById(R.id.btn_S_Edit);
+        btnInformation = view.findViewById(R.id.btn_S_Informaiton);
         btnRegister = view.findViewById(R.id.btn_S_Register);
         btnMainSet = view.findViewById(R.id.btn_S_MainSet);
         btnLogout = view.findViewById(R.id.btn_S_Logout);
-        btnback = view.findViewById(R.id.btn_S_Back);
+        btnback = view.findViewById(R.id.btn_SA_Back);
 
         //개인 정보 수정 페이지
-        btnEdit.setOnClickListener(new View.OnClickListener() {
+        btnInformation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),TestSuccess.class);
+                Intent intent = new Intent(getActivity(), InformationActivity.class);
                 startActivity(intent);
             }
         });
 
-        //화분 등록 및 삭제 페이지
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),TestSuccess.class);
-                startActivity(intent);
-            }
-        });
 
-        //메인 화분 등록 페이지
-        btnMainSet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),TestSuccess.class);
-                startActivity(intent);
-            }
-        });
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
