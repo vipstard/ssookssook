@@ -1,9 +1,11 @@
-package com.example.ssukssuk;
+package com.example.ssukssuk.Diary;
 
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.ssukssuk.R;
 
 public class DiaryHolder {
     private TextView title,date;
