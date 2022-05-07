@@ -19,7 +19,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_S_Back"
+                android:id="@+id/btn_SA_Back"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_marginLeft="10dp"
@@ -34,47 +34,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:layout_weight="2"
-                android:text="회원 가입"
+                android:text="   회원 가입"
                 android:textColor="@color/purple_200"
                 android:textSize="25dp" />
         </LinearLayout>
 
         <ScrollView
-            android:paddingBottom="48dp"
-            android:clipToPadding="false"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            >
+
+           >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="30dp"
-                android:orientation="vertical" >
-
-                <TextView
-                    android:id="@+id/signNametext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="이름"
-                    android:textColor="@color/purple_200"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    />
-
-                <EditText
-                    android:id="@+id/sign_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:layout_marginBottom="20dp"
-
-                    android:ems="10"
-                    android:hint=" 이름"
-                    android:inputType="textPersonName"
-                    android:text="" />
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/signIDtext"
@@ -88,21 +65,88 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="47dp">
+                    android:layout_height="48dp">
+
                     <EditText
                         android:id="@+id/signID"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="48dp"
                         android:layout_marginBottom="20dp"
 
                         android:ems="10"
                         android:hint=" 아이디"
                         android:inputType="textPersonName"
                         android:text="" />
+
                     <Button
                         android:id="@+id/id_check_btn"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="10dp"
+
+                        android:text="중복확인"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/signPWtext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="비밀번호"
+                    android:textColor="@color/purple_200"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <EditText
+                        android:id="@+id/signPW"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginBottom="20dp"
+
+                        android:ems="10"
+                        android:hint=" 비밀번호 확인"
+                        android:inputType="textPassword"
+                        android:text="" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/signPW2text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="비밀번호 확인"
+                    android:textColor="@color/purple_200"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/signPW2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_marginBottom="20dp"
+
+                        android:ems="10"
+                        android:hint=" 비밀번호 확인"
+                        android:inputType="textPassword"
+                        android:text="" />
+
+                    <Button
+                        android:id="@+id/pw_check_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
                         android:layout_marginLeft="10dp"
 
                         android:text="확인"
@@ -110,6 +154,28 @@
                         android:textSize="16sp"
                         android:textStyle="bold" />
                 </LinearLayout>
+
+                <TextView
+                    android:id="@+id/signNametext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="이름"
+                    android:textColor="@color/purple_200"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/sign_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="20dp"
+
+                    android:ems="10"
+                    android:hint=" 이름"
+                    android:inputType="textPersonName"
+                    android:text="" />
+
                 <TextView
                     android:id="@+id/signBirthtext"
                     android:layout_width="match_parent"
@@ -156,70 +222,27 @@
                         app:layout_constraintTop_toTopOf="parent" />
                 </LinearLayout>
 
+
                 <TextView
-                    android:id="@+id/signPWtext"
+                    android:id="@+id/signPhonetext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:text="비밀번호"
-                    android:textColor="@color/purple_200"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="47dp">
-                    <EditText
-                        android:id="@+id/signPW"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_marginBottom="20dp"
-
-                        android:ems="10"
-                        android:hint=" 비밀번호"
-                        android:inputType="textPassword"
-                        android:text="" />
-
-                </LinearLayout>
-
-
-
-                <TextView
-                    android:id="@+id/signPW2text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="비밀번호 확인"
+                    android:text="핸드폰 번호"
                     android:textColor="@color/purple_200"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/signphone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="20dp"
 
-                    <EditText
-                        android:id="@+id/signPW2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_marginBottom="20dp"
-
-                        android:ems="10"
-                        android:hint=" 비밀번호 다시 입력"
-                        android:inputType="textPassword"
-                        android:text="" />
-
-                    <Button
-                        android:id="@+id/pw_check_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_marginLeft="10dp"
-
-                        android:text="확인"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                    android:ems="10"
+                    android:hint="핸드폰 번호"
+                    android:inputType="textPersonName"
+                    android:text="" />
 
                 <TextView
                     android:id="@+id/signmailtext"
@@ -234,13 +257,14 @@
                 <EditText
                     android:id="@+id/signmail"
                     android:layout_width="wrap_content"
-                    android:layout_height="40dp"
+                    android:layout_height="48dp"
                     android:layout_marginBottom="20dp"
 
                     android:ems="10"
                     android:hint=" 이메일"
                     android:inputType="textPersonName"
                     android:text="" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -249,6 +273,7 @@
                     android:textColor="@color/purple_200"
                     android:textSize="20dp"
                     android:textStyle="bold" />
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -261,17 +286,18 @@
                         android:layout_marginBottom="20dp"
 
                         android:ems="10"
-                        android:hint=" 비밀번호 다시 입력"
+                        android:hint="주소"
                         android:inputType="textPassword"
                         android:text="" />
 
                 </LinearLayout>
+
                 <Button
                     android:id="@+id/signup_button"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:layout_marginTop="20dp"
                     android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
 
                     android:text="회원가입"
                     android:textColor="@color/white"

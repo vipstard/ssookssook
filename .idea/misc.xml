@@ -20,18 +20,23 @@
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/TestSuccess.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_board_write.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_diary2.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_edit.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_find.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_id_find.xml" value="0.35462962962962963" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_id_find_fail.xml" value="0.33" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_id_find_success.xml" value="0.33" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_idfind.xml" value="0.33" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_information.xml" value="0.33" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_join.xml" value="0.35462962962962963" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_login_success.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_new_login_basic.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_new_login_selecter.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_pw_find_fail.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_pw_find_success.xml" value="0.33" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_pwfind.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_sign.xml" value="0.22" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_test_fail.xml" value="0.33" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_test_success.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/board_list.xml" value="0.36614583333333334" />

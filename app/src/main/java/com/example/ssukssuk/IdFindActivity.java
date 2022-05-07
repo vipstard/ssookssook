@@ -17,7 +17,7 @@ public class IdFindActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_id_find);
 
-        back = findViewById(R.id.btn_S_Back);
+        back = findViewById(R.id.btn_SA_Back);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

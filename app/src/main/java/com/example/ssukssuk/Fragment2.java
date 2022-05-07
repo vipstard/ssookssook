@@ -11,6 +11,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.example.ssukssuk.Diary.DiaryAdapter;
+import com.example.ssukssuk.Diary.DiaryVO;
+
 import java.util.ArrayList;
 
 public class Fragment2 extends Fragment {
