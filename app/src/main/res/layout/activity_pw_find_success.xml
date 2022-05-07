@@ -27,41 +27,30 @@
             android:layout_marginBottom="20dp"
             android:layout_weight="2"
             android:gravity="center"
-            android:text="    아이디 찾기"
+            android:text="    비밀번호 찾기"
             android:textAlignment="center"
             android:textColor="@color/purple_200"
             android:textSize="25dp" />
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="300dp"
+    <Button
+        android:id="@+id/btn_PFSA_Login"
+        android:layout_width="110dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:text="아이디 찾기가 완료되었습니다"
-        android:textSize="24sp"
-        android:textStyle="bold"
-
-
+        android:layout_marginTop="80dp"
+        android:backgroundTint=" #00ff00"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
+        android:text="로그인하기"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
     <TextView
-        android:id="@+id/tv_IFSA_Name"
-        android:layout_width="208dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:text="홍성채 님의 아이디는"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17" />
-
-    <TextView
-        android:id="@+id/tv_IFSA_Id"
+        android:id="@+id/tv_PFSA_Id"
         android:layout_width="141dp"
         android:layout_height="wrap_content"
 
@@ -74,39 +63,34 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_IFSA_Name" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_PFSA_Name" />
 
-    <Button
-        android:id="@+id/btn_IFSA_Login"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="80dp"
-        android:backgroundTint=" #00ff00"
-        android:paddingLeft="0dp"
-        android:paddingTop="0dp"
-        android:paddingRight="0dp"
-        android:paddingBottom="0dp"
-        android:text="로그인하기"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView21" />
-
-    <Button
-        android:id="@+id/btn_IFSA_Pw"
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="65dp"
-        android:backgroundTint="#00ff00"
-        android:paddingLeft="0dp"
-        android:paddingTop="0dp"
-        android:paddingRight="0dp"
-        android:paddingBottom="0dp"
-        android:text="비밀번호 찾기"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_IFSA_Login"
+    <TextView
+        android:id="@+id/tv_PFSA_Name"
+        android:layout_width="208dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="홍성채 님의 비밀번호는"
+        android:textAlignment="center"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btn_IFSA_Login" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="비밀번호 찾기가 완료되었습니다"
+        android:textSize="24sp"
+        android:textStyle="bold"
+
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
         android:id="@+id/textView21"
@@ -117,6 +101,6 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_IFSA_Id" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_PFSA_Id" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

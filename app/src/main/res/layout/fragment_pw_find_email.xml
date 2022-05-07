@@ -37,32 +37,33 @@
         android:background="@drawable/right_top_boder"
         android:text="@string/btnfindemail"
         android:textColor="#36FF06"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_PFE_Phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btn_PFE_Phone"
-        tools:layout_editor_absoluteY="245dp" />
+        app:layout_constraintTop_toTopOf="@+id/btn_PFE_Phone" />
 
     <EditText
         android:id="@+id/edt_PFE_Id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="77dp"
         android:ems="10"
         android:hint="아이디"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="@+id/edt_PFE_Name"
-        app:layout_constraintStart_toStartOf="@+id/edt_PFE_Name"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView3" />
 
     <EditText
         android:id="@+id/edt_PFE_Email"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
+        android:layout_marginEnd="77dp"
         android:ems="10"
         android:hint="이메일"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="@+id/edt_PFE_Id"
-        app:layout_constraintStart_toStartOf="@+id/edt_PFE_Id"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView4"
         app:layout_constraintVertical_bias="0.461" />
 
@@ -82,10 +83,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
         android:hint="가입시 입력했던 이메일을 적어주세요"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="307dp" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_PFE_Phone" />
 
     <TextView
         android:id="@+id/textView2"

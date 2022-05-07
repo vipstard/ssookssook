@@ -18,8 +18,8 @@ public class IdFindSuccessActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_id_find_success);
 
-        btnLogin = findViewById(R.id.btn_ISFA_Login);
-        btnPw = findViewById(R.id.btn_ISFA_Pw);
+        btnLogin = findViewById(R.id.btn_IFSA_Login);
+        btnPw = findViewById(R.id.btn_IFSA_Pw);
         tvName = findViewById(R.id.tv_IFSA_Name);
         tvId = findViewById(R.id.tv_IFSA_Id);
 
@@ -29,8 +29,10 @@ public class IdFindSuccessActivity extends AppCompatActivity{
         String name = intent.getStringExtra("data")+" 님의 아이디는";
         //tvName에 name 변수의 내용으로 출력
         tvName.setText(name);
-        int num = intent.getIntExtra("num",0);
-        tvId.setText(String.valueOf(num));
+
+        //숫자 값 출력
+//        int num = intent.getIntExtra("num",0);
+//        tvId.setText(String.valueOf(num));
 
 
         //로그인버튼(로그인 페이지 이동 기능)
@@ -58,9 +60,9 @@ public class IdFindSuccessActivity extends AppCompatActivity{
 
     }
     //핸드폰 뒤로가기 버튼 막기
-    @Override
-    public void onBackPressed() {
-        //super.onBackPressed();
-    }
+//    @Override
+//    public void onBackPressed() {
+//        //super.onBackPressed();
+//    }
 
 }

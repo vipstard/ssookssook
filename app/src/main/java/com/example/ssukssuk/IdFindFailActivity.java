@@ -23,17 +23,19 @@ public class IdFindFailActivity extends AppCompatActivity {
         tvhead = findViewById(R.id.tv_IFFA_Find);
 
         //getIntent로 값을 받아오는 intent 변수 생성??
-        Intent intent = getIntent();
+//        Intent intent = getIntent();
         //불러온걸 받아온 값+??
-        String head = intent.getStringExtra("head")+"찾기";
+//        String head = intent.getStringExtra("head")+"찾기";
         //tvName에 name 변수의 내용으로 출력
-        tvhead.setText(head);
+//        tvhead.setText(head);
+
 
 
         //로그인버튼(로그인 페이지 이동 기능)
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(IdFindFailActivity.this, LoginActivity.class);
                 startActivity(intent);
 
