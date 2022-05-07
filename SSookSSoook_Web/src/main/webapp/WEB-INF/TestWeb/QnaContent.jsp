@@ -2,7 +2,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%pageContext.setAttribute("newLine", "\n"); %> %>
+<%
+pageContext.setAttribute("newLine", "\n");
+%> %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
@@ -18,9 +20,6 @@
 </head>
 <body>
 
-<%
-   Board vo = (Board)request.getAttribute("vo");
-%>
  
 <div class="container">
   <h2>Sprin WEB MVC 게시판</h2>
@@ -31,33 +30,33 @@
 	<table class = "table table-bordered table-hover">
 	<tr>
 		<td>번호</td>
-		<td>${vo.idx}</td>
+		<td>${Qna_Content.idx}</td>
    </tr>
 	
 	<tr>
 		<td>제목</td>
-		<td>${vo.title}</td>
+		<td>${Qna_Content.title}</td>
    </tr>
 	
 	<tr>
 		<td>내용</td>
-		<td>${fn:replace(vo.content, newLine, "<br>")}</td>
+		<td>${fn:replace(Qna_Content.content, newLine, "<br>")}</td>
    </tr>
 	
 	<tr>
 		<td>작성자</td>
-		<td>${vo.writer}</td>
+		<td>${Qna_Content.writer}</td>
    </tr>
 
 	<tr>
 		<td>작성일</td>
-		<td>${vo.indate }</td>
+		<td>${Qna_Content.indate }</td>
    </tr>
    <tr>
    		<td colsapn="4" align="center">
-   			<button class="btn btn-info btn-sm" onclick="location.href='/TEST/boardUpdate.do/${vo.idx}'">수정</button>
-   			<button class="btn btn-warning btn-sm" onclick="location.href='/TEST/boardDelete.do/${vo.idx}'">삭제</button>
-   			<button class="btn btn-success btn-sm" onclick="location.href='/TEST/boardList.do'">리스트</button>
+   			<button class="btn btn-info btn-sm" onclick="location.href='QnaUpdateForm?idx=${Qna_Content.idx}'">수정</button>
+   			<button class="btn btn-warning btn-sm" onclick="location.href='QnaDelete?idx=${Qna_Content.idx}'">삭제</button>
+   			<button class="btn btn-success btn-sm" onclick="location.href='helpQnA'">리스트</button>
    		</td>
    </tr>
 	</table>

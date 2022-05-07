@@ -22,13 +22,15 @@ public class Sensor extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
+		//
 		PrintWriter out  = response.getWriter();
 		
-		String sensor = request.getParameter("sensor");
+		String soilMoisture_Sensor = request.getParameter("soilMoisture_Sensor");
+		String waterLevel_Sensor = request.getParameter("waterLevel_Sensor");
+		String sensor2 = request.getParameter("sensor2");
 		
-		System.out.println("센서값 : " + sensor + "전달 성공");
-		out.println("센서값 : " + sensor + " 전달 성공");
-		
+		System.out.println(soilMoisture_Sensor + " " + waterLevel_Sensor+ " " + sensor2);
+		out.print("<h1>Success</h1>");
 	}
 
 	/**

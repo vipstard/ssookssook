@@ -2,22 +2,41 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.mapper.BoardMapper">
 
-	<!-- 게시글 불러오기 -->
-	<select id='boardList' resultType="kr.smhrd.domain.Board">
-		select * from SPRINGBOARD order by idx desc
+	<!-- Vo 필드명 과 Db 컬럼명 매핑 -->
+	<resultMap type="kr.smhrd.domain.Board" id="board">
+		<result property="idx" column="qna_seq"/>
+		<result property="title" column="qna_title"/>
+		<result property="content" column="qna_content"/>
+		<result property="writer" column="user_id"/>
+		<result property="indate" column="qna_date"/>
+		<result property="count" column="qna_count"/>
+	</resultMap>
+
+	<!-- QnA 온라인문의 글 목록 불러오기 -->
+	<select id='QnaList' resultType="kr.smhrd.domain.Board" resultMap="board">
+		select * from qna_info order by qna_seq desc
 	</select>
 	
-	<!-- 글쓰기 -->
-	<insert id="boardInsert" parameterType="kr.smhrd.domain.Board">
-		insert into springboard(idx, title, content, writer) values(sboard_seq.nextval, #{title}, #{content}, #{writer})
+	<!-- QnA 온라인문의 상세페이지 불러오기 -->
+	<select id="QnaContent" resultType="kr.smhrd.domain.Board" resultMap="board">
+		select * from qna_info where qna_seq=#{idx}
+	</select>
+	
+	<!-- QnA 온라인 문의 글쓰기 -->
+	<insert id="QnaInsert" parameterType="kr.smhrd.domain.Board">
+		insert into qna_info(qna_title, qna_content, qna_date, user_id) 
+		values(#{title}, #{content}, now(), #{writer})
 	</insert>
 	
-	<select id="boardContent" resultType="kr.smhrd.domain.Board" parameterType="int">
-		select * from springboard where idx=#{idx}
-	</select>
 	
-	<update id="boardUpdate" parameterType="kr.smhrd.domain.Board">
-		update springboard set title=#{title}, content=#{content} where idx=#{idx}
+	<!-- QnA 온라인 문의 글 수정 -->
+	<update id="QnaUpdate" parameterType="kr.smhrd.domain.Board">
+		update qna_info set qna_title=#{title}, qna_content=#{content} where qna_seq=#{idx}
+	</update>
+	
+	<!-- QnA 온라인 문의 글 조회수 -->
+	<update id="QnaContentCount" parameterType="kr.smhrd.domain.Board">
+		update qna_info set qna_count = qna_count + 1 where qna_seq=#{idx}
 	</update>
 	
 	

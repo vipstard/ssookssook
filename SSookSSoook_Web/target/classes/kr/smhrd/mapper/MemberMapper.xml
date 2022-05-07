@@ -18,6 +18,7 @@
 		select * from user_info where user_id=#{id} and user_pw=#{pw}
 	</select>
 	
+	<!-- 소셜 멤버 로그인 -->
 	<select id="Social_memberLogin" parameterType="String" resultType="kr.smhrd.domain.MemberVO" resultMap="member">
 		select * from user_info where user_email=#{email}
 	</select>

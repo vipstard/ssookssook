@@ -31,10 +31,10 @@
       <th>작성일</th>
       <th>조회수</th>
    </tr>
-   <c:forEach var="vo" items="${list}">
+   <c:forEach var="vo" items="${QnaList}">
    <tr>
    	  <td>${vo.idx}</td>
-      <td><a href="/myapp/boardContent.do?idx=${vo.idx}">${vo.title}</a></td>
+      <td><a href="/SS/QnaContent?idx=${vo.idx}">${vo.title}</a></td>
       <td>${vo.writer}</td>
       <td>${vo.indate}</td>
       <td>${vo.count}</td>
@@ -42,7 +42,7 @@
    </c:forEach>
    <tr>
    		<td colspan="5">
-   			<button class="btn btn-success btn-sm" onclick="location.href='/myapp/boardForm.do'">문의하기</button>
+   			<button class="btn btn-success btn-sm" onclick="location.href='/SS/QnaForm'">문의하기</button>
    		</td>
    </tr>
 </table>
