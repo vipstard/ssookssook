@@ -19,7 +19,7 @@ public class PwFindActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pwfind);
 
-        back = findViewById(R.id.btn_S_back);
+        back = findViewById(R.id.btn_S_Back);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

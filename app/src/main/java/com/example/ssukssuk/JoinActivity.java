@@ -28,7 +28,7 @@ public class JoinActivity extends AppCompatActivity {
         Pw = findViewById(R.id.signPW);
         rePw = findViewById(R.id.signPW2);
         email = findViewById(R.id.signmail);
-        back = findViewById(R.id.btn_S_back);
+        back = findViewById(R.id.btn_S_Back);
 
         year = (Spinner) findViewById(R.id.signBirth);
         month =(Spinner) findViewById(R.id.signBirth2);
