@@ -1,6 +1,8 @@
 package kr.smhrd.Arduino;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,8 +18,16 @@ public class Sensor extends HttpServlet {
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out  = response.getWriter();
+		
+		String sensor = request.getParameter("sensor");
+		
+		System.out.println("센서값 : " + sensor + "전달 성공");
+		out.println("센서값 : " + sensor + " 전달 성공");
 		
 	}
 
@@ -25,7 +35,8 @@ public class Sensor extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String sensor = request.getParameter("sensor");
+		
+		
 	}
 
 	/**

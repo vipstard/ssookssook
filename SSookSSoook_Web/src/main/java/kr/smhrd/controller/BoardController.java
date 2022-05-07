@@ -37,5 +37,20 @@ public class BoardController {
 		return "/TestWeb/EditProfile";
 	}
 	
+
+	/* 고객센터 */
+	@GetMapping("helpDesk")
+	public String helpDesk() {
+		return "/TestWeb/helpDesk";
+	}
+	
+	/* 온라인문의 */
+	@GetMapping("helpQnA")
+	public String helpQnA() {
+		return "/TestWeb/helpQnA";
+	}
+	
+	
+	
 	
 }
