@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/back"
+            android:id="@+id/btn_S_back"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
@@ -28,18 +28,18 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/findid"
+            android:id="@+id/tv_S_head"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:text="    설정"
             android:textColor="@color/purple_200"
             android:textSize="25dp" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnEdit"
+        android:id="@+id/btn_S_Edit"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="50dp"
@@ -51,26 +51,26 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <Button
-        android:id="@+id/btnRegister"
+        android:id="@+id/btn_S_Register"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/left_right_top_bottom_border"
         android:text="화분 등록"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/btnEdit"
-        app:layout_constraintStart_toStartOf="@+id/btnEdit"
-        app:layout_constraintTop_toBottomOf="@+id/btnEdit" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_S_Edit"
+        app:layout_constraintStart_toStartOf="@+id/btn_S_Edit"
+        app:layout_constraintTop_toBottomOf="@+id/btn_S_Edit" />
 
     <Button
-        android:id="@+id/btnMainSet"
+        android:id="@+id/btn_S_MainSet"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/left_right_top_bottom_border"
         android:text="메인 화분 설정"
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="@+id/btnRegister"
-        app:layout_constraintStart_toStartOf="@+id/btnRegister"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_S_Register"
+        app:layout_constraintStart_toStartOf="@+id/btn_S_Register"
+        app:layout_constraintTop_toBottomOf="@+id/btn_S_Register" />
 </androidx.constraintlayout.widget.ConstraintLayout>

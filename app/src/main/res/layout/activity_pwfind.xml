@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/back"
+            android:id="@+id/btn_S_back"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
@@ -37,29 +37,29 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnPhone"
+        android:id="@+id/btn_PFP_Phone"
         android:layout_width="120dp"
         android:layout_height="36dp"
         android:layout_marginBottom="450dp"
         android:background="#00000000"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnEmail"
+        app:layout_constraintEnd_toStartOf="@+id/btn_PFP_Email"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnEmail"
+        android:id="@+id/btn_PFP_Email"
         android:layout_width="120dp"
         android:layout_height="36dp"
         android:background="#00000000"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/btnPhone"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_PFP_Phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnPhone"
-        app:layout_constraintTop_toTopOf="@+id/btnPhone"
+        app:layout_constraintStart_toEndOf="@+id/btn_PFP_Phone"
+        app:layout_constraintTop_toTopOf="@+id/btn_PFP_Phone"
         app:layout_constraintVertical_bias="1.0" />
 
     <androidx.fragment.app.FragmentContainerView

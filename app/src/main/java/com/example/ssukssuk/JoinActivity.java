@@ -22,13 +22,13 @@ public class JoinActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_login_basic);
+        setContentView(R.layout.activity_join);
         name = findViewById(R.id.sign_name);
         Id = findViewById(R.id.signID);
         Pw = findViewById(R.id.signPW);
         rePw = findViewById(R.id.signPW2);
         email = findViewById(R.id.signmail);
-        back = findViewById(R.id.back);
+        back = findViewById(R.id.btn_S_back);
 
         year = (Spinner) findViewById(R.id.signBirth);
         month =(Spinner) findViewById(R.id.signBirth2);

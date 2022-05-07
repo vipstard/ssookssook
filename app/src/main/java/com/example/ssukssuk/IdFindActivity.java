@@ -15,9 +15,9 @@ public class IdFindActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_idfind);
+        setContentView(R.layout.activity_id_find);
 
-        back = findViewById(R.id.back);
+        back = findViewById(R.id.btn_S_back);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,7 +26,7 @@ public class IdFindActivity extends AppCompatActivity {
             }
         });
 
-    findViewById(R.id.btnPhone).setOnClickListener(new View.OnClickListener() {
+    findViewById(R.id.btn_PFP_Phone).setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
 
@@ -35,7 +35,7 @@ public class IdFindActivity extends AppCompatActivity {
         }
     });
 
-    findViewById(R.id.btnEmail).setOnClickListener(new View.OnClickListener() {
+    findViewById(R.id.btn_PFP_Email).setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             FragmentView(idFragment_2);
