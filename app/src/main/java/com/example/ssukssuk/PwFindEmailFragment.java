@@ -31,8 +31,6 @@ public class PwFindEmailFragment extends Fragment {
         btnFindPw = view.findViewById(R.id.btn_PFE_PwFind);
 
 
-
-
         //btnFindid 클릭시 반응하는 메서드
         btnFindPw.setOnClickListener(new View.OnClickListener() {
             @Override
