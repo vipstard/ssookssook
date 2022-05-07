@@ -1,12 +1,11 @@
 package kr.smhrd.mapper;
 import java.util.ArrayList;
-import java.util.List;
+
 
 import org.apache.ibatis.annotations.Delete;
 
 import kr.smhrd.domain.Board;
-import kr.smhrd.domain.Criteria;
-import kr.smhrd.domain.MemberVO;
+
 
 public interface BoardMapper {
 	
