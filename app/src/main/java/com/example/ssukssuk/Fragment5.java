@@ -1,6 +1,7 @@
 package com.example.ssukssuk;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -20,7 +21,7 @@ public class Fragment5 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_5, container, false);
         // Inflate the layout for this fragment
-        btn = view.findViewById(R.id.btn_logout);
+        btn = view.findViewById(R.id.btn_S_Logout);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -29,6 +30,9 @@ public class Fragment5 extends Fragment {
 
                 spf.edit().remove("user_login_id").commit();
                 spf.edit().remove("user_login_pw").commit();
+                Intent intent = new Intent(getActivity(),LoginActivity.class);
+                startActivity(intent);
+
 
             }
         });
