@@ -4,6 +4,11 @@ public class RegVO {
     String name;
     String type;
 
+    public RegVO(String name, String type) {
+        this.name = name;
+        this.type = type;
+    }
+
     public String getname() {
         return name;
     }
