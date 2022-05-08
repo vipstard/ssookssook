@@ -1,4 +1,4 @@
-package com.example.ssukssuk;
+package com.example.ssukssuk.Board;
 
 import android.content.Context;
 import android.view.LayoutInflater;

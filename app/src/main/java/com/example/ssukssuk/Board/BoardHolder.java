@@ -1,7 +1,9 @@
-package com.example.ssukssuk;
+package com.example.ssukssuk.Board;
 
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.ssukssuk.R;
 
 public class BoardHolder {
     private TextView title, date, writer;

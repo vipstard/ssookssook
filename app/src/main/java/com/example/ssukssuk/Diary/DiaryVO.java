@@ -1,4 +1,4 @@
-package com.example.ssukssuk;
+package com.example.ssukssuk.Diary;
 
 public class DiaryVO {
     private int img;

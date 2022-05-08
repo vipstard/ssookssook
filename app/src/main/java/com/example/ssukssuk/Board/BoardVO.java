@@ -1,4 +1,4 @@
-package com.example.ssukssuk;
+package com.example.ssukssuk.Board;
 
 public class BoardVO {
     private String title;
