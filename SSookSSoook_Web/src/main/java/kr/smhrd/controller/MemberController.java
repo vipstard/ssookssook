@@ -33,8 +33,6 @@ public class MemberController {
 	@Autowired
 	private MemberServiceImple memberService;
 	
-	
-	
 	// 회원가입
 	@PostMapping("Join")
 	public String Join(MemberVO vo) {
@@ -121,30 +119,30 @@ public class MemberController {
 		 */
 	
 	//아이디 중복체크
-			@PostMapping("idCheck")
-			@ResponseBody
-			public int idCheck(@RequestParam("id") String id) {
-				
-				//logger.info("userIdCheck 진입");
-				//logger.info("전달받은 id:"+email);
-				
-				int cnt = memberService.idCheck(id);
-				return cnt;
-				
-			}
+	@PostMapping("idCheck")
+	@ResponseBody
+	public int idCheck(@RequestParam("id") String id) {
+
+		// logger.info("userIdCheck 진입");
+		// logger.info("전달받은 id:"+email);
+
+		int cnt = memberService.idCheck(id);
+		return cnt;
+
+	}
 			
-		//이메일 중복체크
-		@PostMapping("emailCheck")
-		@ResponseBody
-		public int emailCheck(@RequestParam("email") String email) {
-			
-			//logger.info("userIdCheck 진입");
-			//logger.info("전달받은 id:"+email);
-			
-			int cnt = memberService.emailCheck(email);
-			return cnt;
-			
-		}
+	//이메일 중복체크
+	@PostMapping("emailCheck")
+	@ResponseBody
+	public int emailCheck(@RequestParam("email") String email) {
+
+		// logger.info("userIdCheck 진입");
+		// logger.info("전달받은 id:"+email);
+
+		int cnt = memberService.emailCheck(email);
+		return cnt;
+
+	}
 	
 	
 }

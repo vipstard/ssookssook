@@ -54,7 +54,7 @@ pageContext.setAttribute("newLine", "\n");
    </tr>
    <tr>
    		<td colsapn="4" align="center">
-   			<button class="btn btn-info btn-sm" onclick="location.href='QnaUpdateForm?idx=${Qna_Content.idx}'">수정</button>
+   			<button id='list_btn' class="btn btn-info btn-sm" onclick="location.href='QnaUpdateForm?idx=${Qna_Content.idx}'">수정</button>
    			<button class="btn btn-warning btn-sm" onclick="location.href='QnaDelete?idx=${Qna_Content.idx}'">삭제</button>
    			<button class="btn btn-success btn-sm" onclick="location.href='helpQnA'">리스트</button>
    		</td>
@@ -65,6 +65,14 @@ pageContext.setAttribute("newLine", "\n");
     <div class="panel-footer">지능형 IoT융합 SW전문가 과정</div>
   </div>
 </div>
+<script>
+/* 목록 페이지 이동 버튼 */
+ $(#list_btn).on("click", function(e) {
+	form.find('#bno').remove();
+	form.attr("action", "/board")
+ });
+ 
+</script>
 
 </body>
 </html>

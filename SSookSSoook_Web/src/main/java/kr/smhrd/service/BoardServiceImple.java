@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.smhrd.domain.Board;
+import kr.smhrd.domain.Criteria;
 import kr.smhrd.mapper.BoardMapper;
 
 @Service
@@ -16,9 +17,9 @@ public class BoardServiceImple implements BoardService{
 	
 	/* QnA 온라인문의 목록 불러오기 */
 	@Override
-	public ArrayList<Board> QnaList() {
+	public ArrayList<Board> QnaList(Criteria cri) {
 		
-		ArrayList<Board> QnaList = boardMapper.QnaList();
+		ArrayList<Board> QnaList = boardMapper.QnaList(cri);
 		return QnaList;
 	}
 
@@ -55,6 +56,13 @@ public class BoardServiceImple implements BoardService{
 	public void QnaContentCount(int idx) {
 		boardMapper.QnaContentCount(idx);
 		
+	}
+	
+	/* QnA 총 게시물 수 */
+	@Override
+	public int boardTotal(Criteria cri) {
+		
+		return boardMapper.boardTotal(cri);
 	}
 
 }

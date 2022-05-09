@@ -35,7 +35,11 @@ public interface MemberService{
 		/* 총 회원 수 */
 		public int memTotal(Criteria cri);
 		
-		//회원리스트 (페이징 적용)
-		//public List<MemberVO> getMemberListPaging(Criteria cri);
+		/* User 정보 업데이트(수정) */
+		public void userUpdate(MemberVO member) throws Exception;
+
+		
+		
+		
 
 }

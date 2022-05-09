@@ -3,11 +3,12 @@ package kr.smhrd.service;
 import java.util.ArrayList;
 
 import kr.smhrd.domain.Board;
+import kr.smhrd.domain.Criteria;
 
 public interface BoardService {
 	
 	/* QnA 게시판 목록 불러오기 */
-	public ArrayList<Board> QnaList();
+	public ArrayList<Board> QnaList(Criteria cri);
 	
 	/* 특정 게시물 번호를 가진 문의 게시물정보 가지고 오기 */
 	public Board Qna_Content(int idx);
@@ -24,5 +25,7 @@ public interface BoardService {
 	/* QnA 문의글 조회수 */
 	public void QnaContentCount(int idx);
 	
+	/* 총 게시글 수 */ 
+	public int boardTotal(Criteria cri);
 
 }

@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.smhrd.domain.Board;
+import kr.smhrd.domain.Criteria;
+import kr.smhrd.domain.PageMakerDTO;
 import kr.smhrd.service.BoardService;
 
 
@@ -27,7 +29,7 @@ public class BoardController {
 	/* 메인 */
 	@GetMapping("main")
 	public String boardList() {
-		return "/TestWeb/main";
+		return "/SsookSsookFront/index";
 	}
 	
 	/* 회원가입 폼으로 이동 */
@@ -61,10 +63,15 @@ public class BoardController {
 	
 	/* 온라인문의 페이지로 이동 (문의글 목록 출력)*/
 	@GetMapping("helpQnA")
-	public String helpQnA(Model model) {
+	public String helpQnA(Model model, Criteria cri) {
 		
-		ArrayList<Board> QnaList = boardService.QnaList();
+		ArrayList<Board> QnaList = boardService.QnaList(cri);
 		model.addAttribute("QnaList", QnaList);
+		
+		int total = boardService.boardTotal(cri);
+		
+		PageMakerDTO pageMake = new PageMakerDTO(cri, total);
+		model.addAttribute("BoardPageMaker", pageMake);
 		
 		return "/TestWeb/helpQnA";
 	}

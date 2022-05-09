@@ -101,6 +101,12 @@ public class MemberServiceImple implements MemberService {
 		return mapper.memTotal(cri);
 	}
 
+	@Override
+	public void userUpdate(MemberVO member) throws Exception {
+		mapper.MemberJoin(member);
+		
+	}
+
 	
 	/*
 	 * 회원리스트 (페이징 적용)

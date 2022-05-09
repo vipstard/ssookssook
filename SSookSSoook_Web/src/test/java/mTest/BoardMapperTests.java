@@ -11,10 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-
+import kr.smhrd.domain.Board;
 import kr.smhrd.domain.Criteria;
 import kr.smhrd.domain.MemberVO;
+import kr.smhrd.mapper.BoardMapper;
 import kr.smhrd.mapper.MemberMapper;
+import kr.smhrd.service.BoardService;
 import kr.smhrd.service.MemberService;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -24,8 +26,8 @@ public class BoardMapperTests {
      private static final Logger log = LoggerFactory.getLogger(BoardMapperTests.class);
      
      @Autowired
-     private MemberMapper mapper;
-     private MemberService service;
+     private BoardMapper mapper;
+     private BoardService service;
      
 
 
@@ -36,7 +38,7 @@ public class BoardMapperTests {
       
       Criteria cri = new Criteria();
       
-      ArrayList<MemberVO> list = service.memberList(cri);
+      ArrayList<Board> list = mapper.QnaList(cri);
       
       list.forEach(board -> log.info("" + board));
   }

@@ -12,9 +12,16 @@
 		<result property="count" column="qna_count"/>
 	</resultMap>
 
-	<!-- QnA 온라인문의 글 목록 불러오기 -->
+	<!-- QnA 온라인문의 글 목록 불러오기(페이징) -->
 	<select id='QnaList' resultType="kr.smhrd.domain.Board" resultMap="board">
-		select * from qna_info order by qna_seq desc
+		SELECT @ROWNUM:=@ROWNUM+1 AS rn, qna_seq, qna_title , 
+		qna_content, qna_date, user_id, qna_count 
+			FROM qna_info qi , (SELECT @ROWNUM:=0) AS R 
+			<if test="keyword != null">
+				WHERE qna_title like concat('%', #{keyword}, '%')
+			</if>
+			ORDER BY rn desc
+		LIMIT #{skip}, #{amount}
 	</select>
 	
 	<!-- QnA 온라인문의 상세페이지 불러오기 -->
@@ -39,5 +46,15 @@
 		update qna_info set qna_count = qna_count + 1 where qna_seq=#{idx}
 	</update>
 	
+	<!-- QnA 온라인 문의 목록 전체 개수 -->
+	<select id="boardTotal" resultType="int">
+		select count(*) from qna_info
+			
+			<if test="keyword != null">
+				where user_id like concat('%', #{keyword}, '%')
+			</if>
+	</select>
+	
+ 
 	
 </mapper>
