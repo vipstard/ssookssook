@@ -1,77 +1,83 @@
 package com.example.ssukssuk;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
+
+import android.util.SparseBooleanArray;
 import android.view.View;
+
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.example.ssukssuk.Regplant.RegAdapter;
-import com.example.ssukssuk.Regplant.RegVO;
 
 import java.util.ArrayList;
 
 public class Reg_Plant_main extends AppCompatActivity {
-    ListView reg_list1;
-    Button reg_plant_add,reg_plant_delete,reg_plant_main;
-    RegAdapter adapter;
-    ArrayList<RegVO> list;
-    ArrayList<RegVO> list2;
-    String title="";
-    String date = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg_plant_main);
-        reg_list1 = findViewById(R.id.reg_list);
-        reg_plant_add = findViewById(R.id.reg_plant_add);
+        final ArrayList<String> items = new ArrayList<String>() ;
+        // ArrayAdapter 생성. 아이템 View를 선택(multiple choice)가능하도록 만듦.
+        final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, items) ;
 
-        reg_plant_main = findViewById(R.id.reg_plant_main);
-        list2 = new ArrayList<RegVO>();
-
-        list = new ArrayList<RegVO>();
-        for(int i=0; i<10; i++) {
-            title = "dfdfdf" + 1;
-            date = "hello";
-            list.add(new RegVO(title, date));
-        }
-
-        adapter = new RegAdapter(
-                Reg_Plant_main.this,
-                R.layout.reg_list,
-                list);
-        reg_list1.setAdapter(adapter);
-        reg_list1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        // listview 생성 및 adapter 지정.
+        final ListView listview = (ListView) findViewById(R.id.listview1) ;
+        listview.setAdapter(adapter) ;
+        Button addButton = (Button)findViewById(R.id.reg_plant_add) ;
+        listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                Toast.makeText(Reg_Plant_main.this, "dfdfdfdfdfdfdfdfdf", Toast.LENGTH_SHORT).show();
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(Reg_Plant_main.this, "dddd", Toast.LENGTH_SHORT).show();
+                return false;
             }
         });
-        reg_plant_add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        addButton.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
                 int count;
                 count = adapter.getCount();
 
                 // 아이템 추가.
-                list.add(new RegVO(title+count,date+count));
+                items.add("LIST" + Integer.toString(count + 1));
 
                 // listview 갱신
                 adapter.notifyDataSetChanged();
             }
-        });
+        }) ;
+        Button deleteButton = (Button)findViewById(R.id.reg_plant_delete) ;
+        deleteButton.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                SparseBooleanArray checkedItems = listview.getCheckedItemPositions();
+                int count = adapter.getCount() ;
 
-        reg_plant_main.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                for (int i = count-1; i >= 0; i--) {
+                    if (checkedItems.get(i)) {
+                        items.remove(i) ;
+                    }
+                }
+                // 모든 선택 상태 초기화.
+                listview.clearChoices() ;
 
+                adapter.notifyDataSetChanged();
             }
-        });
+        }) ;
+        Button selectAllButton = (Button)findViewById(R.id.reg_plant_selectAll) ;
+        selectAllButton.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                int count = 0 ;
+                count = adapter.getCount() ;
+
+                for (int i=0; i<count; i++) {
+                    listview.setItemChecked(i, true) ;
+                }
+            }
+        }) ;
     }
 }
 
