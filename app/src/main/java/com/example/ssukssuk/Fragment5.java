@@ -15,14 +15,23 @@ import android.widget.Button;
 public class Fragment5 extends Fragment {
 
 
-    Button btn;
+    Button btn_logout,btn_information,btn_register;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_5, container, false);
         // Inflate the layout for this fragment
-        btn = view.findViewById(R.id.btn_S_Logout);
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn_logout = view.findViewById(R.id.btn_S_Logout);
+        btn_information = view.findViewById(R.id.btn_S_Informaiton);
+        btn_register = view.findViewById(R.id.btn_S_Register);
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),Reg_plant.class);
+                startActivity(intent);
+            }
+        });
+        btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SharedPreferences spf = getActivity().

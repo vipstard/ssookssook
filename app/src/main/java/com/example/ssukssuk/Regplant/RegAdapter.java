@@ -54,8 +54,6 @@ public class RegAdapter extends BaseAdapter {
         }
         RegVO vo = (RegVO) getItem(i);
 
-
-
         holder.getName().setText(vo.getname());
         holder.getType().setText(vo.gettype());
 

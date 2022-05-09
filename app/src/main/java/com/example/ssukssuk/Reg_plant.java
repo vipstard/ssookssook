@@ -45,5 +45,4 @@ public class Reg_plant extends AppCompatActivity {
         reg_list.setAdapter(adapter);
 
     }
-
-    }
+}
