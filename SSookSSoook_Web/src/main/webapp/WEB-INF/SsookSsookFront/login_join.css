@@ -1,0 +1,133 @@
+@font-face {
+  font-family: "S-CoreDream-5Medium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "S-CoreDream-4Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "S-CoreDream-3Light";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: S-CoreDream-3Light;
+  color: #707070;
+  min-height: 100vh;
+  height: 130vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("/img/bg-img/img1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    right top,
+    from(#d9f4d1),
+    to(#29633a)
+  );
+  background: -webkit-linear-gradient(bottom left, #d9f4d1 0%, #29633a 100%);
+  background: -moz-linear-gradient(bottom left, #d9f4d1 0%, #29633a 100%);
+  background: -o-linear-gradient(bottom left, #d9f4d1 0%, #29633a 100%);
+  background: linear-gradient(to top right, #d9f4d1 0%, #29633a 100%);
+}
+.logo {
+  display: block;
+  margin: 0 auto;
+  width: 150px;
+  height: 90px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.daumBtn {
+  background: #65b369;
+}
+
+.join {
+  background: #65b369;
+  display: block;
+}
+
+/* 로그인페이지에 있는 가입하기 버튼 */
+.join-l {
+  background: #65b369;
+  display: inline-block;
+  font-size: 14px;
+  font-family: S-CoreDream-5Medium;
+}
+
+.login {
+  background: #65b369;
+  display: inline-block;
+  font-size: 14px;
+  font-family: S-CoreDream-5Medium;
+}
+
+.container {
+  display: block;
+  margin-top: 10px;
+}
+
+.input-form {
+  max-width: 800px;
+  margin: auto;
+  margin-top: 80px;
+  padding: 32px;
+  background: #fff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 8px 2 0px 0 rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.15);
+}
+.margin_center {
+  margin: 0 auto;
+}
+
+.btn-groups {
+  width: 100%;
+  text-align: center;
+}
+
+label {
+  font-family: S-CoreDream-5Medium;
+  color: rgb(16, 94, 28);
+}
+
+.addr__container {
+  padding-left: 340px;
+  padding-top: 10px;
+  font-size: 12px;
+}
+
+.join {
+  font-size: 15px;
+  font-family: S-CoreDream-5Medium;
+  color: #fff;
+}
+
+.btn-warning {
+  color: #ffffff;
+}
+
+.btn-warning:hover {
+  color: rgb(255, 255, 255);
+  background-color: #0b5119;
+  border-color: #024615;
+}
+/*********login************/
