@@ -8,11 +8,11 @@ import com.example.ssukssuk.R;
 
 public class RegHolder {
     private TextView type, name;
-    private CheckBox reg_ck;
+    //private CheckBox reg_ck;
     public RegHolder(View itemView) {
         type = itemView.findViewById(R.id.reg_r_type);
         name = itemView.findViewById(R.id.reg_r_name);
-        reg_ck = itemView.findViewById(R.id.reg_check);
+      //  reg_ck = itemView.findViewById(R.id.reg_check);
     }
 
     public TextView getType() {

@@ -9,19 +9,19 @@ public class RegVO {
         this.type = type;
     }
 
-    public String getname() {
+    public String getName() {
         return name;
     }
 
-    public void getname(String name) {
+    public void getName(String name) {
         this.name = name;
     }
 
-    public String gettype() {
+    public String getType() {
         return type;
     }
 
-    public void gettype(String type) {
+    public void getType(String type) {
         this.type = type;
     }
 

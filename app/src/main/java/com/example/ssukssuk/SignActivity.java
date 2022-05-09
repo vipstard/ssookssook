@@ -19,7 +19,7 @@ public class SignActivity extends AppCompatActivity {
     Spinner year,month,day;
 
     Button btn_Id_check,btn_Pw_check,btn_new_reg,back,btn_signup;
-    String[] year1 = {"소녀시대", "소녀시대2", "소녀시대3", "소녀시대4"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
