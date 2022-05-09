@@ -50,7 +50,7 @@ public class IdFindSuccessActivity extends AppCompatActivity{
         btnPw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(IdFindSuccessActivity.this, SignActivity.class);
+                Intent intent = new Intent(IdFindSuccessActivity.this, PwFindActivity.class);
                 startActivity(intent);
             }
 

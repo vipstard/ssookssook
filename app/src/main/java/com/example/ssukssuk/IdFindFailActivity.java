@@ -48,7 +48,7 @@ public class IdFindFailActivity extends AppCompatActivity {
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(IdFindFailActivity.this, SignActivity.class);
+                Intent intent = new Intent(IdFindFailActivity.this, PwFindActivity.class);
                 startActivity(intent);
             }
         });

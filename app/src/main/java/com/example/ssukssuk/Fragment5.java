@@ -3,6 +3,7 @@ package com.example.ssukssuk;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.icu.text.IDNA;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,6 +18,8 @@ public class Fragment5 extends Fragment {
 
 
     Button btn_logout,btn_information,btn_register;
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -32,6 +35,17 @@ public class Fragment5 extends Fragment {
                 startActivity(intent1);
             }
         });
+
+
+        btn_information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),InformationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
         btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
