@@ -50,7 +50,7 @@
         android:layout_marginStart="57dp"
         android:ems="10"
         android:hint="이름"
-        android:inputType="textPersonName"
+        android:inputType="textShortMessage"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2" />
@@ -62,9 +62,11 @@
         android:layout_marginEnd="77dp"
         android:ems="10"
         android:hint="휴대폰 번호"
+        android:inputType="textShortMessage"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintTop_toTopOf="@+id/textView3"
+        android:imeOptions="actionDone"/>
 
     <TextView
         android:id="@+id/textView"

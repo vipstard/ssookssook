@@ -41,8 +41,13 @@ public class EditActivity extends AppCompatActivity {
         edtAddress.setText(address);
 
 
-
-
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(EditActivity.this,MainActivity.class);
+                startActivity(intent1);
+            }
+        });
 
 
         btnBack.setOnClickListener(new View.OnClickListener() {

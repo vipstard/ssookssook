@@ -46,11 +46,11 @@
     <EditText
         android:id="@+id/edt_PFE_Id"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginEnd="77dp"
         android:ems="10"
         android:hint="아이디"
-        android:inputType="textPersonName"
+        android:inputType="textShortMessage"
         app:layout_constraintBottom_toBottomOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView3" />
@@ -62,10 +62,12 @@
         android:layout_marginEnd="77dp"
         android:ems="10"
         android:hint="이메일"
+        android:inputType="textShortMessage"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.461" />
+        app:layout_constraintVertical_bias="0.461"
+        android:imeOptions="actionDone" />
 
     <EditText
         android:id="@+id/edt_PFE_Name"
@@ -74,7 +76,7 @@
         android:layout_marginStart="57dp"
         android:ems="10"
         android:hint="이름"
-        android:inputType="textPersonName"
+        android:inputType="textShortMessage"
         app:layout_constraintBottom_toBottomOf="@+id/textView2"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="@+id/textView2" />

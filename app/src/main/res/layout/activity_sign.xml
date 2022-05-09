@@ -288,7 +288,8 @@
                         android:ems="10"
                         android:hint="주소"
                         android:inputType="textPassword"
-                        android:text="" />
+                        android:text=""
+                        android:imeOptions="actionDone"/>
 
                 </LinearLayout>
 

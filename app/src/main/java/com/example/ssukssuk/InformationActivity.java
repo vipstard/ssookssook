@@ -1,6 +1,8 @@
 package com.example.ssukssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +14,7 @@ public class InformationActivity extends AppCompatActivity {
 
     Button btnBack, btnEdit;
     TextView tvName, tvPhone, tvEmail, tvAddress;
-
+    Fragment5 frag_set;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,7 @@ public class InformationActivity extends AppCompatActivity {
         tvPhone = findViewById(R.id.tv_IA_Phone);
         tvEmail = findViewById(R.id.tv_IA_Email);
         tvAddress = findViewById(R.id.tv_IA_Address);
+        frag_set = new Fragment5();
 
 
 
@@ -43,6 +46,13 @@ public class InformationActivity extends AppCompatActivity {
                 intent.putExtra("address",address);
 
                 startActivity(intent);
+            }
+        });
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
 
