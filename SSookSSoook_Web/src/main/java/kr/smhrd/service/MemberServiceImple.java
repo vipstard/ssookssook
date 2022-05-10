@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import kr.smhrd.domain.Criteria;
 import kr.smhrd.domain.MemberVO;
 import kr.smhrd.mapper.MemberMapper;
+import lombok.extern.java.Log;
 
 @Service
 public class MemberServiceImple implements MemberService {
@@ -19,23 +21,30 @@ public class MemberServiceImple implements MemberService {
 	@Autowired
 	private MemberMapper mapper;
 
-	// 회원가입 mapper 접근
+	/* 회원가입 mapper 접근 */
 	@Override
 	public void Join(MemberVO vo) {
 		mapper.MemberJoin(vo);
 	}
+	
+	/* 회원 주소 mapper 접근 */
+	@Override
+	public void JoinAddr(MemberVO vo) {
+		mapper.MemberJoinAddr(vo);
+		
+	}
 
-	// 로그인 mapper 접근
+	
+	/* 로그인 mapper 접근 */
 	@Override
 	public MemberVO Login(MemberVO vo) {
-		System.out.println("Service : " + vo);
 		MemberVO VO = mapper.MemberLogin(vo);
 		System.out.println("Service2 : " + VO);
 
 		return VO;
 	}
 	
-	// 회원 로그아웃
+	/* 회원 로그아웃 */
 	@RequestMapping("/LogOut")
 	public String LogOut(HttpSession session) {
 
@@ -100,13 +109,24 @@ public class MemberServiceImple implements MemberService {
 		
 		return mapper.memTotal(cri);
 	}
-
+	
+	/* 회원 주소 정보 수정 */
 	@Override
-	public void userUpdate(MemberVO member) throws Exception {
-		mapper.MemberJoin(member);
+	public void addrUpdate(MemberVO vo) {
+		System.out.println("서비스 : " + vo );
+		mapper.addrUpdate(vo);
 		
 	}
 
+	@Override
+	public MemberVO selectOne(@Param("id") String id) {
+		System.out.println("서비스: "  + id);
+		MemberVO selectOne = mapper.selectOne(id);
+		System.out.println("서비스: "  + selectOne);
+		return selectOne;
+	}
+
+	
 	
 	/*
 	 * 회원리스트 (페이징 적용)

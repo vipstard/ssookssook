@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -66,21 +68,39 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Login -->
+                  
+                <c:if test="${!empty LoginVo}">
+                <label style='color : white'>${LoginVo.name }님 환영합니다.</label>&nbsp&nbsp
+                 <!-- 회원정보 수정  -->
+                  <div class="Sign Up">
+                    <a href="EditProfile?id=${LoginVo.id }"
+                      ><i class="fa fa-sign-in" aria-hidden="true"></i>
+                      <span>Edit Profile</span></a
+                    >
+                  </div>
+                 <button class="btn btn-default btn-sm" onclick="location.href='https://kauth.kakao.com/oauth/logout?client_id=e3eced6c366d05e611468e218fc8f42d&logout_redirect_uri=http://211.227.224.199:8081/SS/LogOut'">LogOut</button>
+                 </c:if>
+                 
+                 <c:if test="${empty LoginVo}">
+  					 <!-- Login -->
                   <div class="login">
-                    <a href="./login.html"
+                    <a href="LoginForm"
                       ><i class="fa fa-user" aria-hidden="true"></i>
                       <span>Log in</span></a
                     >
                   </div>
                   <!-- Sign Up -->
                   <div class="Sign Up">
-                    <a href="./join.html"
+                    <a href="JoinForm"
                       ><i class="fa fa-sign-in" aria-hidden="true"></i>
                       <span>Sign Up</span></a
                     >
                   </div>
-                </div>
+                  
+				 </c:if>
+
+                 
+                </div> <!-- TOP -->
               </div>
             </div>
           </div>
@@ -94,7 +114,7 @@
             <!-- Menu -->
             <nav class="classy-navbar justify-content-between" id="alazeaNav">
               <!-- Nav Brand -->
-              <a href="index.html" class="nav-brand"
+              <a href="main" class="nav-brand"
                 ><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt=""
               /></a>
 
@@ -117,11 +137,11 @@
                 <!-- Navbar Start -->
                 <div class="classynav">
                   <ul style="font-family: SBAggroL">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">회사 소개</a></li>
+                    <li><a href="main">Home</a></li>
+                    <li><a href="About">회사 소개</a></li>
                     <li><a href="#">제품 구매</a></li>
                     <li><a href="#">고객센터</a></li>
-                    <li><a href="contact.html">A/S</a></li>
+                    <li><a href="Contact">A/S</a></li>
                   </ul>
 
                   <!-- Search Icon -->

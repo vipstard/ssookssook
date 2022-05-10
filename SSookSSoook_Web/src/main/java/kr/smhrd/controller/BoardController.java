@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.smhrd.domain.Board;
 import kr.smhrd.domain.Criteria;
+import kr.smhrd.domain.MemberVO;
 import kr.smhrd.domain.PageMakerDTO;
 import kr.smhrd.service.BoardService;
+import kr.smhrd.service.MemberService;
 
 
 @Controller
@@ -26,24 +29,38 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
+	@Autowired
+	private MemberService memberService;
+	
 	/* 메인 */
 	@GetMapping("main")
 	public String boardList() {
-		return "/SsookSsookFront/index";
+		return "/SsookSsookFront/JSP/index";
 	}
 	
 	/* 회원가입 폼으로 이동 */
 	@GetMapping("JoinForm")
 	public String JoinForm() {
-		return "/TestWeb/JoinForm";
+		return "/SsookSsookFront/JSP/join";
+	}
+	
+	/* 주문페이지로 이동 */
+	@GetMapping("Order")
+	public String Order() {
+		return "/SsookSsookFront/JSP/Order";
 	}
 	
 	
 	
 	/* 회원수정 폼으로 이동 */
 	@GetMapping("EditProfile")
-	public String EditProfile() {
-		return "/TestWeb/EditProfile";
+	public String EditProfile(@Param("id") String id, Model model) {
+		System.out.println("ㅇㅇ : " + id);
+		MemberVO Edit = memberService.selectOne(id);
+		System.out.println("회원수정 : "  + Edit);
+		model.addAttribute("LoginVo", Edit);
+		
+		return "/SsookSsookFront/JSP/EditProfile";
 	}
 	
 
@@ -57,6 +74,18 @@ public class BoardController {
 	@GetMapping("QnaForm")
 	public String QnaForm() {
 		return "/TestWeb/QnaForm";
+	}
+	
+	/* AS 페이지 이동 */
+	@GetMapping("Contact")
+	public String Contact() {
+		return "/SsookSsookFront/JSP/contact";
+	}
+	
+	/* 회사소개 이동 */
+	@GetMapping("About")
+	public String About() {
+		return "/SsookSsookFront/JSP/about";
 	}
 	
 	

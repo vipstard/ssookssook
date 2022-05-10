@@ -20,6 +20,10 @@ public interface MemberMapper {
 			+ " #{pw}, #{name}, #{phone}, #{email}, #{addr}, 'N', now())")
 	public void MemberJoin(MemberVO vo);
 	
+	/* 회원가입 주소 테이블 */
+	@Insert("insert into addr_info(user_id, Postalcode, addr, addr1, addr2)"
+			+ "values(#{id}, #{Postalcode}, #{addr}, #{addr1}, #{addr2})")
+	public void MemberJoinAddr(MemberVO vo);
 
 	//로그인
 	//@Select("Select * from user_info where user_id=#{user_id} and user_pw=#{user_pw}")
@@ -49,14 +53,21 @@ public interface MemberMapper {
 	@Select("select nvl(id, 0) from t_member where name=#{name} and phone=#{phone}")
 	public String find_id(@Param("name") String name, @Param("phone") String phone);
 	
-	//회원정보 수정
-	public void MemberUpdate(MemberVO vo);
-	
 	//회원 리스트(페이징)
 	public ArrayList<MemberVO> memberList(Criteria cri);
 	
 	/* 총 회원수 */ 
 	public int memTotal(Criteria cri);
+
+	//회원정보 수정
+	public void MemberUpdate(MemberVO vo);
+	
+	/* 회원 주소 정보 수정 */
+	public void addrUpdate(MemberVO vo);
+	
+	/* 특정회원 검색 */
+	public MemberVO selectOne(String id);
+	
 	
 	
 	
