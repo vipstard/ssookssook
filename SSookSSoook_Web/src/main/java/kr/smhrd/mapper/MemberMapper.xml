@@ -8,14 +8,18 @@
 	<result property="name" column="user_name"/>
 	<result property="phone" column="user_phone"/>
 	<result property="email" column="user_email"/>
-	<result property="address" column="user_address"/>
+	<result property="Postalcode" column="Postalcode"/>
+	<result property="addr" column="user_addr"/>
 	<result property="joindate" column="user_joindate"/>
 	
 </resultMap>
 
 	<!-- 로그인 -->
 	<select id="MemberLogin" resultType="kr.smhrd.domain.MemberVO" resultMap="member">
-		select * from user_info where user_id=#{id} and user_pw=#{pw}
+		SELECT  * 
+		FROM user_info ui 
+		JOIN addr_info ai ON ui.user_id = ai.user_id
+		WHERE ui.user_id=#{id} and ui.user_pw=#{pw}
 	</select>
 	
 	<!-- 소셜 멤버 로그인 -->
@@ -33,9 +37,23 @@
 		SELECT COUNT(user_id) FROM user_info WHERE user_id= #{id}
 	</select>
 	
+	<!-- 특정 회원정보 정보검색 -->
+	<select id="selectOne" parameterType="String" resultType="kr.smhrd.domain.MemberVO" resultMap="member">
+		SELECT  * 
+		FROM user_info ui 
+		JOIN addr_info ai ON ui.user_id = ai.user_id
+		WHERE ui.user_id=#{id}
+	</select>
+	
 	<!-- 회원정보 수정 -->
 	<update id="MemberUpdate" parameterType="kr.smhrd.domain.MemberVO">
 		update user_info set user_email=#{email}, user_pw=#{pw}, user_phone=#{phone}, user_addr=#{addr} where user_id=#{id}
+	</update>
+	
+	<!-- 회원 주소 정보 수정 -->
+	<update id="addrUpdate" parameterType="kr.smhrd.domain.MemberVO">
+		update addr_info set Postalcode=#{Postalcode}, addr=#{addr}, 
+		addr1=#{addr1}, addr2=#{addr2} where user_id=#{id}
 	</update>
 
 	<!-- 회원목록 전체 개수 -->
