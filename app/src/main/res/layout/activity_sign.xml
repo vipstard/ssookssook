@@ -68,7 +68,7 @@
                     android:layout_height="48dp">
 
                     <EditText
-                        android:id="@+id/signID"
+                        android:id="@+id/btn_SA_Id"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:layout_marginBottom="20dp"
@@ -79,7 +79,7 @@
                         android:text="" />
 
                     <Button
-                        android:id="@+id/id_check_btn"
+                        android:id="@+id/btn_SA_IdCheck"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:layout_marginLeft="10dp"
@@ -105,11 +105,11 @@
                     android:layout_height="50dp">
 
                     <EditText
-                        android:id="@+id/signPW"
+                        android:id="@+id/edt_SA_Pw"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
-                        android:layout_marginBottom="20dp"
 
+                        android:layout_marginBottom="20dp"
                         android:ems="10"
                         android:hint=" 비밀번호 확인"
                         android:inputType="textPassword"
@@ -133,7 +133,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/signPW2"
+                        android:id="@+id/edt_SA_Pw2"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:layout_marginBottom="20dp"
@@ -144,7 +144,7 @@
                         android:text="" />
 
                     <Button
-                        android:id="@+id/pw_check_button"
+                        android:id="@+id/btn_SA_PwCheck"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:layout_marginLeft="10dp"
@@ -166,7 +166,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/sign_name"
+                    android:id="@+id/edt_SA_Name"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:layout_marginBottom="20dp"
@@ -234,7 +234,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/signphone"
+                    android:id="@+id/edt_SA_Phone"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:layout_marginBottom="20dp"
@@ -255,7 +255,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/signmail"
+                    android:id="@+id/edt_SA_Email"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:layout_marginBottom="20dp"
@@ -274,27 +274,19 @@
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/edt_SA_Address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="20dp"
 
-                    <EditText
-                        android:id="@+id/address"
-                        android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:layout_marginBottom="20dp"
-
-                        android:ems="10"
-                        android:hint="주소"
-                        android:inputType="textPassword"
-                        android:text=""
-                        android:imeOptions="actionDone"/>
-
-                </LinearLayout>
+                    android:ems="10"
+                    android:hint="주소"
+                    android:inputType="textPersonName"
+                    android:text="" />
 
                 <Button
-                    android:id="@+id/signup_button"
+                    android:id="@+id/btn_SA_Signup"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
