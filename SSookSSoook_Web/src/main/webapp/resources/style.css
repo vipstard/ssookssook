@@ -1318,6 +1318,8 @@ p {
   font-size: 30px;
   margin-bottom: 10px;
   text-transform: uppercase;
+  font-family: NEXON Lv1 Gothic OTF Bold;
+  color: #303030;
 }
 @media only screen and (max-width: 767px) {
   .single_product_desc .title {
@@ -1327,7 +1329,8 @@ p {
 .single_product_desc .price {
   font-size: 26px;
   font-weight: 600;
-  color: #70c745;
+  color: rgb(16, 94, 28);
+  font-family: S-CoreDream-5Medium;
   margin-bottom: 30px;
 }
 .single_product_desc .short_overview {
@@ -1335,6 +1338,11 @@ p {
 }
 .single_product_desc .short_overview p {
   font-size: 14px;
+}
+.single_product_desc .short_overview p span {
+  font-weight: bold;
+  font-family: S-CoreDream-5Medium;
+  color: rgb(16, 94, 28);
 }
 .single_product_desc .cart--area {
   position: relative;
@@ -1443,7 +1451,13 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  font-size: 15px;
 }
+
+.products--meta p {
+  font-size: 14px;
+}
+
 .single_product_desc .products--meta p span:first-child {
   font-weight: 500;
   color: #303030;
@@ -1490,13 +1504,17 @@ p {
 }
 .product_details_tab .nav-tabs .nav-link.active,
 .product_details_tab .nav-tabs .nav-link:hover {
-  color: #70c745;
+  color: #65b369;
 }
 .product_details_tab .additional_info_area p {
-  color: #303030;
+  color: rgb(16, 94, 28);
+  font-size: 17px;
+  font-family: S-CoreDream-5Medium;
 }
 .product_details_tab .additional_info_area p span {
   color: #707070;
+  font-size: 13px;
+  font-family: S-CoreDream-3Light;
 }
 
 .product_details_tab .review-rating i {
@@ -3483,20 +3501,19 @@ p {
 .portfolio-details-meta:last-child {
   margin-bottom: 0;
 }
-
-.carousel {
+.sub-carousel {
   position: absolute;
-  bottom: 30px;
   left: calc(50% - 25px);
+  bottom: 30px;
 }
 
-.carousel ul {
+.sub-carousel ul {
   width: 50px;
   display: flex;
   justify-content: space-between;
 }
 
-.carousel ul li {
+.sub-carousel ul li {
   cursor: pointer;
   display: block;
   border-radius: 100%;
@@ -3504,7 +3521,7 @@ p {
   height: 10px;
   background-color: #b1b1b1;
 }
-.carousel ul li.active {
+.sub-carousel ul li.active {
   background-color: #fff;
   cursor: default;
 }
