@@ -38,9 +38,6 @@ public class CustomDialog extends Dialog implements View.OnClickListener{
         this.customDialogListener = customDialogListener;
     }
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

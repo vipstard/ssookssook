@@ -15,6 +15,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class LoginActivity extends AppCompatActivity {
     Button login, basic,idfind,pwfind;
     EditText user_id, user_pw;
@@ -24,6 +27,10 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference();
+
+        myRef.setValue("Hello, World!");
 
         user_id = findViewById(R.id.user_id);
         user_pw = findViewById(R.id.user_pw);
@@ -64,6 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("user_login_pw", user_id.getText().toString());
                             editor.commit();
                             //꼭 commit()을 해줘야 값이 저장됩니다 ㅎㅎ
+
 
                             Toast.makeText(LoginActivity.this, user_id.getText().toString() + "님 환영합니다.", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);

@@ -21,9 +21,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class Reg_Plant_main extends AppCompatActivity {
-
-    String a="";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
