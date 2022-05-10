@@ -1,5 +1,6 @@
 package kr.smhrd.controller;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,8 +28,30 @@ public class AndroidController {
 		Gson gson = new Gson();
 		MemberVO member = gson.fromJson(objJson, MemberVO.class);
 
-		memberService.userUpdate(member);
+		
 	}
+	
+	@ResponseBody
+	@RequestMapping("AndServer")
+	public MemberVO AndServer(MemberVO vo, @Param("id") String id, @Param("pw") String pw) {
+		
+		vo.setId(id);
+		vo.setPw(pw);
+		System.out.println(vo);
+		
+		return vo;
+	}
+	
+	@ResponseBody
+	@RequestMapping("And_Ardu")
+	public String AndServer(@Param("sign") int sign) {
+		
+		System.out.println("들어온 값: " + sign);
+		
+		return "Input: " + sign;
+	}
+	
+	
 		
 
 }

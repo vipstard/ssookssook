@@ -28,6 +28,8 @@ public class Fragment1 extends Fragment {
     EditText edtData;
     Button btn_register;
     ArrayList<BoardVO> list2;          // 데이터를 넣은 리스트변수
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

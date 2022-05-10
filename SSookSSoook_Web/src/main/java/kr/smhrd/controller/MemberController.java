@@ -38,7 +38,9 @@ public class MemberController {
 	public String Join(MemberVO vo) {
 		
 		try {
+			vo.setAddr(vo.getAddr1()+vo.getAddr2());
 			memberService.Join(vo);
+			memberService.JoinAddr(vo);
 			System.out.println("회원가입 완료");
 			System.out.println(vo);
 		} catch (Exception e) {
@@ -48,21 +50,19 @@ public class MemberController {
 		return "redirect:/main";
 	}
 	
-	// 회원 로그인
-		@PostMapping("Login_Test")
-		public String Login(MemberVO vo, HttpSession session) {
-			System.out.println("로그인1 : " + vo);
-			MemberVO Login = memberService.Login(vo);
-			
-			System.out.println("로그인 " + Login);
-			
-			if(Login!=null) {
-				session.setAttribute("LoginVo", Login);
-			}
-			
-			
-			return "redirect:/main";
+	/* 회원 로그인 */
+	@PostMapping("Login_Test")
+	public String Login(MemberVO vo, HttpSession session) {
+		System.out.println("로그인1 : " + vo);
+		MemberVO Login = memberService.Login(vo);
+
+		System.out.println("로그인 " + Login);
+		if (Login != null) {
+			session.setAttribute("LoginVo", Login);
 		}
+
+		return "redirect:/main";
+	}
 		
 		// 회원 로그아웃
 		@RequestMapping("LogOut")
@@ -77,15 +77,22 @@ public class MemberController {
 		
 		
 		/* 회원 정보 수정 */
-		@PostMapping("/memberUpdate")
-		public String memberUpdate(MemberVO vo) {
+		@PostMapping("memberUpdate")
+		public String memberUpdate(MemberVO vo, Model model) {
 			
-			System.out.print("회원수정 컨트롤러 ");
-			System.out.println(vo);
+			
+			
+			/* 전체 주소 없으면 주소 + 상세주소 */
+			if(vo.getAddr()==null) {
+				vo.setAddr(vo.getAddr1() + vo.getAddr2());
+			}
+			System.out.println("회원수정 컨트롤러 : " + vo);
 			
 			try {
-				memberService.memberUpdate(vo);
-			} catch (Exception e) {
+				memberService.memberUpdate(vo); // 정보 업데이트
+				memberService.addrUpdate(vo);	// 주소 업데이트
+				
+				} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -108,7 +115,7 @@ public class MemberController {
 			
 			model.addAttribute("pageMaker", page);
 			
-			 return "/TestWeb/member_Manage"; 
+			return "/TestWeb/member_Manage"; 
 			
 		}
 		
