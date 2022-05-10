@@ -30,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference();
 
-        myRef.setValue("Hello, World!");
+        myRef.setValue("Hello!1");
 
         user_id = findViewById(R.id.user_id);
         user_pw = findViewById(R.id.user_pw);
