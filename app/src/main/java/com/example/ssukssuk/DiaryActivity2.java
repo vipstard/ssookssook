@@ -15,6 +15,8 @@ public class DiaryActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary2);
+
+
         Intent intent = getIntent();
         int img = intent.getIntExtra("img",0);
         String title = intent.getStringExtra("title");

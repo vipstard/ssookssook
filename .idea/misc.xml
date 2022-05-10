@@ -4,11 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/drawable/button_border.xml" value="0.1585" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_board_write.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_diary2.xml" value="0.1" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_find.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_idfind.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_new_login_basic.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_pwfind.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_service_center2.xml" value="0.2" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_service_center_adapter.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/board_list.xml" value="0.33" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/diary_list.xml" value="0.1814814814814815" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/fragment_1.xml" value="0.33" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/fragment_2.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/fragment_4.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/servicecenter_list.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/drawable/button_border.xml" value="0.217" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/drawable/button_selector.xml" value="0.246" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1905" />

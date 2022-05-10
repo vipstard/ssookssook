@@ -4,7 +4,9 @@ public class BoardVO {
     private String title;
     private String date;
     private String writer;
+
     public BoardVO(){}
+
     public BoardVO(String title, String date, String writer) {
         this.title = title;
         this.date = date;
