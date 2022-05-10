@@ -15,6 +15,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.ssukssuk.VO.loginVO;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -23,14 +24,14 @@ public class LoginActivity extends AppCompatActivity {
     EditText user_id, user_pw;
     CheckBox auto_check;
     String loginId,loginPwd;
+    loginVO vo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference();
 
-        myRef.setValue("Hello, World!");
+        vo = new loginVO();
+
 
         user_id = findViewById(R.id.user_id);
         user_pw = findViewById(R.id.user_pw);

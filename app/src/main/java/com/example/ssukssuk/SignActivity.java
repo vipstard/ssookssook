@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class SignActivity extends AppCompatActivity {
     EditText name,Id,Pw,rePw,email,address;
     Spinner year,month,day;
-
+    int month_sel;
     Button btn_Id_check,btn_Pw_check,btn_new_reg,back,btn_signup;
 
     @Override
@@ -37,20 +37,14 @@ public class SignActivity extends AppCompatActivity {
         month =(Spinner) findViewById(R.id.signBirth2);
         day = (Spinner) findViewById(R.id.signBirth3);
 
-
-
-
-
-
-
         final ArrayList<String> list = new ArrayList<>();
         final ArrayList<String> list2 = new ArrayList<>();
         final ArrayList<String> list3 = new ArrayList<>();
         for(int i = 2022; i>=1950;i--){
             list.add(String.valueOf(i));
         }
-        for(int i = 1; i<=12;i++){
-            list2.add(String.valueOf(i));
+        for(month_sel = 1; month_sel<=12;month_sel++) {
+            list2.add(String.valueOf(month_sel));
            /* if((i == 1 )||(i==3)||(i==5)||(i==7)||(i==8)||(i==10)||(i==12)){
                 for(int j = 1; j<=31; j++){
                     list3.
@@ -61,12 +55,18 @@ public class SignActivity extends AppCompatActivity {
 
             }*/
         }
-        for(int i = 1; i<=31;i++){
-          /*  if(i ==2 ){
-                list3.add()
-            }*/
-            list3.add(String.valueOf(i));
-        }
+            if(month_sel == 2){
+                for(int j = 1; j<=28;j++){
+                  list3.add(String.valueOf(j));
+                }
+            }
+            else{
+                for(int j = 1; j<=31;j++){
+                    list3.add(String.valueOf(j));
+                }
+            }
+
+
         ArrayAdapter spinnerAdapter;
         spinnerAdapter = new ArrayAdapter(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,list);
         year.setAdapter(spinnerAdapter);
