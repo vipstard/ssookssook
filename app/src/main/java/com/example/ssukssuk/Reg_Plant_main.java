@@ -3,14 +3,17 @@ package com.example.ssukssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.os.Bundle;
 
 import android.util.SparseBooleanArray;
 import android.view.View;
 
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -18,6 +21,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class Reg_Plant_main extends AppCompatActivity {
+
+    String a="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +45,21 @@ public class Reg_Plant_main extends AppCompatActivity {
         });
         addButton.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                int count;
-                count = adapter.getCount();
+                CustomDialog dialog = new CustomDialog(Reg_Plant_main.this);
+                dialog.setDialogListener(new CustomDialog.CustomDialogListener() {
+                    @Override
+                    public void onPositiveClicked(String name) {
+                        items.add(name);
+                        // listview 갱신
+                        adapter.notifyDataSetChanged();
+                    }
 
-                // 아이템 추가.
-                items.add("LIST" + Integer.toString(count + 1));
+                    @Override
+                    public void onNegativeClicked() {
+                    }
+                });
+                dialog.show();
 
-                // listview 갱신
-                adapter.notifyDataSetChanged();
             }
         }) ;
         Button deleteButton = (Button)findViewById(R.id.reg_plant_delete) ;
