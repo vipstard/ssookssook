@@ -15,7 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class SignActivity extends AppCompatActivity {
-    EditText name,Id,Pw,rePw,email;
+    EditText name,Id,Pw,rePw,email,address;
     Spinner year,month,day;
 
     Button btn_Id_check,btn_Pw_check,btn_new_reg,back,btn_signup;
@@ -24,13 +24,14 @@ public class SignActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign);
-        name = findViewById(R.id.sign_name);
-        Id = findViewById(R.id.signID);
-        Pw = findViewById(R.id.signPW);
-        rePw = findViewById(R.id.signPW2);
-        email = findViewById(R.id.signmail);
+        name = findViewById(R.id.edt_SA_Name);
+        Id = findViewById(R.id.btn_SA_Id);
+        Pw = findViewById(R.id.edt_SA_Pw);
+        rePw = findViewById(R.id.edt_SA_Pw2);
+        email = findViewById(R.id.edt_SA_Email);
+        address = findViewById(R.id.edt_SA_Address);
         back = findViewById(R.id.btn_SA_Back);
-        btn_signup = findViewById(R.id.signup_button);
+        btn_signup = findViewById(R.id.btn_SA_Signup);
 
         year = (Spinner) findViewById(R.id.signBirth);
         month =(Spinner) findViewById(R.id.signBirth2);
@@ -108,9 +109,9 @@ public class SignActivity extends AppCompatActivity {
 
             }
         });
-        btn_Id_check = findViewById(R.id.id_check_btn);
-        btn_Pw_check = findViewById(R.id.pw_check_button);
-        btn_new_reg = findViewById(R.id.signup_button);
+        btn_Id_check = findViewById(R.id.btn_SA_IdCheck);
+        btn_Pw_check = findViewById(R.id.btn_SA_PwCheck);
+        btn_new_reg = findViewById(R.id.btn_SA_Signup);
         btn_Id_check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
