@@ -34,7 +34,7 @@
             android:name=".Find.Pw.PwFindFailActivity"
             android:exported="false" />
         <activity
-            android:name=".Board_write"
+            android:name=".Board_list"
             android:exported="false" />
         <activity
             android:name=".DiaryActivity2"

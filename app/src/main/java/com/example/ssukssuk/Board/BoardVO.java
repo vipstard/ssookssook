@@ -7,7 +7,7 @@ public class BoardVO {
 
     public BoardVO(){}
 
-    public BoardVO(String title, String date, String writer) {
+    public BoardVO(String writer, String title, String date) {
         this.title = title;
         this.date = date;
         this.writer = writer;
@@ -39,12 +39,11 @@ public class BoardVO {
     @Override
     public String toString() {
         return "BoardVO{" +
-                "title='" + title + '\'' +
+                " writer='" + writer + '\'' +
+                ",title='" + title + '\'' +
                 ", date='" + date + '\'' +
-                ", writer='" + writer + '\'' +
                 '}';
     }
-
 
 
 

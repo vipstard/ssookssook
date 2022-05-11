@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Board_write">
+    tools:context=".Board_list">
 
     <TextView
         android:id="@+id/board_title2"

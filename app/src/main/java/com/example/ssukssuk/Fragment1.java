@@ -3,10 +3,13 @@ package com.example.ssukssuk;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +17,20 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.ssukssuk.Board.BoardAdapter;
 import com.example.ssukssuk.Board.BoardVO;
+import com.example.ssukssuk.Diary.DiaryVO;
+import com.example.ssukssuk.VO.BoardVO_content;
+import com.example.ssukssuk.VO.signVO;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -27,9 +41,15 @@ public class Fragment1 extends Fragment {
     ArrayList<BoardVO> list;
     EditText edtData;
     Button btn_register;
+    BoardVO_content vo;
+    ArrayList<BoardVO_content> lv_content;
     ArrayList<BoardVO> list2;          // 데이터를 넣은 리스트변수
-
-
+    String title = "";
+    String date = "";
+    String writer= "";
+    final int i = 0;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Board");
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -41,13 +61,30 @@ public class Fragment1 extends Fragment {
         lv = view.findViewById(R.id.lv);
         list = new ArrayList<BoardVO>();
 
-        for(int i =0; i<11; i++){
-            String writer = "dfdfd"+i;
-            String title ="dfdfd";
-            String date = "dfdfddffff";
-            list.add(new BoardVO(writer,title,date));
-            list2.add(new BoardVO(writer,title,date));
-        }
+        myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                              @Override
+                                              public void onComplete(@NonNull Task<DataSnapshot> task) {
+                                                  if (!task.isSuccessful()) {
+                                                      Log.e("firebase", "Error getting data", task.getException());
+                                                  } else {
+                                                      Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                                                      DataSnapshot snapshot = task.getResult();
+
+                                                      for (DataSnapshot data : snapshot.getChildren()) {
+
+                                                          BoardVO_content vo = data.getValue(BoardVO_content.class);
+                                                          writer = vo.getWriter();
+                                                          title = vo.getTitle();
+                                                          date = vo.getDate();
+                                                          list.add(new BoardVO(writer,title,date));
+                                                          list2.add(new BoardVO(writer,title,date));
+                                                          adapter.notifyDataSetChanged();
+                                                          Toast.makeText(getActivity(),writer,Toast.LENGTH_SHORT).show();
+                                                      }
+
+                                                  }
+                                              }
+                                          });
 
 
 
@@ -60,9 +97,7 @@ public class Fragment1 extends Fragment {
                 R.layout.board_list,
                 list
         );
-
         lv.setAdapter(adapter);
-
 
         edtData.addTextChangedListener(new TextWatcher() {
             @Override
@@ -89,8 +124,9 @@ public class Fragment1 extends Fragment {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(),Board_write.class);
-                intent.putExtra("title",list.get(i).getTitle());
+                Intent intent = new Intent(getActivity(), Board_list.class);
+                intent.putExtra("writer",list.get(i).getWriter());
+                Toast.makeText(getActivity(),list.get(i).getWriter(),Toast.LENGTH_SHORT).show();
                 startActivity(intent);
 
             }
