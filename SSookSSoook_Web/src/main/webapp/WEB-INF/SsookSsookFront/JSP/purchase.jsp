@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,10 +16,16 @@
     <title>SsookSsook - Purchase</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="${pageContext.request.contextPath}/resources/img/core-img/favicon.ico" />
+    <link
+      rel="icon"
+      href="${pageContext.request.contextPath}/resources/img/core-img/favicon.ico"
+    />
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/style.css" />
+    <link
+      rel="stylesheet"
+      href="${pageContext.request.contextPath}/resources/style.css"
+    />
   </head>
 
   <body>
@@ -27,7 +33,10 @@
     <div class="preloader d-flex align-items-center justify-content-center">
       <div class="preloader-circle"></div>
       <div class="preloader-img">
-        <img src="${pageContext.request.contextPath}/resources/img/core-img/leaf.png" alt="" />
+        <img
+          src="${pageContext.request.contextPath}/resources/img/core-img/leaf.png"
+          alt=""
+        />
       </div>
     </div>
 
@@ -95,7 +104,9 @@
             <nav class="classy-navbar justify-content-between" id="alazeaNav">
               <!-- Nav Brand -->
               <a href="index.html" class="nav-brand"
-                ><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt=""
+                ><img
+                  src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png"
+                  alt=""
               /></a>
 
               <!-- Navbar Toggler -->
@@ -120,7 +131,7 @@
                     <li><a href="main">Home</a></li>
                     <li><a href="About">회사 소개</a></li>
                     <li><a href="Purchase">제품 구매</a></li>
-                    <li><a href="#">고객센터</a></li>
+                    <li><a href="">고객센터</a></li>
                     <li><a href="Contact">A/S</a></li>
                   </ul>
 
@@ -160,7 +171,9 @@
       <!-- Top Breadcrumb Area -->
       <div
         class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
-        style="background-image: url(${pageContext.request.contextPath}/resources/img/bg-img/main3.png)"
+        style="
+          background-image: url(${pageContext.request.contextPath}/resources/img/bg-img/main3.png);
+        "
       >
         <h2>제품 구매</h2>
       </div>
@@ -574,7 +587,9 @@
               <div class="single-footer-widget">
                 <div class="footer-logo mb-30">
                   <a href="main"
-                    ><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt=""
+                    ><img
+                      src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png"
+                      alt=""
                   /></a>
                 </div>
                 <p>
@@ -652,7 +667,9 @@
                 >
                   <div class="product-thumbnail">
                     <a href="shop-details.html"
-                      ><img src="${pageContext.request.contextPath}/resources/img/bg-img/apple.png" alt=""
+                      ><img
+                        src="${pageContext.request.contextPath}/resources/img/bg-img/apple.png"
+                        alt=""
                     /></a>
                   </div>
                   <div class="product-info">
