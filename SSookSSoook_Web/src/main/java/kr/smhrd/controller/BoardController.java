@@ -88,6 +88,12 @@ public class BoardController {
 		return "/SsookSsookFront/JSP/about";
 	}
 	
+	/* 구매페이지 */
+	@GetMapping("Purchase")
+	public String Purchase() {
+		return "/SsookSsookFront/JSP/purchase";
+	}
+	
 	
 	
 	/* 온라인문의 페이지로 이동 (문의글 목록 출력)*/

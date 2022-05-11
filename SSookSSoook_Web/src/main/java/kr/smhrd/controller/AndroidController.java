@@ -1,14 +1,18 @@
 package kr.smhrd.controller;
 
+import java.util.ArrayList;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 
+import kr.smhrd.domain.Criteria;
 import kr.smhrd.domain.MemberVO;
 import kr.smhrd.service.MemberService;
 
@@ -17,6 +21,7 @@ public class AndroidController {
 	
 	@Autowired
 	private MemberService memberService;
+	
 	
 	
 	// 사람 정보 업데이트
@@ -30,25 +35,21 @@ public class AndroidController {
 
 		
 	}
-	
 	@ResponseBody
 	@RequestMapping("AndServer")
-	public MemberVO AndServer(MemberVO vo, @Param("id") String id, @Param("pw") String pw) {
+	public ArrayList<MemberVO> AndServer(MemberVO vo, Model model, Criteria cri) {		
+		ArrayList<MemberVO> list = memberService.memberList(cri);
 		
-		vo.setId(id);
-		vo.setPw(pw);
-		System.out.println(vo);
-		
-		return vo;
+		return list;
 	}
 	
 	@ResponseBody
 	@RequestMapping("And_Ardu")
-	public String AndServer(@Param("sign") int sign) {
+	public String AndServer() {
 		
-		System.out.println("들어온 값: " + sign);
 		
-		return "Input: " + sign;
+		
+		return "1";
 	}
 	
 	

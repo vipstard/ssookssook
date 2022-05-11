@@ -78,6 +78,17 @@
                       <span>Edit Profile</span></a
                     >
                   </div>
+                  
+                  	<!--  관리자전용 회원관리 페이지 추가 -->
+	                  <c:if test='${LoginVo.admin_yn == "Y"}'>
+						 <!-- 회원정보 수정  -->
+	                  	  <div class="Sign Up">
+		                    <a href="EditProfile?id=${LoginVo.id }"
+		                      ><i class="fa fa-sign-in" aria-hidden="true"></i>
+		                      <span>Management</span></a
+		                    >
+		                  </div>
+					  </c:if>
                  <button class="btn btn-default btn-sm" onclick="location.href='https://kauth.kakao.com/oauth/logout?client_id=e3eced6c366d05e611468e218fc8f42d&logout_redirect_uri=http://211.227.224.199:8081/SS/LogOut'">LogOut</button>
                  </c:if>
                  
@@ -139,7 +150,7 @@
                   <ul style="font-family: SBAggroL">
                     <li><a href="main">Home</a></li>
                     <li><a href="About">회사 소개</a></li>
-                    <li><a href="#">제품 구매</a></li>
+                    <li><a href="Purchase">제품 구매</a></li>
                     <li><a href="#">고객센터</a></li>
                     <li><a href="Contact">A/S</a></li>
                   </ul>
@@ -203,8 +214,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="carousel">
+            </div>"src/main/webapp/resources/img/bg-img/main3.png"
+            <div class="sub-carousel">
               <ul>
                 <li class="active"></li>
                 <li class=""></li>
@@ -239,7 +250,7 @@
                 </div>
               </div>
             </div>
-            <div class="carousel">
+            <div class="sub-carousel">
               <ul>
                 <li class=""></li>
                 <li class="active"></li>
@@ -277,7 +288,7 @@
               <div class="multiple-items"></div>
             </div>
           </div>
-          <div class="carousel">
+          <div class="sub-carousel">
             <ul>
               <li class=""></li>
               <li class=""></li>

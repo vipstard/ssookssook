@@ -118,6 +118,7 @@ public class MemberServiceImple implements MemberService {
 		
 	}
 
+	/* 특정 회원 정보 검색 */
 	@Override
 	public MemberVO selectOne(@Param("id") String id) {
 		System.out.println("서비스: "  + id);

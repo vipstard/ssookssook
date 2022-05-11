@@ -118,7 +118,7 @@
                   <ul style="font-family: SBAggroL">
                     <li><a href="main">Home</a></li>
                     <li><a href="About">회사 소개</a></li>
-                    <li><a href="#">제품 구매</a></li>
+                    <li><a href="Purchase">제품 구매</a></li>
                     <li><a href="#">고객센터</a></li>
                     <li><a href="Contact">A/S</a></li>
                   </ul>
