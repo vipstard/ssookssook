@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PwFindActivity">
+    tools:context=".Find.Pw.PwFindActivity">
 
     <Button
         android:id="@+id/btn_PFE_PwFind"

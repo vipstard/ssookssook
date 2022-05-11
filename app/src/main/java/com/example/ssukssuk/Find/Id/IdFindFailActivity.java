@@ -1,14 +1,16 @@
-package com.example.ssukssuk;
+package com.example.ssukssuk.Find.Id;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.ssukssuk.Find.Pw.PwFindActivity;
+import com.example.ssukssuk.LoginActivity;
+import com.example.ssukssuk.R;
 
 public class IdFindFailActivity extends AppCompatActivity {
 

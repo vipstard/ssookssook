@@ -1,4 +1,4 @@
-package com.example.ssukssuk;
+package com.example.ssukssuk.Setting;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+
+import com.example.ssukssuk.MainActivity;
+import com.example.ssukssuk.R;
 
 public class EditActivity extends AppCompatActivity {
 
@@ -44,7 +46,7 @@ public class EditActivity extends AppCompatActivity {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent1 = new Intent(EditActivity.this,MainActivity.class);
+                Intent intent1 = new Intent(EditActivity.this, MainActivity.class);
                 startActivity(intent1);
             }
         });

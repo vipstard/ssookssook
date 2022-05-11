@@ -1,14 +1,15 @@
-package com.example.ssukssuk;
+package com.example.ssukssuk.Setting;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.ssukssuk.Fragment5;
+import com.example.ssukssuk.R;
 
 public class InformationActivity extends AppCompatActivity {
 

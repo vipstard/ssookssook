@@ -3,7 +3,6 @@ package com.example.ssukssuk;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.icu.text.IDNA;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.ssukssuk.Setting.InformationActivity;
 
 public class Fragment5 extends Fragment {
 
@@ -40,7 +41,7 @@ public class Fragment5 extends Fragment {
         btn_information.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),InformationActivity.class);
+                Intent intent = new Intent(getActivity(), InformationActivity.class);
                 startActivity(intent);
             }
         });

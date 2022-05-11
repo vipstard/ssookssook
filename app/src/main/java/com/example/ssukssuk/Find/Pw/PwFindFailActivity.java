@@ -1,4 +1,4 @@
-package com.example.ssukssuk;
+package com.example.ssukssuk.Find.Pw;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.ssukssuk.LoginActivity;
+import com.example.ssukssuk.R;
+import com.example.ssukssuk.SignActivity;
 
 public class PwFindFailActivity extends AppCompatActivity {
 

@@ -16,22 +16,22 @@
             android:name=".CustomDialog"
             android:exported="false" />
         <activity
-            android:name=".ServiceCenterActivity2"
+            android:name=".ServiceCenter.ServiceCenterActivity2"
             android:exported="false" />
         <activity
             android:name=".Reg_Plant_main"
             android:exported="false" />
         <activity
-            android:name=".EditActivity"
+            android:name=".Setting.EditActivity"
             android:exported="false" />
         <activity
-            android:name=".InformationActivity"
+            android:name=".Setting.InformationActivity"
             android:exported="false" />
         <activity
-            android:name=".PwFindSuccessActivity"
+            android:name=".Find.Pw.PwFindSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".PwFindFailActivity"
+            android:name=".Find.Pw.PwFindFailActivity"
             android:exported="false" />
         <activity
             android:name=".Board_write"
@@ -43,16 +43,16 @@
             android:name=".TestFail"
             android:exported="false" />
         <activity
-            android:name=".IdFindFailActivity"
+            android:name=".Find.Id.IdFindFailActivity"
             android:exported="false" />
         <activity
-            android:name=".IdFindSuccessActivity"
+            android:name=".Find.Id.IdFindSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".PwFindActivity"
+            android:name=".Find.Pw.PwFindActivity"
             android:exported="false" />
         <activity
-            android:name=".IdFindActivity"
+            android:name=".Find.Id.IdFindActivity"
             android:exported="false" />
         <activity
             android:name=".SignActivity"
