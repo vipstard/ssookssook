@@ -4,6 +4,7 @@ public class loginVO {
     String id;
     String pw;
     public loginVO(){}
+
     public loginVO(String id, String pw) {
         this.id = id;
         this.pw = pw;

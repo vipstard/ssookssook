@@ -151,8 +151,8 @@ public class SignActivity extends AppCompatActivity {
                 String indate = sdf.format(cal.getTime());
 
                 String id = edt_Id.getText().toString();
-                String pw = edt_Pw.getText().toString();String
-                repw = edt_Repw.getText().toString();
+                String pw = edt_Pw.getText().toString();
+                String repw = edt_Repw.getText().toString();
                 String name = edt_Name.getText().toString();
                 String phone = edt_Phone.getText().toString();
                 String email = edt_Email.getText().toString();

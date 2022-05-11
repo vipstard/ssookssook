@@ -1,5 +1,6 @@
 package com.example.ssukssuk;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -18,9 +20,15 @@ import android.widget.Toast;
 import com.example.ssukssuk.Find.Id.IdFindActivity;
 import com.example.ssukssuk.Find.Pw.PwFindActivity;
 import com.example.ssukssuk.VO.loginVO;
+import com.example.ssukssuk.VO.signVO;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
-    Button login, basic,idfind,pwfind;
+    Button btn_login, btn_basic,btn_idfind,btn_pwfind;
     EditText user_id, user_pw;
     CheckBox auto_check;
     String loginId,loginPwd;
@@ -30,84 +38,132 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("sign");
         vo = new loginVO();
-
 
         user_id = findViewById(R.id.user_id);
         user_pw = findViewById(R.id.user_pw);
-        login = findViewById(R.id.btn_login);
-        basic = findViewById(R.id.btn_sign);
-        idfind = findViewById(R.id.btn_idfind);
-        pwfind = findViewById(R.id.btn_pwfind);
+        btn_login = findViewById(R.id.btn_login);
+        btn_basic = findViewById(R.id.btn_sign);
+        btn_idfind = findViewById(R.id.btn_idfind);
+        btn_pwfind = findViewById(R.id.btn_pwfind);
         auto_check = findViewById(R.id.cbauto);
-        SharedPreferences spf = LoginActivity.this.
-                getSharedPreferences("mySPF", Context.MODE_PRIVATE);
 
-        //editor 실행시키는?
-        SharedPreferences.Editor editor = spf.edit();
-        loginId = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-                getString("user_login_id",null);
-        loginPwd = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-                getString("user_login_pw",null);
+//        SharedPreferences spf = LoginActivity.this.
+//                getSharedPreferences("mySPF", Context.MODE_PRIVATE);
+//
+//        //editor 실행시키는?
+//        SharedPreferences.Editor editor = spf.edit();
+//        loginId = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+//                getString("user_login_id",null);
+//        loginPwd = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+//                getString("user_login_pw",null);
+//
+//
+//
+//        if(loginId !=null && loginPwd != null) {
+//            if(user_id.getText().toString().equals(vo.getId().toString())&&user_pw.getText().toString().equals(vo.getPw().toString())){
+//                Toast.makeText(LoginActivity.this, loginId +"님 자동로그인 입니다.", Toast.LENGTH_SHORT).show();
+//                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        }
 
-        if(loginId !=null && loginPwd != null) {
-            if(loginId.equals("hh") && loginPwd.equals("hh")) {
-                Toast.makeText(LoginActivity.this, loginId +"님 자동로그인 입니다.", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        }
-
-            login.setOnClickListener(new View.OnClickListener() {
+            btn_login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (user_id.getText().toString().equals("hh") && user_pw.getText().toString().equals("hh")) {
-                        if(auto_check.isChecked()) {
+                    myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DataSnapshot> task) {
+                            if (!task.isSuccessful()) {
+                                Log.e("firebase", "Error getting data", task.getException());
+                            }
+                            else {
+                                Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                                DataSnapshot snapshot = task.getResult();
 
-                            SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
-                            Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
+                                for(DataSnapshot data : snapshot.getChildren()){
 
-                            editor.putString("user_login_id", user_id.getText().toString());
-                            editor.putString("user_login_pw", user_id.getText().toString());
-                            editor.commit();
-                            //꼭 commit()을 해줘야 값이 저장됩니다 ㅎㅎ
+                                    loginVO vo = data.getValue(loginVO.class);
 
+                                    Log.d("firebase", vo.toString());
 
-                            Toast.makeText(LoginActivity.this, user_id.getText().toString() + "님 환영합니다.", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-
-                            startActivity(intent);
-                            finish();
-                        }else{
-                            SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
-                            Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
-
-                            editor.putString("user_login_id", user_id.getText().toString());
-                            Toast.makeText(LoginActivity.this, user_id.getText().toString() + "님 환영합니다.", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-
-                            startActivity(intent);
-                            finish();
+                                    //아이디 중복체크 로직
+                                    if(user_id.getText().toString().equals(vo.getId().toString())&&user_pw.getText().toString().equals(vo.getPw().toString())) {
+//                                        if(auto_check.isChecked()) {
+//                                            SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+//                                            Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
+//                                            editor.putString("user_login_id", user_id.getText().toString());
+//                                            editor.putString("user_login_pw", user_id.getText().toString());
+//                                            editor.commit();
+//                                        }
+                                        Toast.makeText(LoginActivity.this,"로그인 성공",Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                        startActivity(intent);
+                                    }
+                                    else {
+                                        Toast.makeText(LoginActivity.this,
+                                                "로그인 실패",
+                                                Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            }
                         }
-
-                    } else {
-                        Toast.makeText(LoginActivity.this,
-                                "로그인 실패",
-                                Toast.LENGTH_SHORT).show();
-                    }
+                    });
                 }
             });
 
 
-        idfind.setOnClickListener(new View.OnClickListener() {
+
+//
+//                    if (user_id.getText().toString().equals("hh") && user_pw.getText().toString().equals("hh")) {
+//                        if(auto_check.isChecked()) {
+//
+//                            SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+//                            Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
+//
+//                            editor.putString("user_login_id", user_id.getText().toString());
+//                            editor.putString("user_login_pw", user_id.getText().toString());
+//                            editor.commit();
+//                            //꼭 commit()을 해줘야 값이 저장됩니다 ㅎㅎ
+//
+//
+//                            Toast.makeText(LoginActivity.this, user_id.getText().toString() + "님 환영합니다.", Toast.LENGTH_SHORT).show();
+//                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//
+//                            startActivity(intent);
+//                            finish();
+//                        }else{
+//                            SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+//                            Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
+//
+//                            editor.putString("user_login_id", user_id.getText().toString());
+//                            Toast.makeText(LoginActivity.this, user_id.getText().toString() + "님 환영합니다.", Toast.LENGTH_SHORT).show();
+//                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//
+//                            startActivity(intent);
+//                            finish();
+//                        }
+//
+//                    } else {
+//                        Toast.makeText(LoginActivity.this,
+//                                "로그인 실패",
+//                                Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//            });
+
+
+        btn_idfind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, IdFindActivity.class);
                 startActivity(intent);
             }
         });
-        pwfind.setOnClickListener(new View.OnClickListener() {
+        btn_pwfind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, PwFindActivity.class);
@@ -116,7 +172,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-        basic.setOnClickListener(new View.OnClickListener() {
+        btn_basic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDialog();
