@@ -10,7 +10,7 @@ public class signVO {
     private String address;
     private String indate;
 
-    signVO(){}
+    public signVO(){}
 
     public signVO(String id, String pw, String name, String phone, String email, String address, String indate) {
         this.id = id;
@@ -90,4 +90,6 @@ public class signVO {
                 ", indate='" + indate + '\'' +
                 '}';
     }
+
+
 }

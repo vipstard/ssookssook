@@ -115,7 +115,7 @@
 
                         android:layout_marginBottom="20dp"
                         android:ems="10"
-                        android:hint=" 비밀번호 확인"
+                        android:hint=" 비밀번호"
                         android:inputType="textPassword"
                         android:text="" />
 
@@ -137,7 +137,7 @@
                     android:orientation="horizontal">
 
                     <EditText
-                        android:id="@+id/edt_SA_Pw2"
+                        android:id="@+id/edt_SA_Repw"
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:layout_marginBottom="20dp"
@@ -147,16 +147,6 @@
                         android:inputType="textPassword"
                         android:text="" />
 
-                    <Button
-                        android:id="@+id/btn_SA_PwCheck"
-                        android:layout_width="wrap_content"
-                        android:layout_height="48dp"
-                        android:layout_marginLeft="10dp"
-
-                        android:text="확인"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <TextView
@@ -179,52 +169,6 @@
                     android:hint=" 이름"
                     android:inputType="textPersonName"
                     android:text="" />
-
-                <TextView
-                    android:id="@+id/signBirthtext"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="생년월일"
-                    android:textColor="@color/purple_200"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <Spinner
-                        android:id="@+id/signBirth"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:paddingVertical="10dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <Spinner
-                        android:id="@+id/signBirth2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:paddingVertical="10dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <Spinner
-                        android:id="@+id/signBirth3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:paddingVertical="10dp"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </LinearLayout>
 
 
                 <TextView
@@ -283,7 +227,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
                     android:layout_marginBottom="20dp"
-
+                    android:imeOptions="actionDone"
                     android:ems="10"
                     android:hint="주소"
                     android:inputType="textPersonName"
