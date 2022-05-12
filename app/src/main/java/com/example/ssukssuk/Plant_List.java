@@ -10,18 +10,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 
-import com.example.ssukssuk.Board.BoardAdapter;
-import com.example.ssukssuk.Board.BoardVO;
-import com.example.ssukssuk.Diary.DiaryVO;
 import com.example.ssukssuk.Plant_reg.PlantAdapter;
+
 import com.example.ssukssuk.Plant_reg.Reg_Plant_mainVO;
-import com.example.ssukssuk.VO.BoardVO_content;
 import com.example.ssukssuk.VO.PlantVO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -36,7 +31,8 @@ public class Plant_List extends AppCompatActivity {
     PlantAdapter adapter;
     ArrayList<Reg_Plant_mainVO> list;
     Button btn_add;
-
+    String name="";
+    String date = "";
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Pot");
     @Override
@@ -57,8 +53,7 @@ public class Plant_List extends AppCompatActivity {
         myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-                String name="";
-                String date = "";
+
                 if (!task.isSuccessful()) {
                     Log.e("firebase", "Error getting data", task.getException());
                 } else {

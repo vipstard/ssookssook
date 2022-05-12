@@ -2,10 +2,6 @@ package com.example.ssukssuk;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -17,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.example.ssukssuk.Board.BoardAdapter;
 import com.example.ssukssuk.Board.BoardVO;
@@ -36,15 +35,14 @@ public class Fragment1 extends Fragment {
     ArrayList<BoardVO> list;
     EditText edtData;
     Button btn_register;
-    BoardVO_content vo;
-    ArrayList<BoardVO_content> lv_content;
     ArrayList<BoardVO> list2;          // 데이터를 넣은 리스트변수
     String title = "";
     String date = "";
-    String writer= "";
+    String writer = "";
     final int i = 0;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Board");
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -57,31 +55,29 @@ public class Fragment1 extends Fragment {
         list = new ArrayList<BoardVO>();
 
         myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                                              @Override
-                                              public void onComplete(@NonNull Task<DataSnapshot> task) {
-                                                  if (!task.isSuccessful()) {
-                                                      Log.e("firebase", "Error getting data", task.getException());
-                                                  } else {
-                                                      Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                                                      DataSnapshot snapshot = task.getResult();
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                } else {
+                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                    DataSnapshot snapshot = task.getResult();
 
-                                                      for (DataSnapshot data : snapshot.getChildren()) {
+                    for (DataSnapshot data : snapshot.getChildren()) {
 
-                                                          BoardVO_content vo = data.getValue(BoardVO_content.class);
-                                                          writer = vo.getWriter();
-                                                          title = vo.getTitle();
-                                                          date = vo.getDate();
-                                                          list.add(new BoardVO(writer,title,date));
-                                                          list2.add(new BoardVO(writer,title,date));
-                                                          adapter.notifyDataSetChanged();
-                                                          Toast.makeText(getActivity(),writer,Toast.LENGTH_SHORT).show();
-                                                      }
+                        BoardVO_content vo = data.getValue(BoardVO_content.class);
+                        writer = vo.getWriter();
+                        title = vo.getTitle();
+                        date = vo.getDate();
+                        list.add(new BoardVO(writer, title, date));
+                        list2.add(new BoardVO(writer, title, date));
+                        adapter.notifyDataSetChanged();
+                        Toast.makeText(getActivity(), writer, Toast.LENGTH_SHORT).show();
+                    }
 
-                                                  }
-                                              }
-                                          });
-
-
+                }
+            }
+        });
 
 
         //new ArrayAdapter<String>(현재 액티비티명.this, 레이아웃, 데이터);
@@ -121,9 +117,9 @@ public class Fragment1 extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getActivity(), Board_list.class);
                 String title = list.get(i).getTitle();
-                intent.putExtra("title",title);
-                intent.putExtra("writer",writer);
-                Toast.makeText(getActivity(),title,Toast.LENGTH_SHORT).show();
+                intent.putExtra("title", title);
+                intent.putExtra("writer", writer);
+                Toast.makeText(getActivity(), title, Toast.LENGTH_SHORT).show();
                 startActivity(intent);
 
             }
@@ -132,28 +128,29 @@ public class Fragment1 extends Fragment {
 
         return view;
     }
+
     public void search(String charText) {
 
-    // 문자 입력시마다 리스트를 지우고 새로 뿌려준다.
-    list.clear();
+        // 문자 입력시마다 리스트를 지우고 새로 뿌려준다.
+        list.clear();
 
-    // 문자 입력이 없을때는 모든 데이터를 보여준다.
-    if (charText.length() == 0) {
-        list.addAll(list2);
-    }
-    // 문자 입력을 할때..
-    else {
-        // 리스트의 모든 데이터를 검색한다.
-        for (int i = 0; i < list2.size(); i++) {
-            // arraylist의 모든 데이터에 입력받은 단어(charText)가 포함되어 있으면 true를 반환한다.
-            if (list2.get(i).toString().contains(charText)) {
-                // 검색된 데이터를 리스트에 추가한다.
-                list.add(list2.get(i));
+        // 문자 입력이 없을때는 모든 데이터를 보여준다.
+        if (charText.length() == 0) {
+            list.addAll(list2);
+        }
+        // 문자 입력을 할때..
+        else {
+            // 리스트의 모든 데이터를 검색한다.
+            for (int i = 0; i < list2.size(); i++) {
+                // arraylist의 모든 데이터에 입력받은 단어(charText)가 포함되어 있으면 true를 반환한다.
+                if (list2.get(i).toString().contains(charText)) {
+                    // 검색된 데이터를 리스트에 추가한다.
+                    list.add(list2.get(i));
+                }
             }
         }
-    }
-    // 리스트 데이터가 변경되었으므로 아답터를 갱신하여 검색된 데이터를 화면에 보여준다.
-    adapter.notifyDataSetChanged();
+        // 리스트 데이터가 변경되었으므로 아답터를 갱신하여 검색된 데이터를 화면에 보여준다.
+        adapter.notifyDataSetChanged();
     }
 }
 
