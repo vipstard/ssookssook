@@ -6,10 +6,10 @@ import android.widget.TextView;
 import com.example.ssukssuk.R;
 
 
-public class ServiceHolder {
+public class ScHolder {
     private TextView title, date, writer;
 
-    public ServiceHolder(View itemView){
+    public ScHolder(View itemView){
 
         title = itemView.findViewById(R.id.sclist_title);
         date = itemView.findViewById(R.id.sclist_date);

@@ -2,18 +2,8 @@ package com.example.ssukssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
-
-import com.example.ssukssuk.Plant_reg.PlantVO;
-import com.example.ssukssuk.ServiceCenter.ServiceAdapter;
-import com.example.ssukssuk.ServiceCenter.ServiceVO;
-import com.example.ssukssuk.VO.Reg_Plant_mainVO;
-
-import java.util.ArrayList;
 
 public class Plant_List extends AppCompatActivity {
     ListView lv;
@@ -31,10 +21,10 @@ public class Plant_List extends AppCompatActivity {
 //            String title = "5151515";
 //            String date = "5151515166656";
 //            String writer = "81818555555555555";
-//            list.add(new ServiceVO(title, date,writer));
+//            list.add(new ScVO(title, date,writer));
 //        }
 //
-//        adapter = new ServiceAdapter(getActivity(),R.layout.servicecenter_list,list);
+//        adapter = new ScAdapter(getActivity(),R.layout.servicecenter_list,list);
 //
 //        lv.setAdapter(adapter);
 //

@@ -1,6 +1,5 @@
 package com.example.ssukssuk;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,15 +14,10 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.ssukssuk.Board.BoardVO;
+import com.example.ssukssuk.ServiceCenter.ScAdapter;
+import com.example.ssukssuk.ServiceCenter.ScVO;
 import com.example.ssukssuk.ServiceCenter.ScWriteActivity;
-import com.example.ssukssuk.ServiceCenter.ServiceAdapter;
-import com.example.ssukssuk.ServiceCenter.ServiceVO;
-import com.example.ssukssuk.Diary.DiaryAdapter;
-import com.example.ssukssuk.Diary.DiaryVO;
-import com.example.ssukssuk.VO.BoardVO_content;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -35,17 +29,14 @@ import java.util.ArrayList;
 public class Fragment4 extends Fragment {
 
     ListView lv;
-    ServiceAdapter adapter;
-    ArrayList<ServiceVO> list;
+    ScAdapter adapter;
+    ArrayList<ScVO> list;
     Button btn_write;
     TextView number;
-    String title = "";
-    String date = "";
-    String writer = "";
 
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("Board");
+    DatabaseReference myRef = database.getReference("ServiceCenter");
 
 
     @Override
@@ -54,43 +45,42 @@ public class Fragment4 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_4, container, false);
 
         btn_write = view.findViewById(R.id.btn_SC_Write);
-        lv = view.findViewById(R.id.list_SC_post);
-        list = new ArrayList<ServiceVO>();
+        lv = view.findViewById(R.id.list_SC);
+        list = new ArrayList<ScVO>();
         number = view.findViewById(R.id.sclist_number);
-//
-//        myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DataSnapshot> task) {
-//                int a = 1;
-//                if (!task.isSuccessful()) {
-//                    Log.e("firebase", "Error getting data", task.getException());
-//                } else {
-//                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
-//                    DataSnapshot snapshot = task.getResult();
-//
-//                    for (DataSnapshot data : snapshot.getChildren()) {
-//                        a++;
-//                        BoardVO_content vo = data.getValue(BoardVO_content.class);
-//                        writer = vo.getWriter();
-//                        title = vo.getTitle();
-//                        date = vo.getDate();
-////                        if(writer.equals())
-//                        list.add(new ServiceVO(a,title,date));
-//                        adapter.notifyDataSetChanged();
-//                        Toast.makeText(getActivity(),writer,Toast.LENGTH_SHORT).show();
-//                    }
-//
-//                }
-//            }
-//        });
-//
-//
-//
-//        adapter = new ServiceAdapter(
-//                getActivity(),
-//                R.layout.listcustomer,
-//                list
-//        );
+
+        myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                } else {
+                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                    DataSnapshot snapshot = task.getResult();
+
+                    for (DataSnapshot data : snapshot.getChildren()) {
+
+                        ScVO vo = data.getValue(ScVO.class);
+                        String writer = vo.getWriter();
+                        String title = vo.getTitle();
+                        String date = vo.getDate();
+                        list.add(new ScVO(writer,title,date));
+                        adapter.notifyDataSetChanged();
+
+                    }
+
+                }
+            }
+        });
+
+
+
+        adapter = new ScAdapter(
+                getActivity(),
+                R.layout.listcustomer,
+                list
+        );
 
         lv.setAdapter(adapter);
 

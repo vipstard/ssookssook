@@ -1,6 +1,6 @@
 package com.example.ssukssuk.VO;
 
-public class signVO {
+public class SignVO {
 
     private String id;
     private String pw;
@@ -10,9 +10,9 @@ public class signVO {
     private String address;
     private String indate;
 
-    public signVO(){}
+    public SignVO(){}
 
-    public signVO(String id, String pw, String name, String phone, String email, String address, String indate) {
+    public SignVO(String id, String pw, String name, String phone, String email, String address, String indate) {
         this.id = id;
         this.pw = pw;
         this.name = name;
@@ -80,7 +80,7 @@ public class signVO {
 
     @Override
     public String toString() {
-        return "signVO{" +
+        return "SignVO{" +
                 "id='" + id + '\'' +
                 ", pw='" + pw + '\'' +
                 ", name='" + name + '\'' +

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.text.Editable;
@@ -21,14 +20,10 @@ import android.widget.Toast;
 
 import com.example.ssukssuk.Board.BoardAdapter;
 import com.example.ssukssuk.Board.BoardVO;
-import com.example.ssukssuk.Diary.DiaryVO;
 import com.example.ssukssuk.VO.BoardVO_content;
-import com.example.ssukssuk.VO.signVO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 

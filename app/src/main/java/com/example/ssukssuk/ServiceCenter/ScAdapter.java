@@ -6,29 +6,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import androidx.fragment.app.FragmentActivity;
-
-import com.example.ssukssuk.Board.BoardHolder;
-import com.example.ssukssuk.Board.BoardVO;
-
 import java.util.ArrayList;
 
-public class ServiceAdapter extends BaseAdapter {
+public class ScAdapter extends BaseAdapter {
 
     Context context;
     int layout;
-    ArrayList<ServiceVO> list;
+    ArrayList<ScVO> list;
     LayoutInflater inflater;
 
 
-    public ServiceAdapter(Context context, int layout, ArrayList<ServiceVO> list) {
+    public ScAdapter(Context context, int layout, ArrayList<ScVO> list) {
         this.context = context;
         this.layout = layout;
         this.list = list;
         this.inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); ;
     }
 
-//    public ServiceAdapter(FragmentActivity activity, int servicecenter_list, ArrayList<ServiceVO> list) {
+//    public ScAdapter(FragmentActivity activity, int servicecenter_list, ArrayList<ScVO> list) {
 //    }
 
 
@@ -50,16 +45,16 @@ public class ServiceAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        ServiceHolder holder = null;
+        ScHolder holder = null;
 
         if(view ==null){
             view = inflater.inflate(layout, viewGroup, false);
-            holder = new ServiceHolder(view);
+            holder = new ScHolder(view);
             view.setTag(holder);
         }else{
-            holder = (ServiceHolder) view.getTag();
+            holder = (ScHolder) view.getTag();
         }
-        ServiceVO vo = (ServiceVO) getItem(i);
+        ScVO vo = (ScVO) getItem(i);
 
         holder.getTitle().setText(vo.getTitle());
         holder.getDate().setText(vo.getDate());

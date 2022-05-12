@@ -22,9 +22,6 @@
             android:name=".CustomDialog"
             android:exported="false" />
         <activity
-            android:name=".ServiceCenter.ServiceCenterActivity2"
-            android:exported="false" />
-        <activity
             android:name=".Reg_Plant_main"
             android:exported="false" />
         <activity

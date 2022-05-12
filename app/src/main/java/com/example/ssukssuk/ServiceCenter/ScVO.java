@@ -1,6 +1,6 @@
 package com.example.ssukssuk.ServiceCenter;
 
-public class ServiceVO {
+public class ScVO {
 
     private int num;
     private String title;
@@ -8,23 +8,23 @@ public class ServiceVO {
     private String date;
     private String writer;
 
-    public ServiceVO(){}
+    public ScVO(){}
 
     //constructor
-    public ServiceVO(String title, String date,String writer) {
+    public ScVO(String writer, String title, String date) {
         this.title = title;
         this.date = date;
         this.writer = writer;
     }
 
-    public ServiceVO(String title, String post, String date, String writer) {
+    public ScVO(String title, String post, String date, String writer) {
         this.title = title;
         this.post = post;
         this.date = date;
         this.writer = writer;
     }
 
-    public ServiceVO(int num, String title, String date) {
+    public ScVO(int num, String title, String date) {
         this.num = num;
         this.title = title;
         this.date = date;
@@ -35,7 +35,7 @@ public class ServiceVO {
 
     @Override
     public String toString() {
-        return "ServiceVO{" +
+        return "ScVO{" +
                 "title='" + title + '\'' +
                 ", post='" + post + '\'' +
                 ", date='" + date + '\'' +
