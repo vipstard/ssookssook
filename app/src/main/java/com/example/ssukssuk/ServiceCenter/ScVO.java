@@ -10,6 +10,11 @@ public class ScVO {
 
     public ScVO(){}
 
+    public ScVO(String title, String date) {
+        this.title = title;
+        this.date = date;
+    }
+
     //constructor
     public ScVO(String writer, String title, String date) {
         this.title = title;
@@ -54,6 +59,9 @@ public class ScVO {
 
     public String getWriter() {
         return writer;
+    }
+    public int getNum() {
+        return num;
     }
 
     //Setter
