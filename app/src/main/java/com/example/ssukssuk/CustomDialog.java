@@ -11,6 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class CustomDialog extends Dialog implements View.OnClickListener{
 
     private Button positiveButton;
@@ -64,7 +68,8 @@ public class CustomDialog extends Dialog implements View.OnClickListener{
             case R.id.dialog_oKButton: //확인 버튼을 눌렀을 때
                 //각각의 변수에 EidtText에서 가져온 값을 저장
                 String name = editName.getText().toString();
-
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("reg_main");
 
                 //인터페이스의 함수를 호출하여 변수에 저장된 값들을 Activity로 전달
                 customDialogListener.onPositiveClicked(name);

@@ -23,6 +23,9 @@ public class Board_list extends AppCompatActivity {
     TextView tv_title,tv_content,tv_writer;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Board");
+    String title = "";
+    String writer = "";
+    String content = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,32 +36,32 @@ public class Board_list extends AppCompatActivity {
         tv_content = findViewById(R.id.board_content2);
         tv_writer = findViewById(R.id.board_wirte2);
         Intent intent = getIntent();
-        String title = intent.getStringExtra("title");
+        title = intent.getStringExtra("title");
+        writer = intent.getStringExtra("writer");
         tv_title.setText(title);
+        tv_writer.setText(writer);
+        myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                } else {
+                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                    DataSnapshot snapshot = task.getResult();
 
-//        myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DataSnapshot> task) {
-//                if (!task.isSuccessful()) {
-//                    Log.e("firebase", "Error getting data", task.getException());
-//                } else {
-//                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
-//                    DataSnapshot snapshot = task.getResult();
-//
-//                    for (DataSnapshot data : snapshot.getChildren()) {
-//
-//                        BoardVO_content vo = data.getValue(BoardVO_content.class);
-//                        writer = vo.getWriter();
-//                        title = vo.getTitle();
-//                        date = vo.getDate();
-//                        list.add(new BoardVO(writer,title,date));
-//                        list2.add(new BoardVO(writer,title,date));
-//                        adapter.notifyDataSetChanged();
-//                        Toast.makeText(getActivity(),writer,Toast.LENGTH_SHORT).show();
-//                    }
-//
-//                }
-//            }
-//        });
+                    for (DataSnapshot data : snapshot.getChildren()) {
+
+                        BoardVO_content vo = data.getValue(BoardVO_content.class);
+                        if(title.equals(vo.getTitle())&&writer.equals(vo.getWriter()))
+                        writer = vo.getWriter();
+                        title = vo.getTitle();
+                        content = vo.getContent();
+                        tv_content.setText(content);
+                    }
+
+                }
+            }
+        });
+
     }
 }

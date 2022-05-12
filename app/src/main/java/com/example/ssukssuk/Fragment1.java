@@ -125,8 +125,10 @@ public class Fragment1 extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getActivity(), Board_list.class);
-                intent.putExtra("writer",list.get(i).getWriter());
-                Toast.makeText(getActivity(),list.get(i).getWriter(),Toast.LENGTH_SHORT).show();
+                String title = list.get(i).getTitle();
+                intent.putExtra("title",title);
+                intent.putExtra("writer",writer);
+                Toast.makeText(getActivity(),title,Toast.LENGTH_SHORT).show();
                 startActivity(intent);
 
             }

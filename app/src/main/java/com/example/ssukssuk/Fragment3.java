@@ -72,27 +72,31 @@ public class Fragment3 extends Fragment {
                                             "로그인 성공"+response,
                                             Toast.LENGTH_SHORT).show();
                                 }
-                            }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getActivity(),
-                                    "로그인 실패"+error.toString(),
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Toast.makeText(getActivity(),
+                                            "로그인 실패"+error.toString(),
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
                     ){
                         @Nullable
                         @Override
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String,String> param = new HashMap<>();
                             param.put("input1","1");
+
                             return param;
                         }
                     };
+
                     queue.add(request);
+
                 }else{
                   tv_led.setText("조명 끄기");
-                    int method = Request.Method.GET;
+                    int method = Request.Method.POST;
                     String server_url = "http://211.227.224.199:8081/SS/And_Ardu2";
                     request = new StringRequest(
                             method,
@@ -104,20 +108,22 @@ public class Fragment3 extends Fragment {
                                             "로그인 성공"+response,
                                             Toast.LENGTH_SHORT).show();
                                 }
-                            }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            Toast.makeText(getActivity(),
-                                    "로그인 실패"+error.toString(),
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Toast.makeText(getActivity(),
+                                            "로그인 실패"+error.toString(),
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
                     ){
                         @Nullable
                         @Override
                         protected Map<String, String> getParams() throws AuthFailureError {
                             Map<String,String> param = new HashMap<>();
-                            param.put("input1","0");
+                            param.put("input1","1");
+
                             return param;
                         }
                     };
