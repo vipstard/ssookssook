@@ -102,11 +102,8 @@
                 로그인
               </button>
               <button
-                class="join-l joinBtn, btn btn-warning btn-lg"
-                onClick="location.href='JoinForm'"
-              >
-                가입하기
-              </button>
+              	type="button"
+                onclick="location.href='JoinForm'";>가입하기</button>
             </div>
           </form>
         </div>

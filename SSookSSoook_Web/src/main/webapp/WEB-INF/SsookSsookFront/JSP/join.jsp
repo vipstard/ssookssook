@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SsookSsook - Sign Up</title>
-
+	
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -28,13 +28,28 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font.css" />
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon.ico" />
+    
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    
+    <style>
+    .id_ok, .email_ok{
+	color:#008000;
+	display: none;
+	}
+	
+	.id_already, .email_already{
+	color:#6A82FB; 
+	display: none;
+	}
+    </style>
   </head>
 
   <body>
     <div class="container">
       <div class="input-form-backgroud row">
         <div class="input-form col-md-12">
-          <a href="index.html">
+          <a href="main">
             <img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" class="logo" />
           </a>
           <!-- 폼에 method, action 채워야 함! -->
@@ -66,8 +81,12 @@
                 id="id"
                 required
                 maxlength="30"
+                oninput = "checkId()"
               />
               <div class="invalid-feedback">아이디를 입력해주세요.</div>
+	            <!-- id ajax 중복체크 -->
+	  			<span class="id_ok">사용 가능한 아이디입니다.</span>
+				<span class="id_already">누군가 이 아이디를 사용하고 있어요.</span>
             </div>
             <div class="col-md-8 mb-3 margin_center">
               <label for="pw">비밀번호</label>
@@ -100,11 +119,17 @@
                 type="text"
                 class="form-control"
                 name="email"
-                id="phone"
+                id="email"
                 required
-                maxlength="11"
+                maxlength="20"
+                oninput="checkEmail()"
               />
               <div class="invalid-feedback">이메일을 입력해주세요.</div>
+              
+              <!-- email ajax 중복체크 -->
+              	<font id="checkId" size="2"></font>
+				<span class="email_ok">사용가능한 이메일 입니다.</span>
+				<span class="email_already">누군가 이 이메일을 사용하고 있어요.</span>
             </div>
 
             <div class="col-md-8 mb-3 margin_center">
@@ -246,6 +271,86 @@
           },
         }).open();
       }
+      
+         
+      <!-- 아이디 중복체크 -->
+      function checkId(){
+          var id = $('#id').val(); //id값이 "id"인 입력란의 값을 저장
+          $.ajax({
+              url:'idCheck', //Controller에서 요청 받을 주소
+              type:'post', //POST 방식으로 전달
+              data:{id:id},
+              success:function(cnt){ //컨트롤러에서 넘어온 cnt값을 받는다 
+                  if(cnt == 0){ //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디 
+                      $('.id_ok').css("display","inline-block"); 
+                      $('.id_already').css("display", "none");
+                  } else { // cnt가 1일 경우 -> 이미 존재하는 아이디
+                      $('.id_already').css("display","inline-block");
+                      $('.id_ok').css("display", "none");
+                      alert("아이디를 다시 입력해주세요");
+                      $('#id').val('');
+                  }
+              },
+              error:function(){
+                  alert("에러입니다");
+              }
+          });
+          };
+
+          
+  <!-- 이메일 정규식 체크 --> 
+  function EmailCheck(str){                                                 
+  	var reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+  	
+  	if(!reg_email.test(str)) {                            
+  	return false;         
+  	}else {                       
+  	return true;         
+    }                            
+  }
+
+  <!--  이메일 실시간 중복체크 (Ajax) -->
+      function checkEmail(){
+          var email = $('#email').val(); //email값이 "email"인 입력란의 값을 저장
+          
+          if(email==""){
+    		$('#checkId').html('이메일을 입력 해 주세요.');
+  			$("#checkId").attr('color', 'red');
+  			$('.email_ok').css("display", "none");
+  			$('.email_already').css("display", "none");
+  			
+    		}else if(!EmailCheck(email)){
+    			$('#checkId').html('Example@naver.com 형식에 맞게 입력해 주세요.');
+  			$("#checkId").attr('color', 'red');
+  			$('.email_ok').css("display", "none");
+  			$('.email_already').css("display", "none");
+    		
+    		
+    		}else{
+    			$('#checkId').html('');
+    		
+          $.ajax({
+              url:'emailCheck', //Controller에서 요청 받을 주소
+              type:'post', //POST 방식으로 전달
+              data:{email:email},
+              success:function(cnt){ //컨트롤러에서 넘어온 cnt값을 받는다 
+                  if(cnt == 0){ //cnt가 1이 아니면(=0일 경우) -> 사용 가능한 아이디 
+                      $('.email_ok').css("display","inline-block"); 
+                      $('.email_already').css("display", "none");
+                  } else { // cnt가 1일 경우 -> 이미 존재하는 아이디
+                      $('.email_already').css("display","inline-block");
+                      $('.email_ok').css("display", "none");
+                      alert("이메일을 다시 입력해주세요");
+                      $('#email').val('');
+                      
+                  }
+              },
+              error:function(){
+                  alert("에러입니다");
+              }
+          });
+    		}
+          };
     </script>
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   </body>
