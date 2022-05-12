@@ -173,9 +173,7 @@
                 <li class="breadcrumb-item active" aria-current="page">
                   고객 문의
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                  글쓰기
-                </li>
+                
               </ol>
             </nav>
           </div>
@@ -183,73 +181,64 @@
       </div>
     </div>
     <!-- ##### Breadcrumb Area End ##### -->
-    <div class="container" id="board-list" style="margin-top: 40px;">
+    <div class="container" style="margin-bottom: 50px;">
            <!-- Write Main -->
            <section class="checkout spad">
             <div class="container">
-              <div class="checkout__form">
+              <div class="checkout__form ">
                 <form name="insertform" action="<%=FormYes%>" method="post">
                   <input type="hidden" name="command" value="qnaInsert"> 
                   <input type="hidden" name="writer" value="${sessionScope.loginfo.no}">
-                  <div class="row">
+
+                  
+                  <div class="row" ">
                     <div class="col-lg-12 col-md-6">
                      <br><br>
-                      <div class="row">
-                        <div class="col-lg-8">
+                      <div class="board-view row">
+                        
+                        <div class="col-lg-12">
                           <div class="checkout__input">
-                            <h6>
-                              제목
-                                <span>
-                                  *
-                                </span>
-                              </h6>
-             
-                            <input data-testid="input-box" id="inquiry-subject" name="subject" placeholder="제목을 입력해주세요" type="text" height="44" class="boardWrte-title" value="" style="width: 100%;">
-                          </div>
+                            <header class="view_main" >
+                              <h2>제목 </h2>
+                              <p>작성자 : </p>
+                            </header>
+
+                          <hr style="margin-top:0;">
+                              <div class="board-content">본문</div>
+                          <hr/>
+                          </div> 
                         </div>
-                        <div class="col-lg-4">
-                          <div class="checkout__input">
-                            <h6>
-                              카테고리
-                                <span>
-                                  *
-                                </span>
-                              </h6>
-                            <div>
-                                <select class="form-select" aria-label="Default select example"
-                                style="height:42px; width:100%; color: #707070; font-size: 15px;">
-                                  <option selected>ㅤ문의 유형을 선택해주세요</option>
-                                  <option value="1">배송 문의</option>
-                                  <option value="2">고장 문의</option>
-                                  <option value="3">기타 문의</option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
                                     
-                      <div class="col-12 input-div" style = "padding: 50px 0px 0px 10px;">
+                      <div id="board-view-list"class="col-12 input-div" style = "padding: 20px 0px 0px 10px;">
                         <div class="checkout__input_2" >
-                          <h6>
-                            글 내용
-                              <span>
-                                *
-                              </span>
-                            </h6>
-                            <div class="form-floating">
-                              <textarea class="form-control" 
-                              placeholder="내용을 입력해주세요." id="floatingTextarea2" 
-                              style="height: 250px; width: 100%;"></textarea>
-                              
-                            </div>
+                          <section class="main accent2" style="padding:3%">
+                            <header class="board-reply">
+                                <h2>Comments</h2>
+                                
+                            </header>
+                            <form method="post" action="#" class="combined" style="width:100%;">
+                                <textarea name="content" id="content" placeholder="담당자가 곧 답변 드리겠습니다." class="col-12 invert text-area-style" rows="5" style="border-radius:0; resize:none;"></textarea>
+                                <div style="display: flex;">
+                                  <button type="submit" class="btn btn-write btn-outline-success"  onClick="" style="margin: 0 auto;">
+                                    답변 등록
+                                  </button>
+                            </form>
+                            <form id="replies" class="combined" style="flex-direction:column; margin:0; display:contents;">
+                            </form>
+                        </section>
                       </div>
                           </div>
+                          <div class="col-12">
+                            <ul class="actions" style="display:flex; justify-content:flex-end;">
+                            
+                                    <li><input type="button" value="수정" class="btn btn-write btn-outline-success" onclick="location.href='/board/BoardModify.bo?boardNum=${board.getBoardNum()}'"/></li>
+                                    <li><input type="button" value="삭제" class="btn btn-write btn-outline-success" onclick="location.href='/board/BoardDeleteOk.bo?boardNum=${board.getBoardNum()}'"/></li>
+                                
+                            </ul>
+                        </div>
                         </div>
                       <br>
-                    <div style="display: flex;">
-                      <button type="submit" class="btn btn-write btn-outline-success"  onClick="" style="margin: 0 auto;">
-                        등록
-                      </button>
-                    </div>                     
+                                       
                     </div>
                   </div>
                 </form>

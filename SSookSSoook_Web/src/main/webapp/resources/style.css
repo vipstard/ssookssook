@@ -42,6 +42,22 @@ Version: - v1.0
 }
 
 @font-face {
+  font-family: "S-CoreDream-7ExtraBold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-7ExtraBold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "S-CoreDream-8Heavy";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-8Heavy.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "GangwonEduPowerExtraBoldA";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff")
     format("woff");
@@ -2725,7 +2741,7 @@ p {
 .breadcrumb-area .breadcrumb {
   margin: 0;
   padding-top: 30px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   padding-left: 0;
   padding-right: 0;
   background-color: transparent;
@@ -3609,6 +3625,12 @@ body #main {
   padding: 30px 100px;
 }
 
+.board-view {
+  border: 2px solid #9598953f;
+  border-radius: 5px;
+  padding: 30px 100px;
+}
+
 .btn-write {
   float: right;
 }
@@ -3733,4 +3755,64 @@ tbody {
 
 #board-list {
   margin-bottom: 60px;
+}
+#board-view-list {
+  margin-bottom: 30px;
+  background-color: #d9e9d8;
+  border-radius: 5px;
+  padding: 30px 100px;
+}
+
+.actions :first-child {
+  margin-right: 3px;
+}
+
+.board-view {
+  background-color: rgba(249, 248, 248, 0.681);
+}
+
+.view_main {
+  width: 100%;
+  font-family: S-CoreDream-5Medium;
+  color: #707070;
+}
+
+.view_main h2 {
+  text-align: left;
+  font-family: S-CoreDream-5Medium;
+  color: rgb(25, 68, 40);
+  font-size: 28px;
+  margin-top: 50px;
+}
+
+.view_main p {
+  font-family: S-CoreDream-4Regular;
+  font-size: 15px;
+  text-align: left;
+  margin-bottom: 1%;
+  margin-top: 12px;
+}
+
+.text-area-style::placeholder {
+  font-size: 13px;
+  padding-top: 5px;
+  font-family: S-CoreDream-3Light;
+}
+
+.board-content {
+  margin-top: 30px;
+  margin-bottom: 70px;
+}
+
+.board-reply {
+  text-align: left;
+  width: 100%;
+}
+
+.board-reply h2 {
+  text-align: left;
+  font-family: S-CoreDream-7ExtraBold;
+  color: rgb(25, 68, 40);
+  font-size: 28px;
+  padding-bottom: 20px;
 }
