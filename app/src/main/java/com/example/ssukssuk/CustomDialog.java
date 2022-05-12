@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ssukssuk.VO.Reg_Plant_mainVO;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -20,9 +21,8 @@ public class CustomDialog extends Dialog implements View.OnClickListener{
     private Button positiveButton;
     private Button negativeButton;
     private EditText editName;
-
     private Context context;
-
+    Reg_Plant_mainVO vo;
     private CustomDialogListener customDialogListener;
 
     public CustomDialog(Context context) {
