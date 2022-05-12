@@ -1,4 +1,4 @@
-package com.example.ssukssuk.ServiceCenter;
+package com.example.ssukssuk.Plant_reg;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,43 +6,35 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import androidx.fragment.app.FragmentActivity;
-
 import com.example.ssukssuk.Board.BoardHolder;
 import com.example.ssukssuk.Board.BoardVO;
 
 import java.util.ArrayList;
 
-public class ServiceAdapter extends BaseAdapter {
-
+public class PlantAdapter extends BaseAdapter {
     Context context;
-    int layout;
-    ArrayList<ServiceVO> list;
+    int item_layout;
+    ArrayList<BoardVO> list;
     LayoutInflater inflater;
-
-
-    public ServiceAdapter(Context context, int layout, ArrayList<ServiceVO> list) {
+    public PlantAdapter(Context context, int item_layout, ArrayList<BoardVO> list) {
         this.context = context;
-        this.layout = layout;
+        this.item_layout = item_layout;
         this.list = list;
-        this.inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE); ;
+        this.inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
-
-//    public ServiceAdapter(FragmentActivity activity, int servicecenter_list, ArrayList<ServiceVO> list) {
-//    }
-
-
     @Override
     public int getCount() {
         return list.size();
     }
 
     @Override
+    //선택한 인덱스의 내용물?
     public Object getItem(int i) {
         return list.get(i);
     }
 
     @Override
+    //선택한 인덱스를 반환하는 부분
     public long getItemId(int i) {
         return i;
     }
@@ -50,21 +42,23 @@ public class ServiceAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        ServiceHolder holder = null;
+        BoardHolder holder = null;
 
         if(view ==null){
-            view = inflater.inflate(layout, viewGroup, false);
-            holder = new ServiceHolder(view);
+            view = inflater.inflate(item_layout, viewGroup, false);
+            holder = new BoardHolder(view);
+
             view.setTag(holder);
         }else{
-            holder = (ServiceHolder) view.getTag();
+            holder = (BoardHolder) view.getTag();
         }
-        ServiceVO vo = (ServiceVO) getItem(i);
+        BoardVO vo = (BoardVO) getItem(i);
+
 
         holder.getTitle().setText(vo.getTitle());
         holder.getDate().setText(vo.getDate());
         holder.getWriter().setText(vo.getWriter());
 
-        return view;
+        return view; //젤 중요
     }
 }

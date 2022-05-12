@@ -21,7 +21,6 @@ import android.widget.Toast;
 import com.example.ssukssuk.Find.Id.IdFindActivity;
 import com.example.ssukssuk.Find.Pw.PwFindActivity;
 import com.example.ssukssuk.VO.loginVO;
-import com.example.ssukssuk.VO.signVO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
@@ -36,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     CheckBox auto_check;
     String loginId,loginPw;
     loginVO vo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,12 +56,14 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences spf = LoginActivity.this.
                 getSharedPreferences("mySPF", Context.MODE_PRIVATE);
 
+
         //editor 실행시키는?
         SharedPreferences.Editor editor = spf.edit();
         loginId = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("user_login_id",null);
         loginPw = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("user_login_pw",null);
+
 
 
 
@@ -85,6 +87,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
 
             }
 
@@ -120,15 +123,21 @@ public class LoginActivity extends AppCompatActivity {
 
                                     loginVO vo = data.getValue(loginVO.class);
 
+
                                     Log.d("firebase", vo.toString());
+
+
 
                                     //아이디 중복체크 로직
                                     if(user_id.getText().toString().equals(vo.getId().toString())&&user_pw.getText().toString().equals(vo.getPw().toString())) {
+                                        editor.putString("user_login_id1", user_id.getText().toString());
+                                        editor.commit();
                                         if(auto_check.isChecked()) {
                                             SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
                                             Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
                                             editor.putString("user_login_id", user_id.getText().toString());
                                             editor.putString("user_login_pw", user_pw.getText().toString());
+                                            editor.putString("user_login_id1", user_id.getText().toString());
                                             editor.commit();
                                         }
                                         Toast.makeText(LoginActivity.this,"로그인 성공",Toast.LENGTH_SHORT).show();

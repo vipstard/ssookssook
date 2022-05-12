@@ -55,9 +55,12 @@ public class MemberController {
 	public String Login(MemberVO vo, HttpSession session) {
 		System.out.println("로그인1 : " + vo);
 		MemberVO Login = memberService.Login(vo);
-
+		
+		String redirect="";
+		
 		System.out.println("로그인 " + Login);
 		if (Login != null) {
+			
 			session.setAttribute("LoginVo", Login);
 		}
 

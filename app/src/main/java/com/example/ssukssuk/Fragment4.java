@@ -1,11 +1,12 @@
 package com.example.ssukssuk;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,20 +15,29 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.ssukssuk.ServiceCenter.ServiceAdapter;
-import com.example.ssukssuk.ServiceCenter.ServiceVO;
-import com.example.ssukssuk.Diary.DiaryAdapter;
-import com.example.ssukssuk.Diary.DiaryVO;
+import com.example.ssukssuk.ServiceCenter.ScAdapter;
+import com.example.ssukssuk.ServiceCenter.ScVO;
+import com.example.ssukssuk.ServiceCenter.ScWriteActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
 public class Fragment4 extends Fragment {
 
     ListView lv;
-    ServiceAdapter adapter;
-    ArrayList<ServiceVO> list;
+    ScAdapter adapter;
+    ArrayList<ScVO> list;
     Button btn_write;
     TextView number;
+
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("ServiceCenter");
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,19 +45,42 @@ public class Fragment4 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_4, container, false);
 
         btn_write = view.findViewById(R.id.btn_SC_Write);
-        lv = view.findViewById(R.id.list_SC_post);
-        list = new ArrayList<ServiceVO>();
+        lv = view.findViewById(R.id.list_SC);
+        list = new ArrayList<ScVO>();
         number = view.findViewById(R.id.sclist_number);
 
-        for(int i =0; i<11; i++) {
+        myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
 
-            String title = "5151515";
-            String date = "5151515166656";
-            String writer = "81818555555555555";
-            list.add(new ServiceVO(title, date,writer));
-        }
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                } else {
+                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                    DataSnapshot snapshot = task.getResult();
 
-        adapter = new ServiceAdapter(getActivity(),R.layout.servicecenter_list,list);
+                    for (DataSnapshot data : snapshot.getChildren()) {
+
+                        ScVO vo = data.getValue(ScVO.class);
+                        String writer = vo.getWriter();
+                        String title = vo.getTitle();
+                        String date = vo.getDate();
+                        list.add(new ScVO(writer,title,date));
+                        adapter.notifyDataSetChanged();
+
+                    }
+
+                }
+            }
+        });
+
+
+
+        adapter = new ScAdapter(
+                getActivity(),
+                R.layout.listcustomer,
+                list
+        );
 
         lv.setAdapter(adapter);
 
@@ -65,7 +98,7 @@ public class Fragment4 extends Fragment {
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),TestSuccess.class);
+                Intent intent = new Intent(getActivity(), ScWriteActivity.class);
                 startActivity(intent);
             }
         });

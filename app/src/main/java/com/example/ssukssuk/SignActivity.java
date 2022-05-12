@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.ssukssuk.VO.signVO;
+import com.example.ssukssuk.VO.SignVO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
@@ -20,7 +20,6 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -32,7 +31,7 @@ public class SignActivity extends AppCompatActivity {
 //    int month_sel;
     Button btn_Id_check,btn_Back,btn_signup;
 
-    ArrayList<signVO> list;
+    ArrayList<SignVO> list;
 
 
 
@@ -160,7 +159,7 @@ public class SignActivity extends AppCompatActivity {
 
                 if(pw.equals(repw)){
                     //signVO에 있는 singVO 형식에 맞춰서 작성 -> 데이터등록
-                    myRef.push().setValue(new signVO(
+                    myRef.push().setValue(new SignVO(
                             id,
                             pw,
                             name,
@@ -185,7 +184,7 @@ public class SignActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                signVO vo = snapshot.getValue(signVO.class);
+                SignVO vo = snapshot.getValue(SignVO.class);
                 list.add(vo);
 
 
@@ -228,7 +227,7 @@ public class SignActivity extends AppCompatActivity {
 
                             for(DataSnapshot data : snapshot.getChildren()){
 
-                                signVO vo = data.getValue(signVO.class);
+                                SignVO vo = data.getValue(SignVO.class);
 
                                 Log.d("firebase", vo.toString());
                                 

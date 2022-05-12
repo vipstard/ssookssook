@@ -22,17 +22,22 @@ import com.google.gson.Gson;
 
 import kr.smhrd.domain.Criteria;
 import kr.smhrd.domain.MemberVO;
+import kr.smhrd.service.ArduInService;
 import kr.smhrd.service.MemberService;
 
 @Controller
-public class AndroidController {
+public class AndArduController {
 	
 	@Autowired
 	private MemberService memberService;
 	
-	boolean check = false;
+	@Autowired
+	private ArduInService arduinService;
+	
+	
 	String input2="3"; // LED신호
 	String input4="0"; // 워터펌프신호
+	boolean check=false;
 	
 	// 사람 정보 업데이트
 	@ResponseBody
@@ -45,27 +50,23 @@ public class AndroidController {
 
 		
 	}
-	@ResponseBody
-	@RequestMapping("AndServer")
-	public ArrayList<MemberVO> AndServer(MemberVO vo, Model model, Criteria cri) {		
-		ArrayList<MemberVO> list = memberService.memberList(cri);
-		
-		return list;
-	}
+
 	
-	/* 센서값 받는 곳 */
-	@RequestMapping("And_Ardu1")
+	/* 센서 값 수신 후 MariaDB에 넣기*/
+	@PostMapping("And_Ardu1")
 	public void And_Ardu1(@Param("soilMoisture_Sensor") String soilMoisture_Sensor, @Param("waterLevel_Sensor") String waterLevel_Sensor) {
 
 	String value1 = soilMoisture_Sensor;
 	String value2 = waterLevel_Sensor;
 	System.out.println("토양: " + value1 + "  수위센서: " + value2);
 	
+	arduinService.SensorValueIn(value1, value2);
+	
 	}
 	
 	/* Android -> Server -> Arduino제어 신호 받는 곳 */
 	@ResponseBody
-	@RequestMapping("And_Ardu2")
+	@GetMapping("And_Ardu2")
 	public String And_Ardu2(@Param("input1") String input1, @Param("input3") String input3,  Model model) {
 	
 		
@@ -81,11 +82,11 @@ public class AndroidController {
 			input4="3";
 		}else if(input3!=null && input3.equals("4")) {
 			input4="4";
-			 
 		}
 		
-		System.out.println("input1 2 값 : "  + input1 + " " +input2);
-		System.out.println("input3 4 값 : "  + input3 + " " +input4);
+		System.out.println("input1, input2 값 : "  + input1 + " " +input2);
+		System.out.println("input3, input4 값 : "  + input3 + " " +input4);
+		
 		
 		
 	return input2+input4;
