@@ -159,7 +159,7 @@ public class Fragment3 extends Fragment {
             int count = msg.arg1;
             if(count == 0){
                 int method = Request.Method.GET;
-                String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input3=3";
+                String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input3=4";
                 request = new StringRequest(
                         method,
                         server_url,
@@ -185,7 +185,7 @@ public class Fragment3 extends Fragment {
                 queue.add(request);
             }else{
                 int method = Request.Method.GET;
-                String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input3=4";
+                String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input3=3";
                 request = new StringRequest(
                         method,
                         server_url,

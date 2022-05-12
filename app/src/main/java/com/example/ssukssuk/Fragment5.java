@@ -32,7 +32,7 @@ public class Fragment5 extends Fragment {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getActivity(),"dfdf",Toast.LENGTH_SHORT).show();
-                Intent intent1 = new Intent(getActivity(),Reg_Plant_main.class);
+                Intent intent1 = new Intent(getActivity(),Plant_List.class);
                 startActivity(intent1);
             }
         });

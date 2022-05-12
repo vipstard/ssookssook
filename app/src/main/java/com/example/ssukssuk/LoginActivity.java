@@ -59,6 +59,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //editor 실행시키는?
         SharedPreferences.Editor editor = spf.edit();
+
         loginId = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("user_login_id",null);
         loginPw = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).

@@ -3,90 +3,59 @@ package com.example.ssukssuk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
-import android.util.SparseBooleanArray;
 import android.view.View;
 
-import android.view.Window;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 
-import java.util.ArrayList;
+import com.example.ssukssuk.VO.PlantVO;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class Reg_Plant_main extends AppCompatActivity {
+    EditText pot_name;
+    Button btn_add;
+    String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg_plant_main);
-        final ArrayList<String> items = new ArrayList<String>() ;
-        // ArrayAdapter 생성. 아이템 View를 선택(multiple choice)가능하도록 만듦.
-        final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, items) ;
+        pot_name = findViewById(R.id.et_pot_name);
+        btn_add = findViewById(R.id.btn_pot_add);
 
-        // listview 생성 및 adapter 지정.
-        final ListView listview = (ListView) findViewById(R.id.listview1) ;
-        listview.setAdapter(adapter) ;
-        Button addButton = (Button)findViewById(R.id.reg_plant_add) ;
-        listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+        btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(Reg_Plant_main.this, "dddd", Toast.LENGTH_SHORT).show();
-                return false;
+            public void onClick(View view) {
+                name = pot_name.getText().toString();
+                Toast.makeText(Reg_Plant_main.this, name, Toast.LENGTH_SHORT).show();
+               String loginId = Reg_Plant_main.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                       getString("user_login_id",null);
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("Pot");
+                Calendar cal = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                String indate = sdf.format(cal.getTime());
+
+                myRef.push().setValue(new PlantVO(
+                        name,
+                        indate,
+                        loginId));
+                //인터페이스의 함수를 호출하여 변수에 저장된 값들을 Activity로 전달
+                Intent intent = new Intent(Reg_Plant_main.this,Plant_List.class);
+                startActivity(intent);
             }
         });
-        addButton.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-                CustomDialog dialog = new CustomDialog(Reg_Plant_main.this);
-                dialog.setDialogListener(new CustomDialog.CustomDialogListener() {
-                    @Override
-                    public void onPositiveClicked(String name) {
-                        items.add(name);
-                        // listview 갱신
-                        adapter.notifyDataSetChanged();
-                    }
-
-                    @Override
-                    public void onNegativeClicked() {
-                    }
-                });
-                dialog.show();
-
-            }
-        }) ;
-        Button deleteButton = (Button)findViewById(R.id.reg_plant_delete) ;
-        deleteButton.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-                SparseBooleanArray checkedItems = listview.getCheckedItemPositions();
-                int count = adapter.getCount() ;
-
-                for (int i = count-1; i >= 0; i--) {
-                    if (checkedItems.get(i)) {
-                        items.remove(i) ;
-                    }
-                }
-                // 모든 선택 상태 초기화.
-                listview.clearChoices() ;
-
-                adapter.notifyDataSetChanged();
-            }
-        }) ;
-        Button selectAllButton = (Button)findViewById(R.id.reg_plant_selectAll) ;
-        selectAllButton.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-                int count = 0 ;
-                count = adapter.getCount() ;
-
-                for (int i=0; i<count; i++) {
-                    listview.setItemChecked(i, true) ;
-                }
-            }
-        }) ;
     }
 }
 

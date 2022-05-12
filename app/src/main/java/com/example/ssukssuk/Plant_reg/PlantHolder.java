@@ -6,26 +6,21 @@ import android.widget.TextView;
 import com.example.ssukssuk.R;
 
 public class PlantHolder {
-    private TextView title, date, writer;
+    private TextView name, date;
 
     public PlantHolder(View itemView) {
-        title = itemView.findViewById(R.id.board_title);
-        date = itemView.findViewById(R.id.board_date);
-        writer = itemView.findViewById(R.id.board_writer);
-
+        name = itemView.findViewById(R.id.pot_name);
+        date = itemView.findViewById(R.id.pot_date);
     }
 
-    public TextView getTitle() {
-        return title;
+    public TextView getName() {
+        return name;
     }
 
     public TextView getDate() {
         return date;
     }
 
-    public TextView getWriter() {
-        return writer;
-    }
 }
 
 

@@ -1,34 +1,24 @@
-package com.example.ssukssuk.Plant_reg;
+package com.example.ssukssuk.VO;
 
 public class PlantVO {
-    private int potNum;
+
     private String potName;
     private String potDate;
     private String userId;
-
-    public PlantVO(int potNum, String potName, String potDate, String userId) {
-        this.potNum = potNum;
+    public PlantVO( String potName, String potDate, String userId) {
         this.potName = potName;
         this.potDate = potDate;
         this.userId = userId;
     }
 
+
     @Override
     public String toString() {
         return "PlantVO{" +
-                "potNum=" + potNum +
-                ", potName='" + potName + '\'' +
+                "potName='" + potName + '\'' +
                 ", potDate='" + potDate + '\'' +
                 ", userId='" + userId + '\'' +
                 '}';
-    }
-
-    public int getPotNum() {
-        return potNum;
-    }
-
-    public void setPotNum(int potNum) {
-        this.potNum = potNum;
     }
 
     public String getPotName() {

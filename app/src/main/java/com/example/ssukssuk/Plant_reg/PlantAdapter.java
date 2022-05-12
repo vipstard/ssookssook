@@ -6,17 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.example.ssukssuk.Board.BoardHolder;
-import com.example.ssukssuk.Board.BoardVO;
 
 import java.util.ArrayList;
 
 public class PlantAdapter extends BaseAdapter {
     Context context;
     int item_layout;
-    ArrayList<BoardVO> list;
+    ArrayList<Reg_Plant_mainVO> list;
     LayoutInflater inflater;
-    public PlantAdapter(Context context, int item_layout, ArrayList<BoardVO> list) {
+    public PlantAdapter(Context context, int item_layout, ArrayList<Reg_Plant_mainVO> list) {
         this.context = context;
         this.item_layout = item_layout;
         this.list = list;
@@ -42,22 +40,22 @@ public class PlantAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        BoardHolder holder = null;
+        PlantHolder holder = null;
 
         if(view ==null){
             view = inflater.inflate(item_layout, viewGroup, false);
-            holder = new BoardHolder(view);
+            holder = new PlantHolder(view);
 
             view.setTag(holder);
         }else{
-            holder = (BoardHolder) view.getTag();
+            holder = (PlantHolder) view.getTag();
         }
-        BoardVO vo = (BoardVO) getItem(i);
+        Reg_Plant_mainVO vo = (Reg_Plant_mainVO) getItem(i);
 
 
-        holder.getTitle().setText(vo.getTitle());
+        holder.getName().setText(vo.getPot_name());
         holder.getDate().setText(vo.getDate());
-        holder.getWriter().setText(vo.getWriter());
+
 
         return view; //젤 중요
     }

@@ -76,11 +76,11 @@ public class Fragment4 extends Fragment {
 
 
 
-        adapter = new ScAdapter(
-                getActivity(),
-                R.layout.listcustomer,
-                list
-        );
+//        adapter = new ScAdapter(
+//                getActivity(),
+//                R.layout.listcustomer,
+//                list
+//        );
 
         lv.setAdapter(adapter);
 

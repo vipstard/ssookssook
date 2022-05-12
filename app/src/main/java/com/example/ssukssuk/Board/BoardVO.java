@@ -12,6 +12,8 @@ public class BoardVO {
         this.date = date;
         this.writer = writer;
     }
+
+
     public void getTitle(String title) {
         this.title = title;
     }
