@@ -1,6 +1,7 @@
 package com.example.ssukssuk;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,15 +24,17 @@ import com.example.ssukssuk.VO.loginVO;
 import com.example.ssukssuk.VO.signVO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
-    Button btn_login, btn_basic,btn_idfind,btn_pwfind;
+    Button btn_login, btn_sign,btn_idfind,btn_pwfind;
     EditText user_id, user_pw;
     CheckBox auto_check;
-    String loginId,loginPwd;
+    String loginId,loginPw;
     loginVO vo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,32 +48,61 @@ public class LoginActivity extends AppCompatActivity {
         user_id = findViewById(R.id.user_id);
         user_pw = findViewById(R.id.user_pw);
         btn_login = findViewById(R.id.btn_login);
-        btn_basic = findViewById(R.id.btn_sign);
+        btn_sign = findViewById(R.id.btn_sign);
         btn_idfind = findViewById(R.id.btn_idfind);
         btn_pwfind = findViewById(R.id.btn_pwfind);
         auto_check = findViewById(R.id.cbauto);
 
-//        SharedPreferences spf = LoginActivity.this.
-//                getSharedPreferences("mySPF", Context.MODE_PRIVATE);
-//
-//        //editor 실행시키는?
-//        SharedPreferences.Editor editor = spf.edit();
-//        loginId = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-//                getString("user_login_id",null);
-//        loginPwd = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-//                getString("user_login_pw",null);
-//
-//
-//
-//        if(loginId !=null && loginPwd != null) {
-//            if(user_id.getText().toString().equals(vo.getId().toString())&&user_pw.getText().toString().equals(vo.getPw().toString())){
-//                Toast.makeText(LoginActivity.this, loginId +"님 자동로그인 입니다.", Toast.LENGTH_SHORT).show();
-//                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        }
+        SharedPreferences spf = LoginActivity.this.
+                getSharedPreferences("mySPF", Context.MODE_PRIVATE);
 
+        //editor 실행시키는?
+        SharedPreferences.Editor editor = spf.edit();
+        loginId = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("user_login_id",null);
+        loginPw = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("user_login_pw",null);
+
+
+
+
+        myRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                loginVO vo = snapshot.getValue(loginVO.class);
+                if(loginId !=null && loginPw != null) {
+                    if(loginId.equals(vo.getId().toString())&&loginPw.equals(vo.getPw().toString())){
+                        Toast.makeText(LoginActivity.this, loginId +"님 자동로그인 입니다.", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
             btn_login.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -92,16 +124,20 @@ public class LoginActivity extends AppCompatActivity {
 
                                     //아이디 중복체크 로직
                                     if(user_id.getText().toString().equals(vo.getId().toString())&&user_pw.getText().toString().equals(vo.getPw().toString())) {
-//                                        if(auto_check.isChecked()) {
-//                                            SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
-//                                            Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
-//                                            editor.putString("user_login_id", user_id.getText().toString());
-//                                            editor.putString("user_login_pw", user_id.getText().toString());
-//                                            editor.commit();
-//                                        }
+                                        if(auto_check.isChecked()) {
+                                            SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+                                            Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
+                                            editor.putString("user_login_id", user_id.getText().toString());
+                                            editor.putString("user_login_pw", user_pw.getText().toString());
+                                            editor.commit();
+                                        }
                                         Toast.makeText(LoginActivity.this,"로그인 성공",Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                         startActivity(intent);
+
+
+
+
                                     }
                                     else {
                                         Toast.makeText(LoginActivity.this,
@@ -172,7 +208,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-        btn_basic.setOnClickListener(new View.OnClickListener() {
+        btn_sign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showDialog();
