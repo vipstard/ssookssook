@@ -26,6 +26,7 @@ public class Sensor extends HttpServlet {
 		String value1 = request.getParameter("soilMoisture_Sensor");
 		String value2 = request.getParameter("waterLevel_Sensor");
 		System.out.println("soil : " + value1 + "    water : " + value2);
+		
 	}
 
 	/**
