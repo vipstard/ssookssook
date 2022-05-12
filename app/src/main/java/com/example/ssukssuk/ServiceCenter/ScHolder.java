@@ -7,13 +7,12 @@ import com.example.ssukssuk.R;
 
 
 public class ScHolder {
-    private TextView title, date, writer;
+    private TextView title, date, num;
 
     public ScHolder(View itemView){
-
         title = itemView.findViewById(R.id.sclist_title);
         date = itemView.findViewById(R.id.sclist_date);
-        writer = itemView.findViewById(R.id.sclist_writer);
+        num = itemView.findViewById(R.id.sclist_number);
     }
 
     public TextView getTitle() {
@@ -24,7 +23,7 @@ public class ScHolder {
         return date;
     }
 
-    public TextView getWriter() {
-        return writer;
+    public TextView getNum() {
+        return num;
     }
 }

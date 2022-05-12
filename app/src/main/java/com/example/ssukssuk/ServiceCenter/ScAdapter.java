@@ -58,7 +58,7 @@ public class ScAdapter extends BaseAdapter {
 
         holder.getTitle().setText(vo.getTitle());
         holder.getDate().setText(vo.getDate());
-        holder.getWriter().setText(vo.getWriter());
+        holder.getNum().setText(vo.getWriter());
 
         return view;
     }

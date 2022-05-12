@@ -45,7 +45,7 @@ public class ScWriteActivity extends AppCompatActivity {
                 Intent intent = new Intent(ScWriteActivity.this,MainActivity.class);
 
                 Calendar cal = Calendar.getInstance();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String date = sdf.format(cal.getTime());
 
                 String title = edt_Title.getText().toString();

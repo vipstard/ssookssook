@@ -45,11 +45,4 @@
         app:layout_constraintStart_toEndOf="@+id/sclist_title"
         app:layout_constraintTop_toTopOf="@+id/sclist_title" />
 
-    <TextView
-        android:id="@+id/sclist_writer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="111dp"
-        tools:layout_editor_absoluteY="14dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
