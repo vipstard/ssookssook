@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Ssukssuk"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ServiceCenter.ScListViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ServiceCenter.ScEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".Plant_List"
             android:exported="false" />
         <activity

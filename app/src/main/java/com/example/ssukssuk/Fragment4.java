@@ -17,6 +17,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.ssukssuk.ServiceCenter.ScAdapter;
+import com.example.ssukssuk.ServiceCenter.ScEditActivity;
+import com.example.ssukssuk.ServiceCenter.ScListViewActivity;
 import com.example.ssukssuk.ServiceCenter.ScVO;
 import com.example.ssukssuk.ServiceCenter.ScWriteActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -63,29 +65,32 @@ public class Fragment4 extends Fragment {
                     DataSnapshot snapshot = task.getResult();
 
                     for (DataSnapshot data : snapshot.getChildren()) {
+                        //키값을 받는 키
+                        //Log.d("data",data.getKey());
 
                         ScVO vo = data.getValue(ScVO.class);
                         //여기까지가 데이터 불러오기
 
                         String writer = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-                                getString("user_login_id1",null);
+                                getString("user_login_id1", null);
 
-                        if(writer.equals(vo.getWriter())){
+                        if (writer.equals(vo.getWriter())) {
+
                             a++;
                             String num = String.valueOf(a);
 
                             String title = vo.getTitle();
                             String date = vo.getDate();
-                            list.add(new ScVO(num,title, date));
+                            list.add(new ScVO(num, title, date));
                             adapter.notifyDataSetChanged();
                         }
+
 
                     }
 
                 }
             }
         });
-
 
 
         adapter = new ScAdapter(
@@ -99,10 +104,11 @@ public class Fragment4 extends Fragment {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(),DiaryActivity2.class);
-                intent.putExtra("SCwriter",list.get(i).getWriter());
-                intent.putExtra("SCtitle",list.get(i).getTitle());
-                intent.putExtra("SCdate",list.get(i).getDate());
+
+                Intent intent = new Intent(getActivity(), ScListViewActivity.class);
+                intent.putExtra("SCwriter", list.get(i).getWriter());
+                intent.putExtra("SCtitle", list.get(i).getTitle());
+                intent.putExtra("SCdate", list.get(i).getDate());
                 startActivity(intent);
             }
         });
