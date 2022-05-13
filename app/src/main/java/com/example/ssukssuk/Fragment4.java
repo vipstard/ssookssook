@@ -1,5 +1,6 @@
 package com.example.ssukssuk;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -53,6 +54,8 @@ public class Fragment4 extends Fragment {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
 
+                int a = 0;
+
                 if (!task.isSuccessful()) {
                     Log.e("firebase", "Error getting data", task.getException());
                 } else {
@@ -62,11 +65,20 @@ public class Fragment4 extends Fragment {
                     for (DataSnapshot data : snapshot.getChildren()) {
 
                         ScVO vo = data.getValue(ScVO.class);
-                        String writer = vo.getWriter();
-                        String title = vo.getTitle();
-                        String date = vo.getDate();
-                        list.add(new ScVO(writer,title,date));
-                        adapter.notifyDataSetChanged();
+                        //여기까지가 데이터 불러오기
+
+                        String writer = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                                getString("user_login_id1",null);
+
+                        if(writer.equals(vo.getWriter())){
+                            a++;
+                            String num = String.valueOf(a);
+
+                            String title = vo.getTitle();
+                            String date = vo.getDate();
+                            list.add(new ScVO(num,title, date));
+                            adapter.notifyDataSetChanged();
+                        }
 
                     }
 
@@ -76,11 +88,11 @@ public class Fragment4 extends Fragment {
 
 
 
-//        adapter = new ScAdapter(
-//                getActivity(),
-//                R.layout.listcustomer,
-//                list
-//        );
+        adapter = new ScAdapter(
+                getActivity(),
+                R.layout.sc_list,
+                list
+        );
 
         lv.setAdapter(adapter);
 
