@@ -90,10 +90,16 @@ public class BoardController {
 		return "/SsookSsookFront/JSP/about";
 	}
 	
-	/* 구매페이지 */
+	/* 구매 - 페이지 */
 	@GetMapping("Purchase")
 	public String Purchase() {
 		return "/SsookSsookFront/JSP/purchase";
+	}
+	
+	/* 구매 - 결제페이지 */
+	@RequestMapping("PurchasePay")
+	public String PurchasePay() {
+		return "/SsookSsookFront/JSP/purchase-payment";
 	}
 	
 	

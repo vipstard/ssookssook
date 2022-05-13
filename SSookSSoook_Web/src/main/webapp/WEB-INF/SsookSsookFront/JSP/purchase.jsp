@@ -295,6 +295,7 @@ pageEncoding="UTF-8"%>
                   <form
                     class="cart clearfix d-flex align-items-center"
                     method="post"
+                    action="PurchasePay"
                   >
                     <div class="quantity">
                       <span
