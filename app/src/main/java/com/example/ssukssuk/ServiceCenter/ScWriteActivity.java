@@ -50,9 +50,9 @@ public class ScWriteActivity extends AppCompatActivity {
 
                 String title = edt_Title.getText().toString();
                 String post = edt_Post.getText().toString();
-
                 String writer = ScWriteActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                         getString("user_login_id1",null);
+
 
                 myRef.push().setValue(new ScVO(
                         title,

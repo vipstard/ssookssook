@@ -2,7 +2,7 @@ package com.example.ssukssuk.ServiceCenter;
 
 public class ScVO {
 
-    private int num;
+    private String num;
     private String title;
     private String post;
     private String date;
@@ -16,11 +16,6 @@ public class ScVO {
     }
 
     //constructor
-    public ScVO(String writer, String title, String date) {
-        this.title = title;
-        this.date = date;
-        this.writer = writer;
-    }
 
     public ScVO(String title, String post, String date, String writer) {
         this.title = title;
@@ -29,11 +24,13 @@ public class ScVO {
         this.writer = writer;
     }
 
-    public ScVO(int num, String title, String date) {
+    public ScVO(String num, String title, String date) {
         this.num = num;
         this.title = title;
         this.date = date;
     }
+
+
 
     //toString()
 
@@ -60,7 +57,7 @@ public class ScVO {
     public String getWriter() {
         return writer;
     }
-    public int getNum() {
+    public String getNum() {
         return num;
     }
 
