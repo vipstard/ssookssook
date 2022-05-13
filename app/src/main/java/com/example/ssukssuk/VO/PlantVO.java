@@ -5,6 +5,7 @@ public class PlantVO {
     private String potName;
     private String potDate;
     private String userId;
+    public PlantVO(){}
     public PlantVO( String potName, String potDate, String userId) {
         this.potName = potName;
         this.potDate = potDate;
