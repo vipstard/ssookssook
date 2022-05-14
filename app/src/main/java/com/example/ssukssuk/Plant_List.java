@@ -1,14 +1,19 @@
 package com.example.ssukssuk;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -30,7 +35,7 @@ public class Plant_List extends AppCompatActivity {
     ListView lv;
     PlantAdapter adapter;
     ArrayList<Reg_Plant_mainVO> list;
-    Button btn_add;
+    Button btn_add,btn_reg_main;
     String name="";
     String date = "";
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -41,11 +46,18 @@ public class Plant_List extends AppCompatActivity {
         setContentView(R.layout.activity_plant_list);
         btn_add = findViewById(R.id.button3);
         lv = findViewById(R.id.Plant_list_Listview);
+        btn_reg_main = findViewById(R.id.button4);
+        btn_reg_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         list = new ArrayList<Reg_Plant_mainVO>();
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Plant_List.this,Reg_Plant_main.class);
+                Intent intent = new Intent(Plant_List.this, Reg_Plant_reg.class);
                 startActivity(intent);
             }
         });
@@ -83,5 +95,41 @@ public class Plant_List extends AppCompatActivity {
                 list
         );
         lv.setAdapter(adapter);
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Plant_List.this);
+
+                builder.setTitle("메인 화분을").setMessage("선택하세요.");
+
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        SharedPreferences spf = Plant_List.this.
+                                getSharedPreferences("mySPF", Context.MODE_PRIVATE);
+                        //editor 실행시키는?
+                        SharedPreferences.Editor editor = spf.edit();
+
+                        editor.putString("pot_name",  list.get(i).getPot_name());
+                        editor.commit();
+                        Toast.makeText(getApplicationContext(), "OK Click", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int id)
+                    {
+                        Toast.makeText(getApplicationContext(), "Cancel Click", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+                return false;
+            }
+        });
     }
 }

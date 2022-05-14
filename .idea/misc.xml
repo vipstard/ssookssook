@@ -34,6 +34,7 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_board_activitiy.xml" value="0.28072916666666664" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_board_write.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_diary2.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_diary_write.xml" value="0.2734375" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_find_id.xml" value="0.28125" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_id_find_fail.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_id_find_success.xml" value="0.36614583333333334" />
@@ -57,7 +58,7 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/board_list.xml" value="0.6257309941520468" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/diary_list.xml" value="0.2828125" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/fragment_1.xml" value="0.25" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/fragment_2.xml" value="0.1" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/fragment_2.xml" value="0.5" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/fragment_3.xml" value="0.33" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/fragment_4.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/fragment_5.xml" value="0.33" />
@@ -76,6 +77,7 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/splash.xml" value="0.14629629629629629" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2828125" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/menu/menu_item.xml" value="0.1" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/xml/file_paths.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>
