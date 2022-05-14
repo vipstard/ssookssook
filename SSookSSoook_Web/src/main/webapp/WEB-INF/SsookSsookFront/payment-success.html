@@ -157,9 +157,9 @@
       <!-- Top Breadcrumb Area -->
       <div
         class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
-        style="background-image: url(/resources/img/bg-img/main4.png)"
+        style="background-image: url(/resources/img/bg-img/main3.png)"
       >
-        <h2>고객 문의</h2>
+        <h2>제품 구매</h2>
       </div>
 
       <div class="container">
@@ -176,7 +176,6 @@
                 <li class="breadcrumb-item active" aria-current="page">
                   제품 결제
                 </li>
-                
               </ol>
             </nav>
           </div>
@@ -184,16 +183,18 @@
       </div>
     </div>
     <!-- ##### Breadcrumb Area End ##### -->
-    <div class="container" >
-      <div class="card">
-        <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-          <i class="checkmark">✓</i>
-        </div>
-          <h1>결제 완료</h1> 
-          <p>We received your purchase request;<br/> we'll be in touch shortly!</p>
-        </div>
+
+    <div class="success-page">
+      <img
+        src="http://share.ashiknesin.com/green-checkmark.png"
+        class="center"
+        alt=""
+      />
+      <h2>결제 성공!</h2>
+      <p>쑥쑥이 고객님께 달려가고 있어요!</p>
+      <a href="#" class="btn-view-main">메인페이지로 이동</a>
     </div>
-  </div>
+
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area bg-img" style="background-color: #313b2b">
       <!-- Main Footer Area -->
@@ -369,67 +370,5 @@
     <script src="/resources/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="/resources/js/active.js"></script>
-
-    <script>
-      window.addEventListener(
-        "load",
-        () => {
-          const forms = document.getElementsByClassName("validation-form");
-
-          Array.prototype.filter.call(forms, (form) => {
-            form.addEventListener(
-              "submit",
-              function (event) {
-                if (form.checkValidity() === false) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                }
-
-                form.classList.add("was-validated");
-              },
-              false
-            );
-          });
-        },
-        false
-      );
-    </script>
-    <script>
-      function openDaumPostCode() {
-        new daum.Postcode({
-          oncomplete: function (data) {
-            var addr = "";
-            var extraAddr = "";
-            if (data.userSelectedType === "R") {
-              addr = data.roadAddress;
-            } else {
-              addr = data.jibunAddress;
-            }
-            if (data.userSelectedType === "R") {
-              if (data.bname !== "" && /[동|로|가]$/g.test(data.bname)) {
-                extraAddr += data.bname;
-              }
-              if (data.buildingName !== "" && data.apartment === "Y") {
-                extraAddr +=
-                  extraAddr !== ""
-                    ? ", " + data.buildingName
-                    : data.buildingName;
-              }
-              if (extraAddr !== "") {
-                extraAddr = " (" + extraAddr + ")";
-              }
-              document.getElementById("sample6_detailAddress").value =
-                extraAddr;
-            } else {
-              document.getElementById("sample6_detailAddress").value = "";
-            }
-            document.getElementById("sample6_postcode").value = data.zonecode;
-            document.getElementById("sample6_address").value = addr;
-            document.getElementById("sample6_detailAddress").focus();
-          },
-        }).open();
-      }
-    </script>
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   </body>
 </html>

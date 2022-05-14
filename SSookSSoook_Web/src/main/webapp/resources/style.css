@@ -809,7 +809,7 @@ p {
   visibility: visible;
 }
 .header-area .is-sticky .alazea-main-menu {
-  background-color: #00000029;
+  background-color: #40724cae;
   position: fixed;
   width: 100%;
   top: 0;
@@ -3835,4 +3835,139 @@ tbody {
 .pay_info label {
   font-family: S-CoreDream-5Medium;
   font-weight: bold;
+}
+
+/**Successful**/
+
+.success-page {
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  margin-top: 200px;
+  margin-bottom: 300px;
+}
+.success-page img {
+  max-width: 62px;
+  display: block;
+  margin: 0 auto;
+}
+.success-page h2 {
+  font-family: S-CoreDream-8Heavy;
+  color: rgb(25, 68, 40);
+  font-size: 35px;
+}
+.success-page p {
+  font-family: S-CoreDream-4Regular;
+  font-size: 15px;
+}
+.btn-view-main {
+  display: block;
+  border: 1px solid #65b369;
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 45px;
+  padding: 10px;
+  color: #fff;
+  background-color: #65b369;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.btn-view-main:hover {
+  background-color: #1c510b;
+  color: #fff;
+}
+
+/**fail**/
+
+.fail-page {
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  margin-top: 200px;
+  margin-bottom: 300px;
+}
+.fail-page img {
+  max-width: 62px;
+  display: block;
+  margin: 0 auto;
+}
+.fail-page h2 {
+  font-family: S-CoreDream-8Heavy;
+  color: #f8b400;
+  font-size: 35px;
+}
+.fail-page p {
+  font-family: S-CoreDream-4Regular;
+  font-size: 15px;
+}
+.btn-view-orders {
+  display: block;
+  border: 1px solid #65b369;
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 45px;
+  padding: 10px;
+  color: #fff;
+  background-color: #65b369;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.btn-view-orders:hover {
+  background-color: #1c510b;
+  color: #fff;
+}
+/**cash**/
+
+.cash-page {
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  margin-top: 200px;
+  margin-bottom: 300px;
+}
+.cash-page img {
+  max-width: 62px;
+  display: block;
+  margin: 0 auto;
+}
+.cash-page h2 {
+  font-family: S-CoreDream-8Heavy;
+  color: #36ae7c;
+  font-size: 35px;
+  margin-bottom: 50px;
+}
+.cash-page p {
+  font-family: S-CoreDream-4Regular;
+  font-size: 15px;
+}
+.cash-page span {
+  font-family: S-CoreDream-5Medium;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(25, 68, 40);
+}
+.btn-view-orders {
+  display: block;
+  border: 1px solid #65b369;
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 45px;
+  padding: 10px;
+  color: #fff;
+  background-color: #65b369;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.btn-view-orders:hover {
+  background-color: #1c510b;
+  color: #fff;
 }
