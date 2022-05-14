@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>    
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -95,8 +94,8 @@
             <!-- Menu -->
             <nav class="classy-navbar justify-content-between" id="alazeaNav">
               <!-- Nav Brand -->
-              <a href="main" class="nav-brand"
-                ><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt=""
+              <a href="index.html" class="nav-brand"
+                ><img src="/resources/img/core-img/SSSSlogo.png" alt=""
               /></a>
 
               <!-- Navbar Toggler -->
@@ -118,10 +117,10 @@
                 <!-- Navbar Start -->
                 <div class="classynav">
                   <ul style="font-family: SBAggroL">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="main">Home</a></li>
                     <li><a href="About">회사 소개</a></li>
                     <li><a href="Purchase">제품 구매</a></li>
-                    <li><a href="Service">고객센터</a></li>
+                    <li><a href="helpQnA">고객센터</a></li>
                     <li><a href="Contact">A/S</a></li>
                   </ul>
 
@@ -160,9 +159,9 @@
       <!-- Top Breadcrumb Area -->
       <div
         class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
-        style="background-image: url(${pageContext.request.contextPath}/resources/img/bg-img/main4.png)"
+        style="background-image: url(${pageContext.request.contextPath}/resources/img/bg-img/main3.png)"
       >
-        <h2>고객 문의</h2>
+        <h2>제품 구매</h2>
       </div>
 
       <div class="container">
@@ -174,10 +173,10 @@
                   <a href="#"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  고객 문의
+                  제품 구매
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  글쓰기
+                  제품 결제
                 </li>
               </ol>
             </nav>
@@ -186,81 +185,18 @@
       </div>
     </div>
     <!-- ##### Breadcrumb Area End ##### -->
-    <div class="container" id="board-list" style="margin-top: 40px;">
-           <!-- Write Main -->
-           <section class="checkout spad">
-            <div class="container">
-              <div class="checkout__form">
-                <form name="" action="QnaInsert" method="post">
-                  
-                  <input type="hidden" value="${writer}" name="writer">
-                  <div class="row">
-                    <div class="col-lg-12 col-md-6">
-                     <br><br>
-                      <div class="row">
-                        <div class="col-lg-8">
-                          <div class="checkout__input">
-                            <h6>
-                              제목
-                                <span>
-                                  *
-                                </span>
-                              </h6>
-             
-                            <input data-testid="input-box" id="inquiry-subject" name="title" placeholder="제목을 입력해주세요" type="text" height="44" class="boardWrte-title" value="" style="width: 100%;">
-                          </div>
-                        </div>
-                        <div class="col-lg-4">
-                          <div class="checkout__input">
-                            <h6>
-                              카테고리
-                                <span>
-                                  *
-                                </span>
-                              </h6>
-                            <div>
-                                <select class="form-select" aria-label="Default select example"
-                                style="height:42px; width:100%; color: #707070; font-size: 15px;">
-                                  <option selected>ㅤ문의 유형을 선택해주세요</option>
-                                  <option value="1">배송 문의</option>
-                                  <option value="2">고장 문의</option>
-                                  <option value="3">기타 문의</option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                                    
-                      <div class="col-12 input-div" style = "padding: 50px 0px 0px 10px;">
-                        <div class="checkout__input_2" >
-                          <h6>
-                            글 내용
-                              <span>
-                                *
-                              </span>
-                            </h6>
-                            <div class="form-floating">
-                              <textarea class="form-control" 
-                              placeholder="내용을 입력해주세요." id="floatingTextarea2" 
-                              style="height: 250px; width: 100%;" name="content"></textarea>
-                              
-                            </div>
-                      </div>
-                          </div>
-                        </div>
-                      <br>
-                    <div style="display: flex;">
-                      <button type="submit" class="btn btn-write btn-outline-success"  onClick="" style="margin: 0 auto;">
-                        등록
-                      </button>
-                    </div>                     
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </section>
+
+    <div class="success-page">
+      <img
+        src="http://share.ashiknesin.com/green-checkmark.png"
+        class="center"
+        alt=""
+      />
+      <h2>결제 성공!</h2>
+      <p>쑥쑥이 고객님께 달려가고 있어요!</p>
+      <a href="main" class="btn-view-main">메인페이지로 이동</a>
     </div>
-  </div>
+
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area bg-img" style="background-color: #313b2b">
       <!-- Main Footer Area -->

@@ -20,6 +20,12 @@
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/style.css" />
+    
+    <!-- 아임포트 결제모듈 연동 -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+	<!-- 아래 제이쿼리는 1.0이상이면 원하는 버전을 사용하셔도 무방합니다. -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+  
   </head>
 
   <body>
@@ -108,7 +114,7 @@
                     <li><a href="main">Home</a></li>
                     <li><a href="About">회사 소개</a></li>
                     <li><a href="Purchase">제품 구매</a></li>
-                    <li><a href="HelpQnA">고객센터</a></li>
+                    <li><a href="helpQnA">고객센터</a></li>
                     <li><a href="Contact">A/S</a></li>
                   </ul>
 
@@ -182,21 +188,23 @@
               <h5 class="mb-0">제품 결제</h5>
             </div>
             <div class="card-body">
-              <form class="pay_info">
+            
+              <form id="frm" class="pay_info" action="Order" method="post">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
-                <div class="row col-md-6 mb-4">
+                <div class="row col-md-12 mb-4">
                   <div class="col">
                     <div class="form-outline">
                       <label class="form-label" for="form7Example2">이름</label>
-                      <input type="text" id="form7Example2" class="form-control" />
+                      <input type="text" name="receiver_name" id="form7Example2" class="form-control" value="${LoginVo.name }"/>
+                      <input type="hidden" name="user_id" id="id" value="${LoginVo.id }"/>
                     </div>
                   </div>
                 </div>
 
                 <!-- Number input -->
-                <div class="form-outline col-md-6 mb-3">
+                <div class="form-outline col-md-8 mb-3">
                   <label class="form-label" for="form7Example6">연락처</label>
-                  <input type="number" id="form7Example6" class="form-control" />
+                  <input type="number" name="receiver_phone" id="form7Example6" class="form-control" value="${LoginVo.phone }" />
                   
                 </div>
       
@@ -210,6 +218,8 @@
                     id="sample6_postcode"
                     placeholder="우편번호"
                     style="margin-bottom: 10px"
+                    value="${LoginVo.getPostalcode()}"
+                    name="Postalcode"
                     readonly
                   />
                   <div class="addr__container col-2">
@@ -224,16 +234,20 @@
                   <input
                     type="text"
                     class="form-control , col-10"
+                    name="addr1"
                     id="sample6_address"
                     placeholder="주소"
+                    value="${LoginVo.addr1 }"
                     readonly
                     style="margin-bottom: 10px"
                   />
                   <input
                     type="text"
                     class="form-control , col-10"
+                    name="addr2"
                     id="sample6_detailAddress"
                     placeholder="상세주소"
+                    value="${LoginVo.addr2 }"
                     style="margin-bottom: 10px"
                   />
                   
@@ -242,14 +256,14 @@
                 <!-- Email input -->
                 <div class="form-outline col-md-10 mb-3">
                   <label class="form-label" for="form7Example5">이메일</label>
-                  <input type="email" id="form7Example5" class="form-control" />
+                  <input type="email" name="email" id="email" class="form-control" value="${LoginVo.email }" />
                   
                 </div>
                          
                 <!-- Message input -->
                 <div class="form-outline col-md-10 mb-3">
                   <label class="form-label" for="form7Example7">배송 메모</label>
-                  <textarea class="form-control" placeholder="배송 메모를 입력해주세요." id="form7Example7" rows="4"></textarea>
+                  <textarea name="memo" class="form-control" placeholder="배송 메모를 입력해주세요." id="form7Example7" rows="4"></textarea>
                 </div>
       
                 <!-- Checkbox -->
@@ -260,7 +274,7 @@
                     개인정보 제 3자 제공 및 위탁에 동의합니다.
                   </label>
                 </div>
-              </form>
+              
             </div>
           </div>
         </div>
@@ -291,25 +305,25 @@
               </ul>
               <div class="paycheck">
                 <div class="credit form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <input class="form-check-input" type="radio" name="pay_method" id="flexRadio" value="card">
                   <label class="form-check-label" for="flexRadioDefault1">
                     신용카드로 결제
                   </label>
                 </div>
                 <div class="kakaopay form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                  <input class="form-check-input"  type="radio" name="pay_method" id="flexRadio" value="kakao" checked>
                   <label class="form-check-label" for="flexRadioDefault2">
                     카카오페이로 결제
                   </label>
                 </div>
                 <div class="cash form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                  <input class="form-check-input" type="radio" name="pay_method" id="flexRadio" value="nobankbook" checked>
                   <label class="form-check-label" for="flexRadioDefault2">
                     무통장 입급으로 결제
                   </label>
                 </div>
               </div>
-              <button type="button" class="btn btn-success btn-lg btn-block" style="font-family: S-CoreDream-5Medium; font-size: 16px;">
+              <button type='button' onclick="iamport()" class="btn btn-success btn-lg btn-block" style="font-family: S-CoreDream-5Medium; font-size: 16px;">
                 결제 하기
               </button>
             </div>
@@ -318,6 +332,8 @@
       </div>
     </div>
   </div>
+ </form>
+ 
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area bg-img" style="background-color: #313b2b">
       <!-- Main Footer Area -->
@@ -328,7 +344,7 @@
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="single-footer-widget">
                 <div class="footer-logo mb-30">
-                  <a href="#"
+                  <a href="main"
                     ><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt=""
                   /></a>
                 </div>
@@ -553,6 +569,92 @@
           },
         }).open();
       }
+      
+      <!-- 신욧카드로 결제 선택시 아임포트 신용카드 결제모듈 실행 -->
+      function iamport(){
+    	  
+    	  <!-- 체크 값 불러와서 각각 지불수단 별로 창 띄우기 -->
+    	  
+    	  var payMethod=$("input[name='pay_method']:checked").val() //JQuery 라디오 값 가져오기
+    	  console.log(payMethod);
+    	  
+    	  if(payMethod=='card'){
+  		//가맹점 식별코드
+  		IMP.init('imp09311302');
+  		
+  		IMP.request_pay({
+  		    pg : 'kcp',
+  		    pay_method : 'card',
+  		    merchant_uid : 'merchant_' + new Date().getTime(),
+  		    name : '쑥쑥 스마트화분', //결제창에서 보여질 이름
+  		    amount : 38000, //실제 결제되는 가격
+  		    buyer_email : '${LoginVo.email}',
+  		    buyer_name : '${LoginVo.name}',
+  		    buyer_tel : '${LoginVo.phone}',
+  		    buyer_addr : '${LoginVo.addr}',
+  		    buyer_postcode : '123-456'
+  		}, function(rsp) {
+  			console.log(rsp);
+  		    if ( rsp.success ) {
+  		    	var msg = '결제가 완료되었습니다.';
+  		       /*  msg += '고유ID : ' + rsp.imp_uid;
+  		        msg += '상점 거래ID : ' + rsp.merchant_uid;
+  		        msg += '결제 금액 : ' + rsp.paid_amount;
+  		        msg += '카드 승인번호 : ' + rsp.apply_num; */
+  		        document.getElementById('frm').submit();
+  		    } else {
+  		    	 var msg = '결제에 실패하였습니다.';
+  		         msg += '에러내용 : ' + rsp.error_msg;
+  		    }
+  		    alert(msg);
+  		});
+  		
+    }		else if(payMethod=='kakao'){
+    		  IMP.init('imp09311302'); 
+    			// i'mport 관리자 페이지 -> 내정보 -> 가맹점식별코드
+    			// ''안에 띄어쓰기 없이 가맹점 식별코드를 붙여넣어주세요. 안그러면 결제창이 안뜹니다.
+    			IMP.request_pay({
+    				pg: 'kakaopay',
+    				pay_method: 'card',
+    				merchant_uid: 'merchant_' + new Date().getTime(),
+    				/* 
+    				 *  merchant_uid에 경우 
+    				 *  https://docs.iamport.kr/implementation/payment
+    				 *  위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
+    				 */
+    				name: '주문명 : 아메리카노',
+    				// 결제창에서 보여질 이름
+    				// name: '주문명 : ${auction.a_title}',
+    				// 위와같이 model에 담은 정보를 넣어 쓸수도 있습니다.
+    				amount: 2000,
+    				// amount: ${bid.b_bid},
+    				// 가격 
+    				buyer_name: '이름',
+    				// 구매자 이름, 구매자 정보도 model값으로 바꿀 수 있습니다.
+    				// 구매자 정보에 여러가지도 있으므로, 자세한 내용은 맨 위 링크를 참고해주세요.
+    				buyer_postcode: '123-456',
+    				}, function (rsp) {
+    					console.log(rsp);
+    				if (rsp.success) {
+    					var msg = '결제가 완료되었습니다.';
+    					msg += '결제 금액 : ' + rsp.paid_amount;
+    					// success.submit();
+    					// 결제 성공 시 정보를 넘겨줘야한다면 body에 form을 만든 뒤 위의 코드를 사용하는 방법이 있습니다.
+    					// 자세한 설명은 구글링으로 보시는게 좋습니다.
+    					
+    					<!--폼태그 Controller로 전송 -->
+    					document.getElementById('frm').submit();
+    					
+    				} else {
+    					var msg = '결제에 실패하였습니다.';
+    					msg += '에러내용 : ' + rsp.error_msg;
+    				}
+    				alert(msg);
+    			});
+    	  }else{
+    		  document.getElementById('frm').submit();
+    	  }
+  	}
     </script>
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   </body>
