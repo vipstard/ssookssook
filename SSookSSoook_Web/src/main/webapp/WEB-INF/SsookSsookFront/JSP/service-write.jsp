@@ -207,7 +207,7 @@
                                 </span>
                               </h6>
              
-                            <input data-testid="input-box" id="inquiry-subject" name="title" placeholder="${LoginVo.id }" type="text" height="44" class="boardWrte-title" value="" style="width: 100%;">
+                            <input data-testid="input-box" id="inquiry-subject" name="title" placeholder="제목을 입력해주세요" type="text" height="44" class="boardWrte-title" value="" style="width: 100%;">
                           </div>
                         </div>
                         <div class="col-lg-4">

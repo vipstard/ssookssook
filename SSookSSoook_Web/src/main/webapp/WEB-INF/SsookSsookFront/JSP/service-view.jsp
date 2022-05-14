@@ -21,6 +21,7 @@
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/style.css" />
+    
   </head>
 
   <body>
@@ -219,14 +220,21 @@
                                 <h2>Comments</h2>
                                 
                             </header>
-                            <form method="post" action="#" class="combined" style="width:100%;">
-                                <textarea name="content" id="content" placeholder="담당자가 곧 답변 드리겠습니다." class="col-12 invert text-area-style" rows="5" style="border-radius:0; resize:none;"></textarea>
+                            
+                            <!-- 답변 등록하기 -->
+                            <form id="commentInsertForm" method="post" action="#" class="combined" style="width:100%;">
+                                <textarea name="content" id=r_content placeholder="담당자가 곧 답변 드리겠습니다." class="col-12 invert text-area-style" rows="5" style="border-radius:0; resize:none;"></textarea>
                                 <div style="display: flex;">
-                                  <button type="submit" class="btn btn-write btn-outline-success"  onClick="" style="margin: 0 auto;">
+                                  <button type="button" id="btnReply" class="btn btn-write btn-outline-success" style="margin: 0 auto;">
                                     답변 등록
                                   </button>
                             </form>
-                            <form id="replies" class="combined" style="flex-direction:column; margin:0; display:contents;">
+                            
+                            <!-- 댓글 불러오기 -->
+                            <form id="commentListForm" name="commentListForm" class="combined" style="flex-direction:column; margin:0; display:contents;">
+                            	<div id="commentList">
+                            	
+                            	</div>
                             </form>
                         </section>
                       </div>
@@ -425,5 +433,77 @@
     <script src="${pageContext.request.contextPath}/resources/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="${pageContext.request.contextPath}/resources/js/active.js"></script>
+      
+      
+    <!-- 관리자 답변달기 --> 
+    <script>  
+    $("#btnReply").click(function(){
+        
+    var reply_content = $("#r_content").val();    //댓글의 내용
+    var qna_idx =  "${Qna_Content.idx}";   //문의 번호
+    var params = {"reply_content" : reply_content, "qna_idx" : qna_idx};
+    
+    
+    $.ajax({
+        type: "post", //데이터를 보낼 방식
+        url: "Reply_Insert", //데이터를 보낼 url
+        data: params, //보낼 데이터
+        success: function(data){//데이터를 보내는 것이 성공했을 시 출력되는 메시지
+        	
+            alert("답변이 등록되었습니다.");
+            getCommentList();
+        	} 
+    	});
+});
+    
+    <!-- 관리자 답변 불러오기 -->
+    
+    function getCommentList(){
+    	
+    	var qna_idx = "${Qna_Content.idx}";
+        
+        $.ajax({
+            type:'GET',
+            url : "",
+            dataType : "json",
+            data:$("#commentForm").serialize(),
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
+            success : function(data){
+                
+                var html = "";
+                var cCnt = data.length;
+                
+                if(data.length > 0){
+                    
+                    for(i=0; i<data.length; i++){
+                        html += "<div>";
+                        html += "<div><table class='table'><h6><strong>"+data[i].writer+"</strong></h6>";
+                        html += data[i].comment + "<tr><td></td></tr>";
+                        html += "</table></div>";
+                        html += "</div>";
+                    }
+                    
+                } else {
+                    
+                    html += "<div>";
+                    html += "<div><table class='table'><h6><strong>등록된 댓글이 없습니다.</strong></h6>";
+                    html += "</table></div>";
+                    html += "</div>";
+                    
+                }
+                
+                $("#cCnt").html(cCnt);
+                $("#commentList").html(html);
+                
+            },
+            error:function(request,status,error){
+                
+           }
+            
+        });
+    }
+    
+      </script>
+      
   </body>
 </html>

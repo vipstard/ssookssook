@@ -131,13 +131,14 @@ pageEncoding="UTF-8"%>
                     <li><a href="main">Home</a></li>
                     <li><a href="About">회사 소개</a></li>
                     <li><a href="Purchase">제품 구매</a></li>
-                    <li><a href="">고객센터</a></li>
+                    <li><a href="helpQnA">고객센터</a></li>
                     <li><a href="Contact">A/S</a></li>
                   </ul>
 
                   <!-- Search Icon -->
                   <div id="searchIcon">
-                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <i c
+                    lass="fa fa-search" aria-hidden="true"></i>
                   </div>
                 </div>
                 <!-- Navbar End -->
@@ -653,7 +654,7 @@ pageEncoding="UTF-8"%>
                 >
                   <div class="product-thumbnail">
                     <a href="shop-details.html"
-                      ><img src="/resources/img/bg-img/apple1.png" alt=""
+                      ><img src="${pageContext.request.contextPath}/resources/img/bg-img/apple1.png" alt=""
                     /></a>
                   </div>
                   <div class="product-info">

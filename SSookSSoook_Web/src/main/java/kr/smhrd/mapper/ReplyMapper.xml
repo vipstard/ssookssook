@@ -3,8 +3,13 @@
 <mapper namespace="kr.smhrd.mapper.ReplyMapper">
 
 	<insert id="ReplyInsert">
-		INSERT INTO reply_info (qna_seq, reply_content, reply_date)
-		VALUES(#{idx}, #{reply_content}, now())
+		INSERT INTO reply_info (qna_idx, reply_content, reply_date)
+		VALUES(#{qna_idx}, #{reply_content}, now())
 	</insert>	
+	
+	<select id="ReplySelect">
+		SELECT *
+		FROM reply_info
+	</select>
 	
 </mapper>

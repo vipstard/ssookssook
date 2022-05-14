@@ -18,10 +18,10 @@
     <title>SsookSsook</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico" />
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/img/core-img/favicon.ico" />
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href=" ${pageContext.request.contextPath}/resources/style.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/style.css" />
   </head>
 
   <body>
@@ -214,7 +214,7 @@
                   </div>
                 </div>
               </div>
-            </div>"src/main/webapp/resources/img/bg-img/main3.png"
+            </div>
             <div class="sub-carousel">
               <ul>
                 <li class="active"></li>
@@ -1047,15 +1047,15 @@
 
     <!-- ##### All Javascript Files ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src=" ${pageContext.request.contextPath}/resources/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src=" ${pageContext.request.contextPath}/resources/js/bootstrap/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src=" ${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src=" ${pageContext.request.contextPath}/resources/js/plugins/plugins.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src=" ${pageContext.request.contextPath}/resources/js/active.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/active.js"></script>
     
     
   </body>

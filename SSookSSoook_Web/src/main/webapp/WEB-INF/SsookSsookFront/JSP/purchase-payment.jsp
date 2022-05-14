@@ -108,7 +108,7 @@
                     <li><a href="main">Home</a></li>
                     <li><a href="About">회사 소개</a></li>
                     <li><a href="Purchase">제품 구매</a></li>
-                    <li><a href="HelpQnA">고객센터</a></li>
+                    <li><a href="helpQnA">고객센터</a></li>
                     <li><a href="Contact">A/S</a></li>
                   </ul>
 
@@ -184,7 +184,7 @@
             <div class="card-body">
               <form class="pay_info">
                 <!-- 2 column grid layout with text inputs for the first and last names -->
-                <div class="row col-md-6 mb-4">
+                <div class="row col-md-12 mb-4">
                   <div class="col">
                     <div class="form-outline">
                       <label class="form-label" for="form7Example2">이름</label>
@@ -194,7 +194,7 @@
                 </div>
 
                 <!-- Number input -->
-                <div class="form-outline col-md-6 mb-3">
+                <div class="form-outline col-md-8 mb-3">
                   <label class="form-label" for="form7Example6">연락처</label>
                   <input type="number" id="form7Example6" class="form-control" />
                   

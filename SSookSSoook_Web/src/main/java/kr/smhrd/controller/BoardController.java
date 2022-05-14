@@ -32,6 +32,7 @@ public class BoardController {
 	@Autowired
 	private MemberService memberService;
 	
+	
 	/* 메인 */
 	@GetMapping("main")
 	public String boardList() {
@@ -169,6 +170,8 @@ public class BoardController {
 		
 		return "redirect:/QnaContent?idx="+vo.getIdx();
 	}
+	
+	
 	
 	
 	

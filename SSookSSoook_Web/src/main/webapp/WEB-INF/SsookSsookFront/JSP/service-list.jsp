@@ -196,7 +196,7 @@
             <div class="search-wrap">
               <input
                 id="search"
-                type="search"
+                type="text"
                 name="keyword"
                 placeholder="ㅤ검색어를 입력해주세요."
                 value="${BoardPageMaker.cri.keyword }"
@@ -325,7 +325,7 @@
           <ul class="pagination btn-movepage justify-content-center" id="pageInfo">
             
             <!-- 이전 페이지 -->
-             <c:if test="${BoardBoardPageMaker.cri.pageNum > 10}">
+             <c:if test="${BoardPageMaker.cri.pageNum > 10}">
             <li class="page-item">
               <a class="page-link" href="#" aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
@@ -339,11 +339,13 @@
             </c:forEach>
            
            <!-- 다음 페이지 -->
+           <c:if test="${pageMaker.cri.pageNum < pageMaker.realEnd}">
             <li class="page-item">
               <a class="page-link" href="#" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
               </a>
             </li>
+            </c:if>
           
             
           </ul>
