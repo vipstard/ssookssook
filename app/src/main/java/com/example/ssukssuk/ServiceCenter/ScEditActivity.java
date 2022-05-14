@@ -45,6 +45,11 @@ public class ScEditActivity extends AppCompatActivity {
         edt_Title = findViewById(R.id.edt_SEA_Title);
         btn_Edit = findViewById(R.id.btn_SEA_Edit);
 
+        Intent intent = getIntent();
+        String title = intent.getStringExtra("ScTitle1");
+        String writer = ScEditActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("user_login_id1", null);
+
 
 
         myRef.addChildEventListener(new ChildEventListener() {
@@ -53,30 +58,29 @@ public class ScEditActivity extends AppCompatActivity {
 
                 ScVO vo = snapshot.getValue(ScVO.class);
 
-                String writer = ScEditActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-                        getString("user_login_id1", null);
+                if (writer.equals(vo.getWriter())&& title.equals(vo.getTitle())
+                ){
+                    Log.d("dasdasd1",vo.getWriter());
+                    edt_Title.setText(vo.getTitle());
+                    edt_Post.setText(vo.getPost());
 
-                Intent intent = getIntent();
-                String title = intent.getStringExtra("SCtitle1");
-                if (writer.equals(vo.getWriter())
-                        //& title.equals(vo.getTitle())
-                 ){
                     btn_Edit.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            String a = snapshot.getKey();
-//                            DatabaseReference myRef2 = myRef.child(a);
-                            Log.d("dasd",a);
 
-//                            String b = "dasd";
-//
-//                            Map<String, Object> hopperUpdates = new HashMap<>();
-//                            hopperUpdates.put("data/name", b);
-//                            hopperUpdates.put("post1/name", "1");
-//                            hopperUpdates.put("title/name", "1");
-////                    myRef2.updateChildrenAsync(hopperUpdates);
-//
-//                            myRef2.updateChildren(hopperUpdates);
+                            String a = snapshot.getKey();
+                            DatabaseReference myRef2 = myRef.child(a);
+
+                            String Edit_post = edt_Post.getText().toString();
+                            String Edit_title = edt_Title.getText().toString();
+                            Map<String, Object> updateMap = new HashMap<>();
+                            updateMap.put("title",Edit_title);
+                            updateMap.put("post",Edit_post);
+
+
+                            myRef2.updateChildren(updateMap).addOnCompleteListener(task ->
+                                    Log.d("dda","update title:"+task.isSuccessful()));
+                            startActivity(new Intent(ScEditActivity.this,MainActivity.class));
                         }
                     });
 

@@ -45,6 +45,8 @@ public class ScListViewActivity extends AppCompatActivity {
         btn_Delete = findViewById(R.id.btn_SLVA_Delete);
         btn_Edit = findViewById(R.id.btn_SLVA_Edit);
 
+
+
         Intent intent = getIntent();
         String title = intent.getStringExtra("SCtitle");
 
@@ -59,6 +61,7 @@ public class ScListViewActivity extends AppCompatActivity {
                 String writer = ScListViewActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                         getString("user_login_id1", null);
 
+
                 //로그인한 아이디와 데이터베이스에 있는 아이디가 같고 & 적힌 제목과 데이터베이스에 있는 제목이 같으면 if문 실행
                 //여기서 for문이 값 하나에서 멈춰있음!!
                 if (writer.equals(vo.getWriter()) && title.equals(vo.getTitle())) {
@@ -67,9 +70,8 @@ public class ScListViewActivity extends AppCompatActivity {
                     //tv_Post에 데이터베이스에 있는 Title 값을 출력
                     tv_Post.setText(vo.getPost());
                     String a = snapshot.getKey();
-//                    Log.d("d",a);
+//                  Log.d("d",a);
 
-//                    intent.putExtra("SCdate1",getTitle());
 
                     //멈춰있는 for문 값에서 버튼 기능 실행
                     btn_Delete.setOnClickListener(new View.OnClickListener() {
@@ -78,11 +80,20 @@ public class ScListViewActivity extends AppCompatActivity {
 
                             //랜덤키값을 불러와서 삭제함
                             myRef.child(a).removeValue();
+
                             //화면이동
                             startActivity(new Intent(ScListViewActivity.this, MainActivity.class));
 
                         }
 
+                    });
+                    btn_Edit.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent1 =  new Intent(ScListViewActivity.this, ScEditActivity.class);
+                            intent1.putExtra("ScTitle1",vo.getTitle());
+                            startActivity(intent1);
+                        }
                     });
 
                 }
@@ -142,13 +153,7 @@ public class ScListViewActivity extends AppCompatActivity {
 //                }
 //            });
 
-        btn_Edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                startActivity(new Intent(ScListViewActivity.this, ScEditActivity.class));
-            }
-        });
 //        btn_Delete.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {

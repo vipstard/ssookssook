@@ -2,6 +2,7 @@ package com.example.ssukssuk;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -42,6 +43,7 @@ public class Fragment4 extends Fragment {
     DatabaseReference myRef = database.getReference("ServiceCenter");
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,6 +53,9 @@ public class Fragment4 extends Fragment {
         lv = view.findViewById(R.id.list_SC);
         list = new ArrayList<ScVO>();
         number = view.findViewById(R.id.sclist_number);
+
+        String writer = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("user_login_id1", null);
 
         myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -71,8 +76,7 @@ public class Fragment4 extends Fragment {
                         ScVO vo = data.getValue(ScVO.class);
                         //여기까지가 데이터 불러오기
 
-                        String writer = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-                                getString("user_login_id1", null);
+
 
                         if (writer.equals(vo.getWriter())) {
 
@@ -104,7 +108,15 @@ public class Fragment4 extends Fragment {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                SharedPreferences spf = getActivity().
+                        getSharedPreferences("mySPF", Context.MODE_PRIVATE);
 
+
+                //editor 실행시키는?
+                SharedPreferences.Editor editor = spf.edit();
+                editor.putString("ScWriter", list.get(i).getWriter());
+                editor.putString("SCTitle", list.get(i).getTitle());
+                editor.putString("ScDate", list.get(i).getDate());
                 Intent intent = new Intent(getActivity(), ScListViewActivity.class);
                 intent.putExtra("SCwriter", list.get(i).getWriter());
                 intent.putExtra("SCtitle", list.get(i).getTitle());
@@ -116,8 +128,7 @@ public class Fragment4 extends Fragment {
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ScWriteActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(getActivity(), ScWriteActivity.class));
             }
         });
 
