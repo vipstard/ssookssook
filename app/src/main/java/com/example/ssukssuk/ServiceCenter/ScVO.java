@@ -8,6 +8,7 @@ public class ScVO {
     private String date;
     private String writer;
 
+
     public ScVO(){}
 
     public ScVO(String title, String date) {

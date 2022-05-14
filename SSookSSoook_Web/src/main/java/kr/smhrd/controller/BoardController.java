@@ -72,8 +72,10 @@ public class BoardController {
 	
 	/* 문의글쓰기 폼으로 이동 */
 	@GetMapping("QnaForm")
-	public String QnaForm() {
-		return "/TestWeb/QnaForm";
+	public String QnaForm(@Param("id")String writer, Model model) {
+		
+		model.addAttribute("writer", writer);
+		return "/SsookSsookFront/JSP/service-write";
 	}
 	
 	/* AS 페이지 이동 */
@@ -88,17 +90,23 @@ public class BoardController {
 		return "/SsookSsookFront/JSP/about";
 	}
 	
-	/* 구매페이지 */
+	/* 구매 - 페이지 */
 	@GetMapping("Purchase")
 	public String Purchase() {
 		return "/SsookSsookFront/JSP/purchase";
+	}
+	
+	/* 구매 - 결제페이지 */
+	@RequestMapping("PurchasePay")
+	public String PurchasePay() {
+		return "/SsookSsookFront/JSP/purchase-payment";
 	}
 	
 	
 	
 	/* 온라인문의 페이지로 이동 (문의글 목록 출력)*/
 	@GetMapping("helpQnA")
-	public String helpQnA(Model model, Criteria cri) {
+	public String helpQnA(@Param("id")String id, Model model, Criteria cri) {
 		
 		ArrayList<Board> QnaList = boardService.QnaList(cri);
 		model.addAttribute("QnaList", QnaList);
@@ -108,7 +116,9 @@ public class BoardController {
 		PageMakerDTO pageMake = new PageMakerDTO(cri, total);
 		model.addAttribute("BoardPageMaker", pageMake);
 		
-		return "/TestWeb/helpQnA";
+		model.addAttribute("id", id);
+		
+		return "/SsookSsookFront/JSP/service-list";
 	}
 	
 	/* 특정 게시물 번호를 가진 문의 게시물정보 가지고 오기 */
@@ -120,13 +130,14 @@ public class BoardController {
 		Board Qna_Content = boardService.Qna_Content(idx);
 		model.addAttribute("Qna_Content", Qna_Content);
 		
-		return "/TestWeb/QnaContent";
+		return "/SsookSsookFront/JSP/service-view";
 
 	}
 	
 	/* QnA 온라인문의 문의 작성 */
 	@PostMapping("QnaInsert")
 	public String QnaInsert(Board vo) {
+		System.out.println("관리자댓글 con : " + vo);
 		boardService.QnaInsert(vo);
 	
 		return "redirect:/helpQnA";
@@ -146,8 +157,9 @@ public class BoardController {
 	public String QnaUpdateForm(@RequestParam("idx") int idx, Model model) {
 		
 		Board QnaUpdate = boardService.Qna_Content(idx);
+		
 		model.addAttribute("QnaUpdate", QnaUpdate);
-		return "/TestWeb/QnaUpdateForm";
+		return "/SsookSsookFront/JSP/service-writeUp";
 	}
 	
 	/* QnA 온라인문의 문의글 수정 */

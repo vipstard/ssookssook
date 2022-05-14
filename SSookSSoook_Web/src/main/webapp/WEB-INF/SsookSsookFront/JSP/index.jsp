@@ -151,7 +151,7 @@
                     <li><a href="main">Home</a></li>
                     <li><a href="About">회사 소개</a></li>
                     <li><a href="Purchase">제품 구매</a></li>
-                    <li><a href="#">고객센터</a></li>
+                    <li><a href="helpQnA?id=${LoginVo.id }">고객센터</a></li>
                     <li><a href="Contact">A/S</a></li>
                   </ul>
 
@@ -1056,6 +1056,7 @@
     <script src=" ${pageContext.request.contextPath}/resources/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src=" ${pageContext.request.contextPath}/resources/js/active.js"></script>
+    
     
   </body>
 </html>

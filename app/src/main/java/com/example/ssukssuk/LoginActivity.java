@@ -30,10 +30,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
-    Button btn_login, btn_sign,btn_idfind,btn_pwfind;
+    Button btn_login, btn_sign, btn_idfind, btn_pwfind;
     EditText user_id, user_pw;
     CheckBox auto_check;
-    String loginId,loginPw;
+    String loginId, loginPw;
     loginVO vo;
 
     @Override
@@ -61,12 +61,9 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = spf.edit();
 
         loginId = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-                getString("user_login_id",null);
+                getString("user_login_id", null);
         loginPw = LoginActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-                getString("user_login_pw",null);
-
-
-
+                getString("user_login_pw", null);
 
 
         myRef.addChildEventListener(new ChildEventListener() {
@@ -74,9 +71,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
                 loginVO vo = snapshot.getValue(loginVO.class);
-                if(loginId !=null && loginPw != null) {
-                    if(loginId.equals(vo.getId().toString())&&loginPw.equals(vo.getPw().toString())){
-                        Toast.makeText(LoginActivity.this, loginId +"님 자동로그인 입니다.", Toast.LENGTH_SHORT).show();
+                if (loginId != null && loginPw != null) {
+                    if (loginId.equals(vo.getId().toString()) && loginPw.equals(vo.getPw().toString())) {
+                        Toast.makeText(LoginActivity.this, loginId + "님 자동로그인 입니다.", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
@@ -107,60 +104,56 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-            btn_login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DataSnapshot> task) {
-                            if (!task.isSuccessful()) {
-                                Log.e("firebase", "Error getting data", task.getException());
-                            }
-                            else {
-                                Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                                DataSnapshot snapshot = task.getResult();
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (!task.isSuccessful()) {
+                            Log.e("firebase", "Error getting data", task.getException());
+                        } else {
+                            Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                            Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                            DataSnapshot snapshot = task.getResult();
 
-                                for(DataSnapshot data : snapshot.getChildren()){
-
-                                    loginVO vo = data.getValue(loginVO.class);
+                            for (DataSnapshot data : snapshot.getChildren()) {
 
 
-                                    Log.d("firebase", vo.toString());
+                                loginVO vo = data.getValue(loginVO.class);
 
 
+                                Log.d("firebase", vo.toString());
 
-                                    //아이디 중복체크 로직
-                                    if(user_id.getText().toString().equals(vo.getId().toString())&&user_pw.getText().toString().equals(vo.getPw().toString())) {
+
+                                //아이디 중복체크 로직
+                                if (user_id.getText().toString().equals(vo.getId().toString()) && user_pw.getText().toString().equals(vo.getPw().toString())) {
+                                    editor.putString("user_login_id1", user_id.getText().toString());
+                                    editor.commit();
+                                    if (auto_check.isChecked()) {
+                                        SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
+                                        Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
+                                        editor.putString("user_login_id", user_id.getText().toString());
+                                        editor.putString("user_login_pw", user_pw.getText().toString());
                                         editor.putString("user_login_id1", user_id.getText().toString());
                                         editor.commit();
-                                        if(auto_check.isChecked()) {
-                                            SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
-                                            Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
-                                            editor.putString("user_login_id", user_id.getText().toString());
-                                            editor.putString("user_login_pw", user_pw.getText().toString());
-                                            editor.putString("user_login_id1", user_id.getText().toString());
-                                            editor.commit();
-                                        }
-                                        Toast.makeText(LoginActivity.this,"로그인 성공",Toast.LENGTH_SHORT).show();
-                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                        startActivity(intent);
-
-
-
-
                                     }
-                                    else {
-                                        Toast.makeText(LoginActivity.this,
-                                                "로그인 실패",
-                                                Toast.LENGTH_SHORT).show();
-                                    }
+                                    Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    startActivity(intent);
+
+
+                                } else {
+                                    Toast.makeText(LoginActivity.this,
+                                            "로그인 실패",
+                                            Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
-                    });
-                }
-            });
-
+                    }
+                });
+            }
+        });
 
 
 //
@@ -226,12 +219,8 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
     }
+
     void showDialog() {
         AlertDialog.Builder msgBuilder = new AlertDialog.Builder(LoginActivity.this)
                 .setTitle("회원가입페이지 이동")
@@ -244,7 +233,7 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "회원가입 페이지로 이동", Toast.LENGTH_SHORT).show();
                         startActivity(intent);
                     }
-                }) .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(LoginActivity.this, "회원 가입 ㄴㄴ", Toast.LENGTH_SHORT).show();
