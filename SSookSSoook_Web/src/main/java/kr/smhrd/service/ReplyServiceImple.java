@@ -28,6 +28,13 @@ public class ReplyServiceImple implements ReplyService{
 		return replyMapper.ReplySelect(Vo);
 	}
 	
+	/* 특정 게시물 관리자 답변 여부조회 */
+	@Override
+	public int ReplyCount(int idx) {
+		int count = replyMapper.ReplyCount(idx);
+		return count;
+	}
+	
 	
 	
 	

@@ -301,7 +301,8 @@
 			   <tr>
 			      <td>기타문의</td>
 			   	  <td>${vo.idx}</td>
-			      <td><a href="/SS/QnaContent?idx=${vo.idx}">${vo.title}</a></td>
+			      <td><a href="/SS/QnaContent?idx=${vo.idx}">${vo.title}</a>
+			      <c:if test=""> </c:if></td>
 			      <td>${vo.writer}</td>
 			      <td>${vo.indate}</td>
 			      <td>${vo.count}</td>

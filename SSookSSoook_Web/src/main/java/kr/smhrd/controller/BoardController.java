@@ -21,6 +21,7 @@ import kr.smhrd.domain.MemberVO;
 import kr.smhrd.domain.PageMakerDTO;
 import kr.smhrd.service.BoardService;
 import kr.smhrd.service.MemberService;
+import kr.smhrd.service.ReplyService;
 
 
 @Controller
@@ -31,6 +32,9 @@ public class BoardController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private ReplyService replyService;
 	
 	
 	/* 메인 */
@@ -93,7 +97,8 @@ public class BoardController {
 	
 	/* 구매 - 페이지 */
 	@GetMapping("Purchase")
-	public String Purchase() {
+	public String Purchase( ) {
+
 		return "/SsookSsookFront/JSP/purchase";
 	}
 	
@@ -127,9 +132,16 @@ public class BoardController {
 	public String QnaContent(@RequestParam("idx") int idx, Model model) {
 		
 		/* 서비스의 Qna_Content에 문의글 번호 전달 */
+		
 		boardService.QnaContentCount(idx);
+		
 		Board Qna_Content = boardService.Qna_Content(idx);
 		model.addAttribute("Qna_Content", Qna_Content);
+		
+		/* 댓글정보 가져오기 */
+		int ReplyCount = replyService.ReplyCount(idx);
+		model.addAttribute("ReplyCount", ReplyCount);
+		System.out.println(ReplyCount);
 		
 		return "/SsookSsookFront/JSP/service-view";
 

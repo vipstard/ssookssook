@@ -9,5 +9,9 @@ public interface ReplyMapper {
 	
 	/* 특정 문의글 관리자 답변 조회 */
 	public ReplyVO ReplySelect(ReplyVO Vo);
+	
+	/* 특정 문의글 관리자 답변 조회 */
+	public int ReplyCount(int id);
+	
 
 }

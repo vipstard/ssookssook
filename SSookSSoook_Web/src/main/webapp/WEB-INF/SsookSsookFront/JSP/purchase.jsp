@@ -103,7 +103,7 @@ pageEncoding="UTF-8"%>
             <!-- Menu -->
             <nav class="classy-navbar justify-content-between" id="alazeaNav">
               <!-- Nav Brand -->
-              <a href="index.html" class="nav-brand"
+              <a href="main" class="nav-brand"
                 ><img
                   src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png"
                   alt=""
@@ -588,8 +588,7 @@ pageEncoding="UTF-8"%>
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="single-footer-widget">
                 <div class="footer-logo mb-30">
-                  <a href="main"
-                    ><img
+                  <a href="main"><img
                       src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png"
                       alt=""
                   /></a>

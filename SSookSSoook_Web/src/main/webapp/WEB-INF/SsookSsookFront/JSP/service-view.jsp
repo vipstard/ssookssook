@@ -221,6 +221,8 @@
                                 
                             </header>
                             
+                            <!-- 답변이 등록 안되어 있을때 답변 등록하는 -->
+                            <c:if test="${ReplyCount == '0'}">
                             <!-- 답변 등록하기 -->
                             <form id="commentInsertForm" method="post" action="#" class="combined" style="width:100%;">
                                 <textarea name="content" id=r_content placeholder="담당자가 곧 답변 드리겠습니다." class="col-12 invert text-area-style" rows="5" style="border-radius:0; resize:none;"></textarea>
@@ -229,6 +231,7 @@
                                     답변 등록
                                   </button>
                             </form>
+                            </c:if>
                             
                             <!-- 댓글 불러오기 -->
                             <form id="commentListForm" name="commentListForm" class="combined" style="flex-direction:column; margin:0; display:contents;">
@@ -424,6 +427,7 @@
 
     <!-- ##### All Javascript Files ##### -->
     <!-- jQuery-2.2.4 js -->
+    
     <script src="${pageContext.request.contextPath}/resources/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
     <script src="${pageContext.request.contextPath}/resources/js/bootstrap/popper.min.js"></script>
@@ -435,8 +439,15 @@
     <script src="${pageContext.request.contextPath}/resources/js/active.js"></script>
       
       
-    <!-- 관리자 답변달기 --> 
-    <script>  
+  
+    <script>
+    
+    $(document).ready(function(){
+    	getCommentList()
+    	console.log('test')
+ 	})
+ 	
+ 	<!-- 관리자 답변달기 --> 
     $("#btnReply").click(function(){
         
     var reply_content = $("#r_content").val();    //댓글의 내용
@@ -447,54 +458,41 @@
     $.ajax({
         type: "post", //데이터를 보낼 방식
         url: "Reply_Insert", //데이터를 보낼 url
+        dataType : "json",
         data: params, //보낼 데이터
         success: function(data){//데이터를 보내는 것이 성공했을 시 출력되는 메시지
         	
             alert("답변이 등록되었습니다.");
-            getCommentList();
+        	location.reload();
+            
         	} 
     	});
 });
     
     <!-- 관리자 답변 불러오기 -->
-    
     function getCommentList(){
     	
     	var qna_idx = "${Qna_Content.idx}";
+    	console.log(qna_idx);
         
         $.ajax({
-            type:'GET',
-            url : "",
+            type:'post',
+            url : "Reply_Select",
             dataType : "json",
-            data:$("#commentForm").serialize(),
+            data: {"qna_idx" : qna_idx},
             contentType: "application/x-www-form-urlencoded; charset=UTF-8", 
             success : function(data){
                 
                 var html = "";
-                var cCnt = data.length;
                 
-                if(data.length > 0){
-                    
-                    for(i=0; i<data.length; i++){
-                        html += "<div>";
-                        html += "<div><table class='table'><h6><strong>"+data[i].writer+"</strong></h6>";
-                        html += data[i].comment + "<tr><td></td></tr>";
-                        html += "</table></div>";
-                        html += "</div>";
+                /* 답변이 있을때 */
+                console.log(data)
+                if(data != null){
+                       html+=data.reply_content
+                       console.log(html)
                     }
                     
-                } else {
-                    
-                    html += "<div>";
-                    html += "<div><table class='table'><h6><strong>등록된 댓글이 없습니다.</strong></h6>";
-                    html += "</table></div>";
-                    html += "</div>";
-                    
-                }
-                
-                $("#cCnt").html(cCnt);
                 $("#commentList").html(html);
-                
             },
             error:function(request,status,error){
                 
@@ -502,6 +500,8 @@
             
         });
     }
+    
+    
     
       </script>
       

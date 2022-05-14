@@ -7,9 +7,14 @@
 		VALUES(#{qna_idx}, #{reply_content}, now())
 	</insert>	
 	
-	<select id="ReplySelect">
+	<select id="ReplySelect" resultType="kr.smhrd.domain.ReplyVO">
 		SELECT *
-		FROM reply_info
+		FROM reply_info where qna_idx=#{qna_idx}
+	</select>
+	
+	<select id="ReplyCount" resultType="int">
+		SELECT count(*)
+		FROM reply_info where qna_idx=#{qna_idx}
 	</select>
 	
 </mapper>
