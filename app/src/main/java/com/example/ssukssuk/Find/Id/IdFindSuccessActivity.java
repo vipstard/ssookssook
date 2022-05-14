@@ -1,9 +1,14 @@
 package com.example.ssukssuk.Find.Id;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,11 +16,19 @@ import android.widget.TextView;
 import com.example.ssukssuk.Find.Pw.PwFindActivity;
 import com.example.ssukssuk.LoginActivity;
 import com.example.ssukssuk.R;
+import com.example.ssukssuk.VO.SignVO;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class IdFindSuccessActivity extends AppCompatActivity{
+public class IdFindSuccessActivity extends AppCompatActivity {
 
     Button btnLogin, btnPw;
     TextView tvName, tvId;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,24 +40,34 @@ public class IdFindSuccessActivity extends AppCompatActivity{
         tvName = findViewById(R.id.tv_IFSA_Name);
         tvId = findViewById(R.id.tv_IFSA_Id);
 
-        //getIntent로 값을 받아오는 intent 변수 생성??
-        Intent intent = getIntent();
-        //불러온걸 받아온 값+??
-        String name = intent.getStringExtra("data")+" 님의 아이디는";
-        //tvName에 name 변수의 내용으로 출력
-        tvName.setText(name);
 
-        //숫자 값 출력
-//        int num = intent.getIntExtra("num",0);
-//        tvId.setText(String.valueOf(num));
+
+        String id = IdFindSuccessActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("find_id", null);
+        String name = IdFindSuccessActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("find_name", null);
+
+        tvName.setText(name+" 님의 아이디는");
+        tvId.setText(id);
+
+        SharedPreferences spf = IdFindSuccessActivity.this.
+                getSharedPreferences("mySPF", Context.MODE_PRIVATE);
+        spf.edit().remove("find_id").commit();
+        spf.edit().remove("find_name").commit();
+
+
+
+
 
 
         //로그인버튼(로그인 페이지 이동 기능)
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent = new Intent(IdFindSuccessActivity.this, LoginActivity.class);
                 startActivity(intent);
+
 
             }
         });
@@ -59,7 +82,6 @@ public class IdFindSuccessActivity extends AppCompatActivity{
             }
 
         });
-
 
 
     }

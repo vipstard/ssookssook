@@ -64,6 +64,7 @@ public class ScListViewActivity extends AppCompatActivity {
 
                 //로그인한 아이디와 데이터베이스에 있는 아이디가 같고 & 적힌 제목과 데이터베이스에 있는 제목이 같으면 if문 실행
                 //여기서 for문이 값 하나에서 멈춰있음!!
+
                 if (writer.equals(vo.getWriter()) && title.equals(vo.getTitle())) {
                     //tv_Title에 데이터베이스에 있는 Title 값을 출력
                     tv_Title.setText(vo.getTitle());
