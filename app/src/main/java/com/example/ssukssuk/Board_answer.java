@@ -11,7 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.ssukssuk.Board_answerVO.Board_answer_VO;
-import com.example.ssukssuk.VO.PlantVO;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -34,7 +33,8 @@ public class Board_answer extends AppCompatActivity {
         setContentView(R.layout.activity_board_answer);
         btn_as = findViewById(R.id.btn_board_asnwer_btn);
         edt_content = findViewById(R.id.edt_board_content);
-
+        Intent intent = getIntent();
+        title = intent.getStringExtra("title");
         btn_as.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -48,10 +48,11 @@ public class Board_answer extends AppCompatActivity {
                 writer = Board_answer.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                         getString("user_login_id", null);
                 myRef.push().setValue(new Board_answer_VO(
+                        title,
                         indate,
                         content,
                         writer));
-                Intent intent = new Intent(Board_answer.this,Board_list.class);
+                Intent intent = new Intent(Board_answer.this, Board_list_select.class);
                 startActivity(intent);
             }
 

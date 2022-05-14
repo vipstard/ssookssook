@@ -1,6 +1,8 @@
 package com.example.ssukssuk;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -47,13 +49,28 @@ public class Fragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_1, container, false);
+        SharedPreferences spf = getActivity().
+                getSharedPreferences("mySPF", Context.MODE_PRIVATE);
 
+
+        //editor 실행시키는?
+        SharedPreferences.Editor editor = spf.edit();
+
+        String loginId = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("user_login_id", null);
         edtData = view.findViewById(R.id.edt);
         btn_register = view.findViewById(R.id.btn_register);
         list2 = new ArrayList<BoardVO>();
         lv = view.findViewById(R.id.lv);
         list = new ArrayList<BoardVO>();
-
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),Board_write.class);
+                intent.putExtra("id",loginId);
+                startActivity(intent);
+            }
+        });
         myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -115,7 +132,7 @@ public class Fragment1 extends Fragment {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), Board_list.class);
+                Intent intent = new Intent(getActivity(), Board_list_select.class);
                 String title = list.get(i).getTitle();
                 intent.putExtra("title", title);
                 intent.putExtra("writer", writer);

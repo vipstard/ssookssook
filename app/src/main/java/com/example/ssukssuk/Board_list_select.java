@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,16 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.ssukssuk.Board.BoardVO;
 import com.example.ssukssuk.Board_answerVO.Board_answer_Adapter;
 import com.example.ssukssuk.Board_answerVO.Board_answer_VO;
-import com.example.ssukssuk.Plant_reg.PlantAdapter;
-import com.example.ssukssuk.Plant_reg.Reg_Plant_mainVO;
-import com.example.ssukssuk.ServiceCenter.ScEditActivity;
-import com.example.ssukssuk.ServiceCenter.ScListViewActivity;
-import com.example.ssukssuk.ServiceCenter.ScVO;
 import com.example.ssukssuk.VO.BoardVO_content;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -33,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class Board_list extends AppCompatActivity {
+public class Board_list_select extends AppCompatActivity {
     Button btn_rp;
     TextView tv_title,tv_content,tv_writer;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -48,6 +40,7 @@ public class Board_list extends AppCompatActivity {
     String content1 = "";
     String date = "";
     ListView lv;
+    int cnt=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +63,8 @@ public class Board_list extends AppCompatActivity {
         btn_rp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Board_list.this,Board_answer.class);
+                Intent intent = new Intent(Board_list_select.this,Board_answer.class);
+                intent.getStringExtra(title);
                 startActivity(intent);
             }
         });
@@ -135,15 +129,16 @@ public class Board_list extends AppCompatActivity {
                         } else {
                             Log.d("firebase", String.valueOf(task.getResult().getValue()));
                             DataSnapshot snapshot = task.getResult();
-
+                            if(cnt == 0){
                             for (DataSnapshot data : snapshot.getChildren()) {
-
                                 Board_answer_VO vo = data.getValue(Board_answer_VO.class);
                                 writer1 = vo.getWriter();
                                 date = vo.getDate();
                                 content1 = vo.getContent();
                                 list.add(new Board_answer_VO(date, content1, writer1));
                                 adapter.notifyDataSetChanged();
+                            }
+                            cnt++;
                             }
 
                         }
@@ -175,7 +170,7 @@ public class Board_list extends AppCompatActivity {
             }
         });
         adapter = new Board_answer_Adapter(
-                Board_list.this,
+                Board_list_select.this,
                 R.layout.answer_list,
                 list
         );
