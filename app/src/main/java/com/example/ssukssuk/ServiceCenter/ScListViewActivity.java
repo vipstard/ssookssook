@@ -69,8 +69,10 @@ public class ScListViewActivity extends AppCompatActivity {
                     tv_Title.setText(vo.getTitle());
                     //tv_Post에 데이터베이스에 있는 Title 값을 출력
                     tv_Post.setText(vo.getPost());
+
+                    // 키 값 가져온 후 저장한다
                     String a = snapshot.getKey();
-//                  Log.d("d",a);
+
 
 
                     //멈춰있는 for문 값에서 버튼 기능 실행
@@ -78,7 +80,7 @@ public class ScListViewActivity extends AppCompatActivity {
                         @Override
                         public void onClick(View view) {
 
-                            //랜덤키값을 불러와서 삭제함
+                            //해당 키값에 데이터를 삭제한다
                             myRef.child(a).removeValue();
 
                             //화면이동
