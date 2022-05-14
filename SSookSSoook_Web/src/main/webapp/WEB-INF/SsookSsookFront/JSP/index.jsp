@@ -904,7 +904,7 @@
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="single-footer-widget">
                 <div class="footer-logo mb-30">
-                  <a href="#"><img src=" ${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt="" /></a>
+                  <a href="#"><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt="" /></a>
                 </div>
                 <p>
                   Lorem ipsum dolor sit samet, consectetur adipiscing elit.
