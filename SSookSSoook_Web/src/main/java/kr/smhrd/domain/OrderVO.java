@@ -7,6 +7,7 @@ public class OrderVO {
 	
 	private String order_date;
 	private int order_total;
+	private String pay_method;
 	private String pay_yn;
 	private int discount;
 	private int pay_amount;
