@@ -74,24 +74,24 @@
         app:layout_constraintGuide_percent="0.89" />
 
     <ImageButton
-        android:id="@+id/diary"
+        android:id="@+id/picture"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/du"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/picture"
+        app:layout_constraintEnd_toStartOf="@+id/diary"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
     <ImageButton
-        android:id="@+id/picture"
+        android:id="@+id/diary"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:src="@drawable/du"
-        app:layout_constraintBottom_toBottomOf="@+id/diary"
+        app:layout_constraintBottom_toBottomOf="@+id/picture"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/diary"
-        app:layout_constraintTop_toTopOf="@+id/diary" />
+        app:layout_constraintStart_toEndOf="@+id/picture"
+        app:layout_constraintTop_toTopOf="@+id/picture" />
 </androidx.constraintlayout.widget.ConstraintLayout>

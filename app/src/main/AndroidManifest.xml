@@ -3,6 +3,9 @@
     package="com.example.ssukssuk">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+<uses-permission android:name="android.hardware.camera" android:required="false"/>
+
 
     <application
         android:allowBackup="true"
@@ -19,16 +22,16 @@
             android:name=".ServiceCenter.ScEditActivity"
             android:exported="false" />
         <activity
+            android:name=".Diary_write"
+            android:exported="false" />
+        <activity
             android:name=".Plant_List"
             android:exported="false" />
         <activity
             android:name=".ServiceCenter.ScWriteActivity"
             android:exported="false" />
         <activity
-            android:name=".CustomDialog"
-            android:exported="false" />
-        <activity
-            android:name=".Reg_Plant_main"
+            android:name=".Reg_Plant_reg"
             android:exported="false" />
         <activity
             android:name=".Setting.EditActivity"
@@ -85,6 +88,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.ssukssuk.fileprovider"
+            android:exported="false" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
     </application>
 
 </manifest>

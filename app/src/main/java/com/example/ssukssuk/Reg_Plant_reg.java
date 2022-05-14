@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class Reg_Plant_main extends AppCompatActivity {
+public class Reg_Plant_reg extends AppCompatActivity {
     EditText pot_name;
     Button btn_add;
     String name;
@@ -37,8 +37,8 @@ public class Reg_Plant_main extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 name = pot_name.getText().toString();
-                Toast.makeText(Reg_Plant_main.this, name, Toast.LENGTH_SHORT).show();
-               String loginId = Reg_Plant_main.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                Toast.makeText(Reg_Plant_reg.this, name, Toast.LENGTH_SHORT).show();
+               String loginId = Reg_Plant_reg.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                        getString("user_login_id",null);
 
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -52,7 +52,7 @@ public class Reg_Plant_main extends AppCompatActivity {
                         indate,
                         loginId));
                 //인터페이스의 함수를 호출하여 변수에 저장된 값들을 Activity로 전달
-                Intent intent = new Intent(Reg_Plant_main.this,Plant_List.class);
+                Intent intent = new Intent(Reg_Plant_reg.this,Plant_List.class);
                 startActivity(intent);
             }
         });

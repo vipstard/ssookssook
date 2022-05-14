@@ -45,6 +45,11 @@ public class ScEditActivity extends AppCompatActivity {
         edt_Title = findViewById(R.id.edt_SEA_Title);
         btn_Edit = findViewById(R.id.btn_SEA_Edit);
 
+        Intent intent = getIntent();
+        String title = intent.getStringExtra("ScTitle1");
+        String writer = ScEditActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("user_login_id1", null);
+
 
 
         myRef.addChildEventListener(new ChildEventListener() {
@@ -53,30 +58,35 @@ public class ScEditActivity extends AppCompatActivity {
 
                 ScVO vo = snapshot.getValue(ScVO.class);
 
-                String writer = ScEditActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-                        getString("user_login_id1", null);
+                //로그인한 아이디 값과 리스트뷰로 누른 제목 값이 데베에 있는 값과 같다면
+                if (writer.equals(vo.getWriter())&& title.equals(vo.getTitle())
+                ){
 
-                Intent intent = getIntent();
-                String title = intent.getStringExtra("SCtitle1");
-                if (writer.equals(vo.getWriter())
-                        //& title.equals(vo.getTitle())
-                 ){
+                    //edt_Title엔 title값을, edt_Post엔 post값을 넣어준다
+                    edt_Title.setText(vo.getTitle());
+                    edt_Post.setText(vo.getPost());
+
+                    //수정하기 버튼을 누르면
                     btn_Edit.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            //위에 if문에 해당되는 키값을 받아온후
                             String a = snapshot.getKey();
-//                            DatabaseReference myRef2 = myRef.child(a);
-                            Log.d("dasd",a);
+                            //myRef2란 변수에 키값이 a인 값을 저장해준다
+                            DatabaseReference myRef2 = myRef.child(a);
+                            //수정하는 글의 값을 저장
+                            String Edit_post = edt_Post.getText().toString();
+                            String Edit_title = edt_Title.getText().toString();
+                            //데베 데이터 값을 변경하는 코드
+                            Map<String, Object> updateMap = new HashMap<>();
+                            updateMap.put("title",Edit_title);
+                            updateMap.put("post",Edit_post);
+                            myRef2.updateChildren(updateMap);
+                            //변경시 성공을 나타내는 Log.d코드
+//                            .addOnCompleteListener(task ->
+//                                    Log.d("dda","update title:"+task.isSuccessful()));
 
-//                            String b = "dasd";
-//
-//                            Map<String, Object> hopperUpdates = new HashMap<>();
-//                            hopperUpdates.put("data/name", b);
-//                            hopperUpdates.put("post1/name", "1");
-//                            hopperUpdates.put("title/name", "1");
-////                    myRef2.updateChildrenAsync(hopperUpdates);
-//
-//                            myRef2.updateChildren(hopperUpdates);
+                            startActivity(new Intent(ScEditActivity.this,MainActivity.class));
                         }
                     });
 

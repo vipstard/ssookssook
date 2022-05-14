@@ -2,6 +2,7 @@ package com.example.ssukssuk;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -42,6 +43,7 @@ public class Fragment4 extends Fragment {
     DatabaseReference myRef = database.getReference("ServiceCenter");
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,6 +53,8 @@ public class Fragment4 extends Fragment {
         lv = view.findViewById(R.id.list_SC);
         list = new ArrayList<ScVO>();
         number = view.findViewById(R.id.sclist_number);
+        String writer = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("user_login_id1", null);
 
         myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -65,27 +69,24 @@ public class Fragment4 extends Fragment {
                     DataSnapshot snapshot = task.getResult();
 
                     for (DataSnapshot data : snapshot.getChildren()) {
-                        //키값을 받는 키
-                        //Log.d("data",data.getKey());
 
                         ScVO vo = data.getValue(ScVO.class);
                         //여기까지가 데이터 불러오기
 
-                        String writer = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-                                getString("user_login_id1", null);
 
+                        //로그인한 아이디와 글쓴 작성자의 값이 같으면
                         if (writer.equals(vo.getWriter())) {
 
+                            //게시글 번호 매기기
                             a++;
                             String num = String.valueOf(a);
 
                             String title = vo.getTitle();
                             String date = vo.getDate();
+                            //파이어베이스의 값을 삽입해서 리스트에 넣어준다
                             list.add(new ScVO(num, title, date));
                             adapter.notifyDataSetChanged();
                         }
-
-
                     }
 
                 }
@@ -105,19 +106,21 @@ public class Fragment4 extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+                //클릭한 리스트뷰의 값을 해당 게시글에 값을 보내주록 저장하는 기능
                 Intent intent = new Intent(getActivity(), ScListViewActivity.class);
                 intent.putExtra("SCwriter", list.get(i).getWriter());
                 intent.putExtra("SCtitle", list.get(i).getTitle());
                 intent.putExtra("SCdate", list.get(i).getDate());
+                //이동
                 startActivity(intent);
             }
         });
 
+        //글 작성 페이지 이동
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), ScWriteActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(getActivity(), ScWriteActivity.class));
             }
         });
 
