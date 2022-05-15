@@ -11,7 +11,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>SsookSsook - Customer Service</title>
+    <title>SsookSsook - User List</title>
 
     <!-- Favicon -->
     <link rel="icon" href="/resources/img/core-img/favicon.ico" />
@@ -120,6 +120,13 @@
                     <li><a href="purchase.html">제품 구매</a></li>
                     <li><a href="service-list.html">고객센터</a></li>
                     <li><a href="contact.html">A/S</a></li>
+                    <li>
+                      <a href="user-list.html">회원관리</a>
+                      <ul class="dropdown">
+                        <li><a href="user-list.html">회원관리</a></li>
+                        <li><a href="shop-details.html">매출 관리</a></li>
+                      </ul>
+                    </li>
                   </ul>
 
                   <!-- Search Icon -->
@@ -157,9 +164,9 @@
       <!-- Top Breadcrumb Area -->
       <div
         class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
-        style="background-image: url(/resources/img/bg-img/main3.png)"
+        style="background-image: url(/resources/img/bg-img/main4.png)"
       >
-        <h2>제품 결제</h2>
+        <h2>회원 관리</h2>
       </div>
 
       <div class="container">
@@ -171,12 +178,8 @@
                   <a href="#"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  제품 구매
+                  회원 관리
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">
-                  제품 결제
-                </li>
-                
               </ol>
             </nav>
           </div>
@@ -184,155 +187,264 @@
       </div>
     </div>
     <!-- ##### Breadcrumb Area End ##### -->
-    <div class="container" style="margin-bottom: 50px;">
-      <div class="row ">
-        <div class="col-md-8 mb-4 ">
-          <div class="card mb-">
-            <div class="card-header py-3">
-              <h5 class="mb-0">제품 결제</h5>
-            </div>
-            <div class="card-body">
-              <form class="pay_info">
-                <!-- 2 column grid layout with text inputs for the first and last names -->
-                <div class="row col-md-10 mb-4">
-                  <div class="col">
-                    <div class="form-outline">
-                      <label class="form-label" for="form7Example2">이름</label>
-                      <input type="text" id="form7Example2" class="form-control" />
-                    </div>
-                  </div>
-                </div>
 
-                <!-- Number input -->
-                <div class="form-outline col-md-6 mb-3">
-                  <label class="form-label" for="form7Example6">연락처</label>
-                  <input type="number" id="form7Example6" class="form-control" />
-                  
-                </div>
-      
-                <!-- address input -->
-                <div class="col-md-12 mb-3 margin_center">
-                  <label for="address">주소</label>
-                  <div class="col-12 row">
-                    <input
-                    type="text"
-                    class="form-control col-8"
-                    id="sample6_postcode"
-                    placeholder="우편번호"
-                    style="margin-bottom: 10px"
-                    readonly
-                  />
-                  <div class="addr__container col-2">
-                    <input
-                      type="button"
-                      class="daumBtn , btn btn-success btn-sm"
-                      value="우편번호 찾기"
-                      onclick="openDaumPostCode()"
-                    />
-                  </div> 
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control , col-10"
-                    id="sample6_address"
-                    placeholder="주소"
-                    readonly
-                    style="margin-bottom: 10px"
-                  />
-                  <input
-                    type="text"
-                    class="form-control , col-10"
-                    id="sample6_detailAddress"
-                    placeholder="상세주소"
-                    style="margin-bottom: 10px"
-                  />
-                  
-                </div>
-      
-                <!-- Email input -->
-                <div class="form-outline col-md-10 mb-3">
-                  <label class="form-label" for="form7Example5">이메일</label>
-                  <input type="email" id="form7Example5" class="form-control" />
-                  
-                </div>
-                         
-                <!-- Message input -->
-                <div class="form-outline col-md-10 mb-3">
-                  <label class="form-label" for="form7Example7">배송 메모</label>
-                  <textarea class="form-control" placeholder="배송 메모를 입력해주세요." id="form7Example7" rows="4"></textarea>
-                </div>
-      
-                <!-- Checkbox -->
-                <div class="form-check d-flex justify-content-center mb-2 align-items-center">
-                  <input class="" type="checkbox" value="" id="form7Example8"
-                    checked />
-                  <label class="form-check-label" for="form7Example8" style="font-family: S-CoreDream-4Regular; font-size: 14px; padding-left: 5px;">
-                    개인정보 제 3자 제공 및 위탁에 동의합니다.
-                  </label>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      
-        <div class="col-md-4 mb-4">
-          <div class="card mb-4">
-            <div class="card-header py-3">
-              <h5 class="mb-0">합계</h5>
-            </div>
-            <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li
-                  class="pay_title list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                  가정용 스마트 화분
-                  <span>35,000</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                  배송비
-                  <span>3,000</span>
-                </li>
-                <li
-                  class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-                  <div>
-                    <strong>총 결제 금액</strong>
-                  </div>
-                  <span><strong>38,000</strong></span>
-                </li>
-              </ul>
+    <!-- ##### Breadcrumb Area Start ##### -->
 
-              <!-- 라디오버튼 선택하고 결제버튼 누르면 이동함 -->
-              <form name="payform" id="payform">
-                <div class="paycheck">
-                  <div class="credit form-check">
-                    <input class="form-check-input" type="radio" name="pay" id="flexRadioDefault1" value="credit" checked>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      신용카드로 결제
-                    </label>
-                  </div>
-                  <div class="kakaopay form-check">
-                    <input class="form-check-input" type="radio" name="pay" id="flexRadioDefault2" value="kakaopay">
-                    <label class="form-check-label" for="flexRadioDefault2">
-                      카카오페이로 결제
-                    </label>
-                  </div>
-                  <div class="cash form-check">
-                    <input class="form-check-input" type="radio" name="pay" id="flexRadioDefault3" value="cash">
-                    <label class="form-check-label" for="flexRadioDefault3">
-                      무통장 입급으로 결제
-                    </label>
-                  </div>
-                </div>
-                <button type="button" id="pay" class="btn btn-success btn-lg btn-block" style="font-family: S-CoreDream-5Medium; font-size: 16px;">
-                  결제 하기
-                </button>
-            </form>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="main-box clearfix">
+            <div class="table-responsive">
+              <table class="table user-list">
+                <thead>
+                  <tr class="text-center">
+                    <th><span>No.</span></th>
+                    <th><span>ID</span></th>
+                    <th><span>Name</span></th>
+                    <th><span>Tel</span></th>
+                    <th><span>Email</span></th>
+                    <th><span>Eddress</span></th>
+                    <th><span>Create</span></th>
+                    <th>&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="user-data text-center">
+                    <td>01</td>
+                    <td class="userId" style="width: 10%">SsookSsook1</td>
+                    <td>Lee Min Ho</td>
+                    <td style="width: 30%">010-1234-1234</td>
 
+                    <td>mila@kunis.com</td>
+                    <td style="width: 40%">
+                      서울특별시 강동구 강동대로 205 JYP Center
+                    </td>
+                    <td>2022/01/01</td>
+                    <td style="width: 20%">
+                      <a href="#" class="table-link danger">
+                        <span class="fa-stack">
+                          <a href="#" class="table-link">
+                            <span class="fa-stack">
+                              <i class="fa fa-square fa-stack-2x"></i>
+                              <i
+                                class="fa fa-search-plus fa-stack-1x fa-inverse"
+                              ></i>
+                            </span>
+                          </a>
+
+                          <a href="#" class="table-link danger">
+                            <span class="fa-stack">
+                              <i class="fa fa-square fa-stack-2x"></i>
+                              <i
+                                class="fa fa-trash-o fa-stack-1x fa-inverse"
+                              ></i>
+                            </span>
+                          </a>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>02</td>
+                    <td style="width: 10%">SsookSsook2</td>
+                    <td>Lee Min Ho</td>
+                    <td style="width: 30%">010-1234-1234</td>
+
+                    <td>mila@kunis.com</td>
+                    <td style="width: 40%">
+                      서울특별시 강동구 강동대로 205 JYP Center
+                    </td>
+                    <td>2022/01/01</td>
+                    <td style="width: 10%">
+                      <a href="#" class="table-link danger">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>03</td>
+                    <td style="width: 10%">SsookSsook3</td>
+                    <td>Lee Min Ho</td>
+                    <td style="width: 30%">010-1234-1234</td>
+
+                    <td>mila@kunis.com</td>
+                    <td style="width: 40%">
+                      서울특별시 강동구 강동대로 205 JYP Center
+                    </td>
+                    <td>2022/01/01</td>
+                    <td style="width: 10%">
+                      <a href="#" class="table-link danger">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>04</td>
+                    <td style="width: 10%">SsookSsook4</td>
+                    <td>Lee Min Ho</td>
+                    <td style="width: 30%">010-1234-1234</td>
+
+                    <td>mila@kunis.com</td>
+                    <td style="width: 40%">
+                      서울특별시 강동구 강동대로 205 JYP Center
+                    </td>
+                    <td>2022/01/01</td>
+                    <td style="width: 10%">
+                      <a href="#" class="table-link danger">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>05</td>
+                    <td style="width: 10%">SsookSsook5</td>
+                    <td>Lee Min Ho</td>
+                    <td style="width: 30%">010-1234-1234</td>
+
+                    <td>mila@kunis.com</td>
+                    <td style="width: 40%">
+                      서울특별시 강동구 강동대로 205 JYP Center
+                    </td>
+                    <td>2022/01/01</td>
+                    <td style="width: 10%">
+                      <a href="#" class="table-link danger">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>06</td>
+                    <td style="width: 10%">SsookSsook6</td>
+                    <td>Lee Min Ho</td>
+                    <td style="width: 30%">010-1234-1234</td>
+
+                    <td>mila@kunis.com</td>
+                    <td style="width: 40%">
+                      서울특별시 강동구 강동대로 205 JYP Center
+                    </td>
+                    <td>2022/01/01</td>
+                    <td style="width: 10%">
+                      <a href="#" class="table-link danger">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>07</td>
+                    <td style="width: 10%">SsookSsook7</td>
+                    <td>Lee Min Ho</td>
+                    <td style="width: 30%">010-1234-1234</td>
+
+                    <td>mila@kunis.com</td>
+                    <td style="width: 40%">
+                      서울특별시 강동구 강동대로 205 JYP Center
+                    </td>
+                    <td>2022/01/01</td>
+                    <td style="width: 10%">
+                      <a href="#" class="table-link danger">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>08</td>
+                    <td style="width: 10%">SsookSsook1</td>
+                    <td>Lee Min Ho</td>
+                    <td style="width: 30%">010-1234-1234</td>
+
+                    <td>mila@kunis.com</td>
+                    <td style="width: 40%">
+                      서울특별시 강동구 강동대로 205 JYP Center
+                    </td>
+                    <td>2022/01/01</td>
+                    <td style="width: 10%">
+                      <a href="#" class="table-link danger">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>09</td>
+                    <td style="width: 10%">SsookSsook9</td>
+                    <td>Lee Min Ho</td>
+                    <td style="width: 30%">010-1234-1234</td>
+
+                    <td>mila@kunis.com</td>
+                    <td style="width: 40%">
+                      서울특별시 강동구 강동대로 205 JYP Center
+                    </td>
+                    <td>2022/01/01</td>
+                    <td style="width: 10%">
+                      <a href="#" class="table-link danger">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="text-center">
+                    <td>10</td>
+                    <td style="width: 10%">SsookSsook10</td>
+                    <td>Lee Min Ho</td>
+                    <td style="width: 30%">010-1234-1234</td>
+
+                    <td>mila@kunis.com</td>
+                    <td style="width: 40%">
+                      서울특별시 강동구 강동대로 205 JYP Center
+                    </td>
+                    <td>2022/01/01</td>
+                    <td style="width: 10%">
+                      <a href="#" class="table-link danger">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
+            <ul class="pagination pull-right">
+              <li>
+                <a href="#"><i class="fa fa-chevron-left"></i></a>
+              </li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li>
+                <a href="#"><i class="fa fa-chevron-right"></i></a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-  </div>
+
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area bg-img" style="background-color: #313b2b">
       <!-- Main Footer Area -->
@@ -508,85 +620,5 @@
     <script src="/resources/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="/resources/js/active.js"></script>
-
-
-    <script>
-      $("#pay").on('click',function(){
-        var checkTest = $('.form-check-input');
-        console.log(checkTest);
-        for(var i = 0; i < checkTest.length; i++){
-          if(checkTest[i].checked){
-            if(checkTest[i].value == "credit"){
-              window.location.href="./payment-success.html"
-            }else if(checkTest[i].value == "kakaopay"){
-              window.location.href="./payment-fail.html"
-            }else{
-              window.location.href="./payment-cash.html"
-            }
-          }
-        }
-      });
-    </script>
-    <script>
-      window.addEventListener(
-        "load",
-        () => {
-          const forms = document.getElementsByClassName("validation-form");
-
-          Array.prototype.filter.call(forms, (form) => {
-            form.addEventListener(
-              "submit",
-              function (event) {
-                if (form.checkValidity() === false) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                }
-
-                form.classList.add("was-validated");
-              },
-              false
-            );
-          });
-        },
-        false
-      );
-    </script>
-    <script>
-      function openDaumPostCode() {
-        new daum.Postcode({
-          oncomplete: function (data) {
-            var addr = "";
-            var extraAddr = "";
-            if (data.userSelectedType === "R") {
-              addr = data.roadAddress;
-            } else {
-              addr = data.jibunAddress;
-            }
-            if (data.userSelectedType === "R") {
-              if (data.bname !== "" && /[동|로|가]$/g.test(data.bname)) {
-                extraAddr += data.bname;
-              }
-              if (data.buildingName !== "" && data.apartment === "Y") {
-                extraAddr +=
-                  extraAddr !== ""
-                    ? ", " + data.buildingName
-                    : data.buildingName;
-              }
-              if (extraAddr !== "") {
-                extraAddr = " (" + extraAddr + ")";
-              }
-              document.getElementById("sample6_detailAddress").value =
-                extraAddr;
-            } else {
-              document.getElementById("sample6_detailAddress").value = "";
-            }
-            document.getElementById("sample6_postcode").value = data.zonecode;
-            document.getElementById("sample6_address").value = addr;
-            document.getElementById("sample6_detailAddress").focus();
-          },
-        }).open();
-      }
-    </script>
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   </body>
 </html>

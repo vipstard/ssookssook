@@ -89,7 +89,13 @@
 		                    >
 		                  </div>
 					  </c:if>
-                 <button class="btn btn-default btn-sm" onclick="location.href='https://kauth.kakao.com/oauth/logout?client_id=e3eced6c366d05e611468e218fc8f42d&logout_redirect_uri=http://211.227.224.199:8081/SS/LogOut'">LogOut</button>
+					  
+					  <div class="Sign Up">
+		                    <a href="https://kauth.kakao.com/oauth/logout?client_id=e3eced6c366d05e611468e218fc8f42d&logout_redirect_uri=http://211.227.224.199:8081/SS/LogOut"
+		                      ><i class="fa fa-sign-in" aria-hidden="true"></i>
+		                      <span>Log out</span></a>
+		               </div>
+                 
                  </c:if>
                  
                  <c:if test="${empty LoginVo}">
@@ -898,7 +904,7 @@
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="single-footer-widget">
                 <div class="footer-logo mb-30">
-                  <a href="#"><img src=" ${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt="" /></a>
+                  <a href="#"><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt="" /></a>
                 </div>
                 <p>
                   Lorem ipsum dolor sit samet, consectetur adipiscing elit.

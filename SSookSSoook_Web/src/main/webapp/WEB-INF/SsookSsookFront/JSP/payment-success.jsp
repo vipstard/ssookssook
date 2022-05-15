@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,10 +16,10 @@
     <title>SsookSsook - Customer Service</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="/resources/img/core-img/favicon.ico" />
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/img/core-img/favicon.ico" />
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="/resources/style.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/style.css" />
   </head>
 
   <body>
@@ -25,7 +27,7 @@
     <div class="preloader d-flex align-items-center justify-content-center">
       <div class="preloader-circle"></div>
       <div class="preloader-img">
-        <img src="/resources/img/core-img/leaf.png" alt="" />
+        <img src="${pageContext.request.contextPath}/resources/img/core-img/leaf.png" alt="" />
       </div>
     </div>
 
@@ -66,14 +68,14 @@
                   </div>
                   <!-- Login -->
                   <div class="login">
-                    <a href="./login.html"
+                    <a href="LoginForm"
                       ><i class="fa fa-user" aria-hidden="true"></i>
                       <span>Log in</span></a
                     >
                   </div>
                   <!-- Sign Up -->
                   <div class="Sign Up">
-                    <a href="./join.html"
+                    <a href="JoinForm"
                       ><i class="fa fa-sign-in" aria-hidden="true"></i>
                       <span>Sign Up</span></a
                     >
@@ -115,11 +117,11 @@
                 <!-- Navbar Start -->
                 <div class="classynav">
                   <ul style="font-family: SBAggroL">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">회사 소개</a></li>
-                    <li><a href="purchase.html">제품 구매</a></li>
-                    <li><a href="service-list.html">고객센터</a></li>
-                    <li><a href="contact.html">A/S</a></li>
+                    <li><a href="main">Home</a></li>
+                    <li><a href="About">회사 소개</a></li>
+                    <li><a href="Purchase">제품 구매</a></li>
+                    <li><a href="helpQnA">고객센터</a></li>
+                    <li><a href="Contact">A/S</a></li>
                   </ul>
 
                   <!-- Search Icon -->
@@ -157,9 +159,9 @@
       <!-- Top Breadcrumb Area -->
       <div
         class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
-        style="background-image: url(/resources/img/bg-img/main3.png)"
+        style="background-image: url(${pageContext.request.contextPath}/resources/img/bg-img/main3.png)"
       >
-        <h2>제품 결제</h2>
+        <h2>제품 구매</h2>
       </div>
 
       <div class="container">
@@ -176,7 +178,6 @@
                 <li class="breadcrumb-item active" aria-current="page">
                   제품 결제
                 </li>
-                
               </ol>
             </nav>
           </div>
@@ -184,155 +185,18 @@
       </div>
     </div>
     <!-- ##### Breadcrumb Area End ##### -->
-    <div class="container" style="margin-bottom: 50px;">
-      <div class="row ">
-        <div class="col-md-8 mb-4 ">
-          <div class="card mb-">
-            <div class="card-header py-3">
-              <h5 class="mb-0">제품 결제</h5>
-            </div>
-            <div class="card-body">
-              <form class="pay_info">
-                <!-- 2 column grid layout with text inputs for the first and last names -->
-                <div class="row col-md-10 mb-4">
-                  <div class="col">
-                    <div class="form-outline">
-                      <label class="form-label" for="form7Example2">이름</label>
-                      <input type="text" id="form7Example2" class="form-control" />
-                    </div>
-                  </div>
-                </div>
 
-                <!-- Number input -->
-                <div class="form-outline col-md-6 mb-3">
-                  <label class="form-label" for="form7Example6">연락처</label>
-                  <input type="number" id="form7Example6" class="form-control" />
-                  
-                </div>
-      
-                <!-- address input -->
-                <div class="col-md-12 mb-3 margin_center">
-                  <label for="address">주소</label>
-                  <div class="col-12 row">
-                    <input
-                    type="text"
-                    class="form-control col-8"
-                    id="sample6_postcode"
-                    placeholder="우편번호"
-                    style="margin-bottom: 10px"
-                    readonly
-                  />
-                  <div class="addr__container col-2">
-                    <input
-                      type="button"
-                      class="daumBtn , btn btn-success btn-sm"
-                      value="우편번호 찾기"
-                      onclick="openDaumPostCode()"
-                    />
-                  </div> 
-                  </div>
-                  <input
-                    type="text"
-                    class="form-control , col-10"
-                    id="sample6_address"
-                    placeholder="주소"
-                    readonly
-                    style="margin-bottom: 10px"
-                  />
-                  <input
-                    type="text"
-                    class="form-control , col-10"
-                    id="sample6_detailAddress"
-                    placeholder="상세주소"
-                    style="margin-bottom: 10px"
-                  />
-                  
-                </div>
-      
-                <!-- Email input -->
-                <div class="form-outline col-md-10 mb-3">
-                  <label class="form-label" for="form7Example5">이메일</label>
-                  <input type="email" id="form7Example5" class="form-control" />
-                  
-                </div>
-                         
-                <!-- Message input -->
-                <div class="form-outline col-md-10 mb-3">
-                  <label class="form-label" for="form7Example7">배송 메모</label>
-                  <textarea class="form-control" placeholder="배송 메모를 입력해주세요." id="form7Example7" rows="4"></textarea>
-                </div>
-      
-                <!-- Checkbox -->
-                <div class="form-check d-flex justify-content-center mb-2 align-items-center">
-                  <input class="" type="checkbox" value="" id="form7Example8"
-                    checked />
-                  <label class="form-check-label" for="form7Example8" style="font-family: S-CoreDream-4Regular; font-size: 14px; padding-left: 5px;">
-                    개인정보 제 3자 제공 및 위탁에 동의합니다.
-                  </label>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      
-        <div class="col-md-4 mb-4">
-          <div class="card mb-4">
-            <div class="card-header py-3">
-              <h5 class="mb-0">합계</h5>
-            </div>
-            <div class="card-body">
-              <ul class="list-group list-group-flush">
-                <li
-                  class="pay_title list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                  가정용 스마트 화분
-                  <span>35,000</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                  배송비
-                  <span>3,000</span>
-                </li>
-                <li
-                  class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
-                  <div>
-                    <strong>총 결제 금액</strong>
-                  </div>
-                  <span><strong>38,000</strong></span>
-                </li>
-              </ul>
-
-              <!-- 라디오버튼 선택하고 결제버튼 누르면 이동함 -->
-              <form name="payform" id="payform">
-                <div class="paycheck">
-                  <div class="credit form-check">
-                    <input class="form-check-input" type="radio" name="pay" id="flexRadioDefault1" value="credit" checked>
-                    <label class="form-check-label" for="flexRadioDefault1">
-                      신용카드로 결제
-                    </label>
-                  </div>
-                  <div class="kakaopay form-check">
-                    <input class="form-check-input" type="radio" name="pay" id="flexRadioDefault2" value="kakaopay">
-                    <label class="form-check-label" for="flexRadioDefault2">
-                      카카오페이로 결제
-                    </label>
-                  </div>
-                  <div class="cash form-check">
-                    <input class="form-check-input" type="radio" name="pay" id="flexRadioDefault3" value="cash">
-                    <label class="form-check-label" for="flexRadioDefault3">
-                      무통장 입급으로 결제
-                    </label>
-                  </div>
-                </div>
-                <button type="button" id="pay" class="btn btn-success btn-lg btn-block" style="font-family: S-CoreDream-5Medium; font-size: 16px;">
-                  결제 하기
-                </button>
-            </form>
-
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="success-page">
+      <img
+        src="http://share.ashiknesin.com/green-checkmark.png"
+        class="center"
+        alt=""
+      />
+      <h2>결제 성공!</h2>
+      <p>쑥쑥이 고객님께 달려가고 있어요!</p>
+      <a href="main" class="btn-view-main">메인페이지로 이동</a>
     </div>
-  </div>
+
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area bg-img" style="background-color: #313b2b">
       <!-- Main Footer Area -->
@@ -344,7 +208,7 @@
               <div class="single-footer-widget">
                 <div class="footer-logo mb-30">
                   <a href="#"
-                    ><img src="/resources/img/core-img/SSSSlogo.png" alt=""
+                    ><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt=""
                   /></a>
                 </div>
                 <p>
@@ -407,7 +271,7 @@
                 >
                   <div class="product-thumbnail">
                     <a href="shop-details.html"
-                      ><img src="/resources/img/bg-img/apple1.png" alt=""
+                      ><img src="${pageContext.request.contextPath}/resources/img/bg-img/apple1.png" alt=""
                     /></a>
                   </div>
                   <div class="product-info">
@@ -422,7 +286,7 @@
                 >
                   <div class="product-thumbnail">
                     <a href="shop-details.html"
-                      ><img src="/resources/img/bg-img/apple.png" alt=""
+                      ><img src="${pageContext.request.contextPath}/resources/img/bg-img/apple.png" alt=""
                     /></a>
                   </div>
                   <div class="product-info">
@@ -499,94 +363,14 @@
 
     <!-- ##### All Javascript Files ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="/resources/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="/resources/js/bootstrap/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="/resources/js/bootstrap/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="/resources/js/plugins/plugins.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="/resources/js/active.js"></script>
-
-
-    <script>
-      $("#pay").on('click',function(){
-        var checkTest = $('.form-check-input');
-        console.log(checkTest);
-        for(var i = 0; i < checkTest.length; i++){
-          if(checkTest[i].checked){
-            if(checkTest[i].value == "credit"){
-              window.location.href="./payment-success.html"
-            }else if(checkTest[i].value == "kakaopay"){
-              window.location.href="./payment-fail.html"
-            }else{
-              window.location.href="./payment-cash.html"
-            }
-          }
-        }
-      });
-    </script>
-    <script>
-      window.addEventListener(
-        "load",
-        () => {
-          const forms = document.getElementsByClassName("validation-form");
-
-          Array.prototype.filter.call(forms, (form) => {
-            form.addEventListener(
-              "submit",
-              function (event) {
-                if (form.checkValidity() === false) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                }
-
-                form.classList.add("was-validated");
-              },
-              false
-            );
-          });
-        },
-        false
-      );
-    </script>
-    <script>
-      function openDaumPostCode() {
-        new daum.Postcode({
-          oncomplete: function (data) {
-            var addr = "";
-            var extraAddr = "";
-            if (data.userSelectedType === "R") {
-              addr = data.roadAddress;
-            } else {
-              addr = data.jibunAddress;
-            }
-            if (data.userSelectedType === "R") {
-              if (data.bname !== "" && /[동|로|가]$/g.test(data.bname)) {
-                extraAddr += data.bname;
-              }
-              if (data.buildingName !== "" && data.apartment === "Y") {
-                extraAddr +=
-                  extraAddr !== ""
-                    ? ", " + data.buildingName
-                    : data.buildingName;
-              }
-              if (extraAddr !== "") {
-                extraAddr = " (" + extraAddr + ")";
-              }
-              document.getElementById("sample6_detailAddress").value =
-                extraAddr;
-            } else {
-              document.getElementById("sample6_detailAddress").value = "";
-            }
-            document.getElementById("sample6_postcode").value = data.zonecode;
-            document.getElementById("sample6_address").value = addr;
-            document.getElementById("sample6_detailAddress").focus();
-          },
-        }).open();
-      }
-    </script>
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/active.js"></script>
   </body>
 </html>
