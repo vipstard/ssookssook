@@ -89,7 +89,7 @@ public class Fragment1 extends Fragment {
                         list.add(new BoardVO(writer, title, date));
                         list2.add(new BoardVO(writer, title, date));
                         adapter.notifyDataSetChanged();
-                        Toast.makeText(getActivity(), writer, Toast.LENGTH_SHORT).show();
+
                     }
 
                 }

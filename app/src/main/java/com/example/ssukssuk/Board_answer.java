@@ -34,7 +34,7 @@ public class Board_answer extends AppCompatActivity {
         btn_as = findViewById(R.id.btn_board_asnwer_btn);
         edt_content = findViewById(R.id.edt_board_content);
         Intent intent = getIntent();
-        title = intent.getStringExtra("title");
+
         btn_as.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -44,14 +44,14 @@ public class Board_answer extends AppCompatActivity {
                 content = edt_content.getText().toString();
                 SharedPreferences spf = Board_answer.this.
                         getSharedPreferences("mySPF", Context.MODE_PRIVATE);
-
+                title = intent.getStringExtra("title");
                 writer = Board_answer.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                         getString("user_login_id", null);
                 myRef.push().setValue(new Board_answer_VO(
-                        title,
                         indate,
                         content,
-                        writer));
+                        writer,
+                        title));
                 Intent intent = new Intent(Board_answer.this, Board_list_select.class);
                 startActivity(intent);
             }

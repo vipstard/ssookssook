@@ -7,11 +7,7 @@ public class Board_answer_VO {
     private String title;
     public Board_answer_VO(){}
 
-    public Board_answer_VO(String date, String content, String writer) {
-        this.date = date;
-        this.content = content;
-        this.writer = writer;
-    }
+
 
     public Board_answer_VO(String date, String content, String writer, String title) {
         this.date = date;

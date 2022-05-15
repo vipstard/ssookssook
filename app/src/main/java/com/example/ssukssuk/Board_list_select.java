@@ -65,7 +65,7 @@ public class Board_list_select extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Board_list_select.this,Board_answer.class);
-                intent.getStringExtra(title);
+                intent.putExtra("title",title);
                 startActivity(intent);
             }
         });
@@ -133,8 +133,8 @@ public class Board_list_select extends AppCompatActivity {
                             if(cnt == 0){
                             for (DataSnapshot data : snapshot.getChildren()) {
                                 Board_answer_VO vo = data.getValue(Board_answer_VO.class);
+                                BoardVO_content vo1 = new BoardVO_content();
                                 if(title.equals(vo.getTitle())){
-
                                 writer1 = vo.getWriter();
                                 date = vo.getDate();
                                 content1 = vo.getContent();
