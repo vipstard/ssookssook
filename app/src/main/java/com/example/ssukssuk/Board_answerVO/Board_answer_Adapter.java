@@ -8,15 +8,16 @@ import android.widget.BaseAdapter;
 
 import com.example.ssukssuk.Board.BoardHolder;
 import com.example.ssukssuk.Board.BoardVO;
+import com.example.ssukssuk.VO.Board_list_select_writeVO;
 
 import java.util.ArrayList;
 
 public class Board_answer_Adapter extends BaseAdapter {
     Context context;
     int item_layout;
-    ArrayList<Board_answer_VO> list;
+    ArrayList<Board_list_select_writeVO> list;
     LayoutInflater inflater;
-    public Board_answer_Adapter(Context context, int item_layout, ArrayList<Board_answer_VO> list) {
+    public Board_answer_Adapter(Context context, int item_layout, ArrayList<Board_list_select_writeVO> list) {
         this.context = context;
         this.item_layout = item_layout;
         this.list = list;
@@ -52,7 +53,7 @@ public class Board_answer_Adapter extends BaseAdapter {
         }else{
             holder = (Board_answer_Holder) view.getTag();
         }
-        Board_answer_VO vo = (Board_answer_VO) getItem(i);
+        Board_list_select_writeVO vo = (Board_list_select_writeVO) getItem(i);
 
 
 

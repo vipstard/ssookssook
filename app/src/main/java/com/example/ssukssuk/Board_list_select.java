@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.ssukssuk.Board_answerVO.Board_answer_Adapter;
 import com.example.ssukssuk.Board_answerVO.Board_answer_VO;
 import com.example.ssukssuk.VO.BoardVO_content;
+import com.example.ssukssuk.VO.Board_list_select_writeVO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
@@ -34,7 +35,7 @@ public class Board_list_select extends AppCompatActivity {
     String title = "";
     String content = "";
     String writer = "";
-    ArrayList<Board_answer_VO> list;
+    ArrayList<Board_list_select_writeVO> list;
     Board_answer_Adapter adapter;
     String writer1 = "";
     String content1 = "";
@@ -55,7 +56,7 @@ public class Board_list_select extends AppCompatActivity {
         title = intent.getStringExtra("title");
         writer = intent.getStringExtra("writer");
 
-        list = new ArrayList<Board_answer_VO>();
+        list = new ArrayList<Board_list_select_writeVO>();
         tv_title.setText(title);
         tv_writer.setText(writer);
 
@@ -132,10 +133,13 @@ public class Board_list_select extends AppCompatActivity {
                             if(cnt == 0){
                             for (DataSnapshot data : snapshot.getChildren()) {
                                 Board_answer_VO vo = data.getValue(Board_answer_VO.class);
+                                if(title.equals(vo.getTitle())){
+
                                 writer1 = vo.getWriter();
                                 date = vo.getDate();
                                 content1 = vo.getContent();
-                                list.add(new Board_answer_VO(date, content1, writer1));
+                                list.add(new Board_list_select_writeVO(date, content1, writer1));
+                                }
                                 adapter.notifyDataSetChanged();
                             }
                             cnt++;
