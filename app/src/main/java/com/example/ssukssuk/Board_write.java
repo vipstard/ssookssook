@@ -36,7 +36,7 @@ public class Board_write extends AppCompatActivity {
                 Intent intent = getIntent();
                 String writer = intent.getStringExtra("id");
                 Calendar cal = Calendar.getInstance();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String indate = sdf.format(cal.getTime());
                 myRef.push().setValue(new BoardVO_content(
                         title,
