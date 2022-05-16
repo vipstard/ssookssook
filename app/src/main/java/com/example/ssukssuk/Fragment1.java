@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -54,8 +53,8 @@ public class Fragment1 extends Fragment {
 
         String loginId = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("user_login_id1", null);
-        edtData = view.findViewById(R.id.edt);
-        btn_register = view.findViewById(R.id.btn_register);
+        edtData = view.findViewById(R.id.edt_B_Search);
+        btn_register = view.findViewById(R.id.btn_BF_Write);
         list2 = new ArrayList<BoardVO>();
         lv = view.findViewById(R.id.lv);
         list = new ArrayList<BoardVO>();

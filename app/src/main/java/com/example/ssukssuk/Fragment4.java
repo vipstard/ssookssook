@@ -2,7 +2,6 @@ package com.example.ssukssuk;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,7 +17,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.ssukssuk.ServiceCenter.ScAdapter;
-import com.example.ssukssuk.ServiceCenter.ScEditActivity;
 import com.example.ssukssuk.ServiceCenter.ScListViewActivity;
 import com.example.ssukssuk.ServiceCenter.ScVO;
 import com.example.ssukssuk.ServiceCenter.ScWriteActivity;
@@ -49,8 +47,8 @@ public class Fragment4 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_4, container, false);
 
-        btn_write = view.findViewById(R.id.btn_SC_Write);
-        lv = view.findViewById(R.id.list_SC);
+        btn_write = view.findViewById(R.id.btn_S_Write);
+        lv = view.findViewById(R.id.list_Sc);
         list = new ArrayList<ScVO>();
         number = view.findViewById(R.id.sclist_number);
         String writer = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).

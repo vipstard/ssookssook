@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.example.ssukssuk.Diary.DiaryAdapter;
@@ -22,7 +21,7 @@ public class Fragment2 extends Fragment {
     ListView lvUser;
     DiaryAdapter adapter;
     ArrayList<DiaryVO> list;
-    ImageButton btn_pic, btn_gall;
+    Button btn_pic, btn_gall;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -32,8 +31,8 @@ public class Fragment2 extends Fragment {
         lvUser = view.findViewById(R.id.list_user);
         list = new ArrayList<DiaryVO>();
         //리스트 ID를 동적으로 접근하는 방법
-        btn_gall = view.findViewById(R.id.diary);
-        btn_pic = view.findViewById(R.id.picture);
+        btn_gall = view.findViewById(R.id.btn_D_Write);
+        btn_pic = view.findViewById(R.id.btn_D_Picture);
        
         btn_gall.setOnClickListener(new View.OnClickListener() {
             @Override

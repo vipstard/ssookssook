@@ -18,7 +18,8 @@
         app:layout_constraintEnd_toStartOf="@+id/textView13"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/textView13"
@@ -32,7 +33,8 @@
         app:layout_constraintEnd_toStartOf="@+id/textView14"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toTopOf="@+id/textView12" />
+        app:layout_constraintTop_toTopOf="@+id/textView12"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/textView14"
@@ -46,7 +48,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="@+id/textView13" />
+        app:layout_constraintTop_toTopOf="@+id/textView13"
+        android:gravity="center"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -73,25 +76,23 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.89" />
 
-    <ImageButton
-        android:id="@+id/picture"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/du"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/diary"
-        app:layout_constraintHorizontal_bias="0.5"
+    <Button
+        android:id="@+id/btn_D_Picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="16dp"
+        android:text="사진모아보기"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline5" />
+        app:layout_constraintTop_toBottomOf="@+id/list_user" />
 
-    <ImageButton
-        android:id="@+id/diary"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/du"
-        app:layout_constraintBottom_toBottomOf="@+id/picture"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/picture"
-        app:layout_constraintTop_toTopOf="@+id/picture" />
+    <Button
+        android:id="@+id/btn_D_Write"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="20dp"
+        android:text="작성하기"
+        app:layout_constraintStart_toEndOf="@+id/btn_D_Picture"
+        app:layout_constraintTop_toBottomOf="@+id/list_user" />
 </androidx.constraintlayout.widget.ConstraintLayout>

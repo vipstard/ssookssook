@@ -11,7 +11,7 @@
         android:layout_width="55dp"
         android:layout_height="62dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toStartOf="@+id/edt"
+        app:layout_constraintEnd_toStartOf="@+id/edt_B_Search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_search" />
@@ -27,17 +27,17 @@
         app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
     <Button
-        android:id="@+id/btn_register"
+        android:id="@+id/btn_BF_Write"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="문의하기"
+        android:text="작성하기"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lv" />
 
     <EditText
-        android:id="@+id/edt"
+        android:id="@+id/edt_B_Search"
         android:layout_width="wrap_content"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
