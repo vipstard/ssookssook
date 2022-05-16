@@ -234,6 +234,7 @@ public class Fragment3 extends Fragment {
 
                 queue.add(request);
             }else{
+                String a="";
                 int method = Request.Method.GET;
                 String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input3=3";
                 request = new StringRequest(
