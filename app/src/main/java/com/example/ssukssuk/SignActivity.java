@@ -29,7 +29,7 @@ public class SignActivity extends AppCompatActivity {
     EditText edt_Name,edt_Id,edt_Pw,edt_Repw,edt_Phone,edt_Email,edt_Address;
 //    Spinner year,month,day;
 //    int month_sel;
-    Button btn_Id_check,btn_Back,btn_signup;
+    Button btn_Id_Check,btn_Back,btn_Signup;
 
     ArrayList<SignVO> list;
 
@@ -52,8 +52,8 @@ public class SignActivity extends AppCompatActivity {
         edt_Phone = findViewById(R.id.edt_SA_Phone);
 
         btn_Back = findViewById(R.id.btn_SA_Back);
-        btn_signup = findViewById(R.id.btn_SA_Signup);
-        btn_Id_check = findViewById(R.id.btn_SA_IdCheck);
+        btn_Signup = findViewById(R.id.btn_SA_Signup);
+        btn_Id_Check = findViewById(R.id.btn_SA_IdCheck);
 
 
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -140,7 +140,7 @@ public class SignActivity extends AppCompatActivity {
 //            }
 //        });
         //회원가입 버튼
-        btn_signup.setOnClickListener(new View.OnClickListener() {
+        btn_Signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -212,7 +212,7 @@ public class SignActivity extends AppCompatActivity {
         });
 
 
-        btn_Id_check.setOnClickListener(new View.OnClickListener() {
+        btn_Id_Check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
