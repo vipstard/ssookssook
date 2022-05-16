@@ -39,7 +39,7 @@ public class Board_answer extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Calendar cal = Calendar.getInstance();
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 indate = sdf.format(cal.getTime());
                 content = edt_content.getText().toString();
                 SharedPreferences spf = Board_answer.this.

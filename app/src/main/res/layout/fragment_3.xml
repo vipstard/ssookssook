@@ -14,6 +14,7 @@
         android:src="@drawable/du"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3"
         app:layout_constraintVertical_bias="0.0" />
@@ -38,24 +39,30 @@
         app:layout_constraintBottom_toBottomOf="@+id/main_water"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/main_water"
-        app:layout_constraintVertical_bias="0.53" />
+        app:layout_constraintVertical_bias="0.53"
+        android:textAlignment="center"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/main_led"
         android:layout_width="106dp"
         android:layout_height="58dp"
-        android:layout_marginStart="40dp"
-        android:text="TextView"
+        android:layout_marginStart="92dp"
+        android:gravity="center"
+        android:text="Led ON"
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline12" />
+        app:layout_constraintTop_toTopOf="@+id/guideline12"
+        app:layout_constraintVertical_bias="0.509" />
 
     <Switch
         android:id="@+id/led_sw"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="104dp"
-        android:text="Switch"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/main_led"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/main_led"
@@ -65,24 +72,27 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="92dp"
         android:layout_marginTop="44dp"
-        android:text="TextView"
+        android:gravity="center"
+        android:text="물주기"
+        android:textAlignment="center"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline13"
-        app:layout_constraintVertical_bias="0.014" />
+        app:layout_constraintVertical_bias="0.124" />
 
     <ImageButton
         android:id="@+id/main_water_btn"
         android:layout_width="149dp"
         android:layout_height="73dp"
-        android:layout_marginEnd="56dp"
+        android:layout_marginEnd="52dp"
         android:src="@drawable/du"
         app:layout_constraintBottom_toBottomOf="@+id/textView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView8"
-        app:layout_constraintVertical_bias="0.148" />
+        app:layout_constraintVertical_bias="0.607" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"

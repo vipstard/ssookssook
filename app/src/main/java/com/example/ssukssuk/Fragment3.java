@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,10 @@ import com.example.ssukssuk.VO.BoardVO_content;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -47,7 +52,9 @@ public class Fragment3 extends Fragment {
     TextView tv_led,tv_water;
     RequestQueue queue;
     StringRequest request;
+    String water_percent="";
     int pump = 3;
+    String rank;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,6 +66,7 @@ public class Fragment3 extends Fragment {
         btn_water = view.findViewById(R.id.main_water_btn);
         tv_led = view.findViewById(R.id.main_led);
         tv_water = view.findViewById(R.id.main_water_per);
+
         queue = Volley.newRequestQueue(getActivity());
         pumpeThread pum;
         led_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -121,6 +129,48 @@ public class Fragment3 extends Fragment {
                 }
             }
         });
+        String URL = "http://211.227.224.199:8081/SS/And_Ardu3";
+        request = new StringRequest(
+                Request.Method.GET,
+                URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject obj = new JSONObject(response);
+
+                            JSONArray result = obj.getJSONArray("data");
+
+//                            JSONArray jsonArray = result.getJSONArray("soil");
+
+                            String data = "";
+//                            StringBuffer sb = new StringBuffer();
+
+
+                            for(int i=0; i<result.length(); i++){
+                                JSONObject soil = result.getJSONObject(i);
+                                data = soil.getString("soil");
+                                Log.d("soil",data);
+//
+//                                water_percent = soil.getString("soil");
+//                                System.out.println("water_percent="+water_percent);
+//                                System.out.println("soil = "+ soil);
+                            }
+                            tv_water.setText(data);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(),error.toString(),Toast.LENGTH_SHORT).show();
+            }
+        }
+        );
+        queue.add(request);
         btn_water.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -184,6 +234,7 @@ public class Fragment3 extends Fragment {
 
                 queue.add(request);
             }else{
+                String a="";
                 int method = Request.Method.GET;
                 String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input3=3";
                 request = new StringRequest(

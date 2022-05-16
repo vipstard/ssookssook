@@ -28,7 +28,7 @@ import java.util.ArrayList;
 
 public class Board_list_select extends AppCompatActivity {
     Button btn_rp;
-    TextView tv_title,tv_content,tv_writer;
+    TextView tv_title, tv_content, tv_writer;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Board");
     DatabaseReference myRef1 = database.getReference("Board_answer");
@@ -41,7 +41,9 @@ public class Board_list_select extends AppCompatActivity {
     String content1 = "";
     String date = "";
     ListView lv;
-    int cnt=0;
+    Board_answer_VO vo = new Board_answer_VO();
+    int cnt = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,8 +66,8 @@ public class Board_list_select extends AppCompatActivity {
         btn_rp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Board_list_select.this,Board_answer.class);
-                intent.putExtra("title",title);
+                Intent intent = new Intent(Board_list_select.this, Board_answer.class);
+                intent.putExtra("title", title);
                 startActivity(intent);
             }
         });
@@ -130,19 +132,22 @@ public class Board_list_select extends AppCompatActivity {
                         } else {
                             Log.d("firebase", String.valueOf(task.getResult().getValue()));
                             DataSnapshot snapshot = task.getResult();
-                            if(cnt == 0){
-                            for (DataSnapshot data : snapshot.getChildren()) {
-                                Board_answer_VO vo = data.getValue(Board_answer_VO.class);
-                                BoardVO_content vo1 = new BoardVO_content();
-                                if(title.equals(vo.getTitle())){
-                                writer1 = vo.getWriter();
-                                date = vo.getDate();
-                                content1 = vo.getContent();
-                                list.add(new Board_list_select_writeVO(date, content1, writer1));
+                            if (cnt == 0) {
+                                for (DataSnapshot data : snapshot.getChildren()) {
+                                    System.out.println("data.getValue(Board_answer_VO.class) = " + data.getValue(Board_answer_VO.class));
+                                    vo = data.getValue(Board_answer_VO.class);
+                                    Log.d("error_title",String.valueOf(vo.getTitle()));
+                                    if(!(vo.getTitle() == null)) {
+                                        if (title.equals(vo.getTitle())) {
+                                            writer1 = vo.getWriter();
+                                            date = vo.getDate();
+                                            content1 = vo.getContent();
+                                            list.add(new Board_list_select_writeVO(date, content1, writer1));
+                                            adapter.notifyDataSetChanged();
+                                        }
+                                    }
                                 }
-                                adapter.notifyDataSetChanged();
-                            }
-                            cnt++;
+                                cnt++;
                             }
 
                         }
