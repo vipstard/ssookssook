@@ -3972,7 +3972,6 @@ tbody {
   color: #fff;
 }
 
-/**UserList**/
 /* USER LIST TABLE */
 
 .user-list tbody td .user-link {
@@ -4138,4 +4137,60 @@ tbody {
 }
 .table-stats .table-line-plus .status-social-icon {
   color: #a75d54;
+}
+
+.userId a {
+  color: rgb(67, 142, 93);
+  font-weight: bold;
+}
+
+/**pagenation**/
+
+.pagination,
+.jsgrid .jsgrid-pager {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+}
+
+.page-link {
+  color: black;
+}
+
+.pagination.pagination-rounded-flat .page-item {
+  margin: 0 0.25rem;
+}
+
+.page-link a {
+  background: #00c689;
+  border-color: #00c689;
+}
+
+.pagination.pagination-rounded-flat .page-item .page-link,
+a {
+  border: none;
+  border-radius: 50px;
+}
+
+/**USER-VIEW**/
+
+.user-info h4 {
+  font-family: SS-CoreDream-4Regular;
+  color: rgb(32, 121, 63);
+  font-weight: bold;
+}
+
+.user-info p {
+  font-family: S-CoreDream-3Light;
+  font-size: 13px;
+}
+
+.info-title {
+  color: rgb(32, 121, 63);
+  font-family: S-CoreDream-5Medium;
+  font-weight: bold;
+}
+
+.info-content {
+  font-family: S-CoreDream-3Light;
 }
