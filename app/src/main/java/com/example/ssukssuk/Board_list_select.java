@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,9 +40,8 @@ public class Board_list_select extends AppCompatActivity {
     Board_answer_Adapter adapter;
     String writer1 = "";
     String content1 = "";
-    String date = "";
+    String date ="";
     ListView lv;
-    Board_answer_VO vo = new Board_answer_VO();
     int cnt = 0;
 
     @Override
@@ -54,130 +54,78 @@ public class Board_list_select extends AppCompatActivity {
         tv_content = findViewById(R.id.board_content2);
         tv_writer = findViewById(R.id.board_wirte2);
         lv = findViewById(R.id.board_list_answer_list);
-        Intent intent = getIntent();
-        title = intent.getStringExtra("title");
-        writer = intent.getStringExtra("writer");
+
+        title = Board_list_select.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("title", null);
+        writer = Board_list_select.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("writer", null);
 
         list = new ArrayList<Board_list_select_writeVO>();
+
         tv_title.setText(title);
         tv_writer.setText(writer);
 
-
+        //댓글 작성하기 버튼
         btn_rp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Board_list_select.this, Board_answer.class);
-                intent.putExtra("title", title);
                 startActivity(intent);
             }
         });
-        myRef.addChildEventListener(new ChildEventListener() {
+
+        //데베 Board에서 댓글 내용 가져와서 출력하기
+        myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-                        if (!task.isSuccessful()) {
-                            Log.e("firebase", "Error getting data", task.getException());
-                        } else {
-                            Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                            DataSnapshot snapshot = task.getResult();
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                } else {
+                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                    DataSnapshot snapshot = task.getResult();
+                    for (DataSnapshot data : snapshot.getChildren()) {
 
-                            for (DataSnapshot data : snapshot.getChildren()) {
+                        BoardVO_content vo = data.getValue(BoardVO_content.class);
 
-                                BoardVO_content vo = data.getValue(BoardVO_content.class);
-
-                                content = vo.getContent();
-                                tv_content.setText(content);
-                            }
-
-                        }
+                        content = vo.getContent();
+                        tv_content.setText(content);
                     }
-                });
 
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+                }
             }
         });
-        myRef1.addChildEventListener(new ChildEventListener() {
+
+        //리스트에서 Board_answer에서 댓글 정보 가져오기
+        myRef1.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                myRef1.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                    @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
 
-                    public void onComplete(@NonNull Task<DataSnapshot> task) {
-
-                        if (!task.isSuccessful()) {
-                            Log.e("firebase", "Error getting data", task.getException());
-                        } else {
-                            Log.d("firebase", String.valueOf(task.getResult().getValue()));
-                            DataSnapshot snapshot = task.getResult();
-                            if (cnt == 0) {
-                                for (DataSnapshot data : snapshot.getChildren()) {
-                                    System.out.println("data.getValue(Board_answer_VO.class) = " + data.getValue(Board_answer_VO.class));
-                                    vo = data.getValue(Board_answer_VO.class);
-                                    Log.d("error_title",String.valueOf(vo.getTitle()));
-                                    if(!(vo.getTitle() == null)) {
-                                        if (title.equals(vo.getTitle())) {
-                                            writer1 = vo.getWriter();
-                                            date = vo.getDate();
-                                            content1 = vo.getContent();
-                                            list.add(new Board_list_select_writeVO(date, content1, writer1));
-                                            adapter.notifyDataSetChanged();
-                                        }
-                                    }
-                                }
-                                cnt++;
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                } else {
+                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                    DataSnapshot snapshot = task.getResult();
+                    if (cnt == 0) {
+                        for (DataSnapshot data : snapshot.getChildren()) {
+                            Board_answer_VO vo = data.getValue(Board_answer_VO.class);
+                            BoardVO_content vo1 = new BoardVO_content();
+                            if (title.equals(vo.getTitle())) {
+                                writer1 = vo.getWriter();
+                                date = vo.getDate();
+                                content1 = vo.getContent();
+                                list.add(new Board_list_select_writeVO(date, content1, writer1));
                             }
-
+                            adapter.notifyDataSetChanged();
                         }
+                        cnt++;
                     }
-                });
 
-            }
-
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
+                }
             }
         });
+
+
         adapter = new Board_answer_Adapter(
                 Board_list_select.this,
                 R.layout.answer_list,

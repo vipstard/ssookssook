@@ -6,6 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".ServiceCenter.ScEditActivity">
 
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btn_SEA_Back"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:backgroundTint="#00ff0000"
+            android:text="back"
+            android:textColor="@color/purple_200"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="2"
+            android:text="    고객센터"
+            android:textColor="@color/purple_200"
+            android:textSize="25dp" />
+    </LinearLayout>
+
+
     <Button
         android:id="@+id/btn_SEA_Edit"
         android:layout_width="wrap_content"
@@ -19,16 +49,17 @@
 
     <EditText
         android:id="@+id/edt_SEA_Title"
-        android:layout_width="252dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="71dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/line"
         android:ems="10"
+        android:hint="  제목"
         android:inputType="textPersonName"
-        android:text="Name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background = "@android:color/transparent"/>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
     <EditText
         android:id="@+id/edt_SEA_Post"
@@ -36,11 +67,21 @@
         android:layout_height="129dp"
         android:layout_marginStart="64dp"
         android:layout_marginTop="254dp"
-        android:background="@drawable/border"
+        android:background="@drawable/line"
         android:ems="10"
         android:gravity="start|top"
+        android:hint="내용 입력"
         android:inputType="textMultiLine"
-        android:text="dd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_SEA_Title" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="2px"
+        android:layout_marginTop="24dp"
+        android:background="#00ff00"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_SEA_Title" />
 

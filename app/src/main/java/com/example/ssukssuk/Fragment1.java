@@ -45,32 +45,32 @@ public class Fragment1 extends Fragment {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Board");
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_1, container, false);
-        SharedPreferences spf = getActivity().
-                getSharedPreferences("mySPF", Context.MODE_PRIVATE);
 
-
-        //editor 실행시키는?
-        SharedPreferences.Editor editor = spf.edit();
 
         String loginId = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-                getString("user_login_id", null);
+                getString("user_login_id1", null);
         edtData = view.findViewById(R.id.edt);
         btn_register = view.findViewById(R.id.btn_register);
         list2 = new ArrayList<BoardVO>();
         lv = view.findViewById(R.id.lv);
         list = new ArrayList<BoardVO>();
+
+        //등록하기 버튼
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),Board_write.class);
-                intent.putExtra("id",loginId);
+                Intent intent = new Intent(getActivity(), Board_write.class);
+                intent.putExtra("id", loginId);
                 startActivity(intent);
             }
         });
+
+        //게시판 리스트 띄우기
         myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -89,7 +89,6 @@ public class Fragment1 extends Fragment {
                         list.add(new BoardVO(writer, title, date));
                         list2.add(new BoardVO(writer, title, date));
                         adapter.notifyDataSetChanged();
-
                     }
 
                 }
@@ -126,17 +125,20 @@ public class Fragment1 extends Fragment {
             }
         });
 
-
-        // 검색을 수행하는 메소드
-
+        //리스트 항목 누를 시 실행
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getActivity(), Board_list_select.class);
                 String title = list.get(i).getTitle();
-                intent.putExtra("title", title);
-                intent.putExtra("writer", writer);
-                Toast.makeText(getActivity(), title, Toast.LENGTH_SHORT).show();
+
+                SharedPreferences spf = getActivity().
+                        getSharedPreferences("mySPF", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = spf.edit();
+                editor.putString("title", title);
+                editor.putString("writer", writer);
+                editor.commit();
+
                 startActivity(intent);
 
             }
