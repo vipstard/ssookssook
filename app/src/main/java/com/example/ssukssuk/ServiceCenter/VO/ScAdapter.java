@@ -1,4 +1,4 @@
-package com.example.ssukssuk.ServiceCenter;
+package com.example.ssukssuk.ServiceCenter.VO;
 
 import android.content.Context;
 import android.view.LayoutInflater;

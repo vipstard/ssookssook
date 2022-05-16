@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/drawable/board_circle.xml" value="0.323" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/drawable/border.xml" value="0.206" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/drawable/btn_border.xml" value="0.219" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/drawable/button_border.xml" value="0.1585" />
@@ -18,7 +19,7 @@
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_edit.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_find.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_idfind.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_login.xml" value="0.67" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_new_login_basic.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/SMHRD/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_pwfind.xml" value="0.36614583333333334" />

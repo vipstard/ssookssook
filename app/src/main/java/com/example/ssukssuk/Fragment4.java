@@ -16,9 +16,9 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.ssukssuk.ServiceCenter.ScAdapter;
+import com.example.ssukssuk.ServiceCenter.VO.ScAdapter;
 import com.example.ssukssuk.ServiceCenter.ScListViewActivity;
-import com.example.ssukssuk.ServiceCenter.ScVO;
+import com.example.ssukssuk.ServiceCenter.VO.ScVO;
 import com.example.ssukssuk.ServiceCenter.ScWriteActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
