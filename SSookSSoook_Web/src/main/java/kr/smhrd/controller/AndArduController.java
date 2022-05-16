@@ -22,11 +22,14 @@ import com.google.gson.Gson;
 
 import kr.smhrd.domain.Criteria;
 import kr.smhrd.domain.MemberVO;
+import kr.smhrd.domain.SensorVO;
 import kr.smhrd.service.ArduInService;
 import kr.smhrd.service.MemberService;
 
 @Controller
 public class AndArduController {
+	
+	int count = 0;
 	
 	@Autowired
 	private MemberService memberService;
@@ -37,31 +40,33 @@ public class AndArduController {
 	
 	String input2="3"; // LED신호
 	String input4="0"; // 워터펌프신호
+	String value1="0";
+	String value2="0";
 	boolean check=false;
 	
-	// 사람 정보 업데이트
+	/*1. 센서 값 수신 후 MariaDB에 넣기*/
+	/*2. 안드로이드 - 토양 수위 센서 값 전달*/
 	@ResponseBody
-	@RequestMapping(value = "/userInfoUpdate", method = { RequestMethod.GET,
-			RequestMethod.POST }, produces = "application/json;charset=utf-8")
-	public void UserUpdate(String objJson) throws Exception {
-
-		Gson gson = new Gson();
-		MemberVO member = gson.fromJson(objJson, MemberVO.class);
-
-		
-	}
-
+	@GetMapping("And_Ardu1")
+	public String And_Ardu1(@Param("soilMoisture_Sensor") String soilMoisture_Sensor, @Param("waterLevel_Sensor") String waterLevel_Sensor) {
 	
-	/* 센서 값 수신 후 MariaDB에 넣기*/
-	@PostMapping("And_Ardu1")
-	public void And_Ardu1(@Param("soilMoisture_Sensor") String soilMoisture_Sensor, @Param("waterLevel_Sensor") String waterLevel_Sensor) {
-
-	String value1 = soilMoisture_Sensor;
-	String value2 = waterLevel_Sensor;
+		
+		count +=1;
+		System.out.println("카운트:" + count);
+	if(count%30==0) {	
+	
+	count=0;
+	
+	value1 = soilMoisture_Sensor;
+	value2 = waterLevel_Sensor;
+	
 	System.out.println("토양: " + value1 + "  수위센서: " + value2);
 	
 	arduinService.SensorValueIn(value1, value2);
 	
+	}
+	
+	return  "soil : " + value1 + " water : " + value2;
 	}
 	
 	/* Android -> Server -> Arduino제어 신호 받는 곳 */
@@ -94,6 +99,5 @@ public class AndArduController {
 	}
 	
 	
-		
 
 }
