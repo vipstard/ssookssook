@@ -40,18 +40,19 @@ public class Fragment2 extends Fragment {
     ListView lv;
     ScAdapter adapter;
     ArrayList<ScVO> list;
-    Button btn_write;
+    Button btn_write,btn_reg;
     TextView number;
     String date;
     String content;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Diary");
-
+    String title;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_2, container, false);
         lv = view.findViewById(R.id.list_user);
+
         list = new ArrayList<ScVO>();
         String writer = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("user_login_id1", null);
@@ -73,7 +74,7 @@ public class Fragment2 extends Fragment {
                             //게시글 번호 매기기
                             a++;
                             String num = String.valueOf(a);
-                            String title = vo.getTitle();
+                             title = vo.getTitle();
                              date = vo.getDate();
                              content = vo.getContent();
                             //파이어베이스의 값을 삽입해서 리스트에 넣어준다
