@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +13,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>SsookSsook - Customer Service</title>
+    <title>SsookSsook - User View</title>
 
     <!-- Favicon -->
     <link rel="icon" href="/resources/img/core-img/favicon.ico" />
@@ -118,7 +120,7 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">회사 소개</a></li>
                     <li><a href="purchase.html">제품 구매</a></li>
-                    <li><a href="helpQnA">고객 센터</a></li>
+                    <li><a href="service-list.html">고객 센터</a></li>
                     <li><a href="contact.html">A/S</a></li>
                     <li>
                       <a href="user-list.html">회원 관리</a>
@@ -166,7 +168,7 @@
         class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
         style="background-image: url(/resources/img/bg-img/main4.png)"
       >
-        <h2>고객 문의</h2>
+        <h2>회원 관리</h2>
       </div>
 
       <div class="container">
@@ -178,7 +180,10 @@
                   <a href="#"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  고객 문의
+                  회원 관리
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  회원 정보
                 </li>
               </ol>
             </nav>
@@ -188,143 +193,111 @@
     </div>
     <!-- ##### Breadcrumb Area End ##### -->
 
-    <!-- ##### Breadcrumb Area Start ##### -->
+    <!-- ##### User Info Start ##### -->
 
-    <div id="main">
-      <br /><br />
-      <div class="container ScoreDream400" id="board-list">
-        <div class="search-window">
-          <form action="">
-            <div class="search-wrap">
-              <input
-                id="search"
-                type="search"
-                name=""
-                placeholder="ㅤ검색어를 입력해주세요."
-                value=""
-              />
-              <button type="submit" class="btn btn-success">검색</button>
+    <div class="container">
+      <div class="main-body" style="margin: 20px 0px 20px 0px">
+        <div class="row gutters-sm">
+          <div class="col-md-5 mb-3">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex flex-column align-items-center text-center">
+                  <img
+                    src="/resources/img/core-img/user1.png"
+                    alt="Admin"
+                    class="rounded-circle"
+                    width="150"
+                  />
+                  <div class="user-info mt-3">
+                    <h4>조현빈</h4>
+                    <p class="text-secondary mb-1">활동등급 : Lv.1</p>
+                    <br />
+                    <h4>보유 기기</h4>
+                    <p class="text-secondary mb-1">SSSS-20220801</p>
+                    <p class="text-secondary mb-1">SSSS-20221002</p>
+                    <p class="text-secondary mb-1">SSSS-20230903</p>
+                    <p class="text-secondary mb-1">SSSS-20231008</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </form>
+          </div>
+          <div class="col-md-7">
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="row">
+                  <div class="info-title col-sm-3">
+                    <h6 class="mb-0">이름</h6>
+                  </div>
+                  <div class="info-content col-sm-9 text-secondary">조현빈</div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="info-title col-sm-3">
+                    <h6 class="mb-0">아이디</h6>
+                  </div>
+                  <div class="info-content col-sm-9 text-secondary">
+                    ssookssook1
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="info-title col-sm-3">
+                    <h6 class="mb-0">닉네임</h6>
+                  </div>
+                  <div class="info-content col-sm-9 text-secondary">현빈짱</div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="info-title col-sm-3">
+                    <h6 class="mb-0">Email</h6>
+                  </div>
+                  <div class="info-content col-sm-9 text-secondary">
+                    ssss@ssss.com
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="info-title col-sm-3">
+                    <h6 class="mb-0">전화번호</h6>
+                  </div>
+                  <div class="info-content col-sm-9 text-secondary">
+                    010-1234-1234
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="info-title col-sm-3">
+                    <h6 class="mb-0">주소</h6>
+                  </div>
+                  <div class="info-content col-sm-9 text-secondary">
+                    서울특별시 강동구 강동대로 205 JYP Center
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="info-title col-sm-3">
+                    <h6 class="mb-0">가입일</h6>
+                  </div>
+                  <div class="info-content col-sm-9 text-secondary">
+                    2022-01-01
+                  </div>
+                </div>
+                <hr />
+                <div class="row">
+                  <div class="col-sm-12">
+                    <a
+                      class="btn btn-success float-right"
+                      target="__blank"
+                      href="#"
+                      >회원 수정</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <br /><br />
-        <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <a class="delivery nav-link active" aria-current="page" href="#"
-              >배송 문의</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="fixed nav-link" href="#">고장 문의</a>
-          </li>
-          <li class="nav-item">
-            <a class="another nav-link" href="#">기타 문의</a>
-          </li>
-        </ul>
-        <br />
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>문의 유형</th>
-              <th>글번호</th>
-              <th>제목</th>
-              <th>글쓴이</th>
-              <th>작성일</th>
-              <th>조회</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="another">기타 문의</td>
-              <td>111</td>
-              <td><a href="#">기술 제휴 문의 드립니다.</a></td>
-              <td>최태원</td>
-              <td>2022.05.11</td>
-              <td>112</td>
-            </tr>
-            <tr>
-              <td class="fixed">고장 문의</td>
-              <td>110</td>
-              <td><a href="#">아 고장났자나여ㅡㅡ</a></td>
-              <td>황현진</td>
-              <td>2022.05.11</td>
-              <td>87</td>
-            </tr>
-            <tr>
-              <td class="delivery">배송 문의</td>
-              <td>109</td>
-              <td><a href="#">배송 제발 빨리 보내주세요 제발</a></td>
-              <td>이용복</td>
-              <td>2022.05.11</td>
-              <td>158</td>
-            </tr>
-            <tr>
-              <td class="another">기타 문의</td>
-              <td>108</td>
-              <td><a href="#">대량 구매 문의드립니다.</a></td>
-              <td>이재용</td>
-              <td>2022.05.10</td>
-              <td>108</td>
-            </tr>
-            <tr>
-              <td class="another">기타 문의</td>
-              <td>107</td>
-              <td><a href="#">신고합니다</a></td>
-              <td>유주영</td>
-              <td>2022.05.11</td>
-              <td>107</td>
-            </tr>
-            <tr>
-              <td class="fixed">고장 문의</td>
-              <td>106</td>
-              <td><a href="#">우리 고양이도 보고가세요</a></td>
-              <td>수박조아</td>
-              <td>2022.05.11</td>
-              <td>87</td>
-            </tr>
-            <tr>
-              <td class="delivery">배송 문의</td>
-              <td>105</td>
-              <td><a href="#">집가고싶다</a></td>
-              <td>김헌찬</td>
-              <td>2022.05.11</td>
-              <td>106</td>
-            </tr>
-            <tr>
-              <td class="delivery">배송 문의</td>
-              <td>104</td>
-              <td><a href="#">저는 튼튼하고 여러분을 좋아해여</a></td>
-              <td>박지성</td>
-              <td>2022.05.10</td>
-              <td>105</td>
-            </tr>
-          </tbody>
-        </table>
-        <button
-          type="button"
-          class="btn btn-write"
-          onClick="location.href='service-write.html'"
-        >
-          글작성
-        </button>
-        <br /><br />
-        <nav aria-label="Page navigation example">
-          <ul class="pagination btn-movepage justify-content-center">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
       </div>
     </div>
 

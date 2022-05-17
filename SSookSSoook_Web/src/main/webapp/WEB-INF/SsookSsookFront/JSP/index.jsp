@@ -78,17 +78,6 @@
                       <span>Edit Profile</span></a
                     >
                   </div>
-                  
-                  	<!--  관리자전용 회원관리 페이지 추가 -->
-	                  <c:if test='${LoginVo.admin_yn == "Y"}'>
-						 <!-- 회원정보 수정  -->
-	                  	  <div class="Sign Up">
-		                    <a href="EditProfile?id=${LoginVo.id }"
-		                      ><i class="fa fa-sign-in" aria-hidden="true"></i>
-		                      <span>Management</span></a
-		                    >
-		                  </div>
-					  </c:if>
 					  
 					  <div class="Sign Up">
 		                    <a href="https://kauth.kakao.com/oauth/logout?client_id=e3eced6c366d05e611468e218fc8f42d&logout_redirect_uri=http://211.227.224.199:8081/SS/LogOut"
@@ -158,14 +147,30 @@
                     <li><a href="About">회사 소개</a></li>
                     <li><a href="Purchase">제품 구매</a></li>
                     <li><a href="helpQnA?id=${LoginVo.id }">고객센터</a></li>
-                    <li><a href="Contact">A/S</a></li>
+                    <li><a href="Contact">A/S </a></li>
+
+                    <!--  관리자전용 회원관리 페이지 추가 -->
+	                <c:if test='${LoginVo.admin_yn == "Y"}'>
+
+                    <li>
+                      <a href="#">회원 관리</a>
+                      <ul class="dropdown">
+                        <li><a href="member_Manage">회원 관리</a></li>
+                        <li><a href="Sales_Manage">매출 관리</a></li>
+                      </ul>
+                    </li>
                   </ul>
+                   </c:if>
 
                   <!-- Search Icon -->
-                  <div id="searchIcon">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </div>
+	                  <li>
+		                  <div id="searchIcon">
+		                    <i class="fa fa-search" aria-hidden="true"></i>
+		                  </div>
+	                  </li>
+
                 </div>
+                
                 <!-- Navbar End -->
               </div>
             </nav>
@@ -882,7 +887,7 @@
           <script>
             var container = document.getElementById("map");
             var options = {
-              center: new kakao.maps.LatLng(33.450701, 126.570667),
+              center: new kakao.maps.LatLng(35.149828, 126.919959),
               level: 3,
             };
 

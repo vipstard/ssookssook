@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.annotations.Param;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -97,6 +99,43 @@ public class AndArduController {
 	return input2+input4;
 	
 	}
+	
+	/*1. 센서 값 수신 후 MariaDB에 넣기*/
+	/*2. 안드로이드 - 토양 수위 센서 값 전달*/
+	@ResponseBody
+	@GetMapping("And_Ardu3")
+	public JSONObject And_Ardu3(@Param("soilMoisture_Sensor") String soilMoisture_Sensor, @Param("waterLevel_Sensor") String waterLevel_Sensor) {
+	
+		JSONObject jsonMain = new JSONObject();
+		
+		JSONArray jArray = new JSONArray();
+		
+		JSONObject row = new JSONObject();
+		
+		count +=1;
+		
+		if(count%30==0) {	
+		
+			count=0;
+			
+			value1 = soilMoisture_Sensor;
+			value2 = waterLevel_Sensor;
+			
+			
+			arduinService.SensorValueIn(value1, value2);
+		
+		}
+		
+		row.put("soil", value1);
+		row.put("water", value2);
+		
+		jArray.add(0,row);
+		jsonMain.put("data", jArray);
+		
+		return jsonMain;
+	}
+	
+	
 	
 	
 
