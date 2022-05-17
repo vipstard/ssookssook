@@ -4,13 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.ssukssuk.Board_answerVO.Board_answer_VO;
+import com.example.ssukssuk.Board.BoardVO;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -41,7 +40,7 @@ public class Board_answer extends AppCompatActivity {
         btn_as.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Board_answer.this, Board_list_select.class);
+                Intent intent = new Intent(Board_answer.this, BoardListSelectActivity.class);
 
                 Calendar cal = Calendar.getInstance();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -56,11 +55,11 @@ public class Board_answer extends AppCompatActivity {
                 writer = Board_answer.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                         getString("writer", null);
 
-                myRef.push().setValue(new Board_answer_VO(
-                        indate,
-                        content,
+                myRef.push().setValue(new BoardVO(
                         writer,
-                        title
+                        title,
+                        content,
+                        indate
                 ));
 
                 startActivity(intent);
