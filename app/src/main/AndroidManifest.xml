@@ -4,8 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission
         android:name="android.hardware.camera"
         android:required="false" />
@@ -22,13 +23,16 @@
             android:name=".diary_select_edit"
             android:exported="false" />
         <activity
+            android:name=".ServiceCenter.ScAnswerWriteActivity"
+            android:exported="false" />
+        <activity
             android:name=".BoardEditActivity"
             android:exported="false" />
         <activity
             android:name=".Board_answer"
             android:exported="false" />
         <activity
-            android:name=".ServiceCenter.ScListViewActivity"
+            android:name=".ServiceCenter.ScListSelectActivity"
             android:exported="false" />
         <activity
             android:name=".ServiceCenter.ScEditActivity"
@@ -58,7 +62,7 @@
             android:name=".Find.Pw.PwFindFailActivity"
             android:exported="false" />
         <activity
-            android:name=".Board_list_select"
+            android:name=".BoardListSelectActivity"
             android:exported="false" />
         <activity
             android:name=".DiaryActivity2"
@@ -88,7 +92,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".Board_write"
+            android:name=".BoardWriteActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

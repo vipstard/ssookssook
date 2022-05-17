@@ -1,19 +1,30 @@
 package com.example.ssukssuk;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
+import com.example.ssukssuk.Board.BoardVO;
 import com.example.ssukssuk.Diary.DiaryAdapter;
 import com.example.ssukssuk.Diary.DiaryVO;
+import com.example.ssukssuk.ServiceCenter.VO.ScAdapter;
+import com.example.ssukssuk.ServiceCenter.VO.ScVO;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -76,9 +87,24 @@ public class Fragment2 extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getActivity(), DiaryActivity2.class);
-                intent.putExtra("img", list.get(i).getImg());
-                intent.putExtra("title", list.get(i).getTitle());
-                intent.putExtra("date", list.get(i).getDate());
+                String title = list.get(i).getTitle();
+//                String writer = list.get(i).getWriter();
+                String sel_date =  list.get(i).getDate();
+
+                //누른 게시글의 제목,글쓴사람,날짜를 저장한다
+                SharedPreferences spf = getActivity().
+                        getSharedPreferences("mySPF", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = spf.edit();
+                editor.putString("Diary_select_title", title);
+//                editor.putString("Diary_select_writer",writer);
+                editor.putString("Diary_select_date",sel_date);
+//                editor.putString("Diary_select_content",content);
+
+                Log.d("add",title);
+                Log.d("add2",sel_date);
+
+                editor.commit();
+
                 startActivity(intent);
             }
         });
