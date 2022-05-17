@@ -35,9 +35,6 @@ public class BoardListSelectActivity extends AppCompatActivity {
     DatabaseReference myRef1 = database.getReference("Board_answer");
     ArrayList<Board_list_select_writeVO> list;
     Board_answer_Adapter adapter;
-    String writer1 = "";
-    String content1 = "";
-    String date = "";
     ListView lv;
     int cnt = 0;
 
@@ -157,9 +154,9 @@ public class BoardListSelectActivity extends AppCompatActivity {
                             BoardVO vo = data.getValue(BoardVO.class);
                             BoardVO vo1 = new BoardVO();
                             if (title.equals(vo.getTitle())) {
-                                writer1 = vo.getWriter();
-                                date = vo.getDate();
-                                content1 = vo.getContent();
+                                String writer1 = vo.getWriter();
+                                String date = vo.getDate();
+                                String content1 = vo.getContent();
                                 list.add(new Board_list_select_writeVO(date, content1, writer1));
                             }
                             adapter.notifyDataSetChanged();
