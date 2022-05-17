@@ -1,8 +1,11 @@
 package com.example.ssukssuk;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
@@ -11,23 +14,35 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.ssukssuk.Board.BoardVO;
+import com.example.ssukssuk.VO.BoardVO_content;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Fragment3 extends Fragment {
@@ -125,20 +140,23 @@ public class Fragment3 extends Fragment {
                             JSONObject obj = new JSONObject(response);
 
                             JSONArray result = obj.getJSONArray("data");
+
+//                            JSONArray jsonArray = result.getJSONArray("soil");
+
                             String data = "";
+//                            StringBuffer sb = new StringBuffer();
+
+
                             for(int i=0; i<result.length(); i++){
                                 JSONObject soil = result.getJSONObject(i);
                                 data = soil.getString("soil");
                                 Log.d("soil",data);
+//
+//                                water_percent = soil.getString("soil");
+//                                System.out.println("water_percent="+water_percent);
+//                                System.out.println("soil = "+ soil);
                             }
-                            int water = Integer.parseInt(data);
-                            if(water>70){
-                                water_img.setImageResource(R.drawable.ic_dashboard_black_24dp);
-                                tv_water.setText(data);
-                            }else{
-                                water_img.setImageResource(R.drawable.ic_launcher_background);
-                                tv_water.setText("40%");
-                            }
+                            tv_water.setText(data);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -216,7 +234,7 @@ public class Fragment3 extends Fragment {
 
                 queue.add(request);
             }else{
-
+                String a="";
                 int method = Request.Method.GET;
                 String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input3=3";
                 request = new StringRequest(

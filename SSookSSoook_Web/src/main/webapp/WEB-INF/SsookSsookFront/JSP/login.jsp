@@ -94,6 +94,12 @@
               />
             </div>
             <div class="btn-groups">
+             <!-- 카카오 로그인 버튼 -->
+      <a href="https://kauth.kakao.com/oauth/authorize?client_id=e3eced6c366d05e611468e218fc8f42d&redirect_uri=http://211.227.224.199:8081/SS/KakaoLogin&response_type=code">
+    	<img src="//mud-kage.kakao.com/14/dn/btqbjxsO6vP/KPiGpdnsubSq3a0PHEGUK1/o.jpg" height="30" width="200"/></a><br>
+    
+      <!-- 네이버 로그인  -->
+      <a href="${url}"><img height="30"  width="200" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a>
               <button
                 class="login loginBtn, btn btn-warning btn-lg"
                 style="font-family: Font Awesome 5 Free"

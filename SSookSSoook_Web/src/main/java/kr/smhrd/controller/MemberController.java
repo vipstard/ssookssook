@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -102,24 +103,25 @@ public class MemberController {
 			return "redirect:/main";
 		}
 		
-		/*회원 관리*/
+		/* 회원 관리 */
 		@GetMapping("member_Manage")
 		public String member_Manage(Model model, Criteria cri) {
 
 			log.info("member_Manage");
-
-			
-			model.addAttribute("Mem_list", memberService.memberList(cri));
+			ArrayList<MemberVO> memeber_list = memberService.memberList(cri);
+			for(MemberVO s : memeber_list) {
+				System.out.println("컨트롤러반환 : " + s);
+			}
+			model.addAttribute("memeber_list", memeber_list);
 
 			int total = memberService.memTotal(cri);
-
+			
 			PageMakerDTO page = new PageMakerDTO(cri, total);
 			System.out.println(page);
 			
 			model.addAttribute("pageMaker", page);
 			
-			return "/TestWeb/member_Manage"; 
-			
+			return "/SsookSsookFront/JSP/user-list"; 			
 		}
 		
 		/*
@@ -152,6 +154,13 @@ public class MemberController {
 		int cnt = memberService.emailCheck(email);
 		return cnt;
 
+	}
+	
+	/* 회원정보관리 페이지에서 회원정보 삭제 */
+	@GetMapping("memberDelete")
+	public String memberDelete(@Param("id")String id) {
+		memberService.memberDelete(id);
+		return "redirect:/member_Manage";
 	}
 	
 	

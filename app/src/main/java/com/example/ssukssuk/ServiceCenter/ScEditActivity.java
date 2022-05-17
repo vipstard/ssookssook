@@ -28,8 +28,8 @@ import java.util.Map;
 
 public class ScEditActivity extends AppCompatActivity {
 
-    EditText edt_title, edt_content;
-    Button btn_edit;
+    EditText edt_Title, edt_Post;
+    Button btn_Edit;
 
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -41,9 +41,9 @@ public class ScEditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sc_edit);
 
-        edt_content = findViewById(R.id.edt_SEA_Content);
-        edt_title = findViewById(R.id.edt_SEA_Title);
-        btn_edit = findViewById(R.id.btn_SEA_Edit);
+        edt_Post = findViewById(R.id.edt_SEA_Post);
+        edt_Title = findViewById(R.id.edt_SEA_Title);
+        btn_Edit = findViewById(R.id.btn_SEA_Edit);
 
         Intent intent = getIntent();
         String title = intent.getStringExtra("ScTitle1");
@@ -63,11 +63,11 @@ public class ScEditActivity extends AppCompatActivity {
                 ){
 
                     //edt_Title엔 title값을, edt_Post엔 post값을 넣어준다
-                    edt_title.setText(vo.getTitle());
-                    edt_content.setText(vo.getContent());
+                    edt_Title.setText(vo.getTitle());
+                    edt_Post.setText(vo.getPost());
 
                     //수정하기 버튼을 누르면
-                    btn_edit.setOnClickListener(new View.OnClickListener() {
+                    btn_Edit.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             //위에 if문에 해당되는 키값을 받아온후
@@ -75,12 +75,12 @@ public class ScEditActivity extends AppCompatActivity {
                             //myRef2란 변수에 키값이 a인 값을 저장해준다
                             DatabaseReference myRef2 = myRef.child(a);
                             //수정하는 글의 값을 저장
-                            String Edit_content = edt_content.getText().toString();
-                            String Edit_title = edt_title.getText().toString();
+                            String Edit_post = edt_Post.getText().toString();
+                            String Edit_title = edt_Title.getText().toString();
                             //데베 데이터 값을 변경하는 코드
                             Map<String, Object> updateMap = new HashMap<>();
                             updateMap.put("title",Edit_title);
-                            updateMap.put("content",Edit_content);
+                            updateMap.put("post",Edit_post);
                             myRef2.updateChildren(updateMap);
                             //변경시 성공을 나타내는 Log.d코드
 //                            .addOnCompleteListener(task ->

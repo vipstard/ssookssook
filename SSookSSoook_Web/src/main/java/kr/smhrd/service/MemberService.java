@@ -41,7 +41,11 @@ public interface MemberService{
 		/* 총 회원 수 */
 		public int memTotal(Criteria cri);
 		
+		/* 특정회원 검색 */
 		public MemberVO selectOne(String id);
+		
+		/* 회원관리 페이지에서 회원정보 삭제 */
+		public void memberDelete(String id);
 
 	
 

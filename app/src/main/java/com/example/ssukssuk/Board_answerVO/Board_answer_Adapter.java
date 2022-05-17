@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.example.ssukssuk.Board.BoardHolder;
+import com.example.ssukssuk.Board.BoardVO;
 import com.example.ssukssuk.VO.Board_list_select_writeVO;
 
 import java.util.ArrayList;

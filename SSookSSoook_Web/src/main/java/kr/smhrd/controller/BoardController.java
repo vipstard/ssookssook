@@ -118,6 +118,7 @@ public class BoardController {
 		model.addAttribute("QnaList", QnaList);
 		
 		int total = boardService.boardTotal(cri);
+		System.out.println(total);
 		
 		PageMakerDTO pageMake = new PageMakerDTO(cri, total);
 		model.addAttribute("BoardPageMaker", pageMake);
@@ -183,6 +184,11 @@ public class BoardController {
 		return "redirect:/QnaContent?idx="+vo.getIdx();
 	}
 	
+	@RequestMapping("Sales_Manage")
+	public String SalesManage() {
+		
+		return "/SsookSsookFront/JSP/sales-chart";
+	}
 	
 	
 	

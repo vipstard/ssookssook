@@ -4,6 +4,7 @@ package kr.smhrd.mapper;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -35,13 +36,16 @@ public interface MemberMapper {
 	public MemberVO Social_memberLogin(String email);
 	
 	//카카오간편회원가입
-	@Insert("insert into user_info(user_id, user_name, user_email, admin_yn) values('kakao', #{name}, #{email}, 'N')")
+	@Insert("insert into user_info(user_id, user_name, user_email, admin_yn) values(#{email}, #{name}, #{email}, 'N')")
 	public void K_Join(@Param("email") String email, @Param("name") String name);
 	
 	//네이버 간편회원가입
-	@Insert("insert into user_info(user_id, user_email, user_name) values( #{id}, #{email}, #{name})")
+	@Insert("insert into user_info(user_id, user_email, user_name) values( #{email}, #{email}, #{name})")
 	public void N_Join(@Param("id") String id, @Param("email") String email,  @Param("name") String name);
 	
+	/* 회원 정보 삭제 */
+	@Delete("delete from user_info where user_id=#{id}")
+	public void memberDelete(@Param("id") String id);
 	
 	// 아이디 중복체크
 	public int idCheck(String id);

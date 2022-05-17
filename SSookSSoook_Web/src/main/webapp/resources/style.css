@@ -2156,6 +2156,7 @@ p {
 }
 
 .alazea-video-area {
+  margin-top: 35px;
   position: relative;
   z-index: 1;
   border-radius: 6px;
@@ -2169,6 +2170,7 @@ p {
   z-index: -21;
   border-radius: 6px;
   height: 420px;
+  width: 600px;
 }
 .alazea-video-area .video-icon {
   -webkit-transition-duration: 500ms;
@@ -3542,7 +3544,7 @@ p {
   cursor: default;
 }
 
-#title {
+.title {
   font-family: NEXON Lv1 Gothic OTF Bold;
   color: rgb(255, 255, 255);
   margin-bottom: 20px;
@@ -4193,4 +4195,35 @@ a {
 
 .info-content {
   font-family: S-CoreDream-3Light;
+}
+
+.hero-slides-content .title {
+  text-align: left;
+  font-size: 55px;
+}
+
+.hero-slides-content .sub-title {
+  font-size: 18px;
+  text-align: left;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .hero-slides-content .title {
+    font-size: 45px;
+    text-align: left;
+  }
+
+  .hero-slides-content .sub-title {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .hero-slides-content .title {
+    font-size: 30px;
+  }
+
+  .hero-slides-content .sub-title {
+    font-size: 13px;
+  }
 }

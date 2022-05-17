@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.ssukssuk.Board.BoardAdapter;
 import com.example.ssukssuk.Board.BoardVO;
+import com.example.ssukssuk.VO.BoardVO_content;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -33,12 +34,16 @@ public class Fragment1 extends Fragment {
     ListView lv;
     BoardAdapter adapter;
     ArrayList<BoardVO> list;
-    EditText edt_search;
-    Button btn_write;
+    EditText edtData;
+    Button btn_register;
     ArrayList<BoardVO> list2;          // 데이터를 넣은 리스트변수
+    String title = "";
+    String date = "";
+    String writer = "";
     final int i = 0;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Board");
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -46,17 +51,21 @@ public class Fragment1 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_1, container, false);
 
 
-        edt_search = view.findViewById(R.id.edt_B_Search);
-        btn_write = view.findViewById(R.id.btn_BF_Write);
+        String loginId = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("user_login_id1", null);
+        edtData = view.findViewById(R.id.edt_B_Search);
+        btn_register = view.findViewById(R.id.btn_BF_Write);
         list2 = new ArrayList<BoardVO>();
         lv = view.findViewById(R.id.lv);
         list = new ArrayList<BoardVO>();
 
         //등록하기 버튼
-        btn_write.setOnClickListener(new View.OnClickListener() {
+        btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(),BoardWriteActivity.class));
+                Intent intent = new Intent(getActivity(), Board_write.class);
+                intent.putExtra("id", loginId);
+                startActivity(intent);
             }
         });
 
@@ -69,13 +78,13 @@ public class Fragment1 extends Fragment {
                 } else {
                     Log.d("firebase", String.valueOf(task.getResult().getValue()));
                     DataSnapshot snapshot = task.getResult();
+
                     for (DataSnapshot data : snapshot.getChildren()) {
 
-                        BoardVO vo = data.getValue(BoardVO.class);
-
-                        String writer = vo.getWriter();
-                        String title = vo.getTitle();
-                        String date = vo.getDate();
+                        BoardVO_content vo = data.getValue(BoardVO_content.class);
+                        writer = vo.getWriter();
+                        title = vo.getTitle();
+                        date = vo.getDate();
                         list.add(new BoardVO(writer, title, date));
                         list2.add(new BoardVO(writer, title, date));
                         adapter.notifyDataSetChanged();
@@ -96,7 +105,7 @@ public class Fragment1 extends Fragment {
         );
         lv.setAdapter(adapter);
 
-        edt_search.addTextChangedListener(new TextWatcher() {
+        edtData.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             }
@@ -110,7 +119,7 @@ public class Fragment1 extends Fragment {
             public void afterTextChanged(Editable editable) {
                 // input창에 문자를 입력할때마다 호출된다.
                 // search 메소드를 호출한다.
-                String text = edt_search.getText().toString();
+                String text = edtData.getText().toString();
                 search(text);
             }
         });
@@ -119,21 +128,16 @@ public class Fragment1 extends Fragment {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
+                Intent intent = new Intent(getActivity(), Board_list_select.class);
                 String title = list.get(i).getTitle();
-                String writer = list.get(i).getWriter();
-                String indate = list.get(i).getDate();
 
-                //누른 게시글의 제목,글쓴사람,날짜를 저장한다
                 SharedPreferences spf = getActivity().
                         getSharedPreferences("mySPF", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = spf.edit();
                 editor.putString("title", title);
-                editor.putString("writer",writer);
-                editor.putString("indate",indate);
-
+                editor.putString("writer", writer);
                 editor.commit();
-                Intent intent = new Intent(getActivity(), BoardListSelectActivity.class);
+
                 startActivity(intent);
 
             }
