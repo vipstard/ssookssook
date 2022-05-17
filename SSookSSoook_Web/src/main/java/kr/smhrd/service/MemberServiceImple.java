@@ -127,6 +127,14 @@ public class MemberServiceImple implements MemberService {
 		return selectOne;
 	}
 
+	/* 회원정보관리 페이지에서 회원 정보 삭제 */
+	@Override
+	public void memberDelete(String id) {
+
+		mapper.memberDelete(id);
+		
+	}
+
 	
 	
 	/*

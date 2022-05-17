@@ -68,8 +68,8 @@
 	<!-- 회원관리 목록 불러오기 (페이징)-->
 	<select id="memberList" resultType="kr.smhrd.domain.MemberVO" resultMap="member">
 		SELECT @ROWNUM:=@ROWNUM+1 AS rn, user_id , 
-		user_email, user_name, user_addr, user_phone, user_joindate 
-			FROM user_info ui , (SELECT @ROWNUM:=0) AS R 
+		user_email, user_name, user_addr, user_phone, user_joindate
+			FROM user_info ui , (SELECT @ROWNUM:=0) AS R
 			<if test="keyword != null">
 				WHERE user_id like concat('%', #{keyword}, '%')
 			</if>

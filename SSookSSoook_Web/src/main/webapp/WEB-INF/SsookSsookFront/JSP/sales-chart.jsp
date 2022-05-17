@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,13 +13,13 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>SsookSsook - Customer Service</title>
+    <title>SsookSsook - Sales</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="/resources/img/core-img/favicon.ico" />
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/img/core-img/favicon.ico" />
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="/resources/style.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/style.css" />
   </head>
 
   <body>
@@ -25,7 +27,7 @@
     <div class="preloader d-flex align-items-center justify-content-center">
       <div class="preloader-circle"></div>
       <div class="preloader-img">
-        <img src="/resources/img/core-img/leaf.png" alt="" />
+        <img src="${pageContext.request.contextPath}/resources/img/core-img/leaf.png" alt="" />
       </div>
     </div>
 
@@ -66,14 +68,14 @@
                   </div>
                   <!-- Login -->
                   <div class="login">
-                    <a href="./login.html"
+                    <a href="LoginForm"
                       ><i class="fa fa-user" aria-hidden="true"></i>
                       <span>Log in</span></a
                     >
                   </div>
                   <!-- Sign Up -->
                   <div class="Sign Up">
-                    <a href="./join.html"
+                    <a href="JoinForm"
                       ><i class="fa fa-sign-in" aria-hidden="true"></i>
                       <span>Sign Up</span></a
                     >
@@ -93,7 +95,7 @@
             <nav class="classy-navbar justify-content-between" id="alazeaNav">
               <!-- Nav Brand -->
               <a href="index.html" class="nav-brand"
-                ><img src="/resources/img/core-img/SSSSlogo.png" alt=""
+                ><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt=""
               /></a>
 
               <!-- Navbar Toggler -->
@@ -115,16 +117,16 @@
                 <!-- Navbar Start -->
                 <div class="classynav">
                   <ul style="font-family: SBAggroL">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">회사 소개</a></li>
-                    <li><a href="purchase.html">제품 구매</a></li>
+                    <li><a href="main">Home</a></li>
+                    <li><a href="About">회사 소개</a></li>
+                    <li><a href="Purchase">제품 구매</a></li>
                     <li><a href="helpQnA">고객 센터</a></li>
-                    <li><a href="contact.html">A/S</a></li>
+                    <li><a href="Contact">A/S</a></li>
                     <li>
                       <a href="user-list.html">회원 관리</a>
                       <ul class="dropdown">
                         <li><a href="user-list.html">회원 관리</a></li>
-                        <li><a href="shop-details.html">매출 관리</a></li>
+                        <li><a href="sales-chart.html">매출 관리</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -164,9 +166,9 @@
       <!-- Top Breadcrumb Area -->
       <div
         class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
-        style="background-image: url(/resources/img/bg-img/main4.png)"
+        style="background-image: url(${pageContext.request.contextPath}/resources/img/bg-img/main5.png)"
       >
-        <h2>고객 문의</h2>
+        <h2>매출 관리</h2>
       </div>
 
       <div class="container">
@@ -178,7 +180,7 @@
                   <a href="#"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  고객 문의
+                  매출 관리
                 </li>
               </ol>
             </nav>
@@ -190,141 +192,72 @@
 
     <!-- ##### Breadcrumb Area Start ##### -->
 
-    <div id="main">
-      <br /><br />
-      <div class="container ScoreDream400" id="board-list">
-        <div class="search-window">
-          <form action="">
-            <div class="search-wrap">
-              <input
-                id="search"
-                type="search"
-                name=""
-                placeholder="ㅤ검색어를 입력해주세요."
-                value=""
-              />
-              <button type="submit" class="btn btn-success">검색</button>
+    <div class="container">
+      <div class="row" style="margin: 30px 0px 40px 0px">
+        <div class="col-lg-12">
+          <div class="container-fluid">
+            <!-- Content Row -->
+            <div class="row">
+              <div class="col-xl-8 col-lg-7">
+                <!-- Area Chart -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-success">
+                      매출 증가율
+                    </h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-area">
+                      <canvas id="myAreaChart"></canvas>
+                    </div>
+                    <!-- <hr />
+                    Styling for the area chart can be found in the
+                    <code>/js/demo/chart-area-demo.js</code> file. -->
+                  </div>
+                </div>
+
+                <!-- Bar Chart -->
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-success">
+                      회원 증가율
+                    </h6>
+                  </div>
+                  <div class="card-body">
+                    <div class="chart-bar">
+                      <canvas id="myBarChart"></canvas>
+                    </div>
+                    <!-- <hr />
+                    Styling for the bar chart can be found in the
+                    <code>/js/demo/chart-bar-demo.js</code> file. -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- Donut Chart -->
+              <div class="col-xl-4 col-lg-5">
+                <div class="card shadow mb-4">
+                  <!-- Card Header - Dropdown -->
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-success">
+                      회원 활동률
+                    </h6>
+                  </div>
+                  <!-- Card Body -->
+                  <div class="card-body">
+                    <div class="chart-pie pt-4">
+                      <canvas id="myPieChart"></canvas>
+                    </div>
+                    <!-- <hr />
+                    Styling for the donut chart can be found in the
+                    <code>/js/demo/chart-pie-demo.js</code> file. -->
+                  </div>
+                </div>
+              </div>
             </div>
-          </form>
+          </div>
+          <!-- /.container-fluid -->
         </div>
-        <br /><br />
-        <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <a class="delivery nav-link active" aria-current="page" href="#"
-              >배송 문의</a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="fixed nav-link" href="#">고장 문의</a>
-          </li>
-          <li class="nav-item">
-            <a class="another nav-link" href="#">기타 문의</a>
-          </li>
-        </ul>
-        <br />
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>문의 유형</th>
-              <th>글번호</th>
-              <th>제목</th>
-              <th>글쓴이</th>
-              <th>작성일</th>
-              <th>조회</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="another">기타 문의</td>
-              <td>111</td>
-              <td><a href="#">기술 제휴 문의 드립니다.</a></td>
-              <td>최태원</td>
-              <td>2022.05.11</td>
-              <td>112</td>
-            </tr>
-            <tr>
-              <td class="fixed">고장 문의</td>
-              <td>110</td>
-              <td><a href="#">아 고장났자나여ㅡㅡ</a></td>
-              <td>황현진</td>
-              <td>2022.05.11</td>
-              <td>87</td>
-            </tr>
-            <tr>
-              <td class="delivery">배송 문의</td>
-              <td>109</td>
-              <td><a href="#">배송 제발 빨리 보내주세요 제발</a></td>
-              <td>이용복</td>
-              <td>2022.05.11</td>
-              <td>158</td>
-            </tr>
-            <tr>
-              <td class="another">기타 문의</td>
-              <td>108</td>
-              <td><a href="#">대량 구매 문의드립니다.</a></td>
-              <td>이재용</td>
-              <td>2022.05.10</td>
-              <td>108</td>
-            </tr>
-            <tr>
-              <td class="another">기타 문의</td>
-              <td>107</td>
-              <td><a href="#">신고합니다</a></td>
-              <td>유주영</td>
-              <td>2022.05.11</td>
-              <td>107</td>
-            </tr>
-            <tr>
-              <td class="fixed">고장 문의</td>
-              <td>106</td>
-              <td><a href="#">우리 고양이도 보고가세요</a></td>
-              <td>수박조아</td>
-              <td>2022.05.11</td>
-              <td>87</td>
-            </tr>
-            <tr>
-              <td class="delivery">배송 문의</td>
-              <td>105</td>
-              <td><a href="#">집가고싶다</a></td>
-              <td>김헌찬</td>
-              <td>2022.05.11</td>
-              <td>106</td>
-            </tr>
-            <tr>
-              <td class="delivery">배송 문의</td>
-              <td>104</td>
-              <td><a href="#">저는 튼튼하고 여러분을 좋아해여</a></td>
-              <td>박지성</td>
-              <td>2022.05.10</td>
-              <td>105</td>
-            </tr>
-          </tbody>
-        </table>
-        <button
-          type="button"
-          class="btn btn-write"
-          onClick="location.href='service-write.html'"
-        >
-          글작성
-        </button>
-        <br /><br />
-        <nav aria-label="Page navigation example">
-          <ul class="pagination btn-movepage justify-content-center">
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
       </div>
     </div>
 
@@ -339,7 +272,7 @@
               <div class="single-footer-widget">
                 <div class="footer-logo mb-30">
                   <a href="#"
-                    ><img src="/resources/img/core-img/SSSSlogo.png" alt=""
+                    ><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt=""
                   /></a>
                 </div>
                 <p>
@@ -402,7 +335,7 @@
                 >
                   <div class="product-thumbnail">
                     <a href="shop-details.html"
-                      ><img src="/resources/img/bg-img/apple1.png" alt=""
+                      ><img src="${pageContext.request.contextPath}/resources/img/bg-img/apple1.png" alt=""
                     /></a>
                   </div>
                   <div class="product-info">
@@ -417,7 +350,7 @@
                 >
                   <div class="product-thumbnail">
                     <a href="shop-details.html"
-                      ><img src="/resources/img/bg-img/apple.png" alt=""
+                      ><img src="${pageContext.request.contextPath}/resources/img/bg-img/apple.png" alt=""
                     /></a>
                   </div>
                   <div class="product-info">
@@ -494,14 +427,23 @@
 
     <!-- ##### All Javascript Files ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="/resources/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="/resources/js/bootstrap/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="/resources/js/bootstrap/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="/resources/js/plugins/plugins.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="/resources/js/active.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/active.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="${pageContext.request.contextPath}/resources/js/chart.js/Chart.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="${pageContext.request.contextPath}/resources/js/chart-area-demo.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/chart-bar-demo.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/chart-pie-demo.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/datatables-demo.js"></script>
   </body>
 </html>

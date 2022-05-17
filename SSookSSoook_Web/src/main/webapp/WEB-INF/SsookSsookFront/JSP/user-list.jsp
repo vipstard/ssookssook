@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+   <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,13 +14,13 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>SsookSsook - Customer Service</title>
+    <title>SsookSsook - User List</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="/resources/img/core-img/favicon.ico" />
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/img/core-img/favicon.ico" />
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="/resources/style.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/style.css" />
   </head>
 
   <body>
@@ -25,7 +28,7 @@
     <div class="preloader d-flex align-items-center justify-content-center">
       <div class="preloader-circle"></div>
       <div class="preloader-img">
-        <img src="/resources/img/core-img/leaf.png" alt="" />
+        <img src="${pageContext.request.contextPath}/resources/img/core-img/leaf.png" alt="" />
       </div>
     </div>
 
@@ -66,14 +69,14 @@
                   </div>
                   <!-- Login -->
                   <div class="login">
-                    <a href="./login.html"
+                    <a href="LoginForm"
                       ><i class="fa fa-user" aria-hidden="true"></i>
                       <span>Log in</span></a
                     >
                   </div>
                   <!-- Sign Up -->
                   <div class="Sign Up">
-                    <a href="./join.html"
+                    <a href="JoinForm"
                       ><i class="fa fa-sign-in" aria-hidden="true"></i>
                       <span>Sign Up</span></a
                     >
@@ -92,8 +95,8 @@
             <!-- Menu -->
             <nav class="classy-navbar justify-content-between" id="alazeaNav">
               <!-- Nav Brand -->
-              <a href="index.html" class="nav-brand"
-                ><img src="/resources/img/core-img/SSSSlogo.png" alt=""
+              <a href="main" class="nav-brand"
+                ><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt=""
               /></a>
 
               <!-- Navbar Toggler -->
@@ -115,16 +118,16 @@
                 <!-- Navbar Start -->
                 <div class="classynav">
                   <ul style="font-family: SBAggroL">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">회사 소개</a></li>
-                    <li><a href="purchase.html">제품 구매</a></li>
+                    <li><a href="main">Home</a></li>
+                    <li><a href="About">회사 소개</a></li>
+                    <li><a href="Purchase">제품 구매</a></li>
                     <li><a href="helpQnA">고객 센터</a></li>
-                    <li><a href="contact.html">A/S</a></li>
+                    <li><a href=Contact>A/S</a></li>
                     <li>
-                      <a href="user-list.html">회원 관리</a>
+                      <a href="member_Manage">회원 관리</a>
                       <ul class="dropdown">
-                        <li><a href="user-list.html">회원 관리</a></li>
-                        <li><a href="shop-details.html">매출 관리</a></li>
+                        <li><a href="member_Manage">회원 관리</a></li>
+                        <li><a href="Sales_Manage">매출 관리</a></li>
                       </ul>
                     </li>
                   </ul>
@@ -164,9 +167,9 @@
       <!-- Top Breadcrumb Area -->
       <div
         class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
-        style="background-image: url(/resources/img/bg-img/main4.png)"
+        style="background-image: url(${pageContext.request.contextPath}/resources/img/bg-img/main5.png)"
       >
-        <h2>고객 문의</h2>
+        <h2>회원 관리</h2>
       </div>
 
       <div class="container">
@@ -178,7 +181,7 @@
                   <a href="#"><i class="fa fa-home"></i> Home</a>
                 </li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  고객 문의
+                  회원 관리
                 </li>
               </ol>
             </nav>
@@ -190,143 +193,190 @@
 
     <!-- ##### Breadcrumb Area Start ##### -->
 
-    <div id="main">
-      <br /><br />
-      <div class="container ScoreDream400" id="board-list">
-        <div class="search-window">
+    <div class="container">
+      <div class="row" style="margin: 30px 0px 40px 0px">
+        <div class="col-lg-12">
+          <div class="main-box clearfix">
+            <div class="table-responsive">
+              <table class="table user-list">
+                <thead>
+                  <tr class="text-center">
+                    <th><span>No.</span></th>
+                    <th><span>ID</span></th>
+                    <th><span>Name</span></th>
+                    <th><span>Tel</span></th>
+                    <th><span>Email</span></th>
+                    <th><span>Eddress</span></th>
+                    <th><span>Create</span></th>
+                    <th>&nbsp;</th>
+                  </tr>
+                </thead>
+                <tbody style="font-size: 15px">
+                  <tr class="user-data text-center">
+                    <td>01</td>
+                    <td class="userId" style="width: 10%">
+                      <a href="#">hyeonbinzzang</a>
+                    </td>
+                    <td>조현빈</td>
+                    <td style="width: 20%">010-1234-1234</td>
+
+                    <td style="width: 20%">ssss@ssss.com</td>
+                    <td style="width: 30%">
+                      서울특별시 강동구 강동대로 205 JYP Center
+                    </td>
+                    <td>2022-01-01</td>
+                    <td style="width: 20%">
+                      <a
+                        href="./user-view.html"
+                        class="table-link text-warning"
+                      >
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i
+                            class="fa fa-search-plus fa-stack-1x fa-inverse"
+                          ></i>
+                        </span>
+                      </a>
+                      <a href="#" class="table-link text-info">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                      <a href="#" class="table-link danger">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr class="user-data text-center">
+                    <td>02</td>
+                    <td class="userId" style="width: 10%">
+                      <a href="#">yoondongil</a>
+                    </td>
+                    <td>윤동일</td>
+                    <td style="width: 20%">010-1234-1234</td>
+                    <td style="width: 20%">soongdoongdori@ssss.com</td>
+                    <td style="width: 30%">광주광역시 동구 예술길 31-15 4층</td>
+                    <td>2022-01-01</td>
+                    <td style="width: 20%">
+                      <a href="#" class="table-link text-warning">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i
+                            class="fa fa-search-plus fa-stack-1x fa-inverse"
+                          ></i>
+                        </span>
+                      </a>
+                      <a href="#" class="table-link text-info">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                      <a href="#" class="table-link danger">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                   <c:forEach var="vo" items="${memeber_list}">	
+                  <tr class="user-data text-center">
+                    <td>${vo.rn}</td>
+                    <td class="userId" style="width: 10%">
+                      <a href="#">${vo.id}</a>
+                    </td>
+                    <td>${vo.name}</td>
+                    <td style="width: 20%">${vo.phone}</td>
+                    <td style="width: 20%">${vo.email}</td>
+                    <td style="width: 30%">${vo.addr}</td>
+                    <td>${vo.joindate}</td>
+                    <td style="width: 20%">
+                      <a href="#" class="table-link text-warning">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i
+                            class="fa fa-search-plus fa-stack-1x fa-inverse"
+                          ></i>
+                        </span>
+                      </a>
+                      <a href="#" class="table-link text-info">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                      <a href="memberDelete?id=${vo.id}" class="table-link danger">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                   </c:forEach>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="search-window">
           <form action="">
             <div class="search-wrap">
               <input
                 id="search"
-                type="search"
-                name=""
+                type="text"
+                name="keyword"
                 placeholder="ㅤ검색어를 입력해주세요."
-                value=""
+                value="${BoardPageMaker.cri.keyword }"
               />
-              <button type="submit" class="btn btn-success">검색</button>
+              <button class="btn btn-success">검색</button>
             </div>
           </form>
         </div>
-        <br /><br />
-        <ul class="nav justify-content-end">
-          <li class="nav-item">
-            <a class="delivery nav-link active" aria-current="page" href="#"
-              >배송 문의</a
+            <nav
+              aria-label="Page navigation example"
+              style="margin: 20px 0px 0px 10px"
             >
-          </li>
-          <li class="nav-item">
-            <a class="fixed nav-link" href="#">고장 문의</a>
-          </li>
-          <li class="nav-item">
-            <a class="another nav-link" href="#">기타 문의</a>
-          </li>
-        </ul>
-        <br />
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>문의 유형</th>
-              <th>글번호</th>
-              <th>제목</th>
-              <th>글쓴이</th>
-              <th>작성일</th>
-              <th>조회</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="another">기타 문의</td>
-              <td>111</td>
-              <td><a href="#">기술 제휴 문의 드립니다.</a></td>
-              <td>최태원</td>
-              <td>2022.05.11</td>
-              <td>112</td>
-            </tr>
-            <tr>
-              <td class="fixed">고장 문의</td>
-              <td>110</td>
-              <td><a href="#">아 고장났자나여ㅡㅡ</a></td>
-              <td>황현진</td>
-              <td>2022.05.11</td>
-              <td>87</td>
-            </tr>
-            <tr>
-              <td class="delivery">배송 문의</td>
-              <td>109</td>
-              <td><a href="#">배송 제발 빨리 보내주세요 제발</a></td>
-              <td>이용복</td>
-              <td>2022.05.11</td>
-              <td>158</td>
-            </tr>
-            <tr>
-              <td class="another">기타 문의</td>
-              <td>108</td>
-              <td><a href="#">대량 구매 문의드립니다.</a></td>
-              <td>이재용</td>
-              <td>2022.05.10</td>
-              <td>108</td>
-            </tr>
-            <tr>
-              <td class="another">기타 문의</td>
-              <td>107</td>
-              <td><a href="#">신고합니다</a></td>
-              <td>유주영</td>
-              <td>2022.05.11</td>
-              <td>107</td>
-            </tr>
-            <tr>
-              <td class="fixed">고장 문의</td>
-              <td>106</td>
-              <td><a href="#">우리 고양이도 보고가세요</a></td>
-              <td>수박조아</td>
-              <td>2022.05.11</td>
-              <td>87</td>
-            </tr>
-            <tr>
-              <td class="delivery">배송 문의</td>
-              <td>105</td>
-              <td><a href="#">집가고싶다</a></td>
-              <td>김헌찬</td>
-              <td>2022.05.11</td>
-              <td>106</td>
-            </tr>
-            <tr>
-              <td class="delivery">배송 문의</td>
-              <td>104</td>
-              <td><a href="#">저는 튼튼하고 여러분을 좋아해여</a></td>
-              <td>박지성</td>
-              <td>2022.05.10</td>
-              <td>105</td>
-            </tr>
-          </tbody>
-        </table>
-        <button
-          type="button"
-          class="btn btn-write"
-          onClick="location.href='service-write.html'"
-        >
-          글작성
-        </button>
-        <br /><br />
-        <nav aria-label="Page navigation example">
-          <ul class="pagination btn-movepage justify-content-center">
+              <ul class="pagination btn-movepage justify-content-center" id="pageInfo">
+                
+                <!-- 이전 페이지 -->
+             <c:if test="${pageMaker.cri.pageNum > 10}">
+	            <li class="page-item">
+	              <a class="page-link" href="${pageMaker.startPage-1}" aria-label="Previous">
+	                <span aria-hidden="true">&laquo;</span>
+	              </a>
+	            </li>
+             </c:if>
+            
+            <!-- 각 번호 페이지 버튼 -->
+            <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+                   <li class="page-item ${pageMaker.cri.pageNum == num ? "active":"" }"><a class="page-link" href="${num}">${num}</a></li>
+            </c:forEach>
+           
+           <!-- 다음 페이지 -->
+           <c:if test="${pageMaker.cri.pageNum < pageMaker.realEnd}">
             <li class="page-item">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-              </a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
+              <a class="page-link" href="${pageMaker.endPage + 1 }" aria-label="Next">
                 <span aria-hidden="true">&raquo;</span>
               </a>
             </li>
-          </ul>
-        </nav>
+            </c:if>
+              </ul>
+            </nav>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- 페이지수, 총개수, 검색키워드 전송 -->
+   <form id="moveForm" method="get">
+   	<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+   	<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+   	<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
+  </form>  
 
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area bg-img" style="background-color: #313b2b">
@@ -339,7 +389,7 @@
               <div class="single-footer-widget">
                 <div class="footer-logo mb-30">
                   <a href="#"
-                    ><img src="/resources/img/core-img/SSSSlogo.png" alt=""
+                    ><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt=""
                   /></a>
                 </div>
                 <p>
@@ -402,7 +452,7 @@
                 >
                   <div class="product-thumbnail">
                     <a href="shop-details.html"
-                      ><img src="/resources/img/bg-img/apple1.png" alt=""
+                      ><img src="${pageContext.request.contextPath}/resources/img/bg-img/apple1.png" alt=""
                     /></a>
                   </div>
                   <div class="product-info">
@@ -417,7 +467,7 @@
                 >
                   <div class="product-thumbnail">
                     <a href="shop-details.html"
-                      ><img src="/resources/img/bg-img/apple.png" alt=""
+                      ><img src="${pageContext.request.contextPath}/resources/img/bg-img/apple.png" alt=""
                     /></a>
                   </div>
                   <div class="product-info">
@@ -494,14 +544,42 @@
 
     <!-- ##### All Javascript Files ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="/resources/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="/resources/js/bootstrap/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="/resources/js/bootstrap/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="/resources/js/plugins/plugins.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="/resources/js/active.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/active.js"></script>
+    
+    <script>
+
+/* 페이지 넘기기 js */
+let moveForm = $("#moveForm");
+
+   $("#pageInfo a").on("click", function(e){
+ 
+        e.preventDefault();
+        moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+        moveForm.attr("action", "member_Manage");
+        moveForm.submit();
+        
+    });
+   
+  
+/* 검색 기능 */
+   $(".search_area button").on("click", function(e){
+       e.preventDefault();
+       let val = $("input[name='keyword']").val();
+       moveForm.find("input[name='keyword']").val(val);
+       moveForm.find("input[name='pageNum']").val(1);
+       moveForm.submit();
+   });
+
+
+ 
+</script>
   </body>
 </html>
