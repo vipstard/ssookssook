@@ -70,7 +70,7 @@
       center: true,
     });
 
-    Array.from(document.getElementsByClassName("carousel")).map((item) => {
+    Array.from(document.getElementsByClassName("sub-carousel")).map((item) => {
       Array.from(
         item.getElementsByTagName("ul")?.item(0).getElementsByTagName("li")
       ).forEach((el, index) => {
