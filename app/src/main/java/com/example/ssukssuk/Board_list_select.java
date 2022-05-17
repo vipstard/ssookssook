@@ -1,7 +1,6 @@
 package com.example.ssukssuk;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -14,14 +13,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.ssukssuk.Board_answerVO.Board_answer_Adapter;
-import com.example.ssukssuk.Board_answerVO.Board_answer_VO;
+import com.example.ssukssuk.Board.Board_VO;
 import com.example.ssukssuk.VO.BoardVO_content;
 import com.example.ssukssuk.VO.Board_list_select_writeVO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -108,7 +105,7 @@ public class Board_list_select extends AppCompatActivity {
                     DataSnapshot snapshot = task.getResult();
                     if (cnt == 0) {
                         for (DataSnapshot data : snapshot.getChildren()) {
-                            Board_answer_VO vo = data.getValue(Board_answer_VO.class);
+                            Board_VO vo = data.getValue(Board_VO.class);
                             BoardVO_content vo1 = new BoardVO_content();
                             if (title.equals(vo.getTitle())) {
                                 writer1 = vo.getWriter();
