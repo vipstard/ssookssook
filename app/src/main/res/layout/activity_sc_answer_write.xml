@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ServiceCenter.ScAnswerWriteActivity">
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="196dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="댓글 작성하기"
+        android:textAlignment="center"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/edt_board_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_SAWA_Content"
+        android:layout_width="350dp"
+        android:layout_height="396dp"
+        android:layout_marginTop="39dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+
+    <Button
+        android:id="@+id/btn_SAWA_Write"
+        android:layout_width="94dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:text="댓글작성"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_SAWA_Content" />
+</androidx.constraintlayout.widget.ConstraintLayout>
