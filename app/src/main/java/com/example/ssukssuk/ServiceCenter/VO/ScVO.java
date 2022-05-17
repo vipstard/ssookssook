@@ -3,14 +3,13 @@ package com.example.ssukssuk.ServiceCenter.VO;
 public class ScVO {
 
     private String num;
-    private String writer;
     private String title;
-    private String content;
+    private String post;
     private String date;
+    private String writer;
 
 
-    public ScVO() {
-    }
+    public ScVO(){}
 
     public ScVO(String title, String date) {
         this.title = title;
@@ -19,11 +18,11 @@ public class ScVO {
 
     //constructor
 
-    public ScVO(String writer, String title, String content, String date) {
-        this.writer = writer;
+    public ScVO(String title, String post, String date, String writer) {
         this.title = title;
-        this.content = content;
+        this.post = post;
         this.date = date;
+        this.writer = writer;
     }
 
     public ScVO(String num, String title, String date) {
@@ -33,16 +32,17 @@ public class ScVO {
     }
 
 
+
     //toString()
 
 
     @Override
     public String toString() {
         return "ScVO{" +
-                "writer='" + writer + '\'' +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
+                "title='" + title + '\'' +
+                ", post='" + post + '\'' +
                 ", date='" + date + '\'' +
+                ", writer='" + writer + '\'' +
                 '}';
     }
 
@@ -58,15 +58,9 @@ public class ScVO {
     public String getWriter() {
         return writer;
     }
-
     public String getNum() {
         return num;
     }
-
-    public String getContent() {
-        return content;
-    }
-
 
     //Setter
     public void setTitle(String title) {
@@ -77,12 +71,12 @@ public class ScVO {
         this.date = date;
     }
 
-    public void setNum(String num) {
-        this.num = num;
+    public String getPost() {
+        return post;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setPost(String post) {
+        this.post = post;
     }
 
     public void setWriter(String writer) {

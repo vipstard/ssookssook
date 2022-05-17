@@ -17,7 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.ssukssuk.ServiceCenter.VO.ScAdapter;
-import com.example.ssukssuk.ServiceCenter.ScListSelectActivity;
+import com.example.ssukssuk.ServiceCenter.ScListViewActivity;
 import com.example.ssukssuk.ServiceCenter.VO.ScVO;
 import com.example.ssukssuk.ServiceCenter.ScWriteActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -105,7 +105,7 @@ public class Fragment4 extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 //클릭한 리스트뷰의 값을 해당 게시글에 값을 보내주록 저장하는 기능
-                Intent intent = new Intent(getActivity(), ScListSelectActivity.class);
+                Intent intent = new Intent(getActivity(), ScListViewActivity.class);
                 intent.putExtra("SCwriter", list.get(i).getWriter());
                 intent.putExtra("SCtitle", list.get(i).getTitle());
                 intent.putExtra("SCdate", list.get(i).getDate());

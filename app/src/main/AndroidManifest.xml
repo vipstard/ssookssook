@@ -28,7 +28,7 @@
             android:name=".Board_answer"
             android:exported="false" />
         <activity
-            android:name=".ServiceCenter.ScListSelectActivity"
+            android:name=".ServiceCenter.ScListViewActivity"
             android:exported="false" />
         <activity
             android:name=".ServiceCenter.ScEditActivity"
@@ -58,7 +58,7 @@
             android:name=".Find.Pw.PwFindFailActivity"
             android:exported="false" />
         <activity
-            android:name=".BoardListSelectActivity"
+            android:name=".Board_list_select"
             android:exported="false" />
         <activity
             android:name=".DiaryActivity2"
@@ -88,7 +88,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".BoardWriteActivity"
+            android:name=".Board_write"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

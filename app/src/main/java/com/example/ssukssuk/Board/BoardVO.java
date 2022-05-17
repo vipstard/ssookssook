@@ -1,42 +1,28 @@
 package com.example.ssukssuk.Board;
 
 public class BoardVO {
-
-    private String writer;
     private String title;
-    private String content;
     private String date;
+    private String writer;
 
     public BoardVO(){}
 
-    public BoardVO(String writer, String title, String content, String date) {
-        this.writer = writer;
-        this.title = title;
-        this.content = content;
-        this.date = date;
-    }
-
     public BoardVO(String writer, String title, String date) {
-        this.writer = writer;
         this.title = title;
+        this.date = date;
+        this.writer = writer;
+    }
+
+
+    public void getTitle(String title) {
+        this.title = title;
+    }
+
+    public void getDate(String date) {
         this.date = date;
     }
 
-    @Override
-    public String toString() {
-        return "BoardVO{" +
-                "writer='" + writer + '\'' +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", date='" + date + '\'' +
-                '}';
-    }
-
-    public String getWriter() {
-        return writer;
-    }
-
-    public void setWriter(String writer) {
+    public void getWriter(String writer) {
         this.writer = writer;
     }
 
@@ -44,23 +30,23 @@ public class BoardVO {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
     public String getDate() {
         return date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public String getWriter() {
+        return writer;
     }
+
+    @Override
+    public String toString() {
+        return "BoardVO{" +
+                " writer='" + writer + '\'' +
+                ",title='" + title + '\'' +
+                ", date='" + date + '\'' +
+                '}';
+    }
+
+
+
 }
