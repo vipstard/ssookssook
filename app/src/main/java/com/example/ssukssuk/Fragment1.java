@@ -20,7 +20,6 @@ import androidx.fragment.app.Fragment;
 
 import com.example.ssukssuk.Board.BoardAdapter;
 import com.example.ssukssuk.Board.BoardVO;
-import com.example.ssukssuk.VO.BoardVO_content;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -80,7 +79,7 @@ public class Fragment1 extends Fragment {
 
                     for (DataSnapshot data : snapshot.getChildren()) {
 
-                        BoardVO_content vo = data.getValue(BoardVO_content.class);
+                        BoardVO vo = data.getValue(BoardVO.class);
                         writer = vo.getWriter();
                         title = vo.getTitle();
                         date = vo.getDate();

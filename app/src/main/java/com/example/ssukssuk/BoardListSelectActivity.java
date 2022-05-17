@@ -13,10 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.ssukssuk.Board_answerVO.Board_answer_Adapter;
-import com.example.ssukssuk.Board_answerVO.Board_answer_VO;
-import com.example.ssukssuk.ServiceCenter.ScEditActivity;
-import com.example.ssukssuk.ServiceCenter.ScListSelectActivity;
-import com.example.ssukssuk.VO.BoardVO_content;
+import com.example.ssukssuk.Board.BoardVO;
 import com.example.ssukssuk.VO.Board_list_select_writeVO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -90,7 +87,7 @@ public class BoardListSelectActivity extends AppCompatActivity {
                     DataSnapshot snapshot = task.getResult();
                     for (DataSnapshot data : snapshot.getChildren()) {
 
-                        BoardVO_content vo = data.getValue(BoardVO_content.class);
+                        BoardVO vo = data.getValue(BoardVO.class);
 
                         content = vo.getContent();
                         tv_content.setText(content);
@@ -174,8 +171,8 @@ public class BoardListSelectActivity extends AppCompatActivity {
                     DataSnapshot snapshot = task.getResult();
                     if (cnt == 0) {
                         for (DataSnapshot data : snapshot.getChildren()) {
-                            Board_answer_VO vo = data.getValue(Board_answer_VO.class);
-                            BoardVO_content vo1 = new BoardVO_content();
+                            BoardVO vo = data.getValue(BoardVO.class);
+                            BoardVO vo1 = new BoardVO();
                             if (title.equals(vo.getTitle())) {
                                 writer1 = vo.getWriter();
                                 date = vo.getDate();

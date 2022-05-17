@@ -13,9 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.ssukssuk.Board.BoardVO;
-import com.example.ssukssuk.ServiceCenter.ScEditActivity;
-import com.example.ssukssuk.ServiceCenter.VO.ScVO;
-import com.example.ssukssuk.VO.BoardVO_content;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
@@ -55,7 +52,7 @@ public class BoardEditActivity extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                BoardVO_content vo = snapshot.getValue(BoardVO_content.class);
+                BoardVO vo = snapshot.getValue(BoardVO.class);
 
                 //로그인한 아이디 값과 리스트뷰로 누른 제목 값이 데베에 있는 값과 같다면
                 if (title.equals(vo.getTitle())){
