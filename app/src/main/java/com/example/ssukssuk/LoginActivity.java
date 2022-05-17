@@ -129,6 +129,7 @@ public class LoginActivity extends AppCompatActivity {
                                 //아이디 중복체크 로직
                                 if (user_id.getText().toString().equals(vo.getId().toString()) && user_pw.getText().toString().equals(vo.getPw().toString())) {
                                     editor.putString("user_login_id1", user_id.getText().toString());
+                                    editor.putString("login_key",data.getKey());
                                     editor.commit();
                                     if (auto_check.isChecked()) {
                                         SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);

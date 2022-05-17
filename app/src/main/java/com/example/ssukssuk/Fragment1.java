@@ -34,8 +34,8 @@ public class Fragment1 extends Fragment {
     ListView lv;
     BoardAdapter adapter;
     ArrayList<BoardVO> list;
-    EditText edtData;
-    Button btn_register;
+    EditText edt_search;
+    Button btn_write;
     ArrayList<BoardVO> list2;          // 데이터를 넣은 리스트변수
     String title = "";
     String date = "";
@@ -53,18 +53,17 @@ public class Fragment1 extends Fragment {
 
         String loginId = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("user_login_id1", null);
-        edtData = view.findViewById(R.id.edt_B_Search);
-        btn_register = view.findViewById(R.id.btn_BF_Write);
+        edt_search = view.findViewById(R.id.edt_B_Search);
+        btn_write = view.findViewById(R.id.btn_BF_Write);
         list2 = new ArrayList<BoardVO>();
         lv = view.findViewById(R.id.lv);
         list = new ArrayList<BoardVO>();
 
         //등록하기 버튼
-        btn_register.setOnClickListener(new View.OnClickListener() {
+        btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Board_write.class);
-                intent.putExtra("id", loginId);
+                Intent intent = new Intent(getActivity(), BoardWriteActivity.class);
                 startActivity(intent);
             }
         });
@@ -105,7 +104,7 @@ public class Fragment1 extends Fragment {
         );
         lv.setAdapter(adapter);
 
-        edtData.addTextChangedListener(new TextWatcher() {
+        edt_search.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
             }
@@ -119,7 +118,7 @@ public class Fragment1 extends Fragment {
             public void afterTextChanged(Editable editable) {
                 // input창에 문자를 입력할때마다 호출된다.
                 // search 메소드를 호출한다.
-                String text = edtData.getText().toString();
+                String text = edt_search.getText().toString();
                 search(text);
             }
         });
@@ -128,14 +127,20 @@ public class Fragment1 extends Fragment {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), Board_list_select.class);
+                Intent intent = new Intent(getActivity(), BoardListSelectActivity.class);
                 String title = list.get(i).getTitle();
 
+                //누른 게시글의 제목,글쓴사람,날짜를 저장한다
                 SharedPreferences spf = getActivity().
                         getSharedPreferences("mySPF", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = spf.edit();
                 editor.putString("title", title);
                 editor.putString("writer", writer);
+                editor.putString("indate",date);
+                Log.d("title11",title);
+                Log.d("title112",writer);
+                Log.d("title113",date);
+
                 editor.commit();
 
                 startActivity(intent);

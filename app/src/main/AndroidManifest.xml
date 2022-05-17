@@ -17,10 +17,13 @@
         android:theme="@style/Theme.Ssukssuk"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".BoardEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".Board_answer"
             android:exported="false" />
         <activity
-            android:name=".ServiceCenter.ScListViewActivity"
+            android:name=".ServiceCenter.ScListSelectActivity"
             android:exported="false" />
         <activity
             android:name=".ServiceCenter.ScEditActivity"
@@ -50,7 +53,7 @@
             android:name=".Find.Pw.PwFindFailActivity"
             android:exported="false" />
         <activity
-            android:name=".Board_list_select"
+            android:name=".BoardListSelectActivity"
             android:exported="false" />
         <activity
             android:name=".DiaryActivity2"
@@ -80,7 +83,7 @@
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".Board_write"
+            android:name=".BoardWriteActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

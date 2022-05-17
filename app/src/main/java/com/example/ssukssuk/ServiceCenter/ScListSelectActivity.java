@@ -21,10 +21,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class ScListViewActivity extends AppCompatActivity {
+public class ScListSelectActivity extends AppCompatActivity {
 
-    TextView tv_Title, tv_Post;
-    Button btn_Edit, btn_Delete;
+    TextView tv_title, tv_content;
+    Button btn_edit, btn_delete;
 
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -33,12 +33,12 @@ public class ScListViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sc_list_view);
+        setContentView(R.layout.activity_sc_list_select);
 
-        tv_Title = findViewById(R.id.tv_SLVA_Title);
-        tv_Post = findViewById(R.id.tv_SLVA_Post);
-        btn_Delete = findViewById(R.id.btn_SLVA_Delete);
-        btn_Edit = findViewById(R.id.btn_SLVA_Edit);
+        tv_title = findViewById(R.id.tv_SLVA_Title);
+        tv_content= findViewById(R.id.tv_SLVA_Post);
+        btn_delete = findViewById(R.id.btn_SLVA_Delete);
+        btn_edit = findViewById(R.id.btn_SLVA_Edit);
 
 
 
@@ -53,7 +53,7 @@ public class ScListViewActivity extends AppCompatActivity {
                 ScVO vo = snapshot.getValue(ScVO.class);
 
                 //LoginActivity에서 user_login_id1에 저장한 로그인 아이디를 writer에 삽입
-                String writer = ScListViewActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                String writer = ScListSelectActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                         getString("user_login_id1", null);
 
 
@@ -62,9 +62,9 @@ public class ScListViewActivity extends AppCompatActivity {
 
                 if (writer.equals(vo.getWriter()) && title.equals(vo.getTitle())) {
                     //tv_Title에 데이터베이스에 있는 Title 값을 출력
-                    tv_Title.setText(vo.getTitle());
+                    tv_title.setText(vo.getTitle());
                     //tv_Post에 데이터베이스에 있는 Title 값을 출력
-                    tv_Post.setText(vo.getPost());
+                    tv_content.setText(vo.getContent());
 
                     // 키 값 가져온 후 저장한다
                     String a = snapshot.getKey();
@@ -72,7 +72,7 @@ public class ScListViewActivity extends AppCompatActivity {
 
 
                     //멈춰있는 for문 값에서 버튼 기능 실행
-                    btn_Delete.setOnClickListener(new View.OnClickListener() {
+                    btn_delete.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
 
@@ -80,15 +80,15 @@ public class ScListViewActivity extends AppCompatActivity {
                             myRef.child(a).removeValue();
 
                             //화면이동
-                            startActivity(new Intent(ScListViewActivity.this, MainActivity.class));
+                            startActivity(new Intent(ScListSelectActivity.this, MainActivity.class));
 
                         }
 
                     });
-                    btn_Edit.setOnClickListener(new View.OnClickListener() {
+                    btn_edit.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent intent1 =  new Intent(ScListViewActivity.this, ScEditActivity.class);
+                            Intent intent1 =  new Intent(ScListSelectActivity.this, ScEditActivity.class);
                             intent1.putExtra("ScTitle1",vo.getTitle());
                             startActivity(intent1);
                         }
@@ -136,7 +136,7 @@ public class ScListViewActivity extends AppCompatActivity {
 //
 //                            ScVO vo = data.getValue(ScVO.class);
 //
-//                            String writer = ScListViewActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+//                            String writer = ScListSelectActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
 //                                    getString("user_login_id1", null);
 //
 //                            if (writer.equals(vo.getWriter()) && title.equals(vo.getTitle())) {
@@ -158,7 +158,7 @@ public class ScListViewActivity extends AppCompatActivity {
 //
 //
 //                myRef.child(title).removeValue();
-//                startActivity(new Intent(ScListViewActivity.this, ScEditActivity.class));
+//                startActivity(new Intent(ScListSelectActivity.this, ScEditActivity.class));
 //            }
 //
 //        });

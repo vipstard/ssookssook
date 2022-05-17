@@ -4,7 +4,7 @@ public class ScVO {
 
     private String num;
     private String title;
-    private String post;
+    private String content;
     private String date;
     private String writer;
 
@@ -18,9 +18,9 @@ public class ScVO {
 
     //constructor
 
-    public ScVO(String title, String post, String date, String writer) {
+    public ScVO(String title, String content, String date, String writer) {
         this.title = title;
-        this.post = post;
+        this.content = content;
         this.date = date;
         this.writer = writer;
     }
@@ -40,7 +40,7 @@ public class ScVO {
     public String toString() {
         return "ScVO{" +
                 "title='" + title + '\'' +
-                ", post='" + post + '\'' +
+                ", content='" + content + '\'' +
                 ", date='" + date + '\'' +
                 ", writer='" + writer + '\'' +
                 '}';
@@ -71,12 +71,12 @@ public class ScVO {
         this.date = date;
     }
 
-    public String getPost() {
-        return post;
+    public String getContent() {
+        return content;
     }
 
-    public void setPost(String post) {
-        this.post = post;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public void setWriter(String writer) {
