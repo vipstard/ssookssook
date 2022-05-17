@@ -5,7 +5,8 @@ import android.widget.TextView;
 
 import com.example.ssukssuk.R;
 
-public class ScAnswerHolder { private TextView content, date, writer;
+public class ScAnswerHolder {
+    private TextView content, date, writer;
 
     public ScAnswerHolder(View itemView) {
         date = itemView.findViewById(R.id.answer_date);

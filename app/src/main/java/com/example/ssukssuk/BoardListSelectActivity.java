@@ -30,13 +30,14 @@ import java.util.ArrayList;
 public class BoardListSelectActivity extends AppCompatActivity {
     Button btn_answer, btn_delete, btn_edit;
     TextView tv_title, tv_content, tv_writer;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("Board");
-    DatabaseReference myRef1 = database.getReference("Board_answer");
     ArrayList<Board_list_select_writeVO> list;
     Board_answer_Adapter adapter;
     ListView lv;
     int cnt = 0;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Board");
+    DatabaseReference myRef1 = database.getReference("Board_answer");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
