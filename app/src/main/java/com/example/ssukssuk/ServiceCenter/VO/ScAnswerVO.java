@@ -16,16 +16,16 @@ public class ScAnswerVO {
 
     //constructor
 
-    public ScAnswerVO(String title, String content, String date, String writer) {
+    public ScAnswerVO(String writer, String title, String content, String date) {
+        this.writer = writer;
         this.title = title;
         this.content = content;
         this.date = date;
-        this.writer = writer;
     }
 
-    public ScAnswerVO(String writer, String title, String date) {
+    public ScAnswerVO(String writer, String content, String date) {
         this.writer = writer;
-        this.title = title;
+        this.content = content;
         this.date = date;
     }
 
@@ -35,10 +35,10 @@ public class ScAnswerVO {
     @Override
     public String toString() {
         return "ScVO{" +
-                "title='" + title + '\'' +
+                "writer='" + writer + '\'' +
+                ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", date='" + date + '\'' +
-                ", writer='" + writer + '\'' +
                 '}';
     }
 
