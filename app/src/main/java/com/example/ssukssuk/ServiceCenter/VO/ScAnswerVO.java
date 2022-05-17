@@ -1,37 +1,33 @@
 package com.example.ssukssuk.ServiceCenter.VO;
 
-public class ScVO {
-
-    private String num;
-    private String writer;
+public class ScAnswerVO {
     private String title;
     private String content;
     private String date;
+    private String writer;
 
 
-    public ScVO() {
-    }
+    public ScAnswerVO(){}
 
-    public ScVO(String title, String date) {
+    public ScAnswerVO(String title, String date) {
         this.title = title;
         this.date = date;
     }
 
     //constructor
 
-    public ScVO(String writer, String title, String content, String date) {
-        this.writer = writer;
+    public ScAnswerVO(String title, String content, String date, String writer) {
         this.title = title;
         this.content = content;
         this.date = date;
+        this.writer = writer;
     }
 
-    public ScVO(String num, String title, String date) {
-        this.num = num;
+    public ScAnswerVO(String writer, String title, String date) {
+        this.writer = writer;
         this.title = title;
         this.date = date;
     }
-
 
     //toString()
 
@@ -39,10 +35,10 @@ public class ScVO {
     @Override
     public String toString() {
         return "ScVO{" +
-                "writer='" + writer + '\'' +
-                ", title='" + title + '\'' +
+                "title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 ", date='" + date + '\'' +
+                ", writer='" + writer + '\'' +
                 '}';
     }
 
@@ -58,15 +54,9 @@ public class ScVO {
     public String getWriter() {
         return writer;
     }
-
-    public String getNum() {
-        return num;
-    }
-
     public String getContent() {
         return content;
     }
-
 
     //Setter
     public void setTitle(String title) {
@@ -77,10 +67,6 @@ public class ScVO {
         this.date = date;
     }
 
-    public void setNum(String num) {
-        this.num = num;
-    }
-
     public void setContent(String content) {
         this.content = content;
     }
@@ -89,3 +75,5 @@ public class ScVO {
         this.writer = writer;
     }
 }
+
+

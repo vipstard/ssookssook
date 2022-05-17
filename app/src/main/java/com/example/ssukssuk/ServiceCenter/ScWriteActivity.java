@@ -52,10 +52,10 @@ public class ScWriteActivity extends AppCompatActivity {
 
 
                 myRef.push().setValue(new ScVO(
+                        writer,
                         title,
                         content,
-                        date,
-                        writer
+                        date
                 ));
                 startActivity(intent);
 
