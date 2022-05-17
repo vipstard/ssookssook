@@ -36,13 +36,9 @@ public class Fragment1 extends Fragment {
     EditText edt_search;
     Button btn_write;
     ArrayList<BoardVO> list2;          // 데이터를 넣은 리스트변수
-    String title = "";
-    String date = "";
-    String writer = "";
     final int i = 0;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Board");
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -62,8 +58,7 @@ public class Fragment1 extends Fragment {
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), BoardWriteActivity.class);
-                startActivity(intent);
+                startActivity(new Intent(getActivity(),BoardWriteActivity.class));
             }
         });
 
@@ -76,13 +71,13 @@ public class Fragment1 extends Fragment {
                 } else {
                     Log.d("firebase", String.valueOf(task.getResult().getValue()));
                     DataSnapshot snapshot = task.getResult();
-
                     for (DataSnapshot data : snapshot.getChildren()) {
 
                         BoardVO vo = data.getValue(BoardVO.class);
-                        writer = vo.getWriter();
-                        title = vo.getTitle();
-                        date = vo.getDate();
+
+                        String writer = vo.getWriter();
+                        String title = vo.getTitle();
+                        String date = vo.getDate();
                         list.add(new BoardVO(writer, title, date));
                         list2.add(new BoardVO(writer, title, date));
                         adapter.notifyDataSetChanged();
@@ -128,17 +123,16 @@ public class Fragment1 extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getActivity(), BoardListSelectActivity.class);
                 String title = list.get(i).getTitle();
+                String writer = list.get(i).getWriter();
+                String indate = list.get(i).getDate();
 
                 //누른 게시글의 제목,글쓴사람,날짜를 저장한다
                 SharedPreferences spf = getActivity().
                         getSharedPreferences("mySPF", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = spf.edit();
                 editor.putString("title", title);
-                editor.putString("writer", writer);
-                editor.putString("indate",date);
-                Log.d("title11",title);
-                Log.d("title112",writer);
-                Log.d("title113",date);
+                editor.putString("writer",writer);
+                editor.putString("indate",indate);
 
                 editor.commit();
 

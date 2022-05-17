@@ -56,10 +56,10 @@ public class Board_answer extends AppCompatActivity {
                         getString("writer", null);
 
                 myRef.push().setValue(new BoardVO(
-                        indate,
-                        content,
                         writer,
-                        title
+                        title,
+                        content,
+                        indate
                 ));
 
                 startActivity(intent);

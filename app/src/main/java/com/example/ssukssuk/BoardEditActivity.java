@@ -43,10 +43,11 @@ public class BoardEditActivity extends AppCompatActivity {
         btn_edit = findViewById(R.id.btn_BEA_Edit);
         btn_back = findViewById(R.id.btn_BEA_Back);
 
-        Intent intent = getIntent();
-        String title = intent.getStringExtra("ScTitle1");
+
+        String title =  BoardEditActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("title", null);
         String writer = BoardEditActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-                getString("user_login_id1", null);
+                getString("writer", null);
 
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
@@ -78,21 +79,24 @@ public class BoardEditActivity extends AppCompatActivity {
                                         Log.d("firebase", String.valueOf(task.getResult().getValue()));
                                         DataSnapshot snapshot = task.getResult();
                                         for (DataSnapshot data1 : snapshot.getChildren()) {
+
+                                            BoardVO vo = data1.getValue(BoardVO.class);
+
                                             if (title.equals(vo.getTitle())) {
-                                                DatabaseReference myRef3 = myRef1;
+                                                String b= data1.getKey();
+                                                DatabaseReference myRef3 = myRef1.child(b);
                                                 //수정하는 글의 값을 저장
-                                                String Edit_content = edt_content.getText().toString();
                                                 String Edit_title = edt_title.getText().toString();
                                                 //데베 데이터 값을 변경하는 코드
                                                 Map<String, Object> updateMap = new HashMap<>();
                                                 updateMap.put("title",Edit_title);
-                                                updateMap.put("content",Edit_content);
                                                 myRef3.updateChildren(updateMap);
                                             }
                                         }
                                     }
                                 }
                             });
+
                             //myRef2란 변수에 키값이 a인 값을 저장해준다
                             DatabaseReference myRef2 = myRef.child(a);
                             //수정하는 글의 값을 저장

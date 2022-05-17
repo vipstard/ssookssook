@@ -157,45 +157,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-//
-//                    if (user_id.getText().toString().equals("hh") && user_pw.getText().toString().equals("hh")) {
-//                        if(auto_check.isChecked()) {
-//
-//                            SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
-//                            Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
-//
-//                            editor.putString("user_login_id", user_id.getText().toString());
-//                            editor.putString("user_login_pw", user_id.getText().toString());
-//                            editor.commit();
-//                            //꼭 commit()을 해줘야 값이 저장됩니다 ㅎㅎ
-//
-//
-//                            Toast.makeText(LoginActivity.this, user_id.getText().toString() + "님 환영합니다.", Toast.LENGTH_SHORT).show();
-//                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//
-//                            startActivity(intent);
-//                            finish();
-//                        }else{
-//                            SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
-//                            Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
-//
-//                            editor.putString("user_login_id", user_id.getText().toString());
-//                            Toast.makeText(LoginActivity.this, user_id.getText().toString() + "님 환영합니다.", Toast.LENGTH_SHORT).show();
-//                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-//
-//                            startActivity(intent);
-//                            finish();
-//                        }
-//
-//                    } else {
-//                        Toast.makeText(LoginActivity.this,
-//                                "로그인 실패",
-//                                Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//            });
-
-
         btn_idfind.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
