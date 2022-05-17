@@ -20,9 +20,6 @@
         android:theme="@style/Theme.Ssukssuk"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
             android:name=".BoardEditActivity"
             android:exported="false" />
         <activity
