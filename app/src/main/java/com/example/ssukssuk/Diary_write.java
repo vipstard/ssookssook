@@ -1,141 +1,151 @@
 package com.example.ssukssuk;
 
-import static android.content.ContentValues.TAG;
-
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.FileProvider;
 
-import android.Manifest;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+
 import android.graphics.Bitmap;
-import android.graphics.ImageDecoder;
+import android.graphics.BitmapFactory;
+
 import android.net.Uri;
-import android.os.Build;
+
 import android.os.Bundle;
-import android.os.Environment;
+
 import android.provider.MediaStore;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-import java.io.File;
-import java.io.IOException;
+import com.bumptech.glide.Glide;
+import com.example.ssukssuk.Board.BoardVO;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Calendar;
 
 public class Diary_write extends AppCompatActivity {
     Button btn_photo;
-    ImageView iv_photo;
-    private static final int REQUEST_IMAGE_CODE = 101;
-    final static int TAKE_PICTURE = 1;
-    String mCurrentPhotoPath;
-    final static int REQUEST_TAKE_PHOTO = 1;
-    final private static String TAG = "nice";
-
-
+    private final int GALLER_CODE = 10;
+    ImageView photo;
+   private FirebaseStorage storage;
+    EditText title;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("Diary");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_write);
 
-        iv_photo = findViewById(R.id.imageView3);
+        findViewById(R.id.imageView3).setOnClickListener(onClickListener);
         btn_photo = findViewById(R.id.button5);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if(checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-                Log.d(TAG, "권한 설정 완료");
-             } else {
-                Log.d(TAG, "권한 설정 요청");
-             ActivityCompat.requestPermissions(Diary_write.this, new String[]{
-                     Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        storage = FirebaseStorage.getInstance();
+        btn_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                String indate = sdf.format(cal.getTime());
+
+                EditText content = findViewById(R.id.editTextTextMultiLine);
+//                SharedPreferences spf = Board_answer.this.
+//                        getSharedPreferences("mySPF", Context.MODE_PRIVATE);
+//                title = intent.getStringExtra("title");
+                title = findViewById(R.id.edt_title_diary);
+
+                String writer = Diary_write.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                        getString("user_login_id1", null);
+
+                myRef.push().setValue(new BoardVO(
+                        indate,
+                        content.getText().toString(),
+                        writer,
+                        title.getText().toString()
+                ));
             }
-
-         } btn_photo.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 switch (v.getId()) {
-                     case R.id.button5:
-                         dispatchTakePictureIntent();
-                         break;
-                 }
-             }
-         });
-    } // 권한 요청
-    @Override public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        Log.d(TAG, "onRequestPermissionsResult");
-        if (grantResults[0] == PackageManager.PERMISSION_GRANTED && grantResults[1] == PackageManager.PERMISSION_GRANTED ) {
-            Log.d(TAG, "Permission: " + permissions[0] + "was " + grantResults[0]);
-        }
-    } // 카메라로 촬영한 사진의 썸네일을 가져와 이미지뷰에 띄워줌
-     @Override
-     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        super.onActivityResult(requestCode, resultCode, intent);
-         try {
-             switch (requestCode) {
-                 case REQUEST_TAKE_PHOTO: {
-                     if (resultCode == RESULT_OK) {
-                         File file = new File(mCurrentPhotoPath);
-                         Bitmap bitmap;
-                         if (Build.VERSION.SDK_INT >= 29) {
-                             ImageDecoder.Source source = ImageDecoder.createSource(getContentResolver(), Uri.fromFile(file));
-                             try {
-                                 bitmap = ImageDecoder.decodeBitmap(source);
-                                 if (bitmap != null) { iv_photo.setImageBitmap(bitmap);
-                                 }
-                             } catch (IOException e) {
-                                 e.printStackTrace();
-                             }
-                         } else {
-                             try {
-                                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.fromFile(file));
-                                 if (bitmap != null) {
-                                     iv_photo.setImageBitmap(bitmap);
-                                 }
-                             } catch (IOException e) {
-                                 e.printStackTrace();
-                             }
-                         }
-                     } break;
-                 }
-             }
-         } catch (Exception error) {
-             error.printStackTrace();
-         }
+        });
     }
-
-
-
-
-    private File createImageFile() throws IOException {
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile( imageFileName, ".jpg", storageDir );
-        mCurrentPhotoPath = image.getAbsolutePath();
-        return image;
-    }
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if(takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            File photoFile = null; try {
-                photoFile = createImageFile();
-            } catch (IOException ex) { }
-            if(photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this, "com.example.ssukssuk.fileprovider", photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+    View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()){
+                case R.id.imageView3 :
+                    loadAlbum();
+                    break;
             }
         }
+    };
+    private void loadAlbum() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+        startActivityForResult(intent,GALLER_CODE);
     }
+    @Override
+    protected void onActivityResult(int requestCode,final int resultCode, final Intent data){
+        super.onActivityResult(requestCode, resultCode,data);
+        if(requestCode == GALLER_CODE) {
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            String indate = sdf.format(cal.getTime());
+            Uri file = data.getData();
+            StorageReference storageRef = storage.getReference();
+            StorageReference riverRef = storageRef.child("images/"+indate+".jpg");
+            UploadTask uploadTask = riverRef.putFile(file);
+            try {
+                InputStream in = getContentResolver().openInputStream(data.getData());
+                Bitmap img = BitmapFactory.decodeStream(in);
+                in.close();
+                photo.setImageBitmap(img);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            uploadTask.addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception exception) {
+                    Toast.makeText(Diary_write.this, "사진이 정상적으로 업로드 되지 않았습니다.", Toast.LENGTH_SHORT).show();
 
+                }
+            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Toast.makeText(Diary_write.this, "사진이 정상적으로 업로드 되었습니다.", Toast.LENGTH_SHORT).show();
+                    ImageView img_test = findViewById(R.id.imageView3);
+                    Calendar cal = Calendar.getInstance();
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    String indate = sdf.format(cal.getTime());
+                    FirebaseStorage storage = FirebaseStorage.getInstance("gs://ssukssuk-af5d6.appspot.com/");
+                    StorageReference storageRef = storage.getReference();
+                    storageRef.child("images/"+ indate + ".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        @Override
+                        public void onSuccess(Uri uri) {
+                            //이미지 로드 성공시
+                            Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
+                            Glide.with(getApplicationContext())
+                                    .load(uri)
+                                    .into(img_test);
 
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception exception) {
+                            //이미지 로드 실패시
+                            Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            });
+        }
+    }
 }

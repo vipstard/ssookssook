@@ -125,23 +125,20 @@ public class Fragment3 extends Fragment {
                             JSONObject obj = new JSONObject(response);
 
                             JSONArray result = obj.getJSONArray("data");
-
-//                            JSONArray jsonArray = result.getJSONArray("soil");
-
                             String data = "";
-//                            StringBuffer sb = new StringBuffer();
-
-
                             for(int i=0; i<result.length(); i++){
                                 JSONObject soil = result.getJSONObject(i);
                                 data = soil.getString("soil");
                                 Log.d("soil",data);
-//
-//                                water_percent = soil.getString("soil");
-//                                System.out.println("water_percent="+water_percent);
-//                                System.out.println("soil = "+ soil);
                             }
-                            tv_water.setText(data);
+                            int water = Integer.parseInt(data);
+                            if(water>70){
+                                water_img.setImageResource(R.drawable.ic_dashboard_black_24dp);
+                                tv_water.setText(data);
+                            }else{
+                                water_img.setImageResource(R.drawable.ic_launcher_background);
+                                tv_water.setText("40%");
+                            }
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -219,7 +216,7 @@ public class Fragment3 extends Fragment {
 
                 queue.add(request);
             }else{
-                String a="";
+
                 int method = Request.Method.GET;
                 String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input3=3";
                 request = new StringRequest(
