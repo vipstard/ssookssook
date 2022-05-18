@@ -106,7 +106,7 @@ public class Fragment4 extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
                 String title = list.get(i).getTitle();
-                String writer = list.get(i).getWriter();
+//                String writer = list.get(i).getWriter();
                 String indate = list.get(i).getDate();
 
                 //누른 게시글의 제목,글쓴사람,날짜를 저장한다

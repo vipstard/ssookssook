@@ -9,9 +9,9 @@ public class ScAnswerHolder {
     private TextView content, date, writer;
 
     public ScAnswerHolder(View itemView) {
-        date = itemView.findViewById(R.id.answer_date);
-        content = itemView.findViewById(R.id.answer_content);
-        writer = itemView.findViewById(R.id.answer_writer);
+        date = itemView.findViewById(R.id.answer_date2);
+        content = itemView.findViewById(R.id.answer_content2);
+        writer = itemView.findViewById(R.id.answer_writer2);
 
     }
 
