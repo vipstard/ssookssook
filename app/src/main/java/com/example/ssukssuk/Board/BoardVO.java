@@ -1,15 +1,15 @@
 package com.example.ssukssuk.Board;
 
-public class Board_VO {
+public class BoardVO {
     private String date;
     private String content;
     private String writer;
     private String title;
-    public Board_VO(){}
+    public BoardVO(){}
 
 
 
-    public Board_VO(String date, String content, String writer, String title) {
+    public BoardVO(String date, String content, String writer, String title) {
         this.date = date;
         this.content = content;
         this.writer = writer;
