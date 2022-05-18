@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.ssukssuk.Board.Board_VO;
 import com.example.ssukssuk.MainActivity;
 import com.example.ssukssuk.R;
 import com.google.firebase.database.DatabaseReference;
@@ -49,7 +50,7 @@ public class ScAnswerWriteActivity extends AppCompatActivity {
 
                 String content = edt_content.getText().toString();
 
-                myRef.push().setValue(new BoardVO(
+                myRef.push().setValue(new Board_VO(
                         writer,
                         title,
                         content,

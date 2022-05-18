@@ -19,8 +19,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.ssukssuk.Board.BoardAdapter;
-import com.example.ssukssuk.Board.BoardVO;
-import com.example.ssukssuk.VO.BoardVO_content;
+
+import com.example.ssukssuk.Board.Board_VO;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -33,10 +34,10 @@ import java.util.ArrayList;
 public class Fragment1 extends Fragment {
     ListView lv;
     BoardAdapter adapter;
-    ArrayList<BoardVO> list;
+    ArrayList<Board_VO> list;
     EditText edtData;
     Button btn_register;
-    ArrayList<BoardVO> list2;          // 데이터를 넣은 리스트변수
+    ArrayList<Board_VO> list2;          // 데이터를 넣은 리스트변수
     String title = "";
     String date = "";
     String writer = "";
@@ -55,9 +56,9 @@ public class Fragment1 extends Fragment {
                 getString("user_login_id1", null);
         edtData = view.findViewById(R.id.edt_B_Search);
         btn_register = view.findViewById(R.id.btn_BF_Write);
-        list2 = new ArrayList<BoardVO>();
+        list2 = new ArrayList<Board_VO>();
         lv = view.findViewById(R.id.lv);
-        list = new ArrayList<BoardVO>();
+        list = new ArrayList<Board_VO>();
 
         //등록하기 버튼
         btn_register.setOnClickListener(new View.OnClickListener() {
@@ -81,12 +82,12 @@ public class Fragment1 extends Fragment {
 
                     for (DataSnapshot data : snapshot.getChildren()) {
 
-                        BoardVO_content vo = data.getValue(BoardVO_content.class);
+                        Board_VO vo = data.getValue(Board_VO.class);
                         writer = vo.getWriter();
                         title = vo.getTitle();
                         date = vo.getDate();
-                        list.add(new BoardVO(writer, title, date));
-                        list2.add(new BoardVO(writer, title, date));
+                        list.add(new Board_VO(writer, title, date));
+                        list2.add(new Board_VO(writer, title, date));
                         adapter.notifyDataSetChanged();
                     }
 

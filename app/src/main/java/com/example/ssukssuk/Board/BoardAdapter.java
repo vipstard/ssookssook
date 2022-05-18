@@ -6,16 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import com.example.ssukssuk.VO.BoardVO_content;
 
 import java.util.ArrayList;
 
 public class BoardAdapter extends BaseAdapter {
     Context context;
     int item_layout;
-    ArrayList<BoardVO> list;
+    ArrayList<Board_VO> list;
     LayoutInflater inflater;
-    public BoardAdapter(Context context, int item_layout, ArrayList<BoardVO> list) {
+    public BoardAdapter(Context context, int item_layout, ArrayList<Board_VO> list) {
         this.context = context;
         this.item_layout = item_layout;
         this.list = list;
@@ -51,7 +50,7 @@ public class BoardAdapter extends BaseAdapter {
         }else{
             holder = (BoardHolder) view.getTag();
         }
-        BoardVO vo = (BoardVO) getItem(i);
+        Board_VO vo = (Board_VO) getItem(i);
 
 
         holder.getTitle().setText(vo.getTitle());

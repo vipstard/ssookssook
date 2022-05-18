@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import com.example.ssukssuk.Board_answerVO.Board_answer_Adapter;
 import com.example.ssukssuk.Board.BoardVO;
-import com.example.ssukssuk.VO.BoardVO_content;
+
 import com.example.ssukssuk.VO.Board_list_select_writeVO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -82,7 +82,7 @@ public class Board_list_select extends AppCompatActivity {
                     DataSnapshot snapshot = task.getResult();
                     for (DataSnapshot data : snapshot.getChildren()) {
 
-                        BoardVO_content vo = data.getValue(BoardVO_content.class);
+                        Board_VO vo = data.getValue(Board_VO.class);
 
                         content = vo.getContent();
                         tv_content.setText(content);
@@ -106,7 +106,7 @@ public class Board_list_select extends AppCompatActivity {
                     if (cnt == 0) {
                         for (DataSnapshot data : snapshot.getChildren()) {
                             BoardVO vo = data.getValue(BoardVO.class);
-                            BoardVO_content vo1 = new BoardVO_content();
+                            Board_VO vo1 = new Board_VO();
                             if (title.equals(vo.getTitle())) {
                                 writer1 = vo.getWriter();
                                 date = vo.getDate();
