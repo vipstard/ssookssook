@@ -57,7 +57,7 @@ public class BoardListSelectActivity extends AppCompatActivity {
         tv_content = findViewById(R.id.board_content2);
         tv_writer = findViewById(R.id.board_wirte2);
         lv = findViewById(R.id.board_list_answer_list);
-
+        img = findViewById(R.id.imageView);
         String title = BoardListSelectActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("title", null);
         String writer = BoardListSelectActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
@@ -67,8 +67,9 @@ public class BoardListSelectActivity extends AppCompatActivity {
 
         list = new ArrayList<Board_list_select_writeVO>();
 
+
         tv_title.setText(title);
-        tv_writer.setText(writer);
+        tv_writer.setText(indate);
 
         FirebaseStorage storage = FirebaseStorage.getInstance("gs://ssukssuk-af5d6.appspot.com/");
         StorageReference storageRef = storage.getReference();

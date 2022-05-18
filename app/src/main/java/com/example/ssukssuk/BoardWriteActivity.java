@@ -65,10 +65,10 @@ public class BoardWriteActivity extends AppCompatActivity {
                 String indate = sdf.format(cal.getTime());
 
                 myRef.push().setValue(new BoardVO(
-                        title,
+                        indate,
                         content,
                         writer,
-                        indate));
+                        title));
                 Intent intent1 = new Intent(BoardWriteActivity.this, MainActivity.class);
                 startActivity(intent1);
             }
