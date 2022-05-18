@@ -101,7 +101,27 @@ public class ScListSelectActivity extends AppCompatActivity {
                     btn_delete.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            myRef1.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DataSnapshot> task) {
 
+                                    if (!task.isSuccessful()) {
+                                        Log.e("firebase", "Error getting data", task.getException());
+                                    } else {
+                                        Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                                        DataSnapshot snapshot = task.getResult();
+                                        for (DataSnapshot data1 : snapshot.getChildren()) {
+
+                                            ScVO vo = data1.getValue(ScVO.class);
+                                            if (title.equals(vo.getTitle())) {
+                                                String b = data1.getKey();
+                                                myRef1.child(b).removeValue();
+                                            }
+
+                                        }
+                                    }
+                                }
+                            });
                             //해당 키값에 데이터를 삭제한다
                             myRef.child(a).removeValue();
 

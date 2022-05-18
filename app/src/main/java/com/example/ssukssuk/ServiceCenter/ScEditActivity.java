@@ -8,14 +8,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 
+import com.example.ssukssuk.Board.BoardVO;
 import com.example.ssukssuk.MainActivity;
 import com.example.ssukssuk.R;
 import com.example.ssukssuk.ServiceCenter.VO.ScVO;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,6 +38,7 @@ public class ScEditActivity extends AppCompatActivity {
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("ServiceCenter");
+    DatabaseReference myRef1 = database.getReference("Sc_answer");
 
 
     @Override
@@ -72,6 +77,35 @@ public class ScEditActivity extends AppCompatActivity {
                         public void onClick(View view) {
                             //위에 if문에 해당되는 키값을 받아온후
                             String a = snapshot.getKey();
+
+                            myRef1.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                                @Override
+
+                                public void onComplete(@NonNull Task<DataSnapshot> task) {
+
+                                    if (!task.isSuccessful()) {
+                                        Log.e("firebase", "Error getting data", task.getException());
+                                    } else {
+                                        Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                                        DataSnapshot snapshot = task.getResult();
+                                        for (DataSnapshot data1 : snapshot.getChildren()) {
+
+                                            ScVO vo = data1.getValue(ScVO.class);
+
+                                            if (title.equals(vo.getTitle())) {
+                                                String b= data1.getKey();
+                                                DatabaseReference myRef3 = myRef1.child(b);
+                                                //수정하는 글의 값을 저장
+                                                String Edit_title = edt_title.getText().toString();
+                                                //데베 데이터 값을 변경하는 코드
+                                                Map<String, Object> updateMap = new HashMap<>();
+                                                updateMap.put("title",Edit_title);
+                                                myRef3.updateChildren(updateMap);
+                                            }
+                                        }
+                                    }
+                                }
+                            });
                             //myRef2란 변수에 키값이 a인 값을 저장해준다
                             DatabaseReference myRef2 = myRef.child(a);
                             //수정하는 글의 값을 저장
