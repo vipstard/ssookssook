@@ -51,6 +51,7 @@ public class Diary_write extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Diary");
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,39 +69,41 @@ public class Diary_write extends AppCompatActivity {
                 myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DataSnapshot> task) {
-
+                        int a = 0;
                         if (!task.isSuccessful()) {
                             Log.e("firebase", "Error getting data", task.getException());
                         } else {
                             Log.d("firebase", String.valueOf(task.getResult().getValue()));
                             DataSnapshot snapshot = task.getResult();
-                            int a = 0;
+
                             Calendar cal = Calendar.getInstance();
                             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                             String indate = sdf.format(cal.getTime());
                             for (DataSnapshot data : snapshot.getChildren()) {
                                 DiaryVO vo = data.getValue(DiaryVO.class);
-                                Log.d("dfdfdf",title.getText().toString());
-                                if (!(title.equals(vo.getTitle()))) {
-                                    Log.d("dfdfdf1",vo.getTitle());
+
+                                if ((title.getText().toString().equals(vo.getTitle()))) {
+                                    Log.d("dfdfdf1", vo.getTitle());
                                     a++;
                                 }
+
                             }
-                                if(a==0){
-                                    String writer = Diary_write.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-                                            getString("user_login_id1", null);
-                                    myRef.push().setValue(new BoardVO(
-                                            indate,
-                                            content.getText().toString(),
-                                            writer,
-                                            title.getText().toString()
-                                    ));
-                                    Intent intent = new Intent(Diary_write.this, MainActivity.class);
-                                    startActivity(intent);
-                                }else {
-                                    Toast.makeText(Diary_write.this, "동일한 제목이 있습니다.", Toast.LENGTH_SHORT).show();
-                                    Toast.makeText(Diary_write.this, "제목을 수정해주세요.", Toast.LENGTH_SHORT).show();
-                                }
+                            Log.d("aaaaaaa", String.valueOf(a));
+                            if (a ==0) {
+                                String writer = Diary_write.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                                        getString("user_login_id1", null);
+                                myRef.push().setValue(new BoardVO(
+                                        indate,
+                                        content.getText().toString(),
+                                        writer,
+                                        title.getText().toString()
+                                ));
+                                Intent intent = new Intent(Diary_write.this, MainActivity.class);
+                                startActivity(intent);
+                            } else {
+                                Toast.makeText(Diary_write.this, "동일한 제목이 있습니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Diary_write.this, "제목을 수정해주세요.", Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
                 });
