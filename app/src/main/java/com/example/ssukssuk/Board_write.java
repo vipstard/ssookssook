@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-import com.example.ssukssuk.Board.Board_VO;
-import com.example.ssukssuk.VO.PlantVO;
+import com.example.ssukssuk.Board.BoardVO;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -39,7 +39,7 @@ public class Board_write extends AppCompatActivity {
                 Calendar cal = Calendar.getInstance();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String indate = sdf.format(cal.getTime());
-                myRef.push().setValue(new Board_VO(
+                myRef.push().setValue(new BoardVO(
                         title,
                         content,
                         writer,

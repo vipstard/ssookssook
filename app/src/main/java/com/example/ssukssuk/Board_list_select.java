@@ -82,7 +82,7 @@ public class Board_list_select extends AppCompatActivity {
                     DataSnapshot snapshot = task.getResult();
                     for (DataSnapshot data : snapshot.getChildren()) {
 
-                        Board_VO vo = data.getValue(Board_VO.class);
+                        BoardVO vo = data.getValue(BoardVO.class);
 
                         content = vo.getContent();
                         tv_content.setText(content);
@@ -106,7 +106,7 @@ public class Board_list_select extends AppCompatActivity {
                     if (cnt == 0) {
                         for (DataSnapshot data : snapshot.getChildren()) {
                             BoardVO vo = data.getValue(BoardVO.class);
-                            Board_VO vo1 = new Board_VO();
+                            BoardVO vo1 = new BoardVO();
                             if (title.equals(vo.getTitle())) {
                                 writer1 = vo.getWriter();
                                 date = vo.getDate();
