@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
 
@@ -39,13 +40,13 @@ public class Fragment1 extends Fragment {
     final int i = 0;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Board");
-
+    private FirebaseStorage storage;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_1, container, false);
 
-
+        storage = FirebaseStorage.getInstance();
         edt_search = view.findViewById(R.id.edt_B_Search);
         btn_write = view.findViewById(R.id.btn_BF_Write);
         list2 = new ArrayList<BoardVO>();
@@ -166,4 +167,5 @@ public class Fragment1 extends Fragment {
         // 리스트 데이터가 변경되었으므로 아답터를 갱신하여 검색된 데이터를 화면에 보여준다.
         adapter.notifyDataSetChanged();
     }
+
 }

@@ -151,7 +151,6 @@ public class Diary_write extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Exception exception) {
                     Toast.makeText(Diary_write.this, "사진이 정상적으로 업로드 되지 않았습니다.", Toast.LENGTH_SHORT).show();
-
                 }
             }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
