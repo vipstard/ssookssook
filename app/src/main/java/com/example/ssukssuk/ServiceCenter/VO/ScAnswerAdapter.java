@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class ScAnswerAdapter extends BaseAdapter {
     Context context;
     int item_layout;
-    ArrayList<Board_list_select_writeVO> list;
+    ArrayList<ScAnswerVO> list;
     LayoutInflater inflater;
-    public ScAnswerAdapter(Context context, int item_layout, ArrayList<Board_list_select_writeVO> list) {
+    public ScAnswerAdapter(Context context, int item_layout, ArrayList<ScAnswerVO> list) {
         this.context = context;
         this.item_layout = item_layout;
         this.list = list;
@@ -52,9 +52,7 @@ public class ScAnswerAdapter extends BaseAdapter {
         }else{
             holder = (ScAnswerHolder) view.getTag();
         }
-        ScVO vo = (ScVO) getItem(i);
-
-
+        ScAnswerVO vo = (ScAnswerVO) getItem(i);
 
         holder.getDate().setText(vo.getDate());
         holder.getContent().setText(vo.getContent());

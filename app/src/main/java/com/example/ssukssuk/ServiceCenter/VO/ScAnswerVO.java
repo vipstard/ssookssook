@@ -1,74 +1,47 @@
 package com.example.ssukssuk.ServiceCenter.VO;
 
 public class ScAnswerVO {
-    private String title;
-    private String content;
     private String date;
+    private String content;
     private String writer;
 
 
-    public ScAnswerVO(){}
-
-    public ScAnswerVO(String title, String date) {
-        this.title = title;
-        this.date = date;
+    public ScAnswerVO() {
     }
-
-    //constructor
-
-    public ScAnswerVO(String writer, String title, String content, String date) {
-        this.writer = writer;
-        this.title = title;
-        this.content = content;
-        this.date = date;
-    }
-
-    public ScAnswerVO(String writer, String content, String date) {
-        this.writer = writer;
-        this.content = content;
-        this.date = date;
-    }
-
-    //toString()
-
 
     @Override
     public String toString() {
-        return "ScVO{" +
-                "writer='" + writer + '\'' +
-                ", title='" + title + '\'' +
+        return "ScAnswerVO{" +
+                "date='" + date + '\'' +
                 ", content='" + content + '\'' +
-                ", date='" + date + '\'' +
+                ", writer='" + writer + '\'' +
                 '}';
     }
 
-    //Getter
-    public String getTitle() {
-        return title;
+    public ScAnswerVO(String date, String content, String writer) {
+        this.date = date;
+        this.content = content;
+        this.writer = writer;
     }
 
     public String getDate() {
         return date;
     }
 
-    public String getWriter() {
-        return writer;
-    }
-    public String getContent() {
-        return content;
-    }
-
-    //Setter
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public void setDate(String date) {
         this.date = date;
     }
 
+    public String getContent() {
+        return content;
+    }
+
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getWriter() {
+        return writer;
     }
 
     public void setWriter(String writer) {
