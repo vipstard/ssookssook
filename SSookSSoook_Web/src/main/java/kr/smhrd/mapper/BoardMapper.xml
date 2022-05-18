@@ -10,12 +10,13 @@
 		<result property="writer" column="user_id"/>
 		<result property="indate" column="qna_date"/>
 		<result property="count" column="qna_count"/>
+		<result property="kinds" column="qna_kinds"/>
 	</resultMap>
 
 	<!-- QnA 온라인문의 글 목록 불러오기(페이징) -->
 	<select id='QnaList' resultType="kr.smhrd.domain.Board" resultMap="board">
 		SELECT @ROWNUM:=@ROWNUM+1 AS rn, qna_seq, qna_title , 
-		qna_content, qna_date, user_id, qna_count 
+		qna_content, qna_date, user_id, qna_count, qna_kinds 
 			FROM qna_info qi , (SELECT @ROWNUM:=0) AS R 
 			<if test="keyword != null">
 				WHERE qna_title like concat('%', #{keyword}, '%')

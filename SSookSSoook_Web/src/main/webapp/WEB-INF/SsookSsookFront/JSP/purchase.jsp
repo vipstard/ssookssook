@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -75,7 +76,26 @@ pageEncoding="UTF-8"%>
                       </div>
                     </div>
                   </div>
-                  <!-- Login -->
+                    <c:if test="${!empty LoginVo}">
+                <label style='color : white'>${LoginVo.name }님 환영합니다.</label>&nbsp&nbsp
+                 <!-- 회원정보 수정  -->
+                  <div class="Sign Up">
+                    <a href="EditProfile?id=${LoginVo.id }"
+                      ><i class="fa fa-sign-in" aria-hidden="true"></i>
+                      <span>Edit Profile</span></a
+                    >
+                  </div>
+                  
+                  
+				  <div class="Sign Up">
+		            <a href="https://kauth.kakao.com/oauth/logout?client_id=e3eced6c366d05e611468e218fc8f42d&logout_redirect_uri=http://211.227.224.199:8081/SS/LogOut"
+		                    ><i class="fa fa-sign-in" aria-hidden="true"></i>
+		                    <span>Log out</span></a>
+		               </div>
+                  </c:if>
+                  
+                   <c:if test="${empty LoginVo}">
+  					 <!-- Login -->
                   <div class="login">
                     <a href="LoginForm"
                       ><i class="fa fa-user" aria-hidden="true"></i>
@@ -89,6 +109,9 @@ pageEncoding="UTF-8"%>
                       <span>Sign Up</span></a
                     >
                   </div>
+                  
+				 </c:if>
+                  
                 </div>
               </div>
             </div>

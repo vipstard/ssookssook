@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -66,9 +67,28 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Login -->
+                  <c:if test="${!empty LoginVo}">
+                <label style='color : white'>${LoginVo.name }님 환영합니다.</label>&nbsp&nbsp
+                 <!-- 회원정보 수정  -->
+                  <div class="Sign Up">
+                    <a href="EditProfile?id=${LoginVo.id }"
+                      ><i class="fa fa-sign-in" aria-hidden="true"></i>
+                      <span>Edit Profile</span></a
+                    >
+                  </div>
+                  
+                  
+				  <div class="Sign Up">
+		            <a href="https://kauth.kakao.com/oauth/logout?client_id=e3eced6c366d05e611468e218fc8f42d&logout_redirect_uri=http://211.227.224.199:8081/SS/LogOut"
+		                    ><i class="fa fa-sign-in" aria-hidden="true"></i>
+		                    <span>Log out</span></a>
+		               </div>
+                  </c:if>
+                  
+                   <c:if test="${empty LoginVo}">
+  					 <!-- Login -->
                   <div class="login">
-                    <a href="loginForm"
+                    <a href="LoginForm"
                       ><i class="fa fa-user" aria-hidden="true"></i>
                       <span>Log in</span></a
                     >
@@ -80,6 +100,8 @@
                       <span>Sign Up</span></a
                     >
                   </div>
+                  
+				 </c:if>
                 </div>
               </div>
             </div>
@@ -120,7 +142,7 @@
                     <li><a href="main">Home</a></li>
                     <li><a href="About">회사 소개</a></li>
                     <li><a href="Purchase">제품 구매</a></li>
-                    <li><a href="#">고객센터</a></li>
+                    <li><a href="helpQnA">고객센터</a></li>
                     <li><a href="Contact">A/S</a></li>
                   </ul>
 
@@ -160,7 +182,7 @@
       <!-- Top Breadcrumb Area -->
       <div
         class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
-        style="background-image: url(/resources/img/bg-img/main1.png)"
+        style="background-image: url(${pageContext.request.contextPath}/resources/img/bg-img/main1.png)"
       >
         <h2>A / S</h2>
       </div>

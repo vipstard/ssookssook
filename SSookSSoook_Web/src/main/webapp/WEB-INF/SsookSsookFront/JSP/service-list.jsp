@@ -69,7 +69,26 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Login -->
+                 <c:if test="${!empty LoginVo}">
+                <label style='color : white'>${LoginVo.name }님 환영합니다.</label>&nbsp&nbsp
+                 <!-- 회원정보 수정  -->
+                  <div class="Sign Up">
+                    <a href="EditProfile?id=${LoginVo.id }"
+                      ><i class="fa fa-sign-in" aria-hidden="true"></i>
+                      <span>Edit Profile</span></a
+                    >
+                  </div>
+                  
+                  
+				  <div class="Sign Up">
+		            <a href="https://kauth.kakao.com/oauth/logout?client_id=e3eced6c366d05e611468e218fc8f42d&logout_redirect_uri=http://211.227.224.199:8081/SS/LogOut"
+		                    ><i class="fa fa-sign-in" aria-hidden="true"></i>
+		                    <span>Log out</span></a>
+		               </div>
+                  </c:if>
+                  
+                   <c:if test="${empty LoginVo}">
+  					 <!-- Login -->
                   <div class="login">
                     <a href="LoginForm"
                       ><i class="fa fa-user" aria-hidden="true"></i>
@@ -83,6 +102,9 @@
                       <span>Sign Up</span></a
                     >
                   </div>
+                  
+				 </c:if>
+				 
                 </div>
               </div>
             </div>
@@ -123,7 +145,7 @@
                     <li><a href="main">Home</a></li>
                     <li><a href="About">회사 소개</a></li>
                     <li><a href="Purchase">제품 구매</a></li>
-                    <li><a href="helpDesk">고객센터</a></li>
+                    <li><a href="helpQnA">고객센터</a></li>
                     <li><a href="Contact">A/S</a></li>
                   </ul>
 
@@ -229,12 +251,13 @@
               <th>글쓴이</th>
               <th>작성일</th>
               <th>조회</th>
+              
             </tr>
           </thead>
           <tbody>
             <tr>
               <td class="another">기타 문의</td>
-              <td>111</td>
+              <td>1145</td>
               <td><a href="#">기술 제휴 문의 드립니다.</a></td>
               <td>최태원</td>
               <td>2022.05.11</td>
@@ -242,7 +265,7 @@
             </tr>
             <tr>
               <td class="fixed">고장 문의</td>
-              <td>110</td>
+              <td>1144</td>
               <td><a href="#">아 고장났자나여ㅡㅡ</a></td>
               <td>황현진</td>
               <td>2022.05.11</td>
@@ -250,7 +273,7 @@
             </tr>
             <tr>
               <td class="delivery">배송 문의</td>
-              <td>109</td>
+              <td>1143</td>
               <td><a href="#">배송 제발 빨리 보내주세요 제발</a></td>
               <td>이용복</td>
               <td>2022.05.11</td>
@@ -258,7 +281,7 @@
             </tr>
             <tr>
               <td class="another">기타 문의</td>
-              <td>108</td>
+              <td>1142</td>
               <td><a href="#">대량 구매 문의드립니다.</a></td>
               <td>이재용</td>
               <td>2022.05.10</td>
@@ -266,7 +289,7 @@
             </tr>
             <tr>
               <td class="another">기타 문의</td>
-              <td>107</td>
+              <td>1141</td>
               <td><a href="#">신고합니다</a></td>
               <td>유주영</td>
               <td>2022.05.11</td>
@@ -274,7 +297,7 @@
             </tr>
             <tr>
               <td class="fixed">고장 문의</td>
-              <td>106</td>
+              <td>1140</td>
               <td><a href="#">우리 고양이도 보고가세요</a></td>
               <td>수박조아</td>
               <td>2022.05.11</td>
@@ -282,7 +305,7 @@
             </tr>
             <tr>
               <td class="delivery">배송 문의</td>
-              <td>105</td>
+              <td>1139</td>
               <td><a href="#">집가고싶다</a></td>
               <td>김헌찬</td>
               <td>2022.05.11</td>
@@ -290,7 +313,7 @@
             </tr>
             <tr>
               <td class="delivery">배송 문의</td>
-              <td>104</td>
+              <td>1138</td>
               <td><a href="#">저는 튼튼하고 여러분을 좋아해여</a></td>
               <td>박지성</td>
               <td>2022.05.10</td>
@@ -299,7 +322,19 @@
             
             <c:forEach var="vo" items="${QnaList}">
 			   <tr>
-			      <td>기타문의</td>
+			      <c:choose>
+				      <c:when test="${vo.kinds eq '0' }">
+				      <td class="another">기타 문의</td>
+				      </c:when>
+				      
+				      <c:when test="${vo.kinds eq '1' }">
+				      <td class="fixed">고장 문의</td>
+				      </c:when>
+				      
+				      <c:when test="${vo.kinds eq '2' }">
+				      <td class="delivery">배송 문의</td>
+				      </c:when>
+			      </c:choose>
 			   	  <td>${vo.idx}</td>
 			      <td><a href="/SS/QnaContent?idx=${vo.idx}">${vo.title}</a>
 			      <c:if test=""> </c:if></td>
