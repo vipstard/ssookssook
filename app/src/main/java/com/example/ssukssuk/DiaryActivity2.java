@@ -19,6 +19,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+
 public class DiaryActivity2 extends AppCompatActivity {
     TextView dia_title;
     TextView dia_content;
@@ -71,4 +72,5 @@ public class DiaryActivity2 extends AppCompatActivity {
             }
         });
     }
+
 }
