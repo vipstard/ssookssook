@@ -409,7 +409,7 @@ p {
 }
 
 .bg-gray {
-  background-color: #d9e9d8;
+  background-color: #f1f2f1;
 }
 
 /* :: 3.7.0 ScrollUp */
@@ -809,8 +809,9 @@ p {
   visibility: visible;
 }
 .header-area .is-sticky .alazea-main-menu {
-  background-color: #40724cae;
+  background-color: #000000;
   position: fixed;
+  color: #323232;
   width: 100%;
   top: 0;
   left: 0;
