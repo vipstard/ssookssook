@@ -46,8 +46,6 @@ public class Fragment1 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_1, container, false);
 
 
-        String loginId = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
-                getString("user_login_id1", null);
         edt_search = view.findViewById(R.id.edt_B_Search);
         btn_write = view.findViewById(R.id.btn_BF_Write);
         list2 = new ArrayList<BoardVO>();
@@ -58,7 +56,7 @@ public class Fragment1 extends Fragment {
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(),Board_write.class));
+                startActivity(new Intent(getActivity(),BoardWriteActivity.class));
             }
         });
 
@@ -121,7 +119,7 @@ public class Fragment1 extends Fragment {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), Board_list_select.class);
+
                 String title = list.get(i).getTitle();
                 String writer = list.get(i).getWriter();
                 String indate = list.get(i).getDate();
@@ -135,7 +133,7 @@ public class Fragment1 extends Fragment {
                 editor.putString("indate",indate);
 
                 editor.commit();
-
+                Intent intent = new Intent(getActivity(), BoardListSelectActivity.class);
                 startActivity(intent);
 
             }

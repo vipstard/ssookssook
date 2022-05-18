@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Board_list_select">
+    tools:context=".BoardListSelectActivity">
 
     <TextView
         android:id="@+id/board_title2"
@@ -42,7 +42,7 @@
         android:text="TextView"
         android:textAlignment="center"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_board_rp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_BLSA_Answer"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="@+id/imageView" />
@@ -75,10 +75,10 @@
         app:srcCompat="@drawable/item10" />
 
     <Button
-        android:id="@+id/btn_board_rp"
+        android:id="@+id/btn_BLSA_Answer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="댓글작성"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,5 +126,25 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.07" />
+
+    <Button
+        android:id="@+id/btn_BLSA_Edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="11dp"
+        android:text="수정하기"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/board_content2" />
+
+    <Button
+        android:id="@+id/btn_BLSA_Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="46dp"
+        android:text="삭제하기"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/board_content2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
