@@ -24,7 +24,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.ssukssuk.VO.BoardVO_content;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -88,7 +87,7 @@ public class Fragment3 extends Fragment {
 
                 }else{
                   tv_led.setText("조명 끄기");
-                    int method = Request.Method.POST;
+                    int method = Request.Method.GET;
                     String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input1=0";
                     request = new StringRequest(
                             method,

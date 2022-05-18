@@ -4,9 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.hardware.camera"
         android:required="false" />
@@ -20,13 +19,13 @@
         android:theme="@style/Theme.Ssukssuk"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".BoardEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".diary_select_edit"
             android:exported="false" />
         <activity
             android:name=".ServiceCenter.ScAnswerWriteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".BoardEditActivity"
             android:exported="false" />
         <activity
             android:name=".Board_answer"

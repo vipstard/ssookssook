@@ -18,7 +18,7 @@
 
     <!-- Favicon -->
     <link rel="icon" href="${pageContext.request.contextPath}/resources/img/core-img/favicon.ico" />
-
+	</style>
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/style.css" />
   </head>
@@ -206,7 +206,7 @@
                     <th><span>Name</span></th>
                     <th><span>Tel</span></th>
                     <th><span>Email</span></th>
-                    <th><span>Eddress</span></th>
+                    <th><span>Address</span></th>
                     <th><span>Create</span></th>
                     <th>&nbsp;</th>
                   </tr>
@@ -225,7 +225,7 @@
                       서울특별시 강동구 강동대로 205 JYP Center
                     </td>
                     <td>2022-01-01</td>
-                    <td style="width: 20%">
+                    <td style="width: 20%; min-width: 60px;">
                       <a
                         href="./user-view.html"
                         class="table-link text-warning"
@@ -237,12 +237,7 @@
                           ></i>
                         </span>
                       </a>
-                      <a href="#" class="table-link text-info">
-                        <span class="fa-stack">
-                          <i class="fa fa-square fa-stack-2x"></i>
-                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
+                      
                       <a href="#" class="table-link danger">
                         <span class="fa-stack">
                           <i class="fa fa-square fa-stack-2x"></i>
@@ -258,7 +253,7 @@
                     </td>
                     <td>윤동일</td>
                     <td style="width: 20%">010-1234-1234</td>
-                    <td style="width: 20%">soongdoongdori@ssss.com</td>
+                    <td style="width: 20%">saasd@ssss.com</td>
                     <td style="width: 30%">광주광역시 동구 예술길 31-15 4층</td>
                     <td>2022-01-01</td>
                     <td style="width: 20%">
@@ -270,12 +265,7 @@
                           ></i>
                         </span>
                       </a>
-                      <a href="#" class="table-link text-info">
-                        <span class="fa-stack">
-                          <i class="fa fa-square fa-stack-2x"></i>
-                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
+
                       <a href="#" class="table-link danger">
                         <span class="fa-stack">
                           <i class="fa fa-square fa-stack-2x"></i>
@@ -295,8 +285,8 @@
                     <td style="width: 20%">${vo.email}</td>
                     <td style="width: 30%">${vo.addr}</td>
                     <td>${vo.joindate}</td>
-                    <td style="width: 20%">
-                      <a href="#" class="table-link text-warning">
+                    <td style="width: 30%">
+                      <a href="deviceView?id=${vo.id}" class="table-link text-warning">
                         <span class="fa-stack">
                           <i class="fa fa-square fa-stack-2x"></i>
                           <i
@@ -304,12 +294,7 @@
                           ></i>
                         </span>
                       </a>
-                      <a href="#" class="table-link text-info">
-                        <span class="fa-stack">
-                          <i class="fa fa-square fa-stack-2x"></i>
-                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                        </span>
-                      </a>
+                      
                       <a href="memberDelete?id=${vo.id}" class="table-link danger">
                         <span class="fa-stack">
                           <i class="fa fa-square fa-stack-2x"></i>

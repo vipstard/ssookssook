@@ -184,10 +184,19 @@ public class BoardController {
 		return "redirect:/QnaContent?idx="+vo.getIdx();
 	}
 	
+	/* 메인 -> 회원관리 -> 판매량 페이지 이동 */
 	@RequestMapping("Sales_Manage")
 	public String SalesManage() {
 		
 		return "/SsookSsookFront/JSP/sales-chart";
+	}
+	
+	/* 회원정보 관리 에서 회원별 디바이스 정보 보기 */
+	@RequestMapping("deviceView")
+	public String deviceView() {
+		
+		return "/SsookSsookFront/JSP/user-view";
+		
 	}
 	
 	

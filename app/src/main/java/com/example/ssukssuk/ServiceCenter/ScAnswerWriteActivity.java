@@ -5,12 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.ssukssuk.Board.BoardVO;
+import com.example.ssukssuk.BoardListSelectActivity;
+import com.example.ssukssuk.Board_answer;
 import com.example.ssukssuk.MainActivity;
 import com.example.ssukssuk.R;
+import com.example.ssukssuk.ServiceCenter.VO.ScVO;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -49,7 +54,7 @@ public class ScAnswerWriteActivity extends AppCompatActivity {
 
                 String content = edt_content.getText().toString();
 
-                myRef.push().setValue(new BoardVO(
+                myRef.push().setValue(new ScVO(
                         writer,
                         title,
                         content,

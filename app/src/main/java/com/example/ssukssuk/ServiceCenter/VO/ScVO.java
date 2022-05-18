@@ -3,13 +3,14 @@ package com.example.ssukssuk.ServiceCenter.VO;
 public class ScVO {
 
     private String num;
-    private String title;
-    private String post;
-    private String date;
     private String writer;
+    private String title;
+    private String content;
+    private String date;
 
 
-    public ScVO(){}
+    public ScVO() {
+    }
 
     public ScVO(String title, String date) {
         this.title = title;
@@ -18,11 +19,11 @@ public class ScVO {
 
     //constructor
 
-    public ScVO(String title, String post, String date, String writer) {
-        this.title = title;
-        this.post = post;
-        this.date = date;
+    public ScVO(String writer, String title, String content, String date) {
         this.writer = writer;
+        this.title = title;
+        this.content = content;
+        this.date = date;
     }
 
     public ScVO(String num, String title, String date) {
@@ -32,17 +33,16 @@ public class ScVO {
     }
 
 
-
     //toString()
 
 
     @Override
     public String toString() {
         return "ScVO{" +
-                "title='" + title + '\'' +
-                ", post='" + post + '\'' +
+                "writer='" + writer + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
                 ", date='" + date + '\'' +
-                ", writer='" + writer + '\'' +
                 '}';
     }
 
@@ -58,9 +58,15 @@ public class ScVO {
     public String getWriter() {
         return writer;
     }
+
     public String getNum() {
         return num;
     }
+
+    public String getContent() {
+        return content;
+    }
+
 
     //Setter
     public void setTitle(String title) {
@@ -71,12 +77,12 @@ public class ScVO {
         this.date = date;
     }
 
-    public String getPost() {
-        return post;
+    public void setNum(String num) {
+        this.num = num;
     }
 
-    public void setPost(String post) {
-        this.post = post;
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public void setWriter(String writer) {

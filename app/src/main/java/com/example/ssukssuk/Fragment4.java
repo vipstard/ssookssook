@@ -2,6 +2,7 @@ package com.example.ssukssuk;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,7 +18,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.ssukssuk.ServiceCenter.VO.ScAdapter;
-import com.example.ssukssuk.ServiceCenter.ScListViewActivity;
+import com.example.ssukssuk.ServiceCenter.ScListSelectActivity;
 import com.example.ssukssuk.ServiceCenter.VO.ScVO;
 import com.example.ssukssuk.ServiceCenter.ScWriteActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -104,12 +105,20 @@ public class Fragment4 extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                //클릭한 리스트뷰의 값을 해당 게시글에 값을 보내주록 저장하는 기능
-                Intent intent = new Intent(getActivity(), ScListViewActivity.class);
-                intent.putExtra("SCwriter", list.get(i).getWriter());
-                intent.putExtra("SCtitle", list.get(i).getTitle());
-                intent.putExtra("SCdate", list.get(i).getDate());
+                String title = list.get(i).getTitle();
+//                String writer = list.get(i).getWriter();
+                String indate = list.get(i).getDate();
+
+                //누른 게시글의 제목,글쓴사람,날짜를 저장한다
+                SharedPreferences spf = getActivity().
+                        getSharedPreferences("mySPF", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = spf.edit();
+                editor.putString("Sctitle", title);
+                editor.putString("Scindate",indate);
+
+                editor.commit();
                 //이동
+                Intent intent = new Intent(getActivity(), ScListSelectActivity.class);
                 startActivity(intent);
             }
         });

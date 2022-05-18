@@ -1,19 +1,27 @@
-package com.example.ssukssuk.Board;
+package com.example.ssukssuk.ServiceCenter.VO;
 
-public class Board_VO {
+public class ScAnswerVO {
     private String date;
     private String content;
     private String writer;
-    private String title;
-    public Board_VO(){}
 
 
+    public ScAnswerVO() {
+    }
 
-    public Board_VO(String date, String content, String writer, String title) {
+    @Override
+    public String toString() {
+        return "ScAnswerVO{" +
+                "date='" + date + '\'' +
+                ", content='" + content + '\'' +
+                ", writer='" + writer + '\'' +
+                '}';
+    }
+
+    public ScAnswerVO(String date, String content, String writer) {
         this.date = date;
         this.content = content;
         this.writer = writer;
-        this.title = title;
     }
 
     public String getDate() {
@@ -38,13 +46,5 @@ public class Board_VO {
 
     public void setWriter(String writer) {
         this.writer = writer;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 }

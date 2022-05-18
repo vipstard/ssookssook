@@ -1,4 +1,4 @@
-package com.example.ssukssuk.Board;
+package com.example.ssukssuk.ServiceCenter.VO;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,12 +9,12 @@ import android.widget.BaseAdapter;
 
 import java.util.ArrayList;
 
-public class BoardAdapter extends BaseAdapter {
+public class ScAnswerAdapter extends BaseAdapter {
     Context context;
     int item_layout;
-    ArrayList<BoardVO> list;
+    ArrayList<ScAnswerVO> list;
     LayoutInflater inflater;
-    public BoardAdapter(Context context, int item_layout, ArrayList<BoardVO> list) {
+    public ScAnswerAdapter(Context context, int item_layout, ArrayList<ScAnswerVO> list) {
         this.context = context;
         this.item_layout = item_layout;
         this.list = list;
@@ -40,21 +40,20 @@ public class BoardAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        BoardHolder holder = null;
+        ScAnswerHolder holder = null;
 
         if(view ==null){
             view = inflater.inflate(item_layout, viewGroup, false);
-            holder = new BoardHolder(view);
+            holder = new ScAnswerHolder(view);
 
             view.setTag(holder);
         }else{
-            holder = (BoardHolder) view.getTag();
+            holder = (ScAnswerHolder) view.getTag();
         }
-        BoardVO vo = (BoardVO) getItem(i);
+        ScAnswerVO vo = (ScAnswerVO) getItem(i);
 
-
-        holder.getTitle().setText(vo.getTitle());
         holder.getDate().setText(vo.getDate());
+        holder.getContent().setText(vo.getContent());
         holder.getWriter().setText(vo.getWriter());
 
         return view; //젤 중요
