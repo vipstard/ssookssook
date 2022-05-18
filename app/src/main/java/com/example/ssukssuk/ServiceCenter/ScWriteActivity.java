@@ -21,8 +21,10 @@ import java.util.Calendar;
 public class ScWriteActivity extends AppCompatActivity {
 
     Button btn_write;
-    EditText edt_Title, edt_Post;
+    EditText edt_title, edt_content;
 
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("ServiceCenter");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +32,8 @@ public class ScWriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sc_write);
 
         btn_write = findViewById(R.id.btn_SWA_Write);
-        edt_Title = findViewById(R.id.edt_SWA_Title);
-        edt_Post = findViewById(R.id.edt_SWA_Post);
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("ServiceCenter");
-
-
-
+        edt_title = findViewById(R.id.edt_SWA_Title);
+        edt_content = findViewById(R.id.edt_SWA_Content);
 
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,17 +45,17 @@ public class ScWriteActivity extends AppCompatActivity {
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 String date = sdf.format(cal.getTime());
 
-                String title = edt_Title.getText().toString();
-                String post = edt_Post.getText().toString();
+                String title = edt_title.getText().toString();
+                String content = edt_content.getText().toString();
                 String writer = ScWriteActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                         getString("user_login_id1",null);
 
 
                 myRef.push().setValue(new ScVO(
+                        writer,
                         title,
-                        post,
-                        date,
-                        writer
+                        content,
+                        date
                 ));
                 startActivity(intent);
 

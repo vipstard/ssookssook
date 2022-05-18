@@ -58,7 +58,7 @@ public class Fragment1 extends Fragment {
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(),Board_write.class));
+                startActivity(new Intent(getActivity(),BoardWriteActivity.class));
             }
         });
 
@@ -121,7 +121,7 @@ public class Fragment1 extends Fragment {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), Board_list_select.class);
+                Intent intent = new Intent(getActivity(), BoardListSelectActivity.class);
                 String title = list.get(i).getTitle();
                 String writer = list.get(i).getWriter();
                 String indate = list.get(i).getDate();

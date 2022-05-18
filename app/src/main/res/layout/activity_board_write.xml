@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Board_write">
+    tools:context=".BoardWriteActivity">
 
     <TextView
         android:id="@+id/textView10"
@@ -22,7 +22,7 @@
     <EditText
         android:id="@+id/edt_board_write_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:ems="10"
         android:hint="제목을 작성해주세요"
         android:inputType="textPersonName"
