@@ -16,10 +16,10 @@
     <title>SsookSsook - User View</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="/resources/img/core-img/favicon.ico" />
+    <link rel="icon" href="${pageContext.request.contextPath}/resources/img/core-img/favicon.ico" />
 
     <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="/resources/style.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/style.css" />
   </head>
 
   <body>
@@ -27,7 +27,7 @@
     <div class="preloader d-flex align-items-center justify-content-center">
       <div class="preloader-circle"></div>
       <div class="preloader-img">
-        <img src="/resources/img/core-img/leaf.png" alt="" />
+        <img src="${pageContext.request.contextPath}/resources/img/core-img/leaf.png" alt="" />
       </div>
     </div>
 
@@ -68,14 +68,14 @@
                   </div>
                   <!-- Login -->
                   <div class="login">
-                    <a href="./login.html"
+                    <a href="LoginForm"
                       ><i class="fa fa-user" aria-hidden="true"></i>
                       <span>Log in</span></a
                     >
                   </div>
                   <!-- Sign Up -->
                   <div class="Sign Up">
-                    <a href="./join.html"
+                    <a href="JoinForm"
                       ><i class="fa fa-sign-in" aria-hidden="true"></i>
                       <span>Sign Up</span></a
                     >
@@ -95,7 +95,7 @@
             <nav class="classy-navbar justify-content-between" id="alazeaNav">
               <!-- Nav Brand -->
               <a href="index.html" class="nav-brand"
-                ><img src="/resources/img/core-img/SSSSlogo.png" alt=""
+                ><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt=""
               /></a>
 
               <!-- Navbar Toggler -->
@@ -166,7 +166,7 @@
       <!-- Top Breadcrumb Area -->
       <div
         class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center"
-        style="background-image: url(/resources/img/bg-img/main4.png)"
+        style="background-image: url(${pageContext.request.contextPath}/resources/img/bg-img/main4.png)"
       >
         <h2>회원 관리</h2>
       </div>
@@ -203,7 +203,7 @@
               <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
                   <img
-                    src="/resources/img/core-img/user1.png"
+                    src="${pageContext.request.contextPath}/resources/img/core-img/user1.png"
                     alt="Admin"
                     class="rounded-circle"
                     width="150"
@@ -312,7 +312,7 @@
               <div class="single-footer-widget">
                 <div class="footer-logo mb-30">
                   <a href="#"
-                    ><img src="/resources/img/core-img/SSSSlogo.png" alt=""
+                    ><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt=""
                   /></a>
                 </div>
                 <p>
@@ -375,7 +375,7 @@
                 >
                   <div class="product-thumbnail">
                     <a href="shop-details.html"
-                      ><img src="/resources/img/bg-img/apple1.png" alt=""
+                      ><img src="${pageContext.request.contextPath}/resources/img/bg-img/apple1.png" alt=""
                     /></a>
                   </div>
                   <div class="product-info">
@@ -390,7 +390,7 @@
                 >
                   <div class="product-thumbnail">
                     <a href="shop-details.html"
-                      ><img src="/resources/img/bg-img/apple.png" alt=""
+                      ><img src="${pageContext.request.contextPath}/resources/img/bg-img/apple.png" alt=""
                     /></a>
                   </div>
                   <div class="product-info">
@@ -467,14 +467,14 @@
 
     <!-- ##### All Javascript Files ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="/resources/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="/resources/js/bootstrap/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="/resources/js/bootstrap/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="/resources/js/plugins/plugins.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="/resources/js/active.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/active.js"></script>
   </body>
 </html>
