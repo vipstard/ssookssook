@@ -13,16 +13,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.ssukssuk.Board.BoardVO;
-import com.example.ssukssuk.BoardListSelectActivity;
-import com.example.ssukssuk.Board_answerVO.Board_answer_Adapter;
 import com.example.ssukssuk.MainActivity;
 import com.example.ssukssuk.R;
-import com.example.ssukssuk.ServiceCenter.VO.ScAdapter;
 import com.example.ssukssuk.ServiceCenter.VO.ScAnswerAdapter;
 import com.example.ssukssuk.ServiceCenter.VO.ScAnswerVO;
 import com.example.ssukssuk.ServiceCenter.VO.ScVO;
-import com.example.ssukssuk.VO.Board_list_select_writeVO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
@@ -55,7 +50,7 @@ public class ScListSelectActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sc_list_select);
 
         tv_title = findViewById(R.id.tv_SLVA_Title);
-        tv_content = findViewById(R.id.tv_SLVA_Post);
+        tv_content = findViewById(R.id.tv_SLVA_Content);
         tv_writer = findViewById(R.id.tv_SLVA_Writer);
         btn_delete = findViewById(R.id.btn_SLVA_Delete);
         btn_edit = findViewById(R.id.btn_SLVA_Edit);

@@ -3,13 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/grow"
-        android:icon="@android:drawable/ic_menu_my_calendar"
-        android:title="성장일기" />
-    <item
         android:id="@+id/board"
         android:icon="@android:drawable/ic_menu_agenda"
         android:title="게시판" />
+    <item
+        android:id="@+id/grow"
+        android:icon="@android:drawable/ic_menu_my_calendar"
+        android:title="성장일기"/>
     <item
         android:id="@+id/main"
         android:icon="@drawable/pngegg"
@@ -22,4 +22,9 @@
         android:id="@+id/set"
         android:icon="@android:drawable/ic_menu_manage"
         android:title="설정" />
+
+
+
+
+
 </menu>

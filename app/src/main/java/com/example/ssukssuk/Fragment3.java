@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -32,7 +33,7 @@ import org.json.JSONObject;
 
 public class Fragment3 extends Fragment {
     ImageView plant_img,water_img;
-    ImageButton btn_water;
+    Button btn_water;
     Switch led_switch;
     TextView tv_led,tv_water;
     RequestQueue queue;
@@ -49,7 +50,7 @@ public class Fragment3 extends Fragment {
         water_img = view.findViewById(R.id.main_water);
         led_switch = view.findViewById(R.id.led_sw);
         btn_water = view.findViewById(R.id.main_water_btn);
-        tv_led = view.findViewById(R.id.main_led);
+//        tv_led = view.findViewById(R.id.main_led);
         tv_water = view.findViewById(R.id.main_water_per);
 
         queue = Volley.newRequestQueue(getActivity());
@@ -58,7 +59,7 @@ public class Fragment3 extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b==true){
-                    tv_led.setText("조명 켜기");
+
                     int method = Request.Method.GET;
                     String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input1=1";
                     request = new StringRequest(
@@ -86,7 +87,7 @@ public class Fragment3 extends Fragment {
                     queue.add(request);
 
                 }else{
-                  tv_led.setText("조명 끄기");
+
                     int method = Request.Method.GET;
                     String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input1=0";
                     request = new StringRequest(

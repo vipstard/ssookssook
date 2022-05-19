@@ -10,8 +10,8 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNav;
-    Fragment1 frag_grow;
-    Fragment2 frag_board;
+    Fragment1 frag_board;
+    Fragment2 frag_grow;
     Fragment3 frag_main;
     Fragment4 frag_customer;
     Fragment5 frag_set;
@@ -23,8 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNav = findViewById(R.id.bottomNav);
 
-        frag_grow = new Fragment1();
-        frag_board = new Fragment2();
+        frag_board = new Fragment1();
+        frag_grow = new Fragment2();
         frag_main = new Fragment3();
         frag_customer = new Fragment4();
         frag_set = new Fragment5();
@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
                 //선택한 메뉴버튼에 대한 리소스ID 저장
                 int itemId = item.getItemId();
 
-                if(itemId == R.id.grow){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_grow).commit();
-                }else if(itemId == R.id.board){
+                if(itemId == R.id.board){
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_board).commit();
+                }else if(itemId == R.id.grow){
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_grow).commit();
                 }else if(itemId == R.id.main){
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_main).commit();
 

@@ -4,12 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DAE5D0"
     tools:context=".Fragment2">
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#F9EBC8"
+        android:gravity="center"
         android:text="NO"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -18,13 +21,14 @@
         app:layout_constraintEnd_toStartOf="@+id/textView13"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:gravity="center" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#F9EBC8"
+        android:gravity="center"
         android:text="제목"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -33,13 +37,14 @@
         app:layout_constraintEnd_toStartOf="@+id/textView14"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toTopOf="@+id/textView12"
-        android:gravity="center"/>
+        app:layout_constraintTop_toTopOf="@+id/textView12" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#F9EBC8"
+        android:gravity="center"
         android:text="날짜"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -48,8 +53,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="@+id/textView13"
-        android:gravity="center"/>
+        app:layout_constraintTop_toTopOf="@+id/textView13" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
@@ -62,6 +66,7 @@
         android:id="@+id/list_user"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#FEFBE7"
         app:layout_constraintBottom_toTopOf="@+id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -74,25 +79,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.89" />
+        app:layout_constraintGuide_percent="0.85" />
 
     <Button
         android:id="@+id/btn_D_Picture"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_circle4"
         android:text="사진모아보기"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/list_user" />
 
     <Button
         android:id="@+id/btn_D_Write"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="98dp"
         android:layout_marginTop="20dp"
+        android:layout_marginEnd="80dp"
+        android:background="@drawable/btn_circle3"
         android:text="작성하기"
-        app:layout_constraintStart_toEndOf="@+id/btn_D_Picture"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/list_user" />
 </androidx.constraintlayout.widget.ConstraintLayout>
