@@ -19,6 +19,9 @@
         android:theme="@style/Theme.Ssukssuk"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Diary_pic"
+            android:exported="false" />
+        <activity
             android:name=".BoardEditActivity"
             android:exported="false" />
         <activity

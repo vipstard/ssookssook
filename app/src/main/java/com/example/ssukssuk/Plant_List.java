@@ -113,7 +113,7 @@ public class Plant_List extends AppCompatActivity {
 
                         editor.putString("pot_name",  list.get(i).getPot_name());
                         editor.commit();
-                        Toast.makeText(getApplicationContext(), "OK Click", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),list.get(i).getPot_name() , Toast.LENGTH_SHORT).show();
                     }
                 });
 

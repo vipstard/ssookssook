@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.view.View;
@@ -51,7 +52,9 @@ public class Reg_Plant_reg extends AppCompatActivity {
                         name,
                         indate,
                         loginId));
+
                 //인터페이스의 함수를 호출하여 변수에 저장된 값들을 Activity로 전달
+
                 Intent intent = new Intent(Reg_Plant_reg.this,Plant_List.class);
                 startActivity(intent);
             }

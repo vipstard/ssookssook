@@ -33,7 +33,7 @@ public class Fragment2 extends Fragment {
     ListView lv;
     ScAdapter adapter;
     ArrayList<ScVO> list;
-    Button btn_write,btn_reg;
+    Button btn_write,btn_all;
     TextView number;
     String date;
     String content;
@@ -45,10 +45,19 @@ public class Fragment2 extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_2, container, false);
         lv = view.findViewById(R.id.list_user);
+        btn_all = view.findViewById(R.id.btn_D_Picture);
+        btn_all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
+        String pot_name = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("pot_name", null);
         list = new ArrayList<ScVO>();
         String writer = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("user_login_id1", null);
+
         myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -62,6 +71,7 @@ public class Fragment2 extends Fragment {
                     for (DataSnapshot data : snapshot.getChildren()) {
 
                         BoardVO vo = data.getValue(BoardVO.class);
+                        if(pot_name.equals(vo.getPot_name())){
                         //여기까지가 데이터 불러오기
                         if (writer.equals(vo.getWriter())) {
                             //게시글 번호 매기기
@@ -73,6 +83,7 @@ public class Fragment2 extends Fragment {
                             //파이어베이스의 값을 삽입해서 리스트에 넣어준다
                             list.add(new ScVO(num, title, date));
                             adapter.notifyDataSetChanged();
+                        }
                         }
                     }
                 }
