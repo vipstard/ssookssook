@@ -43,13 +43,13 @@ public class BoardWriteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board_write);
-        findViewById(R.id.imageView5).setOnClickListener(onClickListener);
+        findViewById(R.id.btn_BWA_Picture).setOnClickListener(onClickListener);
 
         edt_title = findViewById(R.id.edt_board_write_title);
         edt_content = findViewById(R.id.edt_board_write_content);
         btn_reg = findViewById(R.id.button6);
         content = edt_content.getText().toString();
-        photo = findViewById(R.id.imageView5);
+        photo = findViewById(R.id.btn_BWA_Picture);
         storage = FirebaseStorage.getInstance();
         btn_reg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +79,7 @@ public class BoardWriteActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.imageView5:
+                case R.id.btn_BWA_Picture:
                     loadAlbum1();
                     break;
             }
@@ -117,14 +117,14 @@ public class BoardWriteActivity extends AppCompatActivity {
             uploadTask.addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception exception) {
-                    Toast.makeText(BoardWriteActivity.this, "사진이 정상적으로 업로드 되지 않았습니다.", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(BoardWriteActivity.this, "사진이 정상적으로 업로드 되지 않았습니다.", Toast.LENGTH_SHORT).show();
 
                 }
             }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Toast.makeText(BoardWriteActivity.this, "사진이 정상적으로 업로드 되었습니다.", Toast.LENGTH_SHORT).show();
-                    ImageView img_test = findViewById(R.id.imageView5);
+//                    Toast.makeText(BoardWriteActivity.this, "사진이 정상적으로 업로드 되었습니다.", Toast.LENGTH_SHORT).show();
+                    ImageView img_test = findViewById(R.id.btn_BWA_Picture);
                     Calendar cal = Calendar.getInstance();
                     String loginId = BoardWriteActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                             getString("user_login_id1", null);
@@ -137,7 +137,7 @@ public class BoardWriteActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri uri) {
                             //이미지 로드 성공시
-                            Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
                             Glide.with(getApplicationContext())
                                     .load(uri)
                                     .into(img_test);

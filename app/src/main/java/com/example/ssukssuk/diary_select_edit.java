@@ -33,9 +33,11 @@ public class diary_select_edit extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_select_edit);
+
         btn_reg = findViewById(R.id.diary_select_edit_reg);
         re_title = findViewById(R.id.editTextTextPersonName);
         re_content = findViewById(R.id.editTextTextMultiLine2);
+
 
         title = diary_select_edit.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("Diary_select_title", null);

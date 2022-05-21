@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#DAE5D0"
     tools:context=".Fragment4">
 
     <androidx.constraintlayout.widget.Guideline
@@ -17,8 +18,9 @@
         android:id="@+id/textView27"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#F9EBC8"
         android:gravity="center"
-        android:text="No"
+        android:text="NO"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -33,6 +35,7 @@
         android:id="@+id/textView28"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#F9EBC8"
         android:gravity="center"
         android:text="제목"
         android:textAlignment="center"
@@ -48,6 +51,7 @@
         android:id="@+id/textView29"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#F9EBC8"
         android:gravity="center"
         android:text="날짜"
         android:textAlignment="center"
@@ -64,12 +68,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
+        app:layout_constraintGuide_percent="0.87" />
 
     <ListView
         android:id="@+id/list_Sc"
         android:layout_width="409dp"
         android:layout_height="0dp"
+        android:background="#FEFBE7"
         app:layout_constraintBottom_toTopOf="@+id/guideline17"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,11 +82,14 @@
 
     <Button
         android:id="@+id/btn_S_Write"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="23dp"
-        android:text="글 작성하기"
+        android:layout_marginEnd="80dp"
+        android:background="@drawable/btn_circle3"
+        android:text="작성하기"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/list_Sc" />
 </androidx.constraintlayout.widget.ConstraintLayout>

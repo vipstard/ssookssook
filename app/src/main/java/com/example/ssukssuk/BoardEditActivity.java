@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.example.ssukssuk.Board.BoardVO;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -26,7 +27,8 @@ import java.util.Map;
 
 public class BoardEditActivity extends AppCompatActivity {
 
-    Button btn_edit,btn_back;
+    Button btn_edit;
+    ImageButton btn_back;
     EditText edt_title,edt_content;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -49,6 +51,12 @@ public class BoardEditActivity extends AppCompatActivity {
         String writer = BoardEditActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("writer", null);
 
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -145,4 +153,5 @@ public class BoardEditActivity extends AppCompatActivity {
 
 
     }
+
 }

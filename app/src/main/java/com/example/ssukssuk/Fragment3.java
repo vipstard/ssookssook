@@ -32,7 +32,7 @@ import org.json.JSONObject;
 
 
 public class Fragment3 extends Fragment {
-    ImageView plant_img,water_img;
+    ImageView plant_img,water_img,iv_led;
     Button btn_water;
     Switch led_switch;
     TextView tv_led,tv_water;
@@ -50,8 +50,9 @@ public class Fragment3 extends Fragment {
         water_img = view.findViewById(R.id.main_water);
         led_switch = view.findViewById(R.id.led_sw);
         btn_water = view.findViewById(R.id.main_water_btn);
-//        tv_led = view.findViewById(R.id.main_led);
+//        tv_led = view.findViewById(R.id.led_sw);
         tv_water = view.findViewById(R.id.main_water_per);
+        iv_led = view.findViewById(R.id.iv_Main_Led);
 
         queue = Volley.newRequestQueue(getActivity());
         pumpeThread pum;
@@ -59,7 +60,7 @@ public class Fragment3 extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b==true){
-
+                    iv_led.setImageResource(R.drawable.on);
                     int method = Request.Method.GET;
                     String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input1=1";
                     request = new StringRequest(
@@ -68,18 +69,18 @@ public class Fragment3 extends Fragment {
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
-                                    Toast.makeText(getActivity(),
-                                            "로그인 성공"+response,
-                                            Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(getActivity(),
+//                                            "로그인 성공"+response,
+//                                            Toast.LENGTH_SHORT).show();
 
                                 }
                             },
                             new Response.ErrorListener() {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
-                                    Toast.makeText(getActivity(),
-                                            "로그인 실패"+error.toString(),
-                                            Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(getActivity(),
+//                                            "로그인 실패"+error.toString(),
+//                                            Toast.LENGTH_SHORT).show();
                                 }
                             }
                     );
@@ -87,7 +88,7 @@ public class Fragment3 extends Fragment {
                     queue.add(request);
 
                 }else{
-
+                    iv_led.setImageResource(R.drawable.off);
                     int method = Request.Method.GET;
                     String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input1=0";
                     request = new StringRequest(
@@ -96,17 +97,17 @@ public class Fragment3 extends Fragment {
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
-                                    Toast.makeText(getActivity(),
-                                            "조작"+response,
-                                            Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(getActivity(),
+//                                            "조작"+response,
+//                                            Toast.LENGTH_SHORT).show();
                                 }
                             },
                             new Response.ErrorListener() {
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
-                                    Toast.makeText(getActivity(),
-                                            "로그인 실패"+error.toString(),
-                                            Toast.LENGTH_SHORT).show();
+//                                    Toast.makeText(getActivity(),
+//                                            "로그인 실패"+error.toString(),
+//                                            Toast.LENGTH_SHORT).show();
                                 }
                             });
 
@@ -152,7 +153,7 @@ public class Fragment3 extends Fragment {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getActivity(),error.toString(),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(),error.toString(),Toast.LENGTH_SHORT).show();
             }
         }
         );
@@ -202,18 +203,18 @@ public class Fragment3 extends Fragment {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-                                Toast.makeText(getActivity(),
-                                        "로그인 성공"+response,
-                                        Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getActivity(),
+//                                        "로그인 성공"+response,
+//                                        Toast.LENGTH_SHORT).show();
 
                             }
                         },
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(getActivity(),
-                                        "로그인 실패"+error.toString(),
-                                        Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getActivity(),
+//                                        "로그인 실패"+error.toString(),
+//                                        Toast.LENGTH_SHORT).show();
                             }
                         }
                 );
@@ -229,18 +230,18 @@ public class Fragment3 extends Fragment {
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-                                Toast.makeText(getActivity(),
-                                        "로그인 성공"+response,
-                                        Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getActivity(),
+//                                        "로그인 성공"+response,
+//                                        Toast.LENGTH_SHORT).show();
 
                             }
                         },
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-                                Toast.makeText(getActivity(),
-                                        "로그인 실패"+error.toString(),
-                                        Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(getActivity(),
+//                                        "로그인 실패"+error.toString(),
+//                                        Toast.LENGTH_SHORT).show();
                             }
                         }
                 );

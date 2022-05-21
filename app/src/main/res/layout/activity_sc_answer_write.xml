@@ -14,7 +14,7 @@
         android:text="댓글 작성하기"
         android:textAlignment="center"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/edt_board_content"
+        app:layout_constraintBottom_toTopOf="@+id/edt_BAA_Content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

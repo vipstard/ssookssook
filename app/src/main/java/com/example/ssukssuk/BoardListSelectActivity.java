@@ -1,11 +1,9 @@
 package com.example.ssukssuk;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,7 +34,8 @@ import java.util.ArrayList;
 
 public class BoardListSelectActivity extends AppCompatActivity {
     Button btn_answer, btn_delete, btn_edit;
-    TextView tv_title, tv_content, tv_writer;
+    TextView tv_title, tv_content, tv_writer,tv_date;
+    ImageButton btn_back;
     ArrayList<Board_list_select_writeVO> list;
     Board_answer_Adapter adapter;
     ListView lv;
@@ -50,14 +50,17 @@ public class BoardListSelectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board_list_select);
 
+        btn_back = findViewById(R.id.btn_BLSA_Back);
         btn_answer = findViewById(R.id.btn_BLSA_Answer);
         btn_edit = findViewById(R.id.btn_BLSA_Edit);
         btn_delete = findViewById(R.id.btn_BLSA_Delete);
         tv_title = findViewById(R.id.board_title2);
-        tv_content = findViewById(R.id.board_content2);
-        tv_writer = findViewById(R.id.board_wirte2);
+        tv_content = findViewById(R.id.tv_BLSA_Content);
+        tv_writer = findViewById(R.id.tv_BLSA_Writer);
+        tv_date = findViewById(R.id.tv_BLSA_Date);
         lv = findViewById(R.id.board_list_answer_list);
-        img = findViewById(R.id.imageView);
+        img = findViewById(R.id.iv_BLSA_picture);
+
         String title = BoardListSelectActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("title", null);
         String writer = BoardListSelectActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
@@ -69,8 +72,16 @@ public class BoardListSelectActivity extends AppCompatActivity {
 
 
         tv_title.setText(title);
-        tv_writer.setText(indate);
+        tv_date.setText(indate);
+        tv_writer.setText(writer);
 
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
         FirebaseStorage storage = FirebaseStorage.getInstance("gs://ssukssuk-af5d6.appspot.com/");
         StorageReference storageRef = storage.getReference();
         storageRef.child("images/"+writer+title + indate + ".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {

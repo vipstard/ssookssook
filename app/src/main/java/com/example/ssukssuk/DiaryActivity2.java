@@ -16,7 +16,6 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.ssukssuk.Board.BoardVO;
-import com.example.ssukssuk.VO.Board_list_select_writeVO;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,7 +38,7 @@ public class DiaryActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary2);
-        btn_reg = findViewById(R.id.diary_re);
+        btn_reg = findViewById(R.id.diary_edit);
         String title = DiaryActivity2.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("Diary_select_title", null);
         String writer =DiaryActivity2.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
