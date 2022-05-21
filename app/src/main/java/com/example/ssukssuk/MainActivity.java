@@ -41,16 +41,23 @@ public class MainActivity extends AppCompatActivity {
 
                 if(itemId == R.id.board){
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_board).commit();
+                    return true;
                 }else if(itemId == R.id.grow){
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_grow).commit();
+                    return true;
+
                 }else if(itemId == R.id.main){
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_main).commit();
+                    return true;
 
                 }else if(itemId == R.id.customer){
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_customer).commit();
+                    return true;
 
                 }else if(itemId == R.id.set){
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, frag_set).commit();
+                    return true;
+
                 }
                 return false;
             }
