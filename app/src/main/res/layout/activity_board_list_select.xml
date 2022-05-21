@@ -59,7 +59,7 @@
         android:id="@+id/tv_BLSA_Content"
         android:layout_width="370dp"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/textbox_circle"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
@@ -89,13 +89,14 @@
 
     <ImageView
         android:id="@+id/iv_BLSA_picture"
-        android:layout_width="150dp"
-        android:layout_height="122dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="172dp"
+        android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
         android:gravity="center"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline9"
         app:srcCompat="@drawable/item10" />
@@ -104,13 +105,14 @@
         android:id="@+id/btn_BLSA_Answer"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
         android:background="@drawable/btn_circle4"
         android:text="댓글작성"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline20"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_BLSA_Edit"
         app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -134,7 +136,6 @@
         android:id="@+id/btn_BLSA_Edit"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
         android:background="@drawable/btn_circle2"
         android:minWidth="88dip"
         android:minHeight="48dip"
@@ -143,6 +144,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/board_list_answer_list"
         app:layout_constraintEnd_toStartOf="@+id/btn_BLSA_Answer"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_BLSA_Content" />
 
     <Button

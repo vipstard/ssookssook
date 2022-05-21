@@ -8,21 +8,23 @@
     tools:context=".Fragment3">
 
     <View
-        android:id="@+id/view6"
-        android:layout_width="0dp"
-        android:layout_height="3dp"
-        android:background="@drawable/line2"
-        app:layout_constraintBottom_toTopOf="@+id/guideline13"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <View
         android:id="@+id/view4"
         android:layout_width="0dp"
         android:layout_height="3dp"
         android:background="@drawable/line2"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="411dp"
+        android:layout_height="160dp"
+        android:layout_marginBottom="-20dp"
+        android:background="#00000000"
+        android:src="@drawable/plant1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
@@ -53,83 +55,122 @@
 
     <TextView
         android:id="@+id/main_water_per"
-        android:layout_width="96dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="100dp"
         android:fontFamily="@font/scdream8"
         android:gravity="center"
         android:text="100%"
         android:textAlignment="center"
         android:textColor="#0091EA"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_water" />
-
-    <Switch
-        android:id="@+id/led_sw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="96dp"
-        android:text=""
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_Main_Led" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.05" />
+        app:layout_constraintGuide_percent="0.08" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.4" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_percent="0.5" />
 
     <ImageView
         android:id="@+id/main_water"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="35dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="-5dp"
         android:src="@drawable/water100"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline11" />
+        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintEnd_toStartOf="@+id/main_water_per"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.615" />
 
     <Button
         android:id="@+id/main_water_btn"
-        android:layout_width="163dp"
-        android:layout_height="53dp"
-        android:background="@drawable/btn_circle6"
+        android:layout_width="111dp"
+        android:layout_height="41dp"
+        android:background="#00000000"
         android:fontFamily="@font/the_nakseo"
         android:text="물주기"
-        android:textColor="#001DFF"
-        android:textSize="25sp"
+        android:textColor="#0091EA"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view6" />
+        app:layout_constraintEnd_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toStartOf="@+id/imageButton"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
     <ImageView
         android:id="@+id/iv_Main_Led"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="70dp"
+        android:layout_width="155dp"
+        android:layout_height="155dp"
+        android:layout_marginEnd="30dp"
         android:src="@drawable/off"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="155dp"
+        android:layout_height="157dp"
+        android:layout_marginStart="30dp"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/set_water3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/scdream8"
+        android:text="100%"
+        android:textColor="#0091EA"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/the_nakseo"
+        android:text="조명"
+        android:textColor="#DA640C"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@+id/led_sw"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/led_sw"
+        app:layout_constraintTop_toBottomOf="@+id/iv_Main_Led" />
+
+    <Switch
+        android:id="@+id/led_sw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="@+id/iv_Main_Led"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/iv_Main_Led"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="30dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="100dp"
+        android:src="@drawable/water_2"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.666" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
