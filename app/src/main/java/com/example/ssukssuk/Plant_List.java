@@ -46,13 +46,6 @@ public class Plant_List extends AppCompatActivity {
         setContentView(R.layout.activity_plant_list);
         btn_add = findViewById(R.id.button3);
         lv = findViewById(R.id.Plant_list_Listview);
-        btn_reg_main = findViewById(R.id.button4);
-        btn_reg_main.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
         list = new ArrayList<Reg_Plant_mainVO>();
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
