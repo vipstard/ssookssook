@@ -45,9 +45,9 @@ public class BoardWriteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_board_write);
         findViewById(R.id.btn_BWA_Picture).setOnClickListener(onClickListener);
 
-        edt_title = findViewById(R.id.edt_board_write_title);
-        edt_content = findViewById(R.id.edt_board_write_content);
-        btn_reg = findViewById(R.id.button6);
+        edt_title = findViewById(R.id.edt_BWA_Title);
+        edt_content = findViewById(R.id.edt_BWA_Content);
+        btn_reg = findViewById(R.id.btn_BWA_Write);
         content = edt_content.getText().toString();
         photo = findViewById(R.id.btn_BWA_Picture);
         storage = FirebaseStorage.getInstance();

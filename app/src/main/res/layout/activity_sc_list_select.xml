@@ -4,131 +4,162 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FEFBE7"
     tools:context=".ServiceCenter.ScListSelectActivity">
 
     <TextView
         android:id="@+id/tv_SLVA_Title"
-        android:layout_width="350dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/box_white"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#F9EBC8"
         android:gravity="center_vertical"
         android:hint="제목"
-        android:paddingLeft="20dp"
+        android:paddingLeft="50dp"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68" />
+
     <TextView
         android:id="@+id/tv_SLVA_Content"
-        android:layout_width="350dp"
-        android:layout_height="300dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/box_white"
+        android:layout_width="370dp"
+        android:layout_height="260dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/textbox_circle"
         android:hint="게시글 작성"
-        android:paddingLeft="10dp"
+        android:paddingLeft="20dp"
         android:paddingTop="10dp"
+        android:paddingRight="20dp"
         android:paddingBottom="10dp"
         android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_SLVA_Date" />
-
-    <Button
-        android:id="@+id/btn_SLVA_Edit"
-        android:layout_width="50dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="268dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/box_white"
-        android:paddingLeft="0dp"
-        android:paddingTop="0dp"
-        android:paddingRight="0dp"
-        android:paddingBottom="0dp"
-        android:text="수정"
-        android:textColor="@color/black"
-        android:textSize="10sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_SLVA_Content" />
+        app:layout_constraintTop_toTopOf="@+id/guideline21" />
 
     <Button
         android:id="@+id/btn_SLVA_Delete"
         android:layout_width="50dp"
         android:layout_height="25dp"
-        android:layout_marginStart="20dp"
-        android:background="@drawable/box_white"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="#00000000"
         android:paddingLeft="0dp"
         android:paddingTop="0dp"
         android:paddingRight="0dp"
         android:paddingBottom="0dp"
         android:text="삭제"
-        android:textColor="@color/black"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/btn_SLVA_Edit"
-        app:layout_constraintStart_toEndOf="@+id/btn_SLVA_Edit"
-        app:layout_constraintTop_toTopOf="@+id/btn_SLVA_Edit"
-        app:layout_constraintVertical_bias="0.0" />
+        android:textColor="#6D000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_SLVA_Date" />
 
     <ListView
         android:id="@+id/Sc_list_answer_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#DAE5D0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view5" />
+        app:layout_constraintTop_toTopOf="@+id/guideline13" />
 
     <TextView
         android:id="@+id/tv_SLVA_Writer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginStart="45dp"
         android:hint="작성자"
-        android:textColor="#43000000"
-        app:layout_constraintStart_toStartOf="@+id/tv_SLVA_Title"
-        app:layout_constraintTop_toBottomOf="@+id/tv_SLVA_Title" />
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline21"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline12" />
 
     <Button
         android:id="@+id/btn_SLVA_Content"
-        android:layout_width="71dp"
-        android:layout_height="27dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="@color/black"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_circle4"
         android:insetTop="0dp"
         android:insetBottom="0dp"
         android:paddingLeft="0dp"
         android:paddingTop="0dp"
         android:paddingRight="0dp"
         android:paddingBottom="0dp"
-        android:text="댓글 등록"
+        android:text="댓글작성"
         android:textColor="@color/white"
+        android:textStyle="bold"
         app:cornerRadius="0dp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_SLVA_Delete"
-        app:layout_constraintTop_toBottomOf="@+id/btn_SLVA_Edit" />
+        app:layout_constraintBottom_toBottomOf="@+id/btn_SLVA_Edit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_SLVA_Edit"
+        app:layout_constraintTop_toTopOf="@+id/btn_SLVA_Edit" />
+
+    <Button
+        android:id="@+id/btn_SLVA_Edit"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_circle2"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
+        android:text="수 정"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline13"
+        app:layout_constraintEnd_toStartOf="@+id/btn_SLVA_Content"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_SLVA_Content" />
 
     <TextView
         android:id="@+id/tv_SLVA_Date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
         android:hint="작성 날짜"
-        android:textColor="#43000000"
-        app:layout_constraintStart_toStartOf="@+id/tv_SLVA_Writer"
-        app:layout_constraintTop_toBottomOf="@+id/tv_SLVA_Writer" />
-
-    <View
-        android:id="@+id/view5"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/line"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline21"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="@+id/guideline12"
+        app:layout_constraintVertical_bias="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <ImageButton
+        android:id="@+id/btn_SLVA_Back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/guideline12"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_SLVA_Content" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

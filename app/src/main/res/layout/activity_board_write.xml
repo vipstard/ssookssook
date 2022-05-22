@@ -29,7 +29,7 @@
         app:srcCompat="@drawable/back" />
 
     <EditText
-        android:id="@+id/edt_board_write_title"
+        android:id="@+id/edt_BWA_Title"
         android:layout_width="360dp"
         android:layout_height="45dp"
         android:layout_marginTop="30dp"
@@ -45,7 +45,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline23" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btn_BWA_Write"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -67,7 +67,7 @@
         app:layout_constraintGuide_percent="0.1" />
 
     <EditText
-        android:id="@+id/edt_board_write_content"
+        android:id="@+id/edt_BWA_Content"
         android:layout_width="360dp"
         android:layout_height="192dp"
         android:layout_marginTop="30dp"
@@ -83,7 +83,7 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_board_write_title" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_BWA_Title" />
 
     <TextView
         android:id="@+id/textView31"
@@ -106,7 +106,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_board_write_content"
+        app:layout_constraintTop_toBottomOf="@+id/edt_BWA_Content"
         app:srcCompat="@drawable/picture" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

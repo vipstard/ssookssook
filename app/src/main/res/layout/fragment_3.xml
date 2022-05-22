@@ -107,15 +107,6 @@
         app:layout_constraintStart_toStartOf="@+id/imageButton"
         app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
-    <ImageView
-        android:id="@+id/iv_Main_Led"
-        android:layout_width="155dp"
-        android:layout_height="155dp"
-        android:layout_marginEnd="30dp"
-        android:src="@drawable/off"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view4" />
-
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="155dp"
@@ -147,20 +138,10 @@
         android:text="조명"
         android:textColor="#DA640C"
         android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="@+id/led_sw"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/led_sw"
-        app:layout_constraintTop_toBottomOf="@+id/iv_Main_Led" />
-
-    <Switch
-        android:id="@+id/led_sw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="@+id/iv_Main_Led"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/iv_Main_Led"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_main_led"
+        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintStart_toStartOf="@+id/btn_main_led"
+        app:layout_constraintTop_toBottomOf="@+id/btn_main_led" />
 
     <ImageView
         android:id="@+id/imageView7"
@@ -172,5 +153,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.666" />
+
+    <ImageButton
+        android:id="@+id/btn_main_led"
+        android:layout_width="155dp"
+        android:layout_height="157dp"
+        android:layout_marginEnd="30dp"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        android:src="@drawable/off"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

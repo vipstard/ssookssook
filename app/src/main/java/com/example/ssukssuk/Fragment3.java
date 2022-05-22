@@ -33,8 +33,9 @@ import org.json.JSONObject;
 
 
 public class Fragment3 extends Fragment {
-    ImageView plant_img,water_img,iv_led;
+    ImageView plant_img,water_img;
     Button btn_water;
+    ImageButton btn_led;
     Switch led_switch;
     TextView tv_led,tv_water;
     RequestQueue queue;
@@ -43,6 +44,7 @@ public class Fragment3 extends Fragment {
     int pump = 3;
     String rank;
     String wa = "";
+    boolean a = false;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,20 +52,22 @@ public class Fragment3 extends Fragment {
         View view = inflater.inflate(R.layout.fragment_3, container, false);
         plant_img = view.findViewById(R.id.main_plant);
         water_img = view.findViewById(R.id.main_water);
-        led_switch = view.findViewById(R.id.led_sw);
         btn_water = view.findViewById(R.id.main_water_btn);
 //        tv_led = view.findViewById(R.id.led_sw);
         tv_water = view.findViewById(R.id.main_water_per);
-        iv_led = view.findViewById(R.id.iv_Main_Led);
+        btn_led = view.findViewById(R.id.btn_main_led);
+
 
 
         queue = Volley.newRequestQueue(getActivity());
         pumpeThread pum;
-        led_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+
+        btn_led.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(b==true){
-                    iv_led.setImageResource(R.drawable.on);
+            public void onClick(View view) {
+                if(a==true){
+                    btn_led.setImageResource(R.drawable.on);
                     int method = Request.Method.GET;
                     String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input1=1";
                     request = new StringRequest(
@@ -89,9 +93,10 @@ public class Fragment3 extends Fragment {
                     );
 
                     queue.add(request);
+                    a=false;
 
                 }else{
-                    iv_led.setImageResource(R.drawable.off);
+                    btn_led.setImageResource(R.drawable.off);
                     int method = Request.Method.GET;
                     String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input1=0";
                     request = new StringRequest(
@@ -115,6 +120,7 @@ public class Fragment3 extends Fragment {
                             });
 
                     queue.add(request);
+                    a=true;
 
                 }
             }
@@ -147,7 +153,7 @@ public class Fragment3 extends Fragment {
 //                                System.out.println("water_percent="+water_percent);
 //                                System.out.println("soil = "+ soil);
                             }
-                            tv_water.setText(data);
+                            tv_water.setText(data+"%");
 
                         } catch (JSONException e) {
                             e.printStackTrace();

@@ -69,7 +69,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline10"
         app:layout_constraintEnd_toEndOf="@+id/iv_BLSA_picture"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.50"
         app:layout_constraintStart_toStartOf="@+id/iv_BLSA_picture"
         app:layout_constraintTop_toBottomOf="@+id/iv_BLSA_picture" />
 
