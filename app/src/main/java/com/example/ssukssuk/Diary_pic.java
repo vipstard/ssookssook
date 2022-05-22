@@ -48,10 +48,18 @@ public class Diary_pic extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_pic);
+        ImageView img1,img2,img3,img4;
+        img1 = findViewById(R.id.diary_img_1);
+        img2 = findViewById(R.id.diary_img_2);
+        img3 = findViewById(R.id.diary_img_3);
+        img4 = findViewById(R.id.diary_img_4);
 
-
+        img1.setImageResource(R.drawable.a1);
+        img2.setImageResource(R.drawable.a2);
+        img3.setImageResource(R.drawable.a3);
+        img4.setImageResource(R.drawable.a4);
         String date;
-        ImageView img_test = findViewById(R.id.diary_img_9);
+        ImageView img_test = findViewById(R.id.diary_img_5);
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String indate = sdf.format(cal.getTime());

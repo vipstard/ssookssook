@@ -24,7 +24,7 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        constraintLayout=findViewById(R.id.constraintLayout1);
+        constraintLayout=findViewById(R.id.constraintLayout);
         lcklockImageView=findViewById(R.id.lock_lck);
         oImageView=findViewById(R.id.lock_o);
         oImageView2=findViewById(R.id.lock_o2);
