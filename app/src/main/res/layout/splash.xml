@@ -5,49 +5,60 @@
     android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main">
+    android:background="#FEFBE7">
 
     <ImageView
         android:id="@+id/lock_lck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="568dp"
-        android:src="@drawable/ic_launcher_foreground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/lock_o"
-        android:layout_width="153dp"
-        android:layout_height="102dp"
-        android:layout_marginTop="344dp"
-        android:src="@drawable/pngegg"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/lock_o2"
-        android:layout_width="153dp"
-        android:layout_height="102dp"
-        android:layout_marginTop="344dp"
-        android:src="@drawable/pngegg"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/sukk3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/faceReconition"
+        android:id="@+id/lock_lck1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="536dp"
-        android:layout_marginEnd="84dp"
-        android:src="@drawable/main_text"
+        android:layout_marginTop="568dp"
+        android:src="@drawable/ssookssook"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/lock_o"
+        android:layout_width="217dp"
+        android:layout_height="153dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/sun"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/lock_o2"
+        android:layout_width="176dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/set_water4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/faceReconition"
+        android:layout_width="301dp"
+        android:layout_height="611dp"
+        android:layout_marginTop="228dp"
+        android:src="@drawable/ssuk4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
