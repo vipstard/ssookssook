@@ -50,7 +50,8 @@ public class Fragment2 extends Fragment {
         btn_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(),Diary_pic.class);
+                startActivity(intent);
             }
         });
         String pot_name = getActivity().getSharedPreferences("mySPF", Context.MODE_PRIVATE).

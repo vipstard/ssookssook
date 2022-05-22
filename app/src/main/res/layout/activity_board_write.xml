@@ -91,6 +91,7 @@
         android:layout_height="wrap_content"
         android:text="게시글 작성"
         android:textSize="30sp"
+
         app:layout_constraintBottom_toTopOf="@+id/guideline23"
         app:layout_constraintStart_toEndOf="@+id/btn_BAA_Back2"
         app:layout_constraintTop_toTopOf="parent"
