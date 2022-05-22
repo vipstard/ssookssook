@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ssukssuk.Board.BoardVO;
 import com.example.ssukssuk.Diary.DiaryVO;
@@ -80,6 +81,7 @@ public class Fragment2 extends Fragment {
                             title = vo.getTitle();
                             date = vo.getDate();
                             content = vo.getContent();
+
                             //파이어베이스의 값을 삽입해서 리스트에 넣어준다
                             list.add(new ScVO(num, title, date));
                             adapter.notifyDataSetChanged();
@@ -103,7 +105,7 @@ public class Fragment2 extends Fragment {
                 String title = list.get(i).getTitle();
                 String writer = list.get(i).getWriter();
                 String sel_date =  list.get(i).getDate();
-
+                String content = list.get(i).getContent();
                 //누른 게시글의 제목,글쓴사람,날짜를 저장한다
                 SharedPreferences spf = getActivity().
                         getSharedPreferences("mySPF", Context.MODE_PRIVATE);

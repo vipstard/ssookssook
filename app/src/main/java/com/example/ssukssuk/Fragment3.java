@@ -3,6 +3,7 @@ package com.example.ssukssuk;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
@@ -41,6 +42,7 @@ public class Fragment3 extends Fragment {
     String water_percent="";
     int pump = 3;
     String rank;
+    String wa = "";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class Fragment3 extends Fragment {
 //        tv_led = view.findViewById(R.id.led_sw);
         tv_water = view.findViewById(R.id.main_water_per);
         iv_led = view.findViewById(R.id.iv_Main_Led);
+
 
         queue = Volley.newRequestQueue(getActivity());
         pumpeThread pum;
@@ -137,6 +140,7 @@ public class Fragment3 extends Fragment {
                             for(int i=0; i<result.length(); i++){
                                 JSONObject soil = result.getJSONObject(i);
                                 data = soil.getString("soil");
+                                wa = soil.getString("water");
                                 Log.d("soil",data);
 //
 //                                water_percent = soil.getString("soil");
@@ -156,8 +160,16 @@ public class Fragment3 extends Fragment {
 //                Toast.makeText(getActivity(),error.toString(),Toast.LENGTH_SHORT).show();
             }
         }
-        );
+        );//서버에서 받기
         queue.add(request);
+        //알림 기능 구현
+        wa="0";
+        if(wa.equals("0")){
+            NotificationCompat.Builder mBuilder =
+                    new NotificationCompat.Builder(getActivity()).setSmallIcon(R.drawable.du)
+                            .setContentTitle("쑥쑥이!!")
+                            .setContentText("물통의 물이 없어요!");
+        }
         btn_water.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

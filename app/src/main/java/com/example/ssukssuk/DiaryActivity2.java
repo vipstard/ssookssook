@@ -45,7 +45,7 @@ public class DiaryActivity2 extends AppCompatActivity {
                 getString("Diary_select_writer", null);
         String date = DiaryActivity2.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("Diary_select_date", null);
-        String content = DiaryActivity2.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+        String content1 = DiaryActivity2.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("Diary_select_content", null);
         btn_reg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,19 +54,17 @@ public class DiaryActivity2 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        Intent intent = getIntent();
-
-
-        Toast.makeText(DiaryActivity2.this,date,Toast.LENGTH_SHORT).show();
         dia_title = findViewById(R.id.diary_title);
         dia_title.setText(title);
         dia_content = findViewById(R.id.diary_content);
 
+        String pot_name = DiaryActivity2.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("pot_name", null);
         myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
 
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-
+                String content ;
                 if (!task.isSuccessful()) {
                     Log.e("firebase", "Error getting data", task.getException());
                 } else {
@@ -75,10 +73,9 @@ public class DiaryActivity2 extends AppCompatActivity {
 
                     for (DataSnapshot data : snapshot.getChildren()) {
                         BoardVO vo = data.getValue(BoardVO.class);
+                        if (title.equals(vo.getTitle())&&pot_name.equals(vo.getPot_name())) {
 
-                        if (title.equals(vo.getTitle())) {
-                            String content1 = vo.getContent();
-                            dia_content.setText(content1);
+                            dia_content.setText(vo.getContent());
                         }
                 }
             }
@@ -91,7 +88,7 @@ public class DiaryActivity2 extends AppCompatActivity {
             public void onSuccess(Uri uri) {
                 //이미지 로드 성공시
                 ImageView dia_img = findViewById(R.id.diary_picture);
-                Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
+
                 Glide.with(getApplicationContext())
                         .load(uri)
                         .into(dia_img);
@@ -100,7 +97,7 @@ public class DiaryActivity2 extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception exception) {
                 //이미지 로드 실패시
-                Toast.makeText(getApplicationContext(), "실패", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
