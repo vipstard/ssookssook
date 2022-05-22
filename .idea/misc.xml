@@ -32,7 +32,7 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_board_edit.xml" value="0.2515625" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_board_list.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_board_list_select.xml" value="0.27447916666666666" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_board_write.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_board_write.xml" value="0.22" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_custom_dialog.xml" value="0.19074074074074074" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_diary2.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_diary_pic.xml" value="0.1" />
@@ -54,11 +54,12 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_pw_find_success.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_pwfind.xml" value="0.28125" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_reg_plant.xml" value="0.25" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_reg_plant_main.xml" value="0.25" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_reg_plant_main.xml" value="0.22" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_sc_answer_write.xml" value="0.3605128205128205" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_sc_edit.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_sc_list_select.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_sc_write.xml" value="0.27395833333333336" />
-        <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_sign.xml" value="0.25" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_sign.xml" value="0.1" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_splash.xml" value="0.33425925925925926" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_test_fail.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/activity_test_success.xml" value="0.36614583333333334" />
@@ -89,6 +90,7 @@
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/fragment_setting.xml" value="0.2828125" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/listcustomer.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/plantlist_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/potlist.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/reg_list.xml" value="0.2828125" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/sc_answer_list.xml" value="0.2515625" />
         <entry key="..\:/Users/smhrd/AndroidStudioProjects/ssukssuk/app/src/main/res/layout/sc_list.xml" value="0.2515625" />
