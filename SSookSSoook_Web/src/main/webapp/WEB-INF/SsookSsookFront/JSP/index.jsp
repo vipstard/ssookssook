@@ -69,19 +69,22 @@
                     </div>
                   </div>
                   
-                <c:if test="${!empty LoginVo}">
-                <label style='color : white'>${LoginVo.name }님 환영합니다.</label>&nbsp&nbsp
+                 <div>
+                 	<c:if test="${!empty LoginVo}">
+              		<label class="label_name">${LoginVo.name }님 환영합니다.</label>&nbsp&nbsp
+                 </div>
+                
                  <!-- 회원정보 수정  -->
                   <div class="Sign Up">
                     <a href="EditProfile?id=${LoginVo.id }"
-                      ><i class="fa fa-sign-in" aria-hidden="true"></i>
+                      ><i class="fa fa-pencil-square" aria-hidden="true"></i>
                       <span>Edit Profile</span></a
                     >
                   </div>
 					  
 					  <div class="Sign Up">
 		                    <a href="https://kauth.kakao.com/oauth/logout?client_id=e3eced6c366d05e611468e218fc8f42d&logout_redirect_uri=http://211.227.224.199:8081/SS/LogOut"
-		                      ><i class="fa fa-sign-in" aria-hidden="true"></i>
+		                      ><i class="fa fa-sign-out" aria-hidden="true"></i>
 		                      <span>Log out</span></a>
 		               </div>
                  
@@ -427,9 +430,7 @@
                   <span class="fill" data-percentage="92"></span>
                 </div>
               </div>
-
               <!-- Single Progress Bar -->
-             
               <div class="single_progress_bar">
                 <p>식물 성장률</p>
                 <div id="bar2" class="barfiller">
@@ -439,7 +440,6 @@
                   <span class="fill" data-percentage="78"></span>
                 </div>
               </div>
-
               <!-- Single Progress Bar -->
               <div class="single_progress_bar">
                 <p>암튼 대단함</p>
@@ -450,7 +450,6 @@
                   <span class="fill" data-percentage="85"></span>
                 </div>
               </div>
-
               <!-- Single Progress Bar -->
               <div class="single_progress_bar">
                 <p>작년 대비 매출 증가율</p>
@@ -899,7 +898,7 @@
     </section>
     <!-- ##### Contact Area End ##### -->
 
-    <!-- ##### Footer Area Start ##### -->
+<!-- ##### Footer Area Start ##### -->
     <footer class="footer-area bg-img" style="background-color: #313b2b">
       <!-- Main Footer Area -->
       <div class="main-footer-area">
@@ -909,7 +908,9 @@
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="single-footer-widget">
                 <div class="footer-logo mb-30">
-                  <a href="#"><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt="" /></a>
+                  <a href="#"
+                    ><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt=""
+                  /></a>
                 </div>
                 <p>
                   Lorem ipsum dolor sit samet, consectetur adipiscing elit.
@@ -958,59 +959,67 @@
               </div>
             </div>
 
-           
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-sm-6 col-lg-3">
+              <div class="single-footer-widget">
+                <div class="widget-title">
+                  <h5>STORE</h5>
+                </div>
+
+                <!-- Single Best Seller Products -->
+                <div
+                  class="single-best-seller-product d-flex align-items-center"
+                >
+                  <div class="product-thumbnail">
+                    <a href="shop-details.html"
+                      ><img src="${pageContext.request.contextPath}/resources/img/bg-img/apple1.png" alt=""
+                    /></a>
+                  </div>
+                  <div class="product-info">
+                    <a href="shop-details.html">가로수길 2호점</a>
+                    <p>서울특별시 서울 강남구 <br />가로수길 43</p>
+                  </div>
+                </div>
+
+                <!-- Single Best Seller Products -->
+                <div
+                  class="single-best-seller-product d-flex align-items-center"
+                >
+                  <div class="product-thumbnail">
+                    <a href="shop-details.html"
+                      ><img src="${pageContext.request.contextPath}/resources/img/bg-img/apple.png" alt=""
+                    /></a>
+                  </div>
+                  <div class="product-info">
+                    <a href="shop-details.html">명동 3호점</a>
+                    <p>
+                      서울 중구 남대문로 2가 9-1<br />
+                      하이드파크
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <!-- Single Footer Widget -->
             <div class="col-12 col-sm-6 col-lg-3">
               <div class="single-footer-widget">
-                  <div class="widget-title">
-                      <h5>BEST SELLER</h5>
-                  </div>
+                <div class="widget-title">
+                  <h5>CONTACT</h5>
+                </div>
 
-                  <!-- Single Best Seller Products -->
-                  <div class="single-best-seller-product d-flex align-items-center">
-                      <div class="product-thumbnail">
-                          <a href="shop-details.html"><img src="${pageContext.request.contextPath}/resources/img/bg-img/4.jpg" alt=""></a>
-                      </div>
-                      <div class="product-info">
-                          <a href="shop-details.html">애플민트 Set</a>
-                          <p>16,000원</p>
-                      </div>
-                  </div>
-
-                  <!-- Single Best Seller Products -->
-                  <div class="single-best-seller-product d-flex align-items-center">
-                      <div class="product-thumbnail">
-                          <a href="shop-details.html"><img src="${pageContext.request.contextPath}/resources/img/bg-img/5.jpg" alt=""></a>
-                      </div>
-                      <div class="product-info">
-                          <a href="shop-details.html">바질 Set</a>
-                          <p>12,000</p>
-                      </div>
-                  </div>
+                <div class="contact-information">
+                  <p><span>Address:</span> 광주광역시 동구 예술길 31-15 4층</p>
+                  <p><span>tel:</span> 062-655-3510</p>
+                  <p><span>fax:</span> 062-655-3511</p>
+                  <p><span>Email:</span> info.ssookssook@gmail.com</p>
+                  <p><span>Open hours:</span> Mon - Sun: 8 AM to 9 PM</p>
+                </div>
               </div>
+            </div>
           </div>
-
-          <!-- Single Footer Widget -->
-          <div class="col-12 col-sm-6 col-lg-3">
-              <div class="single-footer-widget">
-                  <div class="widget-title">
-                      <h5>CONTACT</h5>
-                  </div>
-
-                  <div class="contact-information">
-                      <p><span>Address:</span> 광주광역시 동구 예술길 31-15 4층</p>
-                      <p><span>tel:</span> 062-655-3510</p>
-                      <p><span>fax:</span> 062-655-3511</p>
-                      <p><span>Email:</span> info.ssookssook@gmail.com</p>
-                      <p><span>Open hours:</span> Mon - Sun: 8 AM to 9 PM</p>
-                      
-                  </div>
-              </div>
-          </div>
+        </div>
       </div>
-  </div>
-</div>
 
       <!-- Footer Bottom Area -->
       <div class="footer-bottom-area">
@@ -1023,15 +1032,13 @@
             <div class="col-12 col-md-6">
               <div class="copywrite-text">
                 <p>
-                  &copy;
-                  Copyright &copy;
+                  &copy; Copyright &copy;
                   <script>
                     document.write(new Date().getFullYear());
                   </script>
                   All rights reserved |
                   <i class="fa fa-heart-o" aria-hidden="true"></i> by
                   <a href="#" target="_blank">SsookSsook</a>
-                  
                 </p>
               </div>
             </div>
@@ -1040,12 +1047,11 @@
               <div class="footer-nav">
                 <nav>
                   <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="main">Home</a></li>
+                    <li><a href="About">About</a></li>
                     <li><a href="#">Purchase</a></li>
-                    <li><a href="#">
-                      Service center</a></li>
-                    <li><a href="#">A/S</a></li>
+                    <li><a href="#"> Service center</a></li>
+                    <li><a href="Contact">A/S</a></li>
                   </ul>
                 </nav>
               </div>
@@ -1055,6 +1061,8 @@
       </div>
     </footer>
     <!-- ##### Footer Area End ##### -->
+
+
 
     <!-- ##### All Javascript Files ##### -->
     <!-- jQuery-2.2.4 js -->
