@@ -89,7 +89,7 @@ public class BoardListSelectActivity extends AppCompatActivity {
             @Override
             public void onSuccess(Uri uri) {
                 //이미지 로드 성공시
-                Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "성공", Toast.LENGTH_SHORT).show();
                 Glide.with(getApplicationContext())
                         .load(uri)
                         .into(img);

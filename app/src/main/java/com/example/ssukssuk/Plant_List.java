@@ -86,7 +86,7 @@ public class Plant_List extends AppCompatActivity {
                         list.add(new Reg_Plant_mainVO(name,date));
 
                         adapter.notifyDataSetChanged();
-                        Toast.makeText(Plant_List.this,"성공",Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(Plant_List.this,"성공",Toast.LENGTH_SHORT).show();
                     }
 
                 }
@@ -118,7 +118,7 @@ public class Plant_List extends AppCompatActivity {
 
                         editor.putString("pot_name",  list.get(i).getPot_name());
                         editor.commit();
-                        Toast.makeText(getApplicationContext(),list.get(i).getPot_name() , Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(),list.get(i).getPot_name() , Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -126,7 +126,7 @@ public class Plant_List extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int id)
                     {
-                        Toast.makeText(getApplicationContext(), "Cancel Click", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getApplicationContext(), "Cancel Click", Toast.LENGTH_SHORT).show();
                     }
                 });
 
