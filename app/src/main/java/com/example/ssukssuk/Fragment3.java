@@ -1,9 +1,15 @@
 package com.example.ssukssuk;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,38 +23,36 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
 public class Fragment3 extends Fragment {
-    ImageView plant_img,water_img;
+    ImageView plant_img, water_img;
     Button btn_water;
     ImageButton btn_led;
     Switch led_switch;
-    TextView tv_led,tv_water,tv_text;
+    TextView tv_led, tv_water, tv_text;
     RequestQueue queue;
     StringRequest request;
-    String water_percent="";
+    String water_percent = "";
     int pump = 3;
     String rank;
     String wa = "";
     boolean a = false;
+    private final String DEFAULT = "DEFAULT";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -66,11 +70,10 @@ public class Fragment3 extends Fragment {
         queue = Volley.newRequestQueue(getActivity());
         pumpeThread pum;
 
-
         btn_led.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(a==true){
+                if (a == true) {
                     btn_led.setImageResource(R.drawable.on);
                     int method = Request.Method.GET;
                     String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input1=1";
@@ -97,9 +100,9 @@ public class Fragment3 extends Fragment {
                     );
 
                     queue.add(request);
-                    a=false;
+                    a = false;
 
-                }else{
+                } else {
                     btn_led.setImageResource(R.drawable.off);
                     int method = Request.Method.GET;
                     String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input1=0";
@@ -124,7 +127,7 @@ public class Fragment3 extends Fragment {
                             });
 
                     queue.add(request);
-                    a=true;
+                    a = true;
 
                 }
             }
@@ -147,17 +150,17 @@ public class Fragment3 extends Fragment {
 //                            StringBuffer sb = new StringBuffer();
 
 
-                            for(int i=0; i<result.length(); i++){
+                            for (int i = 0; i < result.length(); i++) {
                                 JSONObject soil = result.getJSONObject(i);
                                 data = soil.getString("soil");
                                 wa = soil.getString("water");
-                                Log.d("soil",data);
+                                Log.d("soil", data);
 //
 //                                water_percent = soil.getString("soil");
 //                                System.out.println("water_percent="+water_percent);
 //                                System.out.println("soil = "+ soil);
                             }
-                            tv_text.setText(data+"%");
+                            tv_text.setText(data + "%");
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -174,9 +177,10 @@ public class Fragment3 extends Fragment {
         queue.add(request);
         //알림 기능 구현
 
-        if(wa.equals("0")){
+        if (wa.equals("0")) {
             tv_water.setText("0%");
             water_img.setImageResource(R.drawable.water0);
+
         }
         btn_water.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,8 +191,10 @@ public class Fragment3 extends Fragment {
         });
         return view;
     }
+
     class pumpeThread extends Thread {
         pumpeHandler handler = new pumpeHandler();
+
         @Override
         public void run() {
             //실행할 로직 정의
@@ -207,6 +213,7 @@ public class Fragment3 extends Fragment {
             }
         }
     }//Rmx
+
     class pumpeHandler extends Handler {
         @Override
         public void handleMessage(@NonNull Message msg) {
@@ -214,7 +221,7 @@ public class Fragment3 extends Fragment {
             //sub Thread에서 처리한 결과를 UI에 업데이트할 때
             //handlerMessage() 안에 정의
             int count = msg.arg1;
-            if(count == 0){
+            if (count == 0) {
                 int method = Request.Method.GET;
                 String server_url = "http://211.227.224.199:8081/SS/And_Ardvu2?input3=4";
                 request = new StringRequest(
@@ -240,8 +247,8 @@ public class Fragment3 extends Fragment {
                 );
 
                 queue.add(request);
-            }else{
-                String a="";
+            } else {
+                String a = "";
                 int method = Request.Method.GET;
                 String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input3=3";
                 request = new StringRequest(
@@ -272,13 +279,30 @@ public class Fragment3 extends Fragment {
         }
     }
 //    void createNOtification1(String channId, int id, String title, String text, Intent intent){
-//        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,pendingIntent.FLAG_UPDATE_CURRENT);
-//        NotificationCompat.Builder mBuilder =
-//                new NotificationCompat.Builder(getActivity()).setSmallIcon(R.drawable.du)
-//                        .setContentTitle("쑥쑥이!!")
-//                        .setContentText("물통의 물이 없어요!")
-//                        .setDefaults(Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE);
-//        NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATIOM_SERVICE);
-//        notificationManager.notify(id, mBuilder.build());
-//    }
+//        Resources res = getResources();
+//        Intent notificationIntent = new Intent(getActivity(),MainActivity.class);
+//        notificationIntent.putExtra("noti_Id",9999);
+//
+//        PendingIntent contentIntent = PendingIntent.getActivity(getActivity(),0,notificationIntent,PendingIntent.FLAG_UPDATE_CURRENT);
+//        NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity());
+//        builder.setContentTitle("물 부족!")
+//                .setContentText("물통의 물이 부족합니다.")
+//                .setSmallIcon(R.drawable.water0)
+//                .setContentIntent(contentIntent)
+//                .setAutoCancel(true)
+//                .setWhen(System.currentTimeMillis())
+//                .setDefaults(Notification.DEFAULT_ALL);
+//        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            builder.setCategory(Notification.CATEGORY_MESSAGE)
+//                    .setPriority(Notification.PRIORITY_HIGH)
+//                    .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+//        }
+//        NotificationManager nm = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+//        nm.notify(1234,builder.build());
+//
+//
+//        }
+
+
+
 }

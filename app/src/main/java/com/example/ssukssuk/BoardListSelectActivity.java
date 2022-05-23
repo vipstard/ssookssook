@@ -82,9 +82,10 @@ public class BoardListSelectActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
         FirebaseStorage storage = FirebaseStorage.getInstance("gs://ssukssuk-af5d6.appspot.com/");
         StorageReference storageRef = storage.getReference();
-        storageRef.child("images/"+writer+title + indate + ".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+        storageRef.child("images/"+writer + indate + ".jpg").getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
                 //이미지 로드 성공시

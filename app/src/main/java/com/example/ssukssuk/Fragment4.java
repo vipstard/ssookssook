@@ -74,7 +74,7 @@ public class Fragment4 extends Fragment {
 
 
                         //로그인한 아이디와 글쓴 작성자의 값이 같으면
-                        if (writer.equals(vo.getWriter())) {
+                        if (writer.equals(vo.getWriter())||writer.equals("admin")) {
 
                             //게시글 번호 매기기
                             a++;
