@@ -7,83 +7,95 @@
     android:background="#FEFBE7"
     tools:context=".ServiceCenter.ScEditActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="match_parent"
+    <View
+        android:id="@+id/view11"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:orientation="horizontal"
+        android:background="#F9EBC8"
+        app:layout_constraintBottom_toTopOf="@+id/guideline29"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
-        <Button
-            android:id="@+id/btn_SEA_Back"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginLeft="10dp"
-            android:backgroundTint="#00ff0000"
-            android:text="back"
-            android:textColor="@color/purple_200"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_weight="2"
-            android:text="    고객센터"
-            android:textColor="@color/purple_200"
-            android:textSize="25dp" />
-    </LinearLayout>
-
-
-    <Button
-        android:id="@+id/btn_SEA_Edit"
+    <TextView
+        android:id="@+id/textView39"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="고객센터 게시글 수정"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_SEA_Back"
+        app:layout_constraintStart_toEndOf="@+id/btn_SEA_Back"
+        app:layout_constraintTop_toTopOf="@+id/btn_SEA_Back" />
 
-        android:layout_marginTop="65dp"
-        android:text="수정하기"
-        app:layout_constraintEnd_toEndOf="parent"
+    <ImageButton
+        android:id="@+id/btn_SEA_Back"
+        android:layout_width="50dp"
+        android:layout_height="58dp"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/guideline29"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_SEA_Content" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.10" />
 
     <EditText
         android:id="@+id/edt_SEA_Title"
         android:layout_width="350dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/box_white"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/textbox_circle"
         android:ems="10"
+        android:gravity="center_vertical"
         android:hint="  제목"
         android:inputType="textPersonName"
+        android:paddingLeft="20dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
-        android:gravity="center_vertical"/>
+        app:layout_constraintTop_toBottomOf="@+id/view11" />
 
     <EditText
         android:id="@+id/edt_SEA_Content"
         android:layout_width="350dp"
         android:layout_height="300dp"
-        android:layout_marginTop="80dp"
-        android:background="@drawable/box_white"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/textbox_circle"
         android:ems="10"
         android:gravity="start|top"
         android:hint="내용 입력"
         android:inputType="textMultiLine"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_SEA_Title" />
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="3dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/line"
+    <Button
+        android:id="@+id/btn_SEA_Write"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/btn_circle5"
+        android:text="수정완료"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_SEA_Title" />
-
+        app:layout_constraintTop_toBottomOf="@+id/edt_SEA_Content" />
 </androidx.constraintlayout.widget.ConstraintLayout>

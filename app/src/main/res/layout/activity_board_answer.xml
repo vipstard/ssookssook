@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:text="댓글 작성"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintStart_toEndOf="@+id/btn_BAA_Back"
         app:layout_constraintTop_toTopOf="parent"

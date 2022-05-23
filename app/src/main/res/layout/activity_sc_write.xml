@@ -4,31 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FEFBE7"
     tools:context=".ServiceCenter.ScWriteActivity">
 
     <View
-        android:id="@+id/view5"
+        android:id="@+id/view6"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:background=" #F9EBC8"
-        app:layout_constraintBottom_toTopOf="@+id/guideline23"
+        app:layout_constraintBottom_toTopOf="@+id/guideline24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="고객센터 게시글 작성"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline24"
+        app:layout_constraintStart_toEndOf="@+id/btn_SWA_Back"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
-        android:id="@+id/btn_BAA_Back3"
+        android:id="@+id/btn_SWA_Back"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="#00000000"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/guideline23"
+        app:layout_constraintBottom_toTopOf="@+id/guideline24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/back" />
 
     <EditText
-        android:id="@+id/edt_board_write_title2"
+        android:id="@+id/edt_SWA_Title"
         android:layout_width="360dp"
         android:layout_height="45dp"
         android:layout_marginTop="30dp"
@@ -39,12 +57,12 @@
         android:paddingLeft="30dp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.50"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline23" />
+        app:layout_constraintTop_toTopOf="@+id/guideline24" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn_SWA_Write"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -54,21 +72,14 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_BWA_Picture" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline24"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintTop_toBottomOf="@+id/edt_SWA_Content" />
 
     <EditText
-        android:id="@+id/edt_board_write_content2"
+        android:id="@+id/edt_SWA_Content"
         android:layout_width="360dp"
-        android:layout_height="192dp"
+        android:layout_height="200dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/textbox_circle"
         android:ems="10"
@@ -81,63 +92,8 @@
         android:paddingBottom="10dp"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_BWA_Title" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="게시글 작성"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline23"
-        app:layout_constraintStart_toEndOf="@+id/btn_BAA_Back2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5" />
-
-    <ImageButton
-        android:id="@+id/btn_BWA_Picture2"
-        android:layout_width="178dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="25dp"
-        android:background="#00000000"
-        android:scaleType="fitCenter"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_BWA_Content"
-        app:srcCompat="@drawable/picture" />
-
-    <Button
-        android:id="@+id/btn_SWA_Write"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
-        android:layout_marginTop="266dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_SWA_Content" />
-
-    <EditText
-        android:id="@+id/edt_SWA_Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="77dp"
-        android:layout_marginTop="107dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/edt_SWA_Content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="123dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edt_SWA_Title" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
