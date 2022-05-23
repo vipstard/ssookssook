@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                 loginVO vo = snapshot.getValue(loginVO.class);
                 if (loginId != null && loginPw != null) {
                     if (loginId.equals(vo.getId().toString()) && loginPw.equals(vo.getPw().toString())) {
-//                        Toast.makeText(LoginActivity.this, loginId + "님 자동로그인 입니다.", Toast.LENGTH_SHORT).show();
+//
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
@@ -132,21 +132,19 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.commit();
                                     if (auto_check.isChecked()) {
                                         SharedPreferences auto = getSharedPreferences("auto", Activity.MODE_PRIVATE);
-                                        Toast.makeText(LoginActivity.this, "여기까지 ok", Toast.LENGTH_SHORT).show();
+
                                         editor.putString("user_login_id", user_id.getText().toString());
                                         editor.putString("user_login_pw", user_pw.getText().toString());
                                         editor.putString("user_login_id1", user_id.getText().toString());
                                         editor.commit();
                                     }
-//                                    Toast.makeText(LoginActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+//
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(intent);
 
 
                                 } else {
-                                    Toast.makeText(LoginActivity.this,
-                                            "로그인 실패",
-                                            Toast.LENGTH_SHORT).show();
+
                                 }
                             }
                         }
@@ -190,14 +188,12 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent intent = new Intent(LoginActivity.this, SignActivity.class);
-
-//                        Toast.makeText(LoginActivity.this, "회원가입 페이지로 이동", Toast.LENGTH_SHORT).show();
-                        startActivity(intent);
+                         startActivity(intent);
                     }
                 }).setNegativeButton("취소", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-//                        Toast.makeText(LoginActivity.this, "회원 가입 ㄴㄴ", Toast.LENGTH_SHORT).show();
+//
                     }
                 });
         AlertDialog msgDlg = msgBuilder.create();

@@ -1,15 +1,6 @@
 package com.example.ssukssuk;
 
-import static androidx.core.content.ContextCompat.getSystemService;
 
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -27,6 +18,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -76,7 +69,7 @@ public class Fragment3 extends Fragment {
                 if (a == true) {
                     btn_led.setImageResource(R.drawable.on);
                     int method = Request.Method.GET;
-                    String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input1=1";
+                    String server_url = "http://52.78.16.221:8080/SS/And_Ardu2?input1=1";
                     request = new StringRequest(
                             method,
                             server_url,
@@ -105,7 +98,7 @@ public class Fragment3 extends Fragment {
                 } else {
                     btn_led.setImageResource(R.drawable.off);
                     int method = Request.Method.GET;
-                    String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input1=0";
+                    String server_url = "http://52.78.16.221:8080/SS/And_Ardu2?input1=0";
                     request = new StringRequest(
                             method,
                             server_url,
@@ -132,7 +125,7 @@ public class Fragment3 extends Fragment {
                 }
             }
         });
-        String URL = "http://211.227.224.199:8081/SS/And_Ardu3";
+        String URL = "http://52.78.16.221:8080/SS/And_Ardu3";
         request = new StringRequest(
                 Request.Method.GET,
                 URL,
@@ -160,7 +153,7 @@ public class Fragment3 extends Fragment {
 //                                System.out.println("water_percent="+water_percent);
 //                                System.out.println("soil = "+ soil);
                             }
-                            tv_text.setText(data + "%");
+                            tv_text.setText(Integer.parseInt(data)/30 + "%");
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -185,6 +178,7 @@ public class Fragment3 extends Fragment {
         btn_water.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getActivity(),"물주기",Toast.LENGTH_SHORT).show();
                 pumpeThread thread = new pumpeThread();
                 thread.start();// Thread 동작시키는
             }
@@ -223,16 +217,14 @@ public class Fragment3 extends Fragment {
             int count = msg.arg1;
             if (count == 0) {
                 int method = Request.Method.GET;
-                String server_url = "http://211.227.224.199:8081/SS/And_Ardvu2?input3=4";
+                String server_url = "http://52.78.16.221:8080/SS/And_Ardu2?input3=4";
                 request = new StringRequest(
                         method,
                         server_url,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-//                                Toast.makeText(getActivity(),
-//                                        "로그인 성공"+response,
-//                                        Toast.LENGTH_SHORT).show();
+
 
                             }
                         },
@@ -250,25 +242,21 @@ public class Fragment3 extends Fragment {
             } else {
                 String a = "";
                 int method = Request.Method.GET;
-                String server_url = "http://211.227.224.199:8081/SS/And_Ardu2?input3=3";
+                String server_url = "http://52.78.16.221:8080/SS/And_Ardu2?input3=3";
                 request = new StringRequest(
                         method,
                         server_url,
                         new Response.Listener<String>() {
                             @Override
                             public void onResponse(String response) {
-//                                Toast.makeText(getActivity(),
-//                                        "로그인 성공"+response,
-//                                        Toast.LENGTH_SHORT).show();
+//
 
                             }
                         },
                         new Response.ErrorListener() {
                             @Override
                             public void onErrorResponse(VolleyError error) {
-//                                Toast.makeText(getActivity(),
-//                                        "로그인 실패"+error.toString(),
-//                                        Toast.LENGTH_SHORT).show();
+
                             }
                         }
                 );

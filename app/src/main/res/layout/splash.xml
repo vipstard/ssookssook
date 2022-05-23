@@ -42,12 +42,12 @@
 
     <ImageView
         android:id="@+id/lock_o2"
-        android:layout_width="176dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="231dp"
+        android:layout_height="191dp"
+        android:layout_marginTop="76dp"
         android:src="@drawable/set_water4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.876"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
