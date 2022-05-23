@@ -103,7 +103,7 @@ public class AndArduController {
 	/*1. 센서 값 수신 후 MariaDB에 넣기*/
 	/*2. 안드로이드 - 토양 수위 센서 값 전달*/
 	@ResponseBody
-	@PostMapping("And_Ardu3")
+	@GetMapping("And_Ardu3")
 	public JSONObject And_Ardu3(@Param("soilMoisture_Sensor") String soilMoisture_Sensor, @Param("waterLevel_Sensor") String waterLevel_Sensor) {
 	
 		JSONObject jsonMain = new JSONObject();
@@ -113,17 +113,22 @@ public class AndArduController {
 		JSONObject row = new JSONObject();
 		
 		count +=1;
+		System.out.println("카운트 : " + count);
 		
 		if(count%30==0) {	
 		
 			count=0;
 			
 			value1 = soilMoisture_Sensor;
+			
 			value2 = waterLevel_Sensor;
+			
+			System.out.print("토양 : " + value1);
+			System.out.println("   수위 : " + value2);
 			
 			
 			arduinService.SensorValueIn(value1, value2);
-		
+					
 		}
 		
 		row.put("soil", value1);

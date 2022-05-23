@@ -116,7 +116,7 @@
             <!-- Menu -->
             <nav class="classy-navbar justify-content-between" id="alazeaNav">
               <!-- Nav Brand -->
-              <a href="index.html" class="nav-brand"
+              <a href="main" class="nav-brand"
                 ><img src="${pageContext.request.contextPath}/resources/img/core-img/SSSSlogo.png" alt=""
               /></a>
 
@@ -232,9 +232,7 @@
                   <span class="fill" data-percentage="92"></span>
                 </div>
               </div>
-
               <!-- Single Progress Bar -->
-               
               <div class="single_progress_bar">
                 <p>식물 성장률</p>
                 <div id="bar2" class="barfiller">

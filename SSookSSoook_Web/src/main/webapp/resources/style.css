@@ -4161,7 +4161,7 @@ tbody {
 }
 
 .pagination.pagination-rounded-flat .page-item {
-  margin: 0 0.25rem;
+  margin: 0 0.25;
 }
 
 .page-link a {
@@ -4228,3 +4228,11 @@ a {
     font-size: 13px;
   }
 }
+
+.label_name{
+	color : white; 
+	font-size: 12px;
+	margin: 0;
+}
+
+

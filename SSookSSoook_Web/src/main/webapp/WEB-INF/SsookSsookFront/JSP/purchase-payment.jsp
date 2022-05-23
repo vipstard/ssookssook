@@ -570,7 +570,7 @@
         }).open();
       }
       
-      <!-- 신욧카드로 결제 선택시 아임포트 신용카드 결제모듈 실행 -->
+      <!-- 신용카드로 결제 선택시 아임포트 신용카드 결제모듈 실행 -->
       function iamport(){
     	  
     	  <!-- 체크 값 불러와서 각각 지불수단 별로 창 띄우기 -->
@@ -622,11 +622,11 @@
     				 *  https://docs.iamport.kr/implementation/payment
     				 *  위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
     				 */
-    				name: '주문명 : 아메리카노',
+    				name: '주문명 : 쑥쑥 스마트화분',
     				// 결제창에서 보여질 이름
     				// name: '주문명 : ${auction.a_title}',
     				// 위와같이 model에 담은 정보를 넣어 쓸수도 있습니다.
-    				amount: 2000,
+    				amount: 38000,
     				// amount: ${bid.b_bid},
     				// 가격 
     				buyer_name: '이름',

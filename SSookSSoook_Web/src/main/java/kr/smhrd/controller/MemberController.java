@@ -51,15 +51,14 @@ public class MemberController {
 		return "redirect:/main";
 	}
 	
-	/* 회원 로그인 */
+	/* 회원 로그인 LoginForm에서 입력된 정보들을 
+	 * MemberVO 타입으로 vo 에 저장해서 값 전달*/
 	@PostMapping("Login_Test")
 	public String Login(MemberVO vo, HttpSession session) {
-		System.out.println("로그인1 : " + vo);
 		MemberVO Login = memberService.Login(vo);
 		
 		String redirect="";
 		
-		System.out.println("로그인 " + Login);
 		if (Login != null) {
 			
 			session.setAttribute("LoginVo", Login);
