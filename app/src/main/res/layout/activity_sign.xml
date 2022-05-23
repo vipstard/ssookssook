@@ -26,7 +26,7 @@
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/btn_circle5"
                 android:text="back"
-                android:textColor="@color/purple_200"
+                android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -37,7 +37,7 @@
                 android:layout_weight="2"
 
                 android:text="   회원 가입"
-                android:textColor="@color/purple_200"
+                android:textColor="#A69B9B"
                 android:textSize="25dp" />
         </LinearLayout>
 
@@ -65,7 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="아이디"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#A69B9B"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -89,7 +89,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:layout_marginLeft="10dp"
-
+                        android:background="@drawable/btn_circle"
                         android:text="중복확인"
                         android:textColor="@color/white"
                         android:textSize="16sp"
@@ -102,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="비밀번호"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#A69B9B"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -129,7 +129,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="비밀번호 확인"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#A69B9B"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -157,7 +157,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="이름"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#A69B9B"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -179,7 +179,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="핸드폰 번호"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#A69B9B"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -200,7 +200,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="이메일"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#A69B9B"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
@@ -220,7 +220,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:text="주소"
-                    android:textColor="@color/purple_200"
+                    android:textColor="#A69B9B"
                     android:textSize="20dp"
                     android:textStyle="bold" />
 
