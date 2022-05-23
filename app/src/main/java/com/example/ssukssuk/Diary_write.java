@@ -64,7 +64,7 @@ public class Diary_write extends AppCompatActivity {
         edt_content = findViewById(R.id.edt_DWA_Content);
         edt_title = findViewById(R.id.edt_DWA_Title);
         String date;
-
+        btn_photo = findViewById(R.id.btn_DWA_Write);
 
         btn_photo.setOnClickListener(new View.OnClickListener() {
             @Override

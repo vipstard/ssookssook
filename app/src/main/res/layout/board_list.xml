@@ -12,7 +12,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/the_nakseo"
         android:text="TextView"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/the_nakseo"
         android:text="TextView"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/board_date"
         app:layout_constraintEnd_toStartOf="@+id/board_writer"
         app:layout_constraintStart_toEndOf="@+id/board_date"
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/the_nakseo"
         android:text="TextView"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/board_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/board_title"

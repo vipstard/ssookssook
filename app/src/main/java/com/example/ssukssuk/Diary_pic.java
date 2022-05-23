@@ -53,11 +53,20 @@ public class Diary_pic extends AppCompatActivity {
         img2 = findViewById(R.id.diary_img_2);
         img3 = findViewById(R.id.diary_img_3);
         img4 = findViewById(R.id.diary_img_4);
-
-        img1.setImageResource(R.drawable.a1);
-        img2.setImageResource(R.drawable.a2);
-        img3.setImageResource(R.drawable.a3);
-        img4.setImageResource(R.drawable.a4);
+        String pot_name = Diary_pic.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+                getString("pot_name", null);
+        if(pot_name.equals("pot1")) {
+            img1.setImageResource(R.drawable.a1);
+            img2.setImageResource(R.drawable.a2);
+            img3.setImageResource(R.drawable.a3);
+            img4.setImageResource(R.drawable.a4);
+        }
+        else{
+            img1.setImageResource(R.drawable.a5);
+            img2.setImageResource(R.drawable.a6);
+            img3.setImageResource(R.drawable.a8);
+            img4.setImageResource(R.drawable.a9);
+        }
         String date;
         ImageView img_test = findViewById(R.id.diary_img_5);
         Calendar cal = Calendar.getInstance();

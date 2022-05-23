@@ -77,51 +77,11 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/button_border" />
 
-                <ImageView
-                    android:id="@+id/diary_img_6"
-                    android:layout_width="135dp"
-                    android:layout_height="92dp"
-                    android:layout_marginBottom="44dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/button_border" />
             </GridLayout>
 
             <GridLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/diary_img_7"
-                    android:layout_width="135dp"
-                    android:layout_height="92dp"
-                    android:layout_marginBottom="44dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/button_border" />
-
-                <ImageView
-                    android:id="@+id/diary_img_8"
-                    android:layout_width="135dp"
-                    android:layout_height="92dp"
-                    android:layout_marginBottom="44dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/button_border" />
-
-                <ImageView
-                    android:id="@+id/diary_img_9"
-                    android:layout_width="135dp"
-                    android:layout_height="92dp"
-                    android:layout_marginBottom="44dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/button_border" />
-            </GridLayout>
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
     </ScrollView>

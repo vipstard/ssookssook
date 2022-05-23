@@ -50,15 +50,16 @@
         android:id="@+id/btn_DWA_Write"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="104dp"
         android:background="@drawable/btn_circle5"
         android:text="작성완료"
         android:textColor="@android:color/white"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="549dp" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline14"
