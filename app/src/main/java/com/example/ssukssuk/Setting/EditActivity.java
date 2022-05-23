@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.example.ssukssuk.MainActivity;
 import com.example.ssukssuk.R;
@@ -25,7 +26,8 @@ import java.util.Map;
 
 public class EditActivity extends AppCompatActivity {
 
-    Button btnBack, btnEdit;
+    Button btnEdit;
+    ImageButton btn_back;
     EditText edtName, edtPhone, edtEmail, edtAddress;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -36,7 +38,7 @@ public class EditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit);
 
-        btnBack = findViewById(R.id.btn_EA_Back);
+        btn_back = findViewById(R.id.btn_EA_Back);
         btnEdit = findViewById(R.id.btn_EA_Edit);
         edtName = findViewById(R.id.edt_EA_Name);
         edtPhone = findViewById(R.id.edt_EA_Phone);
@@ -127,7 +129,7 @@ public class EditActivity extends AppCompatActivity {
         });
 
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();

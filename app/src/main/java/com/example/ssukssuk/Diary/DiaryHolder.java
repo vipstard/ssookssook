@@ -1,7 +1,6 @@
 package com.example.ssukssuk.Diary;
 
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,7 +13,7 @@ public class DiaryHolder {
 
     public DiaryHolder(View itemView){
         img = itemView.findViewById(R.id.img);
-        title = itemView.findViewById(R.id.diary_title);
+        title = itemView.findViewById(R.id.btn_DLSA_Title);
         date = itemView.findViewById(R.id.diary_date);
 
     }

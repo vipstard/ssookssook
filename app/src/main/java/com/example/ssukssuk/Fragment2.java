@@ -16,10 +16,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.ssukssuk.Board.BoardVO;
-import com.example.ssukssuk.Diary.DiaryVO;
 import com.example.ssukssuk.ServiceCenter.VO.ScAdapter;
 import com.example.ssukssuk.ServiceCenter.VO.ScVO;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -102,7 +100,7 @@ public class Fragment2 extends Fragment {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getActivity(), DiaryActivity2.class);
+                Intent intent = new Intent(getActivity(), DiaryListSelectActivity.class);
                 String title = list.get(i).getTitle();
                 String writer = list.get(i).getWriter();
                 String sel_date =  list.get(i).getDate();
@@ -127,7 +125,7 @@ public class Fragment2 extends Fragment {
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), Diary_write.class));
+                startActivity(new Intent(getActivity(), DiaryWrite.class));
             }
         });
         return view;

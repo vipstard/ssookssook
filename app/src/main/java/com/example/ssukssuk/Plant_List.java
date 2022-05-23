@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -40,13 +41,24 @@ public class Plant_List extends AppCompatActivity {
     String date = "";
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Pot");
+    ImageButton btn_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plant_list);
-        btn_add = findViewById(R.id.button3);
+
+        btn_add = findViewById(R.id.btn_PLA_Add);
         lv = findViewById(R.id.Plant_list_Listview);
         list = new ArrayList<Reg_Plant_mainVO>();
+        btn_back = findViewById(R.id.btn_PLA_Back);
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

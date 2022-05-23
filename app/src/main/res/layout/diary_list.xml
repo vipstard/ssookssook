@@ -15,7 +15,7 @@
         app:srcCompat="@drawable/du" />
 
     <TextView
-        android:id="@+id/diary_title"
+        android:id="@+id/btn_DLSA_Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -32,9 +32,9 @@
         android:layout_marginEnd="44dp"
         android:text="TextView"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/diary_title"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_DLSA_Title"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/diary_title"
+        app:layout_constraintTop_toTopOf="@+id/btn_DLSA_Title"
         app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

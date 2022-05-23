@@ -32,7 +32,7 @@ import java.util.ArrayList;
 
 public class ScListSelectActivity extends AppCompatActivity {
 
-    TextView tv_title, tv_content, tv_writer;
+    TextView tv_title, tv_content, tv_date;
     Button btn_edit, btn_delete, btn_content;
     ListView lv;
     ArrayList<ScAnswerVO> list;
@@ -53,7 +53,7 @@ public class ScListSelectActivity extends AppCompatActivity {
 
         tv_title = findViewById(R.id.tv_SLSA_Title);
         tv_content = findViewById(R.id.tv_SLSA_Content);
-        tv_writer = findViewById(R.id.tv_SLSA_Writer);
+        tv_date = findViewById(R.id.tv_SLSA_Date);
         btn_delete = findViewById(R.id.btn_SLSA_Delete);
         btn_edit = findViewById(R.id.btn_SLSA_Edit);
         btn_content = findViewById(R.id.btn_SLSA_Content);
@@ -70,7 +70,7 @@ public class ScListSelectActivity extends AppCompatActivity {
         list = new ArrayList<ScAnswerVO>();
 
         tv_title.setText(title);
-        tv_writer.setText(writer);
+        tv_date.setText(indate);
 
 
         myRef.addChildEventListener(new ChildEventListener() {

@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.ssukssuk.Board.BoardVO;
@@ -22,34 +23,41 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 import java.util.Map;
 
-public class diary_select_edit extends AppCompatActivity {
+public class DiaryEditActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Diary");
     String title, writer, date, content;
-    EditText re_title, re_content;
-    Button btn_reg;
+    EditText edt_title, edt_content;
+    Button btn_edit;
+    ImageButton btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_diary_select_edit);
+        setContentView(R.layout.activity_diary_edit);
 
-        btn_reg = findViewById(R.id.diary_select_edit_reg);
-        re_title = findViewById(R.id.editTextTextPersonName);
-        re_content = findViewById(R.id.editTextTextMultiLine2);
+        btn_edit = findViewById(R.id.btn_DEA_Edit);
+        edt_title = findViewById(R.id.edt_DEA_Title);
+        edt_content = findViewById(R.id.edt_DEA_Content);
+        btn_back = findViewById(R.id.btn_DEA_Back);
 
-
-        title = diary_select_edit.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+        title = DiaryEditActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("Diary_select_title", null);
-        writer = diary_select_edit.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+        writer = DiaryEditActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("user_login_id1", null);
-        date = diary_select_edit.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+        date = DiaryEditActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("Diary_select_date", null);
-//        content = diary_select_edit.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+//        content = DiaryEditActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
 //                getString("Diary_select_content", null);
 
-        re_title.setText(title);
+        edt_title.setText(title);
 
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
 
         myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -68,8 +76,8 @@ public class diary_select_edit extends AppCompatActivity {
                         Log.d("dasd",vo.getTitle());
                         Log.d("adsadasd",title);
                         Log.d("dasdsa",vo.getContent());
-                        re_content.setText(vo.getContent());
-                        btn_reg.setOnClickListener(new View.OnClickListener() {
+                        edt_content.setText(vo.getContent());
+                        btn_edit.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
                                 String a = snapshot.getKey();
@@ -77,8 +85,8 @@ public class diary_select_edit extends AppCompatActivity {
                                 //string myref2
                                 DatabaseReference myRef2 = myRef.child(a);
                                 //수정하는 글의 값을 저장
-                                String Edit_content = re_content.getText().toString();
-                                String Edit_title = re_title.getText().toString();
+                                String Edit_content = edt_content.getText().toString();
+                                String Edit_title = edt_title.getText().toString();
                                 //데베 데이터 값을 변경하는 코드
                                 Map<String, Object> updateMap = new HashMap<>();
                                 updateMap.put("title", Edit_title);
@@ -87,8 +95,8 @@ public class diary_select_edit extends AppCompatActivity {
                                 //변경시 성공을 나타내는 Log.d코드
 //                            .addOnCompleteListener(task ->
 //                                    Log.d("dda","update title:"+task.isSuccessful()));
-                                Toast.makeText(diary_select_edit.this, "??", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(diary_select_edit.this, MainActivity.class));
+                                Toast.makeText(DiaryEditActivity.this, "??", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(DiaryEditActivity.this, MainActivity.class));
                             }
                         });
                     }

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FEFBE7"
-    tools:context=".Diary_write">
+    tools:context=".DiaryWrite">
 
     <View
         android:id="@+id/view17"

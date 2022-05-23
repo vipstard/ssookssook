@@ -10,9 +10,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.ssukssuk.Board.BoardVO;
@@ -27,38 +27,47 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 
-public class DiaryActivity2 extends AppCompatActivity {
+public class DiaryListSelectActivity extends AppCompatActivity {
     TextView dia_title;
     TextView dia_content;
     Button btn_reg;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
      DatabaseReference myRef = database.getReference("Diary");
+     ImageButton btn_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_diary2);
-        btn_reg = findViewById(R.id.diary_edit);
-        String title = DiaryActivity2.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+        setContentView(R.layout.activity_diary_list_select);
+        btn_back = findViewById(R.id.btn_DLSA_Back);
+        btn_reg = findViewById(R.id.btn_DLSA_Edit);
+        String title = DiaryListSelectActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("Diary_select_title", null);
-        String writer =DiaryActivity2.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+        String writer = DiaryListSelectActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("Diary_select_writer", null);
-        String date = DiaryActivity2.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+        String date = DiaryListSelectActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("Diary_select_date", null);
-        String content1 = DiaryActivity2.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+        String content1 = DiaryListSelectActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("Diary_select_content", null);
         btn_reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DiaryActivity2.this,diary_select_edit.class);
+                Intent intent = new Intent(DiaryListSelectActivity.this, DiaryEditActivity.class);
                 startActivity(intent);
             }
         });
-        dia_title = findViewById(R.id.diary_title);
+        dia_title = findViewById(R.id.btn_DLSA_Title);
         dia_title.setText(title);
-        dia_content = findViewById(R.id.diary_content);
+        dia_content = findViewById(R.id.tv_DLSA_Content);
 
-        String pot_name = DiaryActivity2.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
+        String pot_name = DiaryListSelectActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("pot_name", null);
         myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -87,7 +96,7 @@ public class DiaryActivity2 extends AppCompatActivity {
             @Override
             public void onSuccess(Uri uri) {
                 //이미지 로드 성공시
-                ImageView dia_img = findViewById(R.id.diary_picture);
+                ImageView dia_img = findViewById(R.id.iv_DLSA_photo);
 
                 Glide.with(getApplicationContext())
                         .load(uri)

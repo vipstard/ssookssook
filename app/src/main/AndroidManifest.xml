@@ -25,7 +25,7 @@
             android:name=".BoardEditActivity"
             android:exported="false" />
         <activity
-            android:name=".diary_select_edit"
+            android:name=".DiaryEditActivity"
             android:exported="false" />
         <activity
             android:name=".ServiceCenter.ScAnswerWriteActivity"
@@ -40,7 +40,7 @@
             android:name=".ServiceCenter.ScEditActivity"
             android:exported="false" />
         <activity
-            android:name=".Diary_write"
+            android:name=".DiaryWrite"
             android:exported="false" />
         <activity
             android:name=".Plant_List"
@@ -67,7 +67,7 @@
             android:name=".BoardListSelectActivity"
             android:exported="false" />
         <activity
-            android:name=".DiaryActivity2"
+            android:name=".DiaryListSelectActivity"
             android:exported="false" />
         <activity
             android:name=".TestFail"
