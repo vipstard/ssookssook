@@ -48,7 +48,7 @@ public class ScEditActivity extends AppCompatActivity {
 
         edt_content = findViewById(R.id.edt_SEA_Content);
         edt_title = findViewById(R.id.edt_SEA_Title);
-        btn_edit = findViewById(R.id.btn_SEA_Edit);
+//        btn_edit = findViewById(R.id.btn_SEA_Edit);
 
         Intent intent = getIntent();
         String title = intent.getStringExtra("ScTitle1");

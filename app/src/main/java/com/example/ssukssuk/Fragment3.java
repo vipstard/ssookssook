@@ -1,5 +1,9 @@
 package com.example.ssukssuk;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -37,7 +41,7 @@ public class Fragment3 extends Fragment {
     Button btn_water;
     ImageButton btn_led;
     Switch led_switch;
-    TextView tv_led,tv_water;
+    TextView tv_led,tv_water,tv_text;
     RequestQueue queue;
     StringRequest request;
     String water_percent="";
@@ -57,7 +61,7 @@ public class Fragment3 extends Fragment {
         tv_water = view.findViewById(R.id.main_water_per);
         btn_led = view.findViewById(R.id.btn_main_led);
 
-
+        tv_text = view.findViewById(R.id.textView8);
 
         queue = Volley.newRequestQueue(getActivity());
         pumpeThread pum;
@@ -153,7 +157,7 @@ public class Fragment3 extends Fragment {
 //                                System.out.println("water_percent="+water_percent);
 //                                System.out.println("soil = "+ soil);
                             }
-                            tv_water.setText(data+"%");
+                            tv_text.setText(data+"%");
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -169,12 +173,10 @@ public class Fragment3 extends Fragment {
         );//서버에서 받기
         queue.add(request);
         //알림 기능 구현
-        wa="0";
+
         if(wa.equals("0")){
-            NotificationCompat.Builder mBuilder =
-                    new NotificationCompat.Builder(getActivity()).setSmallIcon(R.drawable.du)
-                            .setContentTitle("쑥쑥이!!")
-                            .setContentText("물통의 물이 없어요!");
+            tv_water.setText("0%");
+            water_img.setImageResource(R.drawable.water0);
         }
         btn_water.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -269,4 +271,14 @@ public class Fragment3 extends Fragment {
 
         }
     }
+//    void createNOtification1(String channId, int id, String title, String text, Intent intent){
+//        PendingIntent pendingIntent = PendingIntent.getActivity(this,0,intent,pendingIntent.FLAG_UPDATE_CURRENT);
+//        NotificationCompat.Builder mBuilder =
+//                new NotificationCompat.Builder(getActivity()).setSmallIcon(R.drawable.du)
+//                        .setContentTitle("쑥쑥이!!")
+//                        .setContentText("물통의 물이 없어요!")
+//                        .setDefaults(Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE);
+//        NotificationManager notificationManager = (NotificationManager)getSystemService(NOTIFICATIOM_SERVICE);
+//        notificationManager.notify(id, mBuilder.build());
+//    }
 }
