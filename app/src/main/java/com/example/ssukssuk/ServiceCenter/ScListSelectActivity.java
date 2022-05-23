@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -36,6 +37,7 @@ public class ScListSelectActivity extends AppCompatActivity {
     ListView lv;
     ArrayList<ScAnswerVO> list;
     ScAnswerAdapter adapter;
+    ImageButton btn_back;
 
     int cnt = 0;
 
@@ -49,14 +51,14 @@ public class ScListSelectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sc_list_select);
 
-        tv_title = findViewById(R.id.tv_SLVA_Title);
-        tv_content = findViewById(R.id.tv_SLVA_Content);
-        tv_writer = findViewById(R.id.tv_SLVA_Writer);
-        btn_delete = findViewById(R.id.btn_SLVA_Delete);
-        btn_edit = findViewById(R.id.btn_SLVA_Edit);
-        btn_content = findViewById(R.id.btn_SLVA_Content);
+        tv_title = findViewById(R.id.tv_SLSA_Title);
+        tv_content = findViewById(R.id.tv_SLSA_Content);
+        tv_writer = findViewById(R.id.tv_SLSA_Writer);
+        btn_delete = findViewById(R.id.btn_SLSA_Delete);
+        btn_edit = findViewById(R.id.btn_SLSA_Edit);
+        btn_content = findViewById(R.id.btn_SLSA_Content);
         lv = findViewById(R.id.Sc_list_answer_list);
-
+        btn_back = findViewById(R.id.btn_SLSA_Back);
 
         String title = ScListSelectActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                 getString("Sctitle", null);

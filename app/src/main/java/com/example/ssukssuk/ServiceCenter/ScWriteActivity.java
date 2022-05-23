@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.example.ssukssuk.MainActivity;
 import com.example.ssukssuk.R;
@@ -22,6 +23,7 @@ public class ScWriteActivity extends AppCompatActivity {
 
     Button btn_write;
     EditText edt_title, edt_content;
+    ImageButton btn_back;
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("ServiceCenter");
@@ -34,6 +36,14 @@ public class ScWriteActivity extends AppCompatActivity {
         btn_write = findViewById(R.id.btn_SWA_Write);
         edt_title = findViewById(R.id.edt_SWA_Title);
         edt_content = findViewById(R.id.edt_SWA_Content);
+        btn_back = findViewById(R.id.btn_SWA_Back);
+
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         btn_write.setOnClickListener(new View.OnClickListener() {
             @Override

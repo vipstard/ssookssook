@@ -10,6 +10,7 @@ import android.icu.text.IDNA;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,7 +28,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class InformationActivity extends AppCompatActivity {
 
-    Button btnBack, btnEdit;
+    Button btnEdit;
+    ImageButton btn_back;
     TextView tvName, tvPhone, tvEmail, tvAddress;
     Fragment5 frag_set;
 
@@ -39,7 +41,7 @@ public class InformationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_information);
 
-        btnBack = findViewById(R.id.btn_IA_Back);
+        btn_back = findViewById(R.id.btn_IA_Back);
         btnEdit = findViewById(R.id.btn_IA_Edit);
         tvName = findViewById(R.id.tv_IA_Name);
         tvPhone = findViewById(R.id.tv_IA_Phone);
@@ -116,7 +118,7 @@ public class InformationActivity extends AppCompatActivity {
 //            }
 //        });
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onBackPressed();
