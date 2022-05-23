@@ -73,9 +73,7 @@ public class DiaryEditActivity extends AppCompatActivity {
 
 
                     if (title.equals(vo.getTitle())) {
-                        Log.d("dasd",vo.getTitle());
-                        Log.d("adsadasd",title);
-                        Log.d("dasdsa",vo.getContent());
+
                         edt_content.setText(vo.getContent());
                         btn_edit.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -95,7 +93,7 @@ public class DiaryEditActivity extends AppCompatActivity {
                                 //변경시 성공을 나타내는 Log.d코드
 //                            .addOnCompleteListener(task ->
 //                                    Log.d("dda","update title:"+task.isSuccessful()));
-                                Toast.makeText(DiaryEditActivity.this, "??", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(DiaryEditActivity.this, "??", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(DiaryEditActivity.this, MainActivity.class));
                             }
                         });

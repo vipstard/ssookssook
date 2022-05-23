@@ -12,6 +12,7 @@ import android.view.View;
 
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 
@@ -26,13 +27,21 @@ public class Reg_Plant_reg extends AppCompatActivity {
     EditText pot_name;
     Button btn_add;
     String name;
+    ImageButton btn_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg_plant_main);
-        pot_name = findViewById(R.id.et_pot_name);
-        btn_add = findViewById(R.id.btn_pot_add);
+        pot_name = findViewById(R.id.edt_RPMA_Name);
+        btn_add = findViewById(R.id.btn_RPMA_Add);
+        btn_back = findViewById(R.id.btn_RPMA_Back);
 
+        btn_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
