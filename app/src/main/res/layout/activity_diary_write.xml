@@ -4,98 +4,107 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FEFBE7"
     tools:context=".Diary_write">
 
-    <TextView
-        android:id="@+id/textView9"
+    <View
+        android:id="@+id/view17"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/edt_title_diary"
+        android:layout_height="0dp"
+        android:background=" #F9EBC8"
+        app:layout_constraintBottom_toTopOf="@+id/guideline14"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline14"
-        app:layout_constraintVertical_bias="0.569" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/btn_DWA_Back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:id="@+id/edt_DWA_Title"
+        android:layout_width="360dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/textbox_circle"
         android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/guideline19"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/edt_title_diary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
+        android:hint="제목을 작성해주세요"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:paddingLeft="30dp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="237dp" />
-
-    <TextView
-        android:id="@+id/edt_content_diary"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline15"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/view17" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
+        android:id="@+id/btn_DWA_Write"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        android:background="@drawable/btn_circle5"
+        android:text="작성완료"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline19"
-        app:layout_constraintVertical_bias="0.558" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="135dp"
-        android:layout_height="92dp"
-        android:layout_marginBottom="44dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/button_border" />
+        tools:layout_editor_absoluteY="549dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2" />
+        app:layout_constraintGuide_percent="0.1" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline15"
+    <EditText
+        android:id="@+id/edt_DWA_Content"
+        android:layout_width="360dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/textbox_circle"
+        android:ems="10"
+        android:gravity="top"
+        android:hint="물어볼 내용을 작성해주세요"
+        android:inputType="textMultiLine"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="10dp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_DWA_Title" />
+
+    <TextView
+        android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.47" />
+        android:text="성장일기 작성"
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.63" />
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_DWA_Back"
+        app:layout_constraintStart_toEndOf="@+id/btn_DWA_Back"
+        app:layout_constraintTop_toTopOf="@+id/btn_DWA_Back" />
+
+    <ImageView
+        android:id="@+id/iv_DWA_Photo"
+        android:layout_width="178dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_DWA_Content"
+        app:srcCompat="@drawable/picture" />
 </androidx.constraintlayout.widget.ConstraintLayout>

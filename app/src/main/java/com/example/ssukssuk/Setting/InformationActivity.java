@@ -98,25 +98,7 @@ public class InformationActivity extends AppCompatActivity {
 
             }
         });
-//
-//        btnEdit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String name = tvName.getText().toString();
-//                String phone = tvPhone.getText().toString();
-//                String email = tvEmail.getText().toString();
-//                String address = tvAddress.getText().toString();
-//
-//                Intent intent = new Intent(InformationActivity.this,EditActivity.class);
-//
-//                intent.putExtra("name",name);
-//                intent.putExtra("phone",phone);
-//                intent.putExtra("email",email);
-//                intent.putExtra("address",address);
-//
-//                startActivity(intent);
-//            }
-//        });
+
 
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override

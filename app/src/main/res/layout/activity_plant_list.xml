@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FEFBE7"
+    android:background="#DAE5D0"
     tools:context=".Plant_List">
 
     <androidx.constraintlayout.widget.Guideline
@@ -12,25 +12,69 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.9" />
+        app:layout_constraintGuide_percent="0.85" />
 
     <ListView
         android:id="@+id/Plant_list_Listview"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#FFFCDA"
         app:layout_constraintBottom_toTopOf="@+id/guideline18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline34" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_circle2"
+        android:text="추 가"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline18" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <View
+        android:id="@+id/view16"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="#F9EBC8"
+        app:layout_constraintBottom_toTopOf="@+id/guideline34"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button3"
+    <ImageButton
+        android:id="@+id/btn_BLSA_Back2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/guideline34"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back" />
+
+    <TextView
+        android:id="@+id/textView41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="add"
-        android:background="@drawable/btn_circle2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline18" />
+        android:text="화분 등록"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline34"
+        app:layout_constraintStart_toEndOf="@+id/btn_BLSA_Back2"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

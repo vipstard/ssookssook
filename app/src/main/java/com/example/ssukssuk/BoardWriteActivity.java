@@ -43,13 +43,13 @@ public class BoardWriteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_board_write);
-        findViewById(R.id.btn_BWA_Picture).setOnClickListener(onClickListener);
+        findViewById(R.id.btn_BWA_Photo).setOnClickListener(onClickListener);
 
         edt_title = findViewById(R.id.edt_BWA_Title);
         edt_content = findViewById(R.id.edt_BWA_Content);
         btn_reg = findViewById(R.id.btn_BWA_Write);
         content = edt_content.getText().toString();
-        photo = findViewById(R.id.btn_BWA_Picture);
+        photo = findViewById(R.id.btn_BWA_Photo);
         storage = FirebaseStorage.getInstance();
         btn_reg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +79,7 @@ public class BoardWriteActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.btn_BWA_Picture:
+                case R.id.btn_BWA_Photo:
                     loadAlbum1();
                     break;
             }
@@ -124,7 +124,7 @@ public class BoardWriteActivity extends AppCompatActivity {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 //                    Toast.makeText(BoardWriteActivity.this, "사진이 정상적으로 업로드 되었습니다.", Toast.LENGTH_SHORT).show();
-                    ImageView img_test = findViewById(R.id.btn_BWA_Picture);
+                    ImageView img_test = findViewById(R.id.btn_BWA_Photo);
                     Calendar cal = Calendar.getInstance();
                     String loginId = BoardWriteActivity.this.getSharedPreferences("mySPF", Context.MODE_PRIVATE).
                             getString("user_login_id1", null);

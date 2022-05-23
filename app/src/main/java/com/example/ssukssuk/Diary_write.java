@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -47,7 +48,7 @@ public class Diary_write extends AppCompatActivity {
     private final int GALLER_CODE = 10;
     ImageView photo;
     private FirebaseStorage storage;
-    EditText title;
+    EditText edt_title,edt_content;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("Diary");
 
@@ -57,12 +58,14 @@ public class Diary_write extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_diary_write);
 
-        findViewById(R.id.imageView3).setOnClickListener(onClickListener);
-        btn_photo = findViewById(R.id.button5);
+        findViewById(R.id.iv_DWA_Photo).setOnClickListener(onClickListener);
+        photo = findViewById(R.id.iv_DWA_Photo);
         storage = FirebaseStorage.getInstance();
-        EditText content = findViewById(R.id.editTextTextMultiLine);
-        title = findViewById(R.id.edt_title_diary);
+        edt_content = findViewById(R.id.edt_DWA_Content);
+        edt_title = findViewById(R.id.edt_DWA_Title);
         String date;
+
+
         btn_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,7 +85,7 @@ public class Diary_write extends AppCompatActivity {
                             for (DataSnapshot data : snapshot.getChildren()) {
                                 DiaryVO vo = data.getValue(DiaryVO.class);
 
-                                if ((title.getText().toString().equals(vo.getTitle()))) {
+                                if ((edt_title.getText().toString().equals(vo.getTitle()))) {
                                     Log.d("dfdfdf1", vo.getTitle());
                                     a++;
                                 }
@@ -94,9 +97,9 @@ public class Diary_write extends AppCompatActivity {
                                         getString("user_login_id1", null);
                                 myRef.push().setValue(new BoardVO(
                                         indate,
-                                        content.getText().toString(),
+                                        edt_content.getText().toString(),
                                         writer,
-                                        title.getText().toString()
+                                        edt_title.getText().toString()
                                 ));
                                 Intent intent = new Intent(Diary_write.this, MainActivity.class);
                                 startActivity(intent);
@@ -115,7 +118,7 @@ public class Diary_write extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-                case R.id.imageView3:
+                case R.id.iv_DWA_Photo:
                     loadAlbum();
                     break;
             }
@@ -157,7 +160,7 @@ public class Diary_write extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                     Toast.makeText(Diary_write.this, "사진이 정상적으로 업로드 되었습니다.", Toast.LENGTH_SHORT).show();
-                    ImageView img_test = findViewById(R.id.imageView3);
+                    ImageView img_test = findViewById(R.id.iv_DWA_Photo);
                     Calendar cal = Calendar.getInstance();
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                     String indate = sdf.format(cal.getTime());
