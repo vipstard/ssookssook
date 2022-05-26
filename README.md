@@ -39,4 +39,6 @@
     
   - 기간 : 22/04/29 ~ 22/05/24
   - 일정<br>
+  - ![image](https://user-images.githubusercontent.com/54389682/170426145-764c60d6-a5cd-4bdf-bbb7-9cd0b9e46176.png)
+
 
