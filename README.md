@@ -25,7 +25,6 @@
 	- HTML/CSS
 	- JavaScript/jQuery
 	- Python
-	- 
 - 프레임워크 / 툴킷 
 	- SpringFramework
 	- Flask
