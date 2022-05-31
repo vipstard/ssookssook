@@ -144,7 +144,19 @@
                     <li><a href="Purchase">제품 구매</a></li>
                     <li><a href="helpQnA">고객센터</a></li>
                     <li><a href="Contact">A/S</a></li>
+                    
+                     <!--  관리자전용 회원관리 페이지 추가 -->
+	                <c:if test='${LoginVo.admin_yn == "Y"}'>
+
+                    <li>
+                      <a href="#">회원 관리</a>
+                      <ul class="dropdown">
+                        <li><a href="member_Manage">회원 관리</a></li>
+                        <li><a href="Sales_Manage">매출 관리</a></li>
+                      </ul>
+                    </li>
                   </ul>
+                   </c:if>
 
                   <!-- Search Icon -->
                   <div id="searchIcon">

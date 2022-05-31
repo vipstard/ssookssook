@@ -67,7 +67,28 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Login -->
+                  
+                  <!-- 로그인 -->
+                   <c:if test="${!empty LoginVo}">
+                <label style='color : white'>${LoginVo.name }님 환영합니다.</label>&nbsp&nbsp
+                 <!-- 회원정보 수정  -->
+                  <div class="Sign Up">
+                    <a href="EditProfile?id=${LoginVo.id }"
+                      ><i class="fa fa-sign-in" aria-hidden="true"></i>
+                      <span>Edit Profile</span></a
+                    >
+                  </div>
+                  
+                  
+				  <div class="Sign Up">
+		            <a href="https://kauth.kakao.com/oauth/logout?client_id=e3eced6c366d05e611468e218fc8f42d&logout_redirect_uri=http://211.227.224.199:8081/SS/LogOut"
+		                    ><i class="fa fa-sign-in" aria-hidden="true"></i>
+		                    <span>Log out</span></a>
+		               </div>
+                  </c:if>
+                  
+                   <c:if test="${empty LoginVo}">
+  					 <!-- Login -->
                   <div class="login">
                     <a href="LoginForm"
                       ><i class="fa fa-user" aria-hidden="true"></i>
@@ -81,6 +102,8 @@
                       <span>Sign Up</span></a
                     >
                   </div>
+                  
+				 </c:if>
                 </div>
               </div>
             </div>
@@ -123,13 +146,18 @@
                     <li><a href="Purchase">제품 구매</a></li>
                     <li><a href="helpQnA">고객 센터</a></li>
                     <li><a href=Contact>A/S</a></li>
+                  <!--  관리자전용 회원관리 페이지 추가 -->
+	                <c:if test='${LoginVo.admin_yn == "Y"}'>
+
                     <li>
-                      <a href="member_Manage">회원 관리</a>
+                      <a href="#">회원 관리</a>
                       <ul class="dropdown">
                         <li><a href="member_Manage">회원 관리</a></li>
                         <li><a href="Sales_Manage">매출 관리</a></li>
                       </ul>
                     </li>
+                  </ul>
+                   </c:if>
                   </ul>
 
                   <!-- Search Icon -->
